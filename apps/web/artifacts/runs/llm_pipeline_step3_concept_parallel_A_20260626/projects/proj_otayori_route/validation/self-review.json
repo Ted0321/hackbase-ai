@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "scores": {
+    "conceptClarity": 5,
+    "coreInteraction": 5,
+    "sourceTraceability": 5,
+    "safetyBoundary": 4,
+    "mobileRisk": 3
+  },
+  "strengths": [
+    "The first screen shows notice input, action route cards, source evidence, and unknowns.",
+    "Cards can be clicked to highlight their source snippet.",
+    "The artifact avoids official instruction replacement by keeping uncertainty visible."
+  ],
+  "remainingRisks": [
+    "The static demo does not perform real extraction.",
+    "A future AI-backed parser needs stronger validation for dates, target students, and missing context."
+  ]
+}

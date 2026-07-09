@@ -1,0 +1,40 @@
+{
+  "sourceCategory": "fixture",
+  "sourceProductCards": [
+    {
+      "id": "invalid_major_fixture",
+      "name": "ChatGPT",
+      "sourceType": "major_product",
+      "sourceCategory": "fixture",
+      "url": "",
+      "coreMechanism": "AI chat",
+      "transferableStructure": "chat",
+      "whyItGotAttention": "popular",
+      "antiCloneBoundary": ""
+    },
+    {
+      "id": "invalid_duplicate_fixture_a",
+      "name": "Tiny Workflow",
+      "sourceType": "hackathon",
+      "sourceCategory": "fixture",
+      "url": "https://example.com/tiny-workflow",
+      "coreMechanism": "Turns a narrow user request into a scoped checklist with ranked next actions and clear review checkpoints.",
+      "transferableStructure": "Convert a messy domain request into a checklist, review queue, and artifact handoff.",
+      "whyItGotAttention": "The demo made a tedious domain workflow feel concrete, guided, and immediately shareable.",
+      "antiCloneBoundary": "Do not copy the fixture name, domain, or exact checklist framing."
+    },
+    {
+      "id": "invalid_duplicate_fixture_b",
+      "name": "Tiny Workflow",
+      "sourceType": "hackathon",
+      "sourceCategory": "fixture",
+      "url": "https://example.com/tiny-workflow",
+      "coreMechanism": "Turns a narrow user request into a scoped checklist with ranked next actions and clear review checkpoints.",
+      "transferableStructure": "Convert a messy domain request into a checklist, review queue, and artifact handoff.",
+      "whyItGotAttention": "The demo made a tedious domain workflow feel concrete, guided, and immediately shareable.",
+      "antiCloneBoundary": "Do not copy the fixture name, domain, or exact checklist framing."
+    }
+  ],
+  "sourceArchiveIndex": [],
+  "valueKnowledgeCards": []
+}

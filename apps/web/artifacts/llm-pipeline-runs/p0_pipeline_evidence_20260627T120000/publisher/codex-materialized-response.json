@@ -1,0 +1,10 @@
+{
+  "status": "publish",
+  "reason": "The artifact is now materialized, reviewer status is pass, materialized artifact check passed, MVP artifact check passed, and no safety blocker was found in the static artifact boundary.",
+  "requiredArtifactsPresent": true,
+  "reviewPass": true,
+  "validationPass": true,
+  "mvpContractPass": true,
+  "safetyBlockers": [],
+  "publishSummary": "Otayori Route is eligible as a local Prodia representative artifact candidate. It should still be registered through the integration path before appearing in the feed, and the public copy must keep the human-assisted pipeline evidence boundary clear. No external API, secret, login-only flow, paid API, or external publishing dependency is required."
+}

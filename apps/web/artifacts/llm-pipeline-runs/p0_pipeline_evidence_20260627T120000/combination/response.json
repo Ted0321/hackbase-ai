@@ -1,0 +1,148 @@
+{
+  "remixRunSummary": {
+    "id": "findy_local_combination_chain_check",
+    "generatedAt": "2026-06-27T00:00:00.000Z",
+    "inputResearchRunId": "findy_local_research_chain_check",
+    "strategySummary": "Selected a document-to-action workflow transfer from a source-product pattern to the school notice theme.",
+    "strongestRemixes": [
+      "remix_school_notice_action_route"
+    ],
+    "rejectedButInteresting": [],
+    "risksForConceptStrategist": [
+      "Preserve source evidence and uncertainty; do not present generated actions as official instructions."
+    ]
+  },
+  "evaluatedRemixes": [
+    {
+      "id": "remix_school_notice_action_route",
+      "sourceProductCardIds": [
+        "source_crossbeam_pattern"
+      ],
+      "productSourceIndexEntryIds": [
+        "source_crossbeam_pattern"
+      ],
+      "valueKnowledgeCardIds": [],
+      "topicCardIds": [
+        "topic_school_parent_communication"
+      ],
+      "ideaMoveIds": [
+        "output_form_shift",
+        "audience_shift"
+      ],
+      "sourceProductNames": [
+        "CrossBeam pattern seed"
+      ],
+      "originalDomain": "permit workflow",
+      "newTheme": "school notice family action routing",
+      "remixTitle": "Otayori Route",
+      "whatWasTransferred": "Dense document to guided action cards with provenance.",
+      "whatWasChanged": "The specialist workflow is moved to a household-facing notice-reading moment.",
+      "ideaMoveApplied": "output_form_shift",
+      "topicApplied": "topic_school_parent_communication",
+      "whyThisMayWork": "Families need immediate actions, confirmations, and source references from long notices.",
+      "broadAudienceHook": "Paste a notice and see what to do today.",
+      "aiNativeHook": "Extraction, uncertainty preservation, and family-context routing are visible in one screen.",
+      "possibleUserInputs": [
+        "school notice text",
+        "local notice text",
+        "household constraints"
+      ],
+      "visibleInteractionPossibilities": [
+        "action cards",
+        "evidence rail",
+        "uncertainty checklist"
+      ],
+      "antiCloneBoundary": "Transfer the workflow structure only; do not copy the source product UI or claims.",
+      "evidenceRefs": [
+        "research_school_notice_route",
+        "signal_school_notice_route"
+      ],
+      "scores": {
+        "sourceProductStrength": 4,
+        "coreTransferClarity": 5,
+        "themeShiftSurprise": 4,
+        "broadUserAppeal": 5,
+        "aiNativeInterest": 4,
+        "oneScreenArtifactPotential": 5,
+        "noveltyAgainstRecentArtifacts": 4,
+        "feasibility": 5,
+        "riskLow": 4,
+        "total": 40
+      },
+      "reviewerNotes": [
+        "Keep official source text visible."
+      ],
+      "iterationNotes": [
+        "Use as Findy Block A chain-check candidate."
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "selectedRemixes": [
+    {
+      "id": "remix_school_notice_action_route",
+      "sourceProductCardIds": [
+        "source_crossbeam_pattern"
+      ],
+      "productSourceIndexEntryIds": [
+        "source_crossbeam_pattern"
+      ],
+      "valueKnowledgeCardIds": [],
+      "topicCardIds": [
+        "topic_school_parent_communication"
+      ],
+      "ideaMoveIds": [
+        "output_form_shift",
+        "audience_shift"
+      ],
+      "sourceProductNames": [
+        "CrossBeam pattern seed"
+      ],
+      "originalDomain": "permit workflow",
+      "newTheme": "school notice family action routing",
+      "remixTitle": "Otayori Route",
+      "whatWasTransferred": "Dense document to guided action cards with provenance.",
+      "whatWasChanged": "The specialist workflow is moved to a household-facing notice-reading moment.",
+      "ideaMoveApplied": "output_form_shift",
+      "topicApplied": "topic_school_parent_communication",
+      "whyThisMayWork": "Families need immediate actions, confirmations, and source references from long notices.",
+      "broadAudienceHook": "Paste a notice and see what to do today.",
+      "aiNativeHook": "Extraction, uncertainty preservation, and family-context routing are visible in one screen.",
+      "possibleUserInputs": [
+        "school notice text",
+        "local notice text",
+        "household constraints"
+      ],
+      "visibleInteractionPossibilities": [
+        "action cards",
+        "evidence rail",
+        "uncertainty checklist"
+      ],
+      "antiCloneBoundary": "Transfer the workflow structure only; do not copy the source product UI or claims.",
+      "evidenceRefs": [
+        "research_school_notice_route",
+        "signal_school_notice_route"
+      ],
+      "scores": {
+        "sourceProductStrength": 4,
+        "coreTransferClarity": 5,
+        "themeShiftSurprise": 4,
+        "broadUserAppeal": 5,
+        "aiNativeInterest": 4,
+        "oneScreenArtifactPotential": 5,
+        "noveltyAgainstRecentArtifacts": 4,
+        "feasibility": 5,
+        "riskLow": 4,
+        "total": 40
+      },
+      "reviewerNotes": [
+        "Keep official source text visible."
+      ],
+      "iterationNotes": [
+        "Use as Findy Block A chain-check candidate."
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "rejectedInterestingRemixes": []
+}

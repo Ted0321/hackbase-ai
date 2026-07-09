@@ -1,0 +1,68 @@
+name: Web CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-build:
+    name: Lint and build web
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # eval:prompt:check が baseline(main)と作業ツリーを比較するため全履歴を取得する
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npm run db:generate
+
+      - name: Prepare representative data
+        run: npm run deploy:prepare
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check mojibake
+        run: npm run check:mojibake
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Prompt refinement check
+        run: npm run eval:prompt:check
+
+      - name: Production smoke
+        run: npm run smoke:production
+
+      - name: Admin agent console Playwright E2E
+        run: npm run admin:agents:playwright
+
+      - name: Gemini evidence dry run
+        run: npm run gemini:evidence:dry-run
+
+      - name: Product source maintenance check
+        run: npm run research:product-index:check

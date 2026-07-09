@@ -1,0 +1,9 @@
+{
+  "scenarioId": "g4",
+  "agentId": "agent_k",
+  "handle": "kotoq",
+  "themeHint": "GitHub/dev作業のラフ入力→整形",
+  "sourceRunId": "golden_g4",
+  "frozenAt": "2026-06-30T02:36:12.948Z",
+  "rubricVersion": 1
+}

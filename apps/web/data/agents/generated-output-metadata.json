@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-05T13:11:42.570Z",
+  "source": "agent-quality-stats + db.project + artifact metadata + recent-artifacts",
+  "projects": [
+    {
+      "projectId": "proj_manual_20260625T23142195_01_ai_artifact",
+      "agentId": "agent_a",
+      "title": "AIセキュリティレビュー会議ダッシュボード",
+      "oneLiner": "リリース前のセキュリティ論点を複数AIロールで確認する会議型ダッシュボード。",
+      "status": "auto_published",
+      "artifactShape": "board",
+      "surfacePattern": "work_simplifier",
+      "aiMechanismPattern": "multi_source_synthesis",
+      "metadataSources": [
+        "data/agents/agent-quality-stats.json",
+        "scripts/llm-pipeline/fixtures/recent-artifacts.json"
+      ]
+    },
+    {
+      "projectId": "proj_manual_20260625T001032_02_prompt_roulette",
+      "agentId": "agent_b",
+      "title": "Prompt Roulette",
+      "status": "auto_published",
+      "metadataSources": [
+        "data/agents/agent-quality-stats.json"
+      ]
+    },
+    {
+      "projectId": "proj_manual_20260625T001032_03_why_it_matters_brief",
+      "agentId": "agent_c",
+      "title": "Why It Matters Brief",
+      "status": "auto_published",
+      "metadataSources": [
+        "data/agents/agent-quality-stats.json"
+      ]
+    },
+    {
+      "projectId": "proj_g_github_mission_maker",
+      "agentId": "agent_d",
+      "title": "GitHub攻略ミッションメーカー",
+      "oneLiner": "気になるrepoを、30分で読んで改造するためのミッションに変える。",
+      "categoryId": "cat_learning",
+      "categoryName": "Learning",
+      "status": "auto_published",
+      "validationStatus": "pass",
+      "artifactRoot": "runs/run_20260624_seed/projects/proj_g_github_mission_maker",
+      "artifactShape": "workspace",
+      "templatePatternId": "source_to_mission",
+      "surfacePattern": "learning_explainer",
+      "aiMechanismPattern": "workflow_generation",
+      "metadataSources": [
+        "data/agents/agent-quality-stats.json",
+        "db.project",
+        "data/agents/manual-seed-output-metadata.json",
+        "src/project-artifacts/static-source.ts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-03T11:02:13.349Z",
+  "checkKey": "mvp_contract_v2",
+  "path": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702",
+  "result": "pass",
+  "status": "pass",
+  "source": "validation_report",
+  "artifactTier": "static_mvp",
+  "externalDependencyMode": "none",
+  "autoPublishable": true,
+  "checks": [
+    {
+      "id": "artifact_dir",
+      "status": "pass",
+      "message": "artifact directory exists",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702"
+    },
+    {
+      "id": "metadata_json",
+      "status": "pass",
+      "message": "metadata.json exists",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/metadata.json"
+    },
+    {
+      "id": "contract.source",
+      "status": "pass",
+      "message": "contract source is validation_report",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/validation/mvp-contract-v2.json"
+    },
+    {
+      "id": "contract.version",
+      "status": "pass",
+      "message": "contractVersion is mvp-contract-v2"
+    },
+    {
+      "id": "contract.artifact_tier",
+      "status": "pass",
+      "message": "artifactTier is static_mvp"
+    },
+    {
+      "id": "contract.external_dependency_mode",
+      "status": "pass",
+      "message": "externalDependencyMode is none"
+    },
+    {
+      "id": "contract.firstScreenValue",
+      "status": "pass",
+      "message": "firstScreenValue is non-empty"
+    },
+    {
+      "id": "contract.coreInteraction",
+      "status": "pass",
+      "message": "coreInteraction is non-empty"
+    },
+    {
+      "id": "contract.stateChange",
+      "status": "pass",
+      "message": "stateChange is non-empty"
+    },
+    {
+      "id": "contract.inspectableOutput",
+      "status": "pass",
+      "message": "inspectableOutput is non-empty"
+    },
+    {
+      "id": "contract.staticDataBoundary",
+      "status": "pass",
+      "message": "staticDataBoundary is non-empty"
+    },
+    {
+      "id": "contract.requiredFiles",
+      "status": "pass",
+      "message": "requiredFiles contains 7 item(s)"
+    },
+    {
+      "id": "contract.nonGoals",
+      "status": "pass",
+      "message": "nonGoals contains 9 item(s)"
+    },
+    {
+      "id": "contract.forbiddenDependencies",
+      "status": "pass",
+      "message": "forbiddenDependencies contains 10 item(s)"
+    },
+    {
+      "id": "external_dependency.auto_publishable_mode",
+      "status": "pass",
+      "message": "external dependency mode is auto-publishable"
+    },
+    {
+      "id": "runtime.network_calls",
+      "status": "pass",
+      "message": "runtimeBoundary.networkCalls is none"
+    },
+    {
+      "id": "runtime.secrets",
+      "status": "pass",
+      "message": "runtimeBoundary.secrets is none"
+    },
+    {
+      "id": "runtime.external_writes",
+      "status": "pass",
+      "message": "runtimeBoundary.externalWrites is not live_required"
+    },
+    {
+      "id": "runtime.source_no_live_dependencies",
+      "status": "pass",
+      "message": "source files contain no live runtime dependency patterns"
+    },
+    {
+      "id": "external_integrations.none_mode_no_live_call",
+      "status": "pass",
+      "message": "none mode has no live_call integrations"
+    },
+    {
+      "id": "complexity.source_files",
+      "status": "pass",
+      "message": "source file count 4 is within maxSourceFiles=12"
+    },
+    {
+      "id": "complexity.max_screens",
+      "status": "pass",
+      "message": "maxScreens is within MVP budget"
+    },
+    {
+      "id": "complexity.max_primary_actions",
+      "status": "pass",
+      "message": "maxPrimaryActions is 1"
+    },
+    {
+      "id": "complexity.no_new_dependencies",
+      "status": "pass",
+      "message": "maxNewDependencies is 0"
+    },
+    {
+      "id": "complexity.no_database",
+      "status": "pass",
+      "message": "allowDatabase is false"
+    },
+    {
+      "id": "claim_boundary.must_say",
+      "status": "pass",
+      "message": "claimBoundary.publicCopyMustSay is declared"
+    },
+    {
+      "id": "claim_boundary.must_not_say",
+      "status": "pass",
+      "message": "claimBoundary.publicCopyMustNotSay is declared"
+    },
+    {
+      "id": "claim_boundary.must_say_present.This MVP runs on static sample d",
+      "status": "pass",
+      "message": "README includes required boundary copy: This MVP runs on static sample data.",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/README.md"
+    },
+    {
+      "id": "claim_boundary.must_not_absent.real-time external API",
+      "status": "pass",
+      "message": "Public artifact text does not contain prohibited claim: real-time external API"
+    },
+    {
+      "id": "claim_boundary.must_not_absent.automatic external publishing",
+      "status": "pass",
+      "message": "Public artifact text does not contain prohibited claim: automatic external publishing"
+    },
+    {
+      "id": "claim_boundary.must_not_absent.live external data is guaranteed",
+      "status": "pass",
+      "message": "Public artifact text does not contain prohibited claim: live external data is guaranteed"
+    },
+    {
+      "id": "claim_boundary.must_not_absent.production-ready integration",
+      "status": "pass",
+      "message": "Public artifact text does not contain prohibited claim: production-ready integration"
+    },
+    {
+      "id": "render_verification.required",
+      "status": "pass",
+      "message": "renderVerification.required is true"
+    },
+    {
+      "id": "render_verification.checks",
+      "status": "pass",
+      "message": "renderVerification declares render, click, state_change, screenshot"
+    },
+    {
+      "id": "render_verification.report",
+      "status": "pass",
+      "message": "validation/render-verification.json exists",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/validation/render-verification.json"
+    }
+  ],
+  "findings": [],
+  "contract": {
+    "contractVersion": "mvp-contract-v2",
+    "artifactTier": "static_mvp",
+    "firstScreenValue": "ITインシデントの概要、複数の専門家AIによる分析、推奨されるアクションの選択肢が最初の画面で明確に提示され、オペレーターが意思決定の文脈をすぐに理解できる。",
+    "coreInteraction": "ユーザーは、複数の専門家AIの意見（原因分析、リスク、復旧策）を比較検討し、「次の一手」を選択し、最終的に人間が承認するという明確なインタラクションが提供されている。",
+    "stateChange": "ユーザーが「次の一手」を選択すると、その選択がハイライトされ、詳細が表示される。さらに承認ボタンをクリックすると、最終決定としてUIが更新される。",
+    "inspectableOutput": "選択されたアクションと、それが人間によって承認されたステータスが明確に表示される。各AIの分析、リスク、確信度も常時確認可能である。",
+    "staticDataBoundary": "すべてのインシデント情報、AIの推奨、可能なアクションは`source/data/product.ts`内の静的データとして提供されている。",
+    "requiredFiles": [
+      "source/README.md",
+      "source/metadata.json",
+      "source/manifest.json",
+      "source/source/app/page.tsx",
+      "source/source/components/ProductWorkspace.tsx",
+      "source/source/data/product.ts",
+      "source/validation/self-review.json"
+    ],
+    "nonGoals": [
+      "No live external API integration",
+      "No login-only experience",
+      "No paid API dependency",
+      "No external publishing",
+      "AIによる唯一の最適解や自動復旧の提供",
+      "高リスクな専門的判断の自動化",
+      "意思決定ループのない一般的なステータスダッシュボード",
+      "純粋な説明ツールに終始すること",
+      "消費者向けゲームであること"
+    ],
+    "forbiddenDependencies": [
+      "external API",
+      "secret",
+      "login-only flow",
+      "paid API",
+      "external publishing",
+      "legal_decision_automation",
+      "medical_decision_automation",
+      "financial_decision_automation",
+      "fully automated professional judgment",
+      "guaranteed outcome"
+    ],
+    "externalDependencyMode": "none",
+    "externalIntegrations": [],
+    "runtimeBoundary": {
+      "networkCalls": "none",
+      "secrets": "none",
+      "externalWrites": "none"
+    },
+    "mvpComplexityBudget": {
+      "maxScreens": 1,
+      "maxPrimaryActions": 1,
+      "maxSourceFiles": 12,
+      "maxNewDependencies": 0,
+      "allowDatabase": false
+    },
+    "integrationAssumptions": [],
+    "claimBoundary": {
+      "publicCopyMustSay": [
+        "This MVP runs on static sample data."
+      ],
+      "publicCopyMustNotSay": [
+        "real-time external API",
+        "automatic external publishing",
+        "live external data is guaranteed",
+        "production-ready integration"
+      ]
+    },
+    "renderVerification": {
+      "required": true,
+      "checks": [
+        "render",
+        "click",
+        "state_change",
+        "screenshot"
+      ]
+    },
+    "humanReviewTriggers": []
+  }
+}

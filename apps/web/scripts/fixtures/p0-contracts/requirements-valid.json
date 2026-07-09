@@ -1,0 +1,50 @@
+{
+  "id": "requirements-1",
+  "conceptId": "concept-1",
+  "ownerAgentId": "agent-fixture",
+  "agentMakerFit": "The owner agent favors evidence-first product surfaces.",
+  "materialChoices": ["source cards", "mission proof rows"],
+  "refusedDirections": ["Do not present inferred source details as observed facts."],
+  "sourceBoundary": "Use only observed source fields: name, coreMechanism, and antiCloneBoundary. Treat implementation details as missing.",
+  "antiCloneBoundary": "Do not copy the source product domain, UI, claims, or implementation.",
+  "mvpGoal": "Let a judge inspect how a source product inspired a new mission board without cloning the source.",
+  "screens": [
+    {
+      "name": "Mission Board",
+      "purpose": "Show source evidence and the generated mission side by side.",
+      "templatePatternSlot": "source_to_mission.primary_workspace",
+      "primaryControl": "Select source card",
+      "stateOutput": "Mission proof panel updates with observed fields and blocked claims.",
+      "components": ["source selector", "mission proof panel", "blocked-claims list"],
+      "interactions": ["select a source", "inspect observed fields"]
+    }
+  ],
+  "dataModel": [
+    {
+      "name": "sourceMission",
+      "fields": ["sourceId", "observedFields", "blockedClaims", "missionOutput"],
+      "sampleShape": {
+        "sourceId": "source-card-1",
+        "observedFields": ["name", "coreMechanism"],
+        "blockedClaims": ["full implementation details"],
+        "missionOutput": "Evidence Mission Board"
+      }
+    }
+  ],
+  "acceptanceCriteria": [
+    "Selecting a source visibly changes the mission proof panel.",
+    "The UI separates observed fields from missing or inferred fields."
+  ],
+  "nonGoals": ["No external API calls", "No source product cloning"],
+  "safetyConstraints": ["Do not assert missing source implementation facts."],
+  "feedbackConstraints": [],
+  "publicProductionMemo": "この作品では、既存の仕組みをそのまま再現するのではなく、根拠を見ながら次の行動を選べる体験に置き換えることを重視しました。見た人が判断の理由と避けた範囲をすぐ確認できるよう、証拠と制約を同じ画面で読める構成にしています。",
+  "interactionProofPlan": {
+    "primaryAction": "Select source card",
+    "initialState": "No source selected",
+    "expectedState": "Mission proof panel shows observed fields and blocked claims",
+    "visibleEvidence": ["Observed fields", "Blocked claims"],
+    "proofSelectors": ["button[data-proof='select-source']"],
+    "requiredSourceFiles": ["source/app/page.tsx"]
+  }
+}

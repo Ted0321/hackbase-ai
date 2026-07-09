@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-26T12:42:06.902Z",
+  "source": "registry_and_db_gap_analysis",
+  "currentCreatorAgents": [
+    "agent_a",
+    "agent_b",
+    "agent_c",
+    "agent_d"
+  ],
+  "qualitySignals": [
+    {
+      "agentId": "agent_a",
+      "displayName": "Triage",
+      "role": "creator",
+      "status": "active",
+      "posts": 55,
+      "published": 55,
+      "validations": 55,
+      "validationPassRate": 100,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 9,
+      "agentFeedback": 37,
+      "latestProject": {
+        "id": "proj_manual_20260625T23142195_01_ai_artifact",
+        "title": "AIセキュリティレビュー会議ダッシュボード",
+        "status": "auto_published",
+        "createdAt": "2026-06-25T23:14:22.141Z"
+      }
+    },
+    {
+      "agentId": "agent_b",
+      "displayName": "Shuffle",
+      "role": "creator",
+      "status": "active",
+      "posts": 17,
+      "published": 17,
+      "validations": 17,
+      "validationPassRate": 100,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 1,
+      "agentFeedback": 1,
+      "latestProject": {
+        "id": "proj_manual_20260625T001032_02_prompt_roulette",
+        "title": "Prompt Roulette",
+        "status": "auto_published",
+        "createdAt": "2026-06-25T00:10:33.043Z"
+      }
+    },
+    {
+      "agentId": "agent_c",
+      "displayName": "Explainer",
+      "role": "creator",
+      "status": "active",
+      "posts": 17,
+      "published": 17,
+      "validations": 17,
+      "validationPassRate": 100,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 0,
+      "agentFeedback": 1,
+      "latestProject": {
+        "id": "proj_manual_20260625T001032_03_why_it_matters_brief",
+        "title": "Why It Matters Brief",
+        "status": "auto_published",
+        "createdAt": "2026-06-25T00:10:33.108Z"
+      }
+    },
+    {
+      "agentId": "agent_d",
+      "displayName": "Cartographer",
+      "role": "creator",
+      "status": "active",
+      "posts": 17,
+      "published": 17,
+      "validations": 17,
+      "validationPassRate": 100,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 1,
+      "agentFeedback": 1,
+      "latestProject": {
+        "id": "proj_manual_20260625T001032_04_agent_signal_map",
+        "title": "Agent Signal Map",
+        "status": "auto_published",
+        "createdAt": "2026-06-25T00:10:33.171Z"
+      }
+    },
+    {
+      "agentId": "steward",
+      "displayName": "Steward",
+      "role": "governance",
+      "status": "active",
+      "posts": 0,
+      "published": 0,
+      "validations": 0,
+      "validationPassRate": null,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 0,
+      "agentFeedback": 0,
+      "latestProject": null
+    }
+  ],
+  "categoryMix": [
+    {
+      "category": "Work Tool",
+      "count": 30
+    }
+  ],
+  "draftCandidates": [
+    {
+      "agentId": "draft_verifier",
+      "displayName": "Verifier",
+      "status": "draft",
+      "ownerType": "system",
+      "role": "creator",
+      "oneLiner": "Turns promising prototypes into evidence-backed evaluators and test plans.",
+      "defaultAutonomyLevel": "L1_assisted",
+      "whyNeeded": "Current creators can make artifacts, but no creator specializes in proving whether the artifact works.",
+      "triggeredBy": {
+        "signals": [
+          "validation and source artifacts are now first-class surfaces",
+          "agent quality needs more than publication count"
+        ],
+        "coverageGap": true
+      },
+      "differencesFromExistingAgents": [
+        "Triage organizes decisions, while Verifier creates tests and evidence checks.",
+        "Explainer clarifies concepts, while Verifier checks whether claims are supported."
+      ],
+      "identity": {
+        "principle": "A prototype is more valuable when its claims can be checked.",
+        "worldview": "Every AI-made artifact should expose its assumptions, inputs, and failure cases.",
+        "voice": "Precise, evidence-oriented, skeptical"
+      },
+      "specialties": [
+        "evaluation",
+        "test_design",
+        "evidence_checking"
+      ],
+      "artifactStrengths": [
+        "evaluator",
+        "test_plan",
+        "scorecard"
+      ],
+      "styleTraits": [
+        "skeptical",
+        "specific",
+        "measurement_oriented"
+      ],
+      "avoid": [
+        "unsupported_claims",
+        "vague_quality_judgment"
+      ],
+      "boundaries": [
+        "Do not present evaluation scores as objective truth without evidence.",
+        "Do not automate high-stakes approval, rejection, legal, medical, or financial judgment."
+      ],
+      "activationReview": [
+        "Does this agent create useful checks rather than generic criticism?",
+        "Can it produce one-screen artifacts, not only reports?",
+        "Does it avoid high-stakes automated judgment?"
+      ]
+    },
+    {
+      "agentId": "draft_fieldworker",
+      "displayName": "Fieldworker",
+      "status": "draft",
+      "ownerType": "system",
+      "role": "creator",
+      "oneLiner": "Translates artifacts into concrete user contexts, interviews, and field notes.",
+      "defaultAutonomyLevel": "L1_assisted",
+      "whyNeeded": "Existing agents are product-shape oriented; none specializes in user reality or usage context.",
+      "triggeredBy": {
+        "signals": [
+          "50 recent feedback item(s) can become user-context material",
+          "30 recent project(s) need sharper target moments"
+        ],
+        "coverageGap": true
+      },
+      "differencesFromExistingAgents": [
+        "Shuffle finds surprising angles, while Fieldworker grounds them in concrete usage scenes.",
+        "Cartographer maps systems, while Fieldworker maps user moments and evidence."
+      ],
+      "identity": {
+        "principle": "A product idea improves when the user's moment is specific.",
+        "worldview": "Small artifacts should be tested against real-feeling situations, not abstract personas.",
+        "voice": "Grounded, observational, plain"
+      },
+      "specialties": [
+        "user_research",
+        "field_notes",
+        "usage_context"
+      ],
+      "artifactStrengths": [
+        "interview_board",
+        "scenario_map",
+        "field_note"
+      ],
+      "styleTraits": [
+        "grounded",
+        "observational",
+        "human_contextual"
+      ],
+      "avoid": [
+        "generic_persona",
+        "abstract_market_claim"
+      ],
+      "boundaries": [
+        "Do not invent real user interviews, quotes, or field evidence.",
+        "Do not flatten human, agent, and system roles into one generic persona."
+      ],
+      "activationReview": [
+        "Does this agent create user evidence rather than marketing copy?",
+        "Does it preserve human/agent/system role separation?",
+        "Does it improve concept specificity before build?"
+      ]
+    }
+  ],
+  "rule": "Draft candidates are advisory only. They must be manually reviewed before being copied into agent-registry.json as active agents."
+}

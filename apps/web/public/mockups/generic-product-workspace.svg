@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-label="プロダクトの作業画面モック">
+  <rect width="1280" height="800" fill="#111214"/>
+  <rect x="0" y="0" width="1280" height="62" fill="#17181b"/>
+  <text x="48" y="39" fill="#ff3d2e" font-family="Arial, sans-serif" font-size="26" font-weight="800">Prodia Workspace</text>
+  <text x="1010" y="39" fill="#a7b0bd" font-family="Arial, sans-serif" font-size="16">保存済み / レビュー待ち</text>
+  <rect x="34" y="92" width="262" height="656" rx="8" fill="#18191d" stroke="#303238"/>
+  <text x="58" y="132" fill="#00d6b4" font-family="Arial, sans-serif" font-size="14" font-weight="800">INPUT</text>
+  <text x="58" y="170" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="800">テーマ</text>
+  <rect x="58" y="196" width="214" height="92" rx="5" fill="#f8fafc"/>
+  <text x="76" y="232" fill="#111827" font-family="Arial, sans-serif" font-size="17">誰のどんな課題を</text>
+  <text x="76" y="260" fill="#111827" font-family="Arial, sans-serif" font-size="17">小さな道具にするか</text>
+  <text x="58" y="340" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="700">素材</text>
+  <rect x="58" y="366" width="214" height="48" rx="4" fill="#24262c" stroke="#393b43"/>
+  <text x="76" y="397" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">参考URL</text>
+  <rect x="58" y="426" width="214" height="48" rx="4" fill="#24262c" stroke="#393b43"/>
+  <text x="76" y="457" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="15">制約・注意点</text>
+  <rect x="58" y="632" width="214" height="54" rx="5" fill="#00d6b4"/>
+  <text x="106" y="666" fill="#071211" font-family="Arial, sans-serif" font-size="18" font-weight="800">再生成</text>
+  <rect x="322" y="92" width="610" height="656" rx="8" fill="#f8fafc"/>
+  <text x="354" y="138" fill="#111827" font-family="Arial, sans-serif" font-size="25" font-weight="800">プロダクト設計キャンバス</text>
+  <rect x="354" y="178" width="546" height="118" rx="6" fill="#fff" stroke="#d6dae1"/>
+  <text x="380" y="216" fill="#ff6333" font-family="Arial, sans-serif" font-size="15" font-weight="800">コンセプト</text>
+  <text x="380" y="252" fill="#111827" font-family="Arial, sans-serif" font-size="20" font-weight="700">ユーザーが最初の一歩をすぐ試せる画面にする</text>
+  <rect x="354" y="320" width="263" height="156" rx="6" fill="#fff" stroke="#d6dae1"/>
+  <text x="380" y="358" fill="#00a88d" font-family="Arial, sans-serif" font-size="15" font-weight="800">面白さ・新規性</text>
+  <text x="380" y="394" fill="#111827" font-family="Arial, sans-serif" font-size="18">AIの解釈をUIとして見える化</text>
+  <rect x="637" y="320" width="263" height="156" rx="6" fill="#fff" stroke="#d6dae1"/>
+  <text x="663" y="358" fill="#2563eb" font-family="Arial, sans-serif" font-size="15" font-weight="800">次に伸ばすなら</text>
+  <text x="663" y="394" fill="#111827" font-family="Arial, sans-serif" font-size="18">実データ連携と検証ログを追加</text>
+  <rect x="354" y="506" width="546" height="174" rx="6" fill="#17181b"/>
+  <text x="380" y="546" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="800">READMEプレビュー</text>
+  <rect x="380" y="570" width="470" height="12" rx="6" fill="#4b5563"/>
+  <rect x="380" y="596" width="430" height="12" rx="6" fill="#374151"/>
+  <rect x="380" y="622" width="500" height="12" rx="6" fill="#374151"/>
+  <rect x="380" y="650" width="168" height="26" rx="4" fill="#ff6333"/>
+  <rect x="958" y="92" width="288" height="656" rx="8" fill="#18191d" stroke="#303238"/>
+  <text x="982" y="132" fill="#fbbf24" font-family="Arial, sans-serif" font-size="14" font-weight="800">REVIEW</text>
+  <text x="982" y="170" fill="#fff" font-family="Arial, sans-serif" font-size="23" font-weight="800">確認ポイント</text>
+  <rect x="982" y="205" width="240" height="82" rx="5" fill="#24262c"/>
+  <text x="1002" y="237" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="700">説明は一目で伝わるか</text>
+  <text x="1002" y="264" fill="#9ca3af" font-family="Arial, sans-serif" font-size="14">対象ユーザーが迷わないか</text>
+  <rect x="982" y="307" width="240" height="82" rx="5" fill="#24262c"/>
+  <text x="1002" y="339" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="700">画面から使い方が想像できるか</text>
+  <text x="1002" y="366" fill="#9ca3af" font-family="Arial, sans-serif" font-size="14">ボタンと配置が見えるか</text>
+  <rect x="982" y="632" width="240" height="54" rx="5" fill="#ff6333"/>
+  <text x="1046" y="666" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="800">公開候補にする</text>
+</svg>

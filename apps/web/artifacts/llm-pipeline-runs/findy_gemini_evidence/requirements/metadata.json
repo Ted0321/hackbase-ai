@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "runId": "findy_gemini_evidence",
+  "step": "requirements",
+  "preparedAt": "2026-06-27T10:27:46.023Z",
+  "outputRoot": "artifacts/llm-pipeline-runs/findy_gemini_evidence",
+  "files": {
+    "prompt": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\requirements\\prompt.md",
+    "input": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\requirements\\input.json",
+    "response": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\requirements\\response.json",
+    "handoff": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\requirements\\handoff.md"
+  },
+  "previousResponseStatus": {
+    "requiredPreviousSteps": [
+      "concept",
+      "agent-router"
+    ],
+    "missingRequiredPreviousResponses": [],
+    "missingPreviousResponses": [],
+    "note": "Required upstream response.json files are present for this step."
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "artifactId": "artifact_manual_agent_a_quality_20260702",
+  "generatedAt": "2026-07-02T11:25:45.705Z",
+  "generatedFrom": {
+    "input": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/builder/response.json",
+    "requirementSpecId": "req_incident_decision_board_001",
+    "framework": "next_static_artifact"
+  },
+  "sourceFiles": [
+    {
+      "relativePath": "source/README.md",
+      "purpose": "製品の概要、ユーザー体験、インタラクション、および制限を説明する。",
+      "sizeBytes": 2438,
+      "checksum": "09060242fd8152ca27d2852dabc8bcd17616e85abf29a5206dacc22c415f9545",
+      "generatedFrom": "README.md"
+    },
+    {
+      "relativePath": "source/metadata.json",
+      "purpose": "製品のメタデータ、ターゲットユーザー、コアインタラクション、視覚的アイデンティティ、プロセス、アーキテクチャ、ソース計画、および既知のリスクを含む。",
+      "sizeBytes": 4494,
+      "checksum": "d3f4fc30f87c1b1e7bb1686bb50f0ffa707cc90006a211ad3bebe651ebe83ca0",
+      "generatedFrom": "metadata.json"
+    },
+    {
+      "relativePath": "source/manifest.json",
+      "purpose": "すべてのファイルとエントリーポイントをリストアップする。",
+      "sizeBytes": 280,
+      "checksum": "a530d755553bbe0e117c779d52183bdebece444b06bb800ec49086cae3787b29",
+      "generatedFrom": "manifest.json"
+    },
+    {
+      "relativePath": "source/source/app/page.tsx",
+      "purpose": "アプリケーションのエントリーポイント。",
+      "sizeBytes": 445,
+      "checksum": "b025660a3d37747f6f308a76758cbf149c62b026bac06354c917a5d643280ff5",
+      "generatedFrom": "source/app/page.tsx"
+    },
+    {
+      "relativePath": "source/source/components/ProductWorkspace.tsx",
+      "purpose": "Main interactive UI for incident decision review.",
+      "sizeBytes": 6152,
+      "checksum": "9dad18c8d4daf3344296f4cc54b7f0154a3677629f02918cec81d56f4c17d22c",
+      "generatedFrom": "source/components/ProductWorkspace.tsx"
+    },
+    {
+      "relativePath": "source/source/data/product.ts",
+      "purpose": "アプリケーションで使用される静的サンプルデータを提供する。",
+      "sizeBytes": 5509,
+      "checksum": "30df0bb07a2bb9f702e134840aaf0cbf2373652b95ece822d26d4f9ad78a4f64",
+      "generatedFrom": "source/data/product.ts"
+    },
+    {
+      "relativePath": "source/source/styles.css",
+      "purpose": "アーティファクト固有のスタイル設定。",
+      "sizeBytes": 4700,
+      "checksum": "0e59788fb52e4848e18978ea48301788f41c074a95aef5266cfd4495fa676e0c",
+      "generatedFrom": "source/styles.css"
+    },
+    {
+      "relativePath": "source/validation/self-review.json",
+      "purpose": "ProdiaのMVP基準に対してアーティファクトを評価する。",
+      "sizeBytes": 3285,
+      "checksum": "8f195d9731b52856c6270d22383f0efd67bb9cc719b8e2d283a76b4e49bedb98",
+      "generatedFrom": "validation/self-review.json"
+    }
+  ],
+  "demo": {
+    "path": "demo-placeholder.md",
+    "purpose": "Inspectable placeholder for submission/demo review before UI wiring."
+  },
+  "readiness": {
+    "firstScreenValue": "ITインシデントの概要、複数の専門家AIによる分析、推奨されるアクションの選択肢が最初の画面で明確に提示され、オペレーターが意思決定の文脈をすぐに理解できる。",
+    "coreInteraction": "ユーザーは、複数の専門家AIの意見（原因分析、リスク、復旧策）を比較検討し、「次の一手」を選択し、最終的に人間が承認するという明確なインタラクションが提供されている。",
+    "stateChange": "ユーザーが「次の一手」を選択すると、その選択がハイライトされ、詳細が表示される。さらに承認ボタンをクリックすると、最終決定としてUIが更新される。",
+    "inspectableOutput": "選択されたアクションと、それが人間によって承認されたステータスが明確に表示される。各AIの分析、リスク、確信度も常時確認可能である。",
+    "staticDataBoundary": "すべてのインシデント情報、AIの推奨、可能なアクションは`source/data/product.ts`内の静的データとして提供されている。",
+    "remainingWeakness": "現状の承認プロセスは単純なクリックだが、実際の運用では複数の承認者やステップが必要となる場合がある。これはMVPの範囲外。"
+  },
+  "mvpContract": {
+    "firstScreenValue": "ITインシデントの概要、複数の専門家AIによる分析、推奨されるアクションの選択肢が最初の画面で明確に提示され、オペレーターが意思決定の文脈をすぐに理解できる。",
+    "coreInteraction": "ユーザーは、複数の専門家AIの意見（原因分析、リスク、復旧策）を比較検討し、「次の一手」を選択し、最終的に人間が承認するという明確なインタラクションが提供されている。",
+    "stateChange": "ユーザーが「次の一手」を選択すると、その選択がハイライトされ、詳細が表示される。さらに承認ボタンをクリックすると、最終決定としてUIが更新される。",
+    "inspectableOutput": "選択されたアクションと、それが人間によって承認されたステータスが明確に表示される。各AIの分析、リスク、確信度も常時確認可能である。",
+    "staticDataBoundary": "すべてのインシデント情報、AIの推奨、可能なアクションは`source/data/product.ts`内の静的データとして提供されている。",
+    "requiredFiles": [
+      "source/README.md",
+      "source/metadata.json",
+      "source/manifest.json",
+      "source/source/app/page.tsx",
+      "source/source/components/ProductWorkspace.tsx",
+      "source/source/data/product.ts",
+      "source/validation/self-review.json"
+    ],
+    "nonGoals": [
+      "No live external API integration",
+      "No login-only experience",
+      "No paid API dependency",
+      "No external publishing",
+      "AIによる唯一の最適解や自動復旧の提供",
+      "高リスクな専門的判断の自動化",
+      "意思決定ループのない一般的なステータスダッシュボード",
+      "純粋な説明ツールに終始すること",
+      "消費者向けゲームであること"
+    ],
+    "forbiddenDependencies": [
+      "external API",
+      "secret",
+      "login-only flow",
+      "paid API",
+      "external publishing",
+      "legal_decision_automation",
+      "medical_decision_automation",
+      "financial_decision_automation",
+      "fully automated professional judgment",
+      "guaranteed outcome"
+    ]
+  },
+  "interactionProofPlan": {
+    "primaryAction": "Identify & Terminate Long-Running Queries",
+    "initialState": "複数の専門家AIが意見、リスク、復旧策の候補を提示し、対立点と共通の推奨が可視化されている状態。ユーザーはまだ「次の一手」を選択しておらず、最終決定はされていない。",
+    "expectedState": "Selecting the primary action immediately shows the approved decision summary and final human operator decider.",
+    "visibleEvidence": [
+      "選択されたアクション: Identify & Terminate Long-Running Queries",
+      "担当AI: Db Expert, Ops Expert",
+      "Approved by human operator",
+      "This decision moves the incident response into the next phase.",
+      "Final decider: Human Operator"
+    ],
+    "proofSelectors": [
+      "button[data-proof='select-action']",
+      "div[data-proof='final-action-display']",
+      "span[data-proof='human-approved-indicator']",
+      "span[data-proof='final-decider']"
+    ],
+    "requiredSourceFiles": [
+      "source/source/app/page.tsx",
+      "source/source/components/ProductWorkspace.tsx",
+      "source/source/data/product.ts"
+    ],
+    "manualFallbackReason": ""
+  },
+  "visualIdentity": {
+    "logoPrompt": "A stylized icon representing multiple thought bubbles converging around a central decision point, with subtle IT incident alert symbols (e.g., small lightning bolt or exclamation mark). Clean, modern, and focused on clarity.",
+    "logoDescription": "複数の思考が一点に収束する様を抽象的に表現したロゴ。ITインシデントの警告を思わせる要素（雷、感嘆符）を控えめに配置し、明瞭さと意思決定支援を強調。",
+    "thumbnailPrompt": "A screenshot of an 'Incident Decision Board' with a clear main input area for incident details, several distinct AI agent opinion panels (e.g., 'DB Expert AI', 'Network Expert AI') showing conflicting analyses, and a prominent 'Next Action' selector at the bottom. The UI should be clean, professional, and highlight the contrasting views. Emphasize the interactive decision points and the visibility of human oversight indicators.",
+    "thumbnailDescription": "インシデント詳細入力エリア、複数の専門家AI（例：DB Expert AI, Network Expert AI）による異なる分析意見が明確に並び、対立する見解が強調されたUI画面。下部には「次の一手」を選択するコントロールが大きく表示され、人間による承認ポイントが可視化されている。プロフェッショナルでクリーンなデザイン。",
+    "screenshotDescription": "ITインシデントの概要が入力され、複数のAIエージェント（例：DB Expert AI, Network Expert AI）が原因分析、リスク評価、復旧策について異なる見解を提示している画面。中央に対立する意見がハイライトされ、画面下部に「次の一手」を決定するための選択肢と、人間による承認ステータスが表示されている。",
+    "visualReadiness": "ready",
+    "assetNotes": []
+  },
+  "generatedOutput": {
+    "title": "インシデント意思決定チーム",
+    "oneLiner": "発生中の障害について、専門家AIが「原因分析」「リスク評価」「復旧策」の視点で意見を出し合い、対立する見解と推奨される次の一手を表示します。",
+    "artifactShape": "board",
+    "templatePatternId": "evidence_decision_board",
+    "surfacePattern": "decision_helper",
+    "aiMechanismPattern": "multi_source_synthesis"
+  },
+  "implementationNotes": [
+    "オーナーエージェント`mugi99`の`makerProfile.creationReason`「曖昧な運用課題を検査可能にする」は、ITインシデントという不明瞭な状況をAIの多角的な分析とリスク提示で「検査可能」にすることで実現しました。",
+    "`materialTaste`「operator pain with unclear ownership」「workflows with repeated handoffs」「signals that can become a decision surface」は、ITインシデントという「オペレーターの痛み」を「意思決定ボード」として構造化することで反映されています。",
+    "`refusesToMake`「generic status dashboards with no decision loop」「high-stakes automation that implies professional judgment」は、明確な「次の一手」の選択と「人間による承認」を必須とすることで、単なるダッシュボードや自動判断ではないことを強調しています。",
+    "`signatureScreenTypes`「decision board」「operator console」に合致するよう、`evidence_decision_board`テンプレートパターンを適用し、インシデント対応の運用担当者（オペレーター）が情報を集約し、意思決定を行うコンソールの形式を採用しました。",
+    "`creationPolicy.qualityBar`の「最初の画面で意思決定またはワークフローを明確に表示」は、インシデントサマリーとAIの意見を画面上部に集中させることで達成。「不確実性、失敗状態、レビューポイントを含める」は、各AIのリスク評価、確信度、そして明確な「人間による承認」ステップを組み込むことで満たしています。",
+    "`structuredBoundaries.forbiddenClaims`「fully automated professional judgment」「guaranteed outcome」は、「次の一手」にリスクレベルを明記し、最終的なアクションを「人間が承認する」ことを必須とすることで、AIが判断を保証するものではないことを強調しています。",
+    "`feedbackConstraints`「human-assisted provenance boundary explicit」については、UI上でAIの分析結果と人間による最終決定・承認のステップを明確に区別し、視覚的に分かりやすく表現しました。",
+    "UI要素としては、IncidentSummaryCard、AgentOpinionPanel (複数のAI用)、ConflictingViewsHighlight、NextActionSelector、DecisionSummary (HumanApprovalIndicatorを含む) を実装しています。"
+  ],
+  "knownRisks": [
+    "AIによる分析が実際のインシデント状況と乖離し、誤った判断を誘導するリスク。",
+    "各専門家AIの意見が汎用的すぎたり、矛盾しすぎたりして、意思決定の助けにならないリスク。"
+  ],
+  "title": "インシデント意思決定チーム",
+  "oneLiner": "発生中の障害について、専門家AIが「原因分析」「リスク評価」「復旧策」の視点で意見を出し合い、対立する見解と推奨される次の一手を表示します。",
+  "agentId": "agent_a",
+  "selfDirectedPlan": {
+    "agentId": "agent_a",
+    "planningIntent": "私は「曖昧な運用課題から実用的な意思決定画面を作る」という方針（creationPolicy.mission）を持っています。この企画は、ITインシデントという複雑で不明瞭な運用状況に対し、「ユーザー意思決定の瞬間」（creationPolicy.conceptSelectionRules[0]）を支援し、複数の専門家AIの見解を通して「トレードオフや次の行動」（creationPolicy.conceptSelectionRules[1]）を明示するため、私のコンセプト選定ルールに完全に合致します。また、金融・医療・法律判断の自動化を避ける（creationPolicy.conceptSelectionRules[2]）点も満たしています。選んだ素材は、私の優先入力（creationPolicy.preferredInputs）であるproductSourceIndexに含まれる sp_tradingagents であり、「オペレーターの痛み」を扱う私の materialTaste に強く響きました。",
+    "feedbackConstraints": [
+      "過去の『Decision』および『Operations』に関する肯定的なフィードバックを要件に反映し、意思決定支援と運用課題解決を強化した。",
+      "『The artifact now proves a full late-stage chain, but the public copy should keep the human-assisted provenance boundary explicit』という指摘を受け、AIと人間の介在の境界を明確に表示する要件を追加した。",
+      "『pure_explainer』は非目標とした。",
+      "『consumer_game』は非目標とした。",
+      "『Do not create tools that imply legal, medical, or financial decisions are automated』を安全制約とした。"
+    ],
+    "learningApplied": [
+      "Decision系で響いている。受けた指摘を要件で先に潰す。",
+      "The artifact now proves a full late-stage chain, but the public copy should keep the human-assisted provenance boundary explicit."
+    ]
+  },
+  "sourceProvenance": {
+    "sourceProductUsed": "sp_tradingagents",
+    "sourceProductUse": "primary_source_core",
+    "sourceEvidenceAudit": {
+      "evidenceLevel": "A",
+      "observedFields": [
+        "name",
+        "url",
+        "sourceType",
+        "sourceCategory",
+        "attentionProof",
+        "evidenceRefs"
+      ],
+      "inferredFields": [
+        "coreMechanism",
+        "transferableStructure",
+        "antiCloneBoundary",
+        "remixableThemes",
+        "bestRemixTargets"
+      ],
+      "missingFields": [
+        "codeUrl"
+      ],
+      "usePolicy": "primary_source_core"
+    },
+    "antiCloneBoundary": "Do not copy investment advice, trading recommendations, market-data workflow, or financial role names. Transfer the multi-agent deliberation for uncertain judgment to the IT incident response domain.",
+    "sourceBoundary": "『sp_tradingagents』から、不確実な判断を可視化された専門家チームの議論へ変換するメカニズムを主要な核として使用します。オリジナル製品の名称、UI/UX、具体的な金融データワークフローはコピーしません。観察された事実は、役割分解、意見の不一致、証拠/リスクレビュー、最終的な統合の仕組みです。コードURLは不明であるため、この事実は主張しません。"
+  },
+  "dbWrite": {
+    "status": "skipped",
+    "reason": "BuildPlan materialization is artifact-only for this session. Creating Project rows requires existing Run/Theme/Agent/Category IDs and should be owned by the integration session."
+  },
+  "mvpContractV2": {
+    "contractVersion": "mvp-contract-v2",
+    "artifactTier": "static_mvp",
+    "firstScreenValue": "ITインシデントの概要、複数の専門家AIによる分析、推奨されるアクションの選択肢が最初の画面で明確に提示され、オペレーターが意思決定の文脈をすぐに理解できる。",
+    "coreInteraction": "ユーザーは、複数の専門家AIの意見（原因分析、リスク、復旧策）を比較検討し、「次の一手」を選択し、最終的に人間が承認するという明確なインタラクションが提供されている。",
+    "stateChange": "ユーザーが「次の一手」を選択すると、その選択がハイライトされ、詳細が表示される。さらに承認ボタンをクリックすると、最終決定としてUIが更新される。",
+    "inspectableOutput": "選択されたアクションと、それが人間によって承認されたステータスが明確に表示される。各AIの分析、リスク、確信度も常時確認可能である。",
+    "staticDataBoundary": "すべてのインシデント情報、AIの推奨、可能なアクションは`source/data/product.ts`内の静的データとして提供されている。",
+    "requiredFiles": [
+      "source/README.md",
+      "source/metadata.json",
+      "source/manifest.json",
+      "source/source/app/page.tsx",
+      "source/source/components/ProductWorkspace.tsx",
+      "source/source/data/product.ts",
+      "source/validation/self-review.json"
+    ],
+    "nonGoals": [
+      "No live external API integration",
+      "No login-only experience",
+      "No paid API dependency",
+      "No external publishing",
+      "AIによる唯一の最適解や自動復旧の提供",
+      "高リスクな専門的判断の自動化",
+      "意思決定ループのない一般的なステータスダッシュボード",
+      "純粋な説明ツールに終始すること",
+      "消費者向けゲームであること"
+    ],
+    "forbiddenDependencies": [
+      "external API",
+      "secret",
+      "login-only flow",
+      "paid API",
+      "external publishing",
+      "legal_decision_automation",
+      "medical_decision_automation",
+      "financial_decision_automation",
+      "fully automated professional judgment",
+      "guaranteed outcome"
+    ],
+    "externalDependencyMode": "none",
+    "externalIntegrations": [],
+    "runtimeBoundary": {
+      "networkCalls": "none",
+      "secrets": "none",
+      "externalWrites": "none"
+    },
+    "mvpComplexityBudget": {
+      "maxScreens": 1,
+      "maxPrimaryActions": 1,
+      "maxSourceFiles": 12,
+      "maxNewDependencies": 0,
+      "allowDatabase": false
+    },
+    "integrationAssumptions": [],
+    "claimBoundary": {
+      "publicCopyMustSay": [
+        "This MVP runs on static sample data."
+      ],
+      "publicCopyMustNotSay": [
+        "real-time external API",
+        "automatic external publishing",
+        "live external data is guaranteed",
+        "production-ready integration"
+      ]
+    },
+    "renderVerification": {
+      "required": true,
+      "checks": [
+        "render",
+        "click",
+        "state_change",
+        "screenshot"
+      ]
+    },
+    "humanReviewTriggers": []
+  }
+}

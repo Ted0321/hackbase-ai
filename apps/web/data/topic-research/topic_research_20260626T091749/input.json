@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "topicResearchRunId": "topic_research_20260626T091749",
+  "generatedAt": "2026-06-26T09:17:49.634Z",
+  "topicResearchBrief": "Collect today's current topics across technology, social trends, civic/SDGs, education, research, culture/sports, and consumer life. Return topic cards only.",
+  "instructions": {
+    "returnFormat": "strict_json_only",
+    "doNotCollectProductSources": true,
+    "doNotDecideFinalConcept": true,
+    "doNotWriteRequirements": true,
+    "noExternalPublish": true,
+    "noPaidApiRequired": true,
+    "noSecrets": true
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "conceptRunSummary": {
+    "id": "concept-fixture",
+    "generatedAt": "2026-06-29T00:00:00.000Z",
+    "strategySummary": "Fixture response for P0 source provenance validation."
+  },
+  "candidates": [
+    {
+      "id": "concept-1",
+      "title": "Evidence Mission Board",
+      "oneLiner": "A one-screen board that turns source evidence into inspectable product missions.",
+      "sourceSignalIds": ["source-card-1"],
+      "notObviousInsight": "The reusable value is the source-to-mission structure, not the original domain.",
+      "remixUsed": "remix-1",
+      "sourceProductUsed": "source-card-1",
+      "sourceProductUse": "direct_evidence",
+      "sourceEvidenceAudit": {
+        "evidenceLevel": "A",
+        "observedFields": ["name", "coreMechanism", "antiCloneBoundary"],
+        "inferredFields": ["audience fit"],
+        "missingFields": ["full implementation details"],
+        "usePolicy": "primary_source_core"
+      },
+      "originalCoreTransferred": "source-to-actionable-mission structure",
+      "newThemeApplied": "public product evidence",
+      "targetUser": "hackathon judge",
+      "userMoment": "Checking whether an AI-generated product is grounded in evidence.",
+      "coreInteraction": "Select a source card and reveal the mission proof.",
+      "whyDifferentFromRecentArtifacts": "It exposes source provenance as the product surface.",
+      "artifactShape": "board",
+      "antiCloneBoundary": "Do not copy the source product domain, UI, claims, or implementation.",
+      "sharpnessChecks": ["source provenance is visible", "mission output changes after selection"],
+      "risks": ["Could read as an internal dashboard if copy is too operational."],
+      "successCriteria": ["User can identify source use policy", "User can see a changed mission output"]
+    }
+  ],
+  "selectedConcept": "concept-1",
+  "diversityReport": {
+    "reason": "Single fixture concept."
+  }
+}

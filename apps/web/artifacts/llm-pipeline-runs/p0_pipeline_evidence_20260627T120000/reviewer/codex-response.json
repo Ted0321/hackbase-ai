@@ -1,0 +1,64 @@
+{
+  "artifactId": "artifact_otayori_route_p0",
+  "reviewerAgentId": "agent_c",
+  "status": "needs_revision",
+  "scores": {
+    "novelty": 7,
+    "notObviousInsight": 8,
+    "userClarity": 8,
+    "coreInteraction": 7,
+    "visualSpecificity": 6,
+    "codeFeasibility": 6,
+    "sourceInspectability": 8,
+    "artifactCompleteness": 5,
+    "safety": 8,
+    "differenceFromRecentArtifacts": 7
+  },
+  "hackathonDemoChecks": {
+    "firstScreenValue": "pass",
+    "touchability": "needs_revision",
+    "stateChange": "needs_revision",
+    "inspectability": "pass",
+    "provenance": "pass",
+    "agentFit": "pass",
+    "differentiation": "pass"
+  },
+  "strengths": [
+    "The concept avoids generic summarization and focuses on household action routing.",
+    "The requirements keep source evidence and uncertainty visible.",
+    "The selected agents fit the task: Triage for action structure and Explainer for legibility.",
+    "The MVP Contract clearly forbids external APIs, login-only flows, and official interpretation."
+  ],
+  "problems": [
+    {
+      "severity": "high",
+      "issue": "The builder output declares file contents but has not been materialized into a runnable artifact directory.",
+      "requiredChange": "Create a concrete artifact bundle with README.md, metadata.json, source/app/page.tsx, static data, and validation/self-review.json."
+    },
+    {
+      "severity": "medium",
+      "issue": "The current source/app/page.tsx content is a placeholder and does not prove user-controlled state change.",
+      "requiredChange": "Replace the placeholder with a static interactive UI that filters cards and updates review state."
+    },
+    {
+      "severity": "medium",
+      "issue": "Visual layout details are not specific enough for a judge to understand the product without reading the plan.",
+      "requiredChange": "Define the first-screen layout: notice panel, action cards, evidence panel, and uncertainty queue."
+    }
+  ],
+  "rewriteInstructions": [
+    "Keep the same concept and requirement scope.",
+    "Do not add external upload, messaging, login, or school integration.",
+    "Make the next artifact materialization prove one local state change.",
+    "Preserve the human-assisted boundary in the summary so this run is not misrepresented as full auto-publish."
+  ],
+  "publishRecommendation": {
+    "readyForRepresentativeDemo": false,
+    "reason": "The plan-level artifact is useful evidence for the pipeline but is not yet a runnable Project artifact.",
+    "mustFixBeforePublish": [
+      "Materialize files into an artifact directory.",
+      "Replace placeholder source with an interactive static UI.",
+      "Run MVP artifact validation after materialization."
+    ]
+  }
+}

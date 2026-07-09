@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-03T11:02:16.958Z",
+  "path": "C:\\Users\\ytets\\Prodia\\apps\\web\\artifacts\\llm-pipeline-runs\\run_manual_agent_a_quality_20260702\\materialized\\artifact_manual_agent_a_quality_20260702",
+  "result": "pass",
+  "checks": [
+    {
+      "id": "metadata",
+      "status": "pass",
+      "message": "metadata.json is readable"
+    },
+    {
+      "id": "manifest",
+      "status": "pass",
+      "message": "manifest.json is readable"
+    },
+    {
+      "id": "entrypoint",
+      "status": "pass",
+      "message": "entrypoint exists: source/source/app/page.tsx"
+    },
+    {
+      "id": "bundle",
+      "status": "pass",
+      "message": "artifact source bundled for browser render"
+    },
+    {
+      "id": "browser.launch",
+      "status": "pass",
+      "message": "launched system browser: C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    },
+    {
+      "id": "render.body_text",
+      "status": "pass",
+      "message": "rendered body text length=3485"
+    },
+    {
+      "id": "render.console_errors",
+      "status": "pass",
+      "message": "no browser console/page errors"
+    },
+    {
+      "id": "render.proof_selectors",
+      "status": "pass",
+      "message": "all proof selectors visible across render/interaction (4/4)"
+    },
+    {
+      "id": "interaction.click",
+      "status": "pass",
+      "message": "clicked button[data-proof='select-action']"
+    },
+    {
+      "id": "interaction.state_change",
+      "status": "pass",
+      "message": "state changed after click: button[data-proof='select-action']"
+    },
+    {
+      "id": "interaction.console_errors",
+      "status": "pass",
+      "message": "no browser console/page errors after interaction"
+    },
+    {
+      "id": "render.visible_evidence",
+      "status": "pass",
+      "message": "all visibleEvidence rendered (5/5)"
+    },
+    {
+      "id": "render.screenshot",
+      "status": "pass",
+      "message": "screenshot written: validation/render-verification.png"
+    }
+  ],
+  "summary": "13 pass, 0 fail, 0 warn",
+  "previewPath": "validation/.render-harness/index.html",
+  "screenshotPath": "validation/render-verification.png"
+}

@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "runId": "llm_pipeline_step3_concept_parallel_A_20260626",
+  "step": "builder",
+  "generatedAt": "2026-06-26T12:12:53.091Z",
+  "instructions": {
+    "returnFormat": "strict_json_only",
+    "noExternalPublish": true,
+    "noPaidApiRequired": true,
+    "noSecrets": true
+  },
+  "concept": {
+    "candidates": [
+      {
+        "id": "concept_otayori_route",
+        "title": "おたよりルート",
+        "oneLiner": "学校や自治体のお知らせを、家庭ごとの「今日やること」「確認すること」「原文の根拠」に変える一画面ルート。",
+        "sourceSignalIds": [
+          "anthropic_hackathon_crossbeam",
+          "topic_school_parent_communication"
+        ],
+        "notObviousInsight": "お知らせの価値は短く要約することではなく、家庭の事情に合わせて誰がいつ何をするかへ変換することにある。",
+        "researchAngleUsed": "学校・自治体文書の読解負担を、家庭内の行動ルート生成として扱う。",
+        "remixUsed": "remix_school_notice_action_route",
+        "sourceProductUsed": "anthropic_hackathon_crossbeam / CrossBeam",
+        "originalCoreTransferred": "専門的で手順が見えにくい文書を、利用者ごとの具体的な行動フローに変える構造。",
+        "newThemeApplied": "ADU許認可ではなく、学校・自治体からの保護者向けお知らせ理解へ移した。",
+        "ideaMoveUsed": "scamper_adapt + output_form_shift",
+        "topicCardUsed": "topic_school_parent_communication / 学校・保護者のお知らせ理解",
+        "reviewerInsightUsed": "単なる要約ではなく、家庭内の担当・期限・不明点に分解する行動ルートへ寄せる。",
+        "combinationUsed": "remix_school_notice_action_route",
+        "themeMaterialUsed": "currentTopicRadar.topic_school_parent_communication",
+        "winningPatternUsed": "vk_crossbeam_domain_pain_workflow / domain_pain_to_tool + workflow_generation",
+        "themePatternFit": "長いお知らせという毎月起きる生活摩擦に、専門ワークフローを行動順へ変える型がそのまま効く。",
+        "evidenceUsed": [
+          "CrossBeam seed: domain-specific permit workflow becomes guided action steps.",
+          "topic_school_parent_communication: school notices are hard to translate into family action.",
+          "Step2 score total 40 with broadUserAppeal 5 and oneScreenArtifactPotential 5."
+        ],
+        "noveltyTypeUsed": "new_workflow",
+        "surfaceAudience": "family/local citizen",
+        "aiAppreciationAudience": "AI-curious professional",
+        "surfaceTheme": "education",
+        "surfacePattern": "daily_utility",
+        "aiMechanismPattern": "workflow_generation",
+        "productPattern": "domain_pain_to_tool",
+        "patternReason": "生活者には期限つきTODOとして分かり、AIに詳しい人には文書理解から家庭文脈へのワークフロー生成が見える。",
+        "whyNormalUserCares": "長いプリントやメールを読んだ後に、今日やること、あとで確認すること、家族に頼むことがすぐ分かる。",
+        "whyAIUserCares": "抽出、根拠対応、家庭条件への変換、不明点の保持を一画面で見せられるため、単なる要約よりAI利用の必然性がある。",
+        "interestHook": "お知らせを貼ると、家庭用の行動ルートと原文根拠が同時に立ち上がる。",
+        "aiMechanism": "文書から期限・対象者・提出物・連絡先・曖昧な条件を抽出し、子どもの学年や家庭制約に合わせて行動順へ再構成する。",
+        "funOrValueCore": "「読んだ気がする」を「今日動ける」に変える安心感。",
+        "firstScreenMechanic": "左に原文ハイライト、中央に今日/今週/確認待ちの行動カード、右に不明点と原文リンクを表示する。",
+        "whyThisUserWouldShare": "保護者や先生に「このお知らせ、こう動けばいい」とそのまま見せられるから。",
+        "boringFailureMode": "お知らせ要約とTODOを並べるだけになり、原文根拠や家庭条件への変換が見えない。",
+        "targetUser": "学校や自治体のお知らせを読む保護者、地域連絡を家庭内で処理する人。",
+        "userMoment": "長いメールやPDFを受け取り、提出物・締切・誰に確認するかが分からない瞬間。",
+        "coreInteraction": "お知らせ本文と家庭条件を入れると、行動ルート、確認質問、原文根拠がカード化される。",
+        "whyDifferentFromRecentArtifacts": "最近のAI会議室/セキュリティレビューではなく、非エンジニア家庭向けの能動的なワークフロー生成に寄せている。",
+        "artifactShape": "workspace",
+        "antiGenericChecks": [
+          "AI summaryという見せ方にしない。",
+          "公式文書を改変せず原文根拠を残す。",
+          "家庭条件に応じた担当・期限・不明点まで出す。"
+        ],
+        "sharpnessChecks": [
+          "5秒で「お知らせが行動カードになる」と分かる。",
+          "最初の画面に原文、行動、未確認点が同時にある。",
+          "保護者が次に取る行動が1つ以上明確になる。"
+        ],
+        "risks": [
+          "学校や自治体の公式指示をAIが上書きしているように見える。",
+          "家庭条件の入力が薄いと普通の要約になる。",
+          "締切や対象学年の抽出ミスが行動ミスにつながる。"
+        ],
+        "successCriteria": [
+          "原文のどこから行動カードが作られたか追える。",
+          "提出物・期限・確認先・不明点が分離されている。",
+          "ユーザーが1分以内に今日やることを選べる。"
+        ]
+      },
+      {
+        "id": "concept_sonae_priority_cards",
+        "title": "そなえ優先カード",
+        "oneLiner": "家族構成と手元の備えを入れると、今週やる防災準備を不足理由つきで並べる家庭内カード。",
+        "sourceSignalIds": [
+          "anthropic_hackathon_road_footage_investment",
+          "topic_local_disaster_readiness"
+        ],
+        "notObviousInsight": "防災ツールの弱さは情報不足ではなく、各家庭で最初に埋める不足が見えないことにある。",
+        "researchAngleUsed": "現場情報から優先順位を作る構造を、家庭内の準備不足と制約に移す。",
+        "remixUsed": "remix_family_disaster_priority_cards",
+        "sourceProductUsed": "anthropic_hackathon_road_footage_investment / Road footage to investment recommendations",
+        "originalCoreTransferred": "雑多な現場情報を、優先度つきの行動リストへ変換する構造。",
+        "newThemeApplied": "道路映像と公共投資判断から、家庭の防災準備・備蓄・役割分担へ移した。",
+        "ideaMoveUsed": "scamper_put_to_other_use + output_form_shift",
+        "topicCardUsed": "topic_local_disaster_readiness / 家庭と地域の防災準備",
+        "reviewerInsightUsed": "公式避難判断ではなく、家庭内準備の不足可視化と公式情報リンクに限定する。",
+        "combinationUsed": "remix_family_disaster_priority_cards",
+        "themeMaterialUsed": "currentTopicRadar.topic_local_disaster_readiness",
+        "winningPatternUsed": "vk_road_footage_evidence_to_priority / evidence_weighted_decision",
+        "themePatternFit": "季節性のある防災テーマに、観察情報を理由つき優先順位へ変える型が合う。",
+        "evidenceUsed": [
+          "Road footage source: messy evidence becomes ranked civic action.",
+          "topic_local_disaster_readiness: household disaster prep is hard to personalize.",
+          "Step2 noted safety boundary and official-source uncertainty as required."
+        ],
+        "noveltyTypeUsed": "new_interface",
+        "surfaceAudience": "family/local citizen",
+        "aiAppreciationAudience": "domain expert using AI",
+        "surfaceTheme": "civic",
+        "surfacePattern": "social_civic_tool",
+        "aiMechanismPattern": "evaluation_scoring",
+        "productPattern": "evidence_weighted_decision",
+        "patternReason": "家庭には不足カードとして見え、AI利用者には状況・制約・根拠を重みづけする評価UIとして見える。",
+        "whyNormalUserCares": "備えを全部やるのではなく、家族にとって不足が大きい順に今週の行動が分かる。",
+        "whyAIUserCares": "安全境界を表示しながら、入力条件に基づくスコアリングと説明を見せる点がAIらしい。",
+        "interestHook": "家族の条件を入れると、防災チェックリストが「足りない順」のカードに変わる。",
+        "aiMechanism": "家族構成、移動制約、ペット、住居、現在の備蓄をもとに、準備不足をカテゴリ別に採点し理由と公式参照を添える。",
+        "funOrValueCore": "漠然とした不安を、今日買うもの・確認すること・家族で決めることへ分ける。",
+        "firstScreenMechanic": "上部で家族条件を選び、下に不足カードのランキングと「今週やる/後で/確認待ち」列を表示する。",
+        "whyThisUserWouldShare": "家族会議や町内会で、公式情報ではなく家庭内準備の見える化として共有しやすい。",
+        "boringFailureMode": "一般的な防災チェックリストに戻り、家庭条件や不足理由が反映されない。",
+        "targetUser": "小さな子ども、高齢者、ペット、持病など家庭ごとの制約を持つ生活者。",
+        "userMoment": "防災情報を見たが、自分の家で何から準備すべきか決められない瞬間。",
+        "coreInteraction": "家庭条件と手元の備えを選ぶと、優先カードと公式参照、未確認情報が並ぶ。",
+        "whyDifferentFromRecentArtifacts": "AIロール会議ではなく、家庭条件を操作して結果順位が変わる civic evaluator にしている。",
+        "artifactShape": "evaluator",
+        "antiGenericChecks": [
+          "避難判断や命令に見せない。",
+          "公式情報への参照と不確実性を明示する。",
+          "不足カードは家庭条件により変化する。"
+        ],
+        "sharpnessChecks": [
+          "最優先カードの理由が1文で分かる。",
+          "買う/確認する/話し合うが分離されている。",
+          "安全境界がファーストビューで読める。"
+        ],
+        "risks": [
+          "防災助言として過度に権威づけられる。",
+          "地域差や災害種別を扱いきれない。",
+          "入力が増えすぎると一画面性が崩れる。"
+        ],
+        "successCriteria": [
+          "ユーザーが最初に埋める不足を3件以内で理解できる。",
+          "各カードに理由と安全境界がある。",
+          "公式判断ではなく家庭内準備支援であることが明確。"
+        ]
+      },
+      {
+        "id": "concept_publish_red_pen",
+        "title": "公開前レッドペン",
+        "oneLiner": "投稿やLP案を入れると、読者目線・反対意見・リスク・直す一文を返すクリエイター向け公開判定ツール。",
+        "sourceSignalIds": [
+          "sp_tradingagents",
+          "topic_creator_preflight"
+        ],
+        "notObviousInsight": "AI生成時代のクリエイター支援は、作る速度ではなく公開前に止める理由を可視化する方向にも価値がある。",
+        "researchAngleUsed": "複数専門役の判断構造を、投資判断から公開前の反対意見と編集判断へ反転する。",
+        "remixUsed": "remix_creator_review_committee",
+        "sourceProductUsed": "sp_tradingagents / TradingAgents",
+        "originalCoreTransferred": "複数の専門役割が同じ対象を見て、賛成・反対・リスク・最終判断を出す構造。",
+        "newThemeApplied": "売買判断ではなく、動画・投稿・LP・ニュースレターの公開前レビューへ移した。",
+        "ideaMoveUsed": "scamper_reverse + audience_shift",
+        "topicCardUsed": "topic_creator_preflight / 個人クリエイターの公開前チェック",
+        "reviewerInsightUsed": "抽象的なAI会議ではなく、出す・直す・保留の公開判断メモに落とす。",
+        "combinationUsed": "remix_creator_review_committee",
+        "themeMaterialUsed": "currentTopicRadar.topic_creator_preflight",
+        "winningPatternUsed": "multi_agent_organization / trust_boundary",
+        "themePatternFit": "生成物を増やす時代の摩擦に、複数視点で弱点を発見する型が刺さる。",
+        "evidenceUsed": [
+          "TradingAgents source: multi-agent specialist workflow for decision analysis.",
+          "topic_creator_preflight: AI-made content needs pre-publish judgment.",
+          "Step2 score total 41 but reviewer warned against generic AI meeting."
+        ],
+        "noveltyTypeUsed": "new_risk_surface",
+        "surfaceAudience": "creator",
+        "aiAppreciationAudience": "indie AI builder",
+        "surfaceTheme": "creativity",
+        "surfacePattern": "creative_assistant",
+        "aiMechanismPattern": "trust_boundary",
+        "productPattern": "multi_agent_organization",
+        "patternReason": "クリエイターには赤入れツールとして分かり、AIビルダーには生成物の公開境界を複数視点で扱う仕組みとして見える。",
+        "whyNormalUserCares": "公開前に、読者に伝わらない箇所、誤解されそうな箇所、直すべき一文が分かる。",
+        "whyAIUserCares": "単なるAI添削ではなく、賛成・反対・リスク・編集長の判断が公開境界を作る点が面白い。",
+        "interestHook": "投稿を貼ると、AIが背中を押すだけでなく、公開を止める理由まで見せる。",
+        "aiMechanism": "複数の評価ロールで同じドラフトを読み、読者反応、弱点、誤読リスク、最小修正を統合して公開判定を作る。",
+        "funOrValueCore": "出す勇気と止める判断を同時にくれる公開前の赤入れ。",
+        "firstScreenMechanic": "ドラフト入力の横に、出す/直す/保留の判定、最弱ポイント、修正文、リスク根拠を表示する。",
+        "whyThisUserWouldShare": "AIで作ったものを出す前の不安を、他のAIビルダーやクリエイターが共感しやすい。",
+        "boringFailureMode": "4人のAIレビュワーが並ぶだけの会議室になり、公開判定と修正文が曖昧になる。",
+        "targetUser": "個人クリエイター、小チームのマーケター、AIで下書きを作る発信者。",
+        "userMoment": "投稿やLP案を作ったが、このまま出してよいか判断できない瞬間。",
+        "coreInteraction": "ドラフトと公開目的を入れると、公開判定、反対意見、直す一文、リスク境界が返る。",
+        "whyDifferentFromRecentArtifacts": "最近の会議室型ボードと近いリスクがあるため、4列会議ではなく判定・赤入れ・最弱一文に画面を寄せる。",
+        "artifactShape": "evaluator",
+        "antiGenericChecks": [
+          "AI会議室というタイトルや構造にしない。",
+          "公開判定と直す一文を必ず出す。",
+          "投資・売買・金融メタファーを持ち込まない。"
+        ],
+        "sharpnessChecks": [
+          "最初の画面で「出す/直す/保留」が見える。",
+          "最も弱い一文が具体的に指摘される。",
+          "反対意見が改善につながる。"
+        ],
+        "risks": [
+          "最近のAI会議室 artifact と似て見える。",
+          "批評が抽象化すると普通の添削になる。",
+          "炎上や成果を予測できるように誤解される。"
+        ],
+        "successCriteria": [
+          "ユーザーが公開前に直す1点を持ち帰れる。",
+          "複数視点が判定と修正文に集約されている。",
+          "AI生成物の公開境界が画面上で見える。"
+        ]
+      }
+    ],
+    "selectedConcept": {
+      "id": "concept_otayori_route",
+      "selectionReason": "最も広い生活者フックがあり、Step2の行動ルート化という改善点が一画面で見える。防災案より安全境界を扱いやすく、クリエイター案より最近のAI会議室/レビュー系artifactとの差分が大きい。"
+    }
+  },
+  "assignment": null,
+  "requirementSpec": {
+    "id": "req_otayori_route_mvp",
+    "conceptId": "concept_otayori_route",
+    "ownerAgentId": "unassigned_builder_agent",
+    "mvpGoal": "学校や自治体のお知らせ本文を、家庭向けの行動ルート、確認質問、原文根拠に分けて表示する一画面artifactを作る。AI要約ではなく、原文から家庭内の次アクションへ変換される体験を最小限で証明する。",
+    "screens": [
+      {
+        "name": "おたよりルート ワークスペース",
+        "purpose": "ユーザーが長いお知らせを貼り付けると、今日やること、今週やること、確認待ち、不明点、原文根拠を同時に確認できる。",
+        "components": [
+          "ページヘッダー: タイトル、短い一文、公式文書を上書きしない安全注記",
+          "入力パネル: お知らせ本文のテキストエリア、子どもの学年、家庭メモ、サンプル読み込みボタン",
+          "原文根拠パネル: 重要文のハイライト、抽出理由、該当行番号または引用スニペット",
+          "行動ルートパネル: 今日やること、今週やること、家族に頼むことの3列カード",
+          "確認待ちパネル: 先生・学校・自治体に確認する質問リスト",
+          "不確実性パネル: AIが判断できない条件、原文にない情報、ユーザーが埋めるべき項目",
+          "プレビュー状態: サンプルお知らせで初期表示され、空入力でも画面の価値が分かる"
+        ],
+        "interactions": [
+          "サンプル読み込みを押すと、遠足または提出物のお知らせ例が入力される",
+          "お知らせ本文や家庭メモを編集すると、静的なルールベースのデモ結果が更新される",
+          "行動カードをクリックすると、対応する原文根拠がハイライトされる",
+          "行動カードを 今日/今週/確認待ち に切り替えられる",
+          "不明点カードには まだ判断しない という状態を明示する"
+        ]
+      }
+    ],
+    "dataModel": [
+      {
+        "name": "NoticeInput",
+        "fields": [
+          "noticeText: string",
+          "childGrade: string",
+          "familyContext: string",
+          "receivedAtLabel: string"
+        ]
+      },
+      {
+        "name": "ActionCard",
+        "fields": [
+          "id: string",
+          "status: today | this_week | ask | blocked",
+          "title: string",
+          "ownerLabel: string",
+          "dueLabel: string",
+          "reason: string",
+          "sourceSnippetId: string",
+          "confidence: high | medium | low"
+        ]
+      },
+      {
+        "name": "SourceSnippet",
+        "fields": [
+          "id: string",
+          "label: string",
+          "text: string",
+          "whyUsed: string"
+        ]
+      },
+      {
+        "name": "UncertaintyItem",
+        "fields": [
+          "id: string",
+          "question: string",
+          "whyUnknown: string",
+          "suggestedAskTarget: string"
+        ]
+      }
+    ],
+    "acceptanceCriteria": [
+      "初期表示だけで、お知らせが行動ルートに変換されるプロダクトだと分かる",
+      "左に入力/原文、中央に行動カード、右に確認待ち/不確実性が見える",
+      "行動カードには担当、期限、理由、原文根拠がある",
+      "公式文書を改変しないこと、不明点は不明点として残すことがファーストビューで分かる",
+      "少なくとも3件の行動カードと2件の確認質問がサンプルから表示される",
+      "カードクリックまたは選択状態で、どの原文から作られたカードか追える",
+      "外部API、アカウント、学校システム連携、個人情報送信なしで動く",
+      "スマートフォン幅では入力、行動、確認待ちが縦に並び、本文やボタンの文字がはみ出さない"
+    ],
+    "nonGoals": [
+      "実際の学校・自治体文書をAIで解析するバックエンド実装",
+      "PDFアップロード、OCR、メール連携、学校システム連携",
+      "公式指示の自動変更、代理提出、先生への自動送信",
+      "法的・教育的な判断や、学校の運用方針に関する助言",
+      "ユーザーアカウント、保存、共有URL、通知機能",
+      "複数画面の管理ダッシュボード化"
+    ],
+    "safetyConstraints": [
+      "原文にない期限、対象者、提出物を断定しない",
+      "公式文書の内容を上書きせず、必ず原文確認を促す",
+      "低信頼の抽出は確認待ちまたは不明点として分離する",
+      "子どもの氏名、住所、連絡先などの個人情報入力を求めない",
+      "緊急連絡、災害、健康、安全に関わる内容は公式連絡先確認を優先する",
+      "AIが学校や自治体の代理で判断しているような文言を避ける"
+    ]
+  },
+  "missingPreviousResponses": [
+    "research",
+    "combination",
+    "agent-router"
+  ]
+}

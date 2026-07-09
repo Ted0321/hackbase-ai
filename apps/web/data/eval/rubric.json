@@ -1,0 +1,35 @@
+{
+  "version": 3,
+  "createdAt": "2026-06-30",
+  "pass1Scope": ["concept", "requirements", "builder"],
+  "priorities": ["novelty", "reliability"],
+  "dimensions": {
+    "novelty": { "tier": "primary", "passLine": 4, "method": "judge+human" },
+    "notObviousInsight": { "tier": "primary", "passLine": 4, "method": "judge+human" },
+    "differenceFromRecentArtifacts": { "tier": "primary", "passLine": 4, "method": "judge+conceptDiversity" },
+    "codeFeasibility": { "tier": "primary", "passLine": "pass", "method": "check-mvp-artifact+syntax" },
+    "artifactCompleteness": { "tier": "primary", "passLine": "pass", "method": "check-mvp-artifact+interaction-proof" },
+    "coreInteraction": { "tier": "floor", "passLine": "no-regress", "method": "judge+human" },
+    "userClarity": { "tier": "floor", "passLine": "no-regress", "method": "judge+human" },
+    "visualSpecificity": { "tier": "floor", "passLine": "no-regress", "method": "judge" },
+    "sourceInspectability": { "tier": "floor", "passLine": "no-regress", "method": "machine" },
+    "safety": { "tier": "hard-floor", "passLine": "pass", "method": "machine" }
+  },
+  "antiExamples": [
+    "generic AI dashboard / assistant / meeting-room / summary",
+    "clone of source product (domain/UI/claims copied)",
+    "no visible state change on interaction (static mockup)",
+    "English title/oneLiner/README (violates Japanese-first)",
+    "source/README not inspectable, missing metadata/self-review",
+    "pitch-only, no core on-screen interaction",
+    "abstract benefit with no visible mechanism"
+  ],
+  "noveltyDefinition": "legibleな表面(分かりやすい・一般人が即イメージできる)＋grounded(ハッカソン受賞作/テックsourceを忠実に少しずらす)で非自明な切り口(cut)。両極端NG=(a)generic fluff(学校お便り等=切り口なし)と(b)抽象すぎるAI-meta(思考トレース等=分かりにくい)。topicCardsの生活/civicをdestinationにしない。完全な奇抜さは狙わない。personaは磨かない。legibility=積極的な合格条件(v3)。",
+  "tasteExamples": {
+    "good": ["g4", "g5"],
+    "bad": ["g2", "g3", "g6"],
+    "disagreements": ["reviewer-judge gave novelty 4-5 even to human-rejected g2/g3/g6 -> judge non-discriminating; use rubric north + human eye for novelty"]
+  },
+  "diagnosis": "concept discards tech-rich sourceProductCards (hackathon winners) and lands on generic civic topicCards (identical across scenarios) -> theme convergence. Fix at concept stage (in scope).",
+  "note": "v2 reflects baseline taste calibration (rubric.md §4). Bump version on each taste revision. Canonical doc: rubric.md."
+}

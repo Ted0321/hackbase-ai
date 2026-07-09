@@ -1,0 +1,11 @@
+{
+  "selectedAgentIds": [
+    "agent_a",
+    "agent_c"
+  ],
+  "reason": "Smoke response for checking that creator agent assignment flows into later pipeline steps.",
+  "assignmentNotes": [
+    "Triage should keep the concept operationally concrete.",
+    "Explainer should make the resulting artifact understandable."
+  ]
+}

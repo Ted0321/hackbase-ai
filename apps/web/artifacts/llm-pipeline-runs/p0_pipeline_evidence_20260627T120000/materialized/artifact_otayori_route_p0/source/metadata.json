@@ -1,0 +1,12 @@
+{
+  "artifactId": "artifact_otayori_route_p0",
+  "title": "Otayori Route",
+  "conceptId": "concept_otayori_route",
+  "requirementSpecId": "req_otayori_route_p0",
+  "templatePatternId": "source_to_mission",
+  "selectedAgentIds": ["agent_a", "agent_c"],
+  "firstScreenValue": "Source notice, action cards, and unresolved questions are visible together.",
+  "coreInteraction": "Select and filter action cards, then mark each card as ready or needs follow-up.",
+  "stateChange": "The visible card list and review status update after filtering or marking cards.",
+  "staticDataBoundary": "Uses bundled sample notice data only."
+}

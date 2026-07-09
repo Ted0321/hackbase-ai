@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Otayori Route Demo</title>
+    <style>
+      :root {
+        color: #182026;
+        background: #f4f7f8;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      body {
+        margin: 0;
+      }
+      main {
+        padding: 24px;
+      }
+      header {
+        margin-bottom: 18px;
+      }
+      h1 {
+        margin: 4px 0;
+        font-size: 34px;
+      }
+      .kicker {
+        margin: 0;
+        color: #60717b;
+        font-size: 14px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.9fr) minmax(340px, 1.1fr);
+        gap: 18px;
+      }
+      .panel,
+      .card,
+      .evidence {
+        border: 1px solid #d6dee3;
+        border-radius: 8px;
+        background: #fff;
+        padding: 16px;
+      }
+      .notice {
+        background: #f8fafb;
+      }
+      .filters,
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      button {
+        border: 1px solid #98a7b3;
+        border-radius: 6px;
+        background: #fff;
+        color: #182026;
+        cursor: pointer;
+        padding: 8px 12px;
+      }
+      button.active {
+        background: #1e5f74;
+        color: #fff;
+      }
+      .cards {
+        display: grid;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .card.selected {
+        border: 2px solid #1e5f74;
+      }
+      .meta {
+        color: #60717b;
+        margin: 6px 0;
+      }
+      blockquote {
+        border-left: 4px solid #1e5f74;
+        margin: 0;
+        padding-left: 12px;
+      }
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="kicker">Static artifact / source-linked planning</p>
+        <h1>Otayori Route</h1>
+        <p>Turn a long notice into action cards, visible evidence, and unresolved confirmation questions.</p>
+      </header>
+      <section class="grid">
+        <aside class="panel notice">
+          <h2>Source notice</h2>
+          <p>
+            Field Day is scheduled for next Tuesday. Please return the attendance form by Friday. Students should bring
+            indoor shoes in case of rain. Lunch details will be announced separately.
+          </p>
+          <p><strong>Boundary:</strong> static sample data only. Human review required.</p>
+          <p><strong>Review state:</strong> <span id="summary">0 ready / 0 follow-up / 3 unreviewed</span></p>
+        </aside>
+        <section>
+          <nav class="filters" aria-label="Action filters">
+            <button class="active" data-filter="all">All actions</button>
+            <button data-filter="due_soon">Due soon</button>
+            <button data-filter="needs_confirmation">Needs confirmation</button>
+          </nav>
+          <div class="cards" id="cards"></div>
+        </section>
+      </section>
+      <section class="evidence" style="margin-top: 18px">
+        <h2>Selected evidence</h2>
+        <p><strong id="selected-title">Submit attendance form</strong></p>
+        <blockquote id="selected-quote">Please return the attendance form by Friday.</blockquote>
+        <p id="selected-materials">Materials: attendance form</p>
+        <p id="selected-uncertainty">Uncertainty: None</p>
+      </section>
+    </main>
+    <script>
+      const actions = [
+        {
+          id: "attendance",
+          title: "Submit attendance form",
+          actor: "Guardian",
+          dueDate: "Friday",
+          materials: ["attendance form"],
+          status: "due_soon",
+          sourceQuote: "Please return the attendance form by Friday.",
+          confidence: "high",
+          uncertainty: "None",
+        },
+        {
+          id: "shoes",
+          title: "Prepare indoor shoes",
+          actor: "Child",
+          dueDate: "Event morning",
+          materials: ["indoor shoes"],
+          status: "ready",
+          sourceQuote: "Students should bring indoor shoes in case of rain.",
+          confidence: "medium",
+          uncertainty: "Only needed if rain plan is used.",
+        },
+        {
+          id: "lunch",
+          title: "Confirm lunch plan",
+          actor: "Guardian",
+          dueDate: "Before event day",
+          materials: ["lunch notice"],
+          status: "needs_confirmation",
+          sourceQuote: "Lunch details will be announced separately.",
+          confidence: "low",
+          uncertainty: "Wait for the separate lunch announcement.",
+        },
+      ];
+      const marks = {};
+      let filter = "all";
+      let selected = actions[0].id;
+
+      function updateSummary() {
+        const ready = Object.values(marks).filter((value) => value === "ready").length;
+        const follow = Object.values(marks).filter((value) => value === "follow_up").length;
+        document.querySelector("#summary").textContent = `${ready} ready / ${follow} follow-up / ${
+          actions.length - ready - follow
+        } unreviewed`;
+      }
+
+      function selectAction(action) {
+        selected = action.id;
+        document.querySelector("#selected-title").textContent = action.title;
+        document.querySelector("#selected-quote").textContent = action.sourceQuote;
+        document.querySelector("#selected-materials").textContent = `Materials: ${action.materials.join(", ")}`;
+        document.querySelector("#selected-uncertainty").textContent = `Uncertainty: ${action.uncertainty}`;
+        renderCards();
+      }
+
+      function renderCards() {
+        const root = document.querySelector("#cards");
+        root.innerHTML = "";
+        actions
+          .filter((action) => filter === "all" || action.status === filter)
+          .forEach((action) => {
+            const card = document.createElement("article");
+            card.className = `card ${action.id === selected ? "selected" : ""}`;
+            card.innerHTML = `
+              <h3>${action.title}</h3>
+              <p class="meta">${action.actor} / ${action.dueDate} / ${action.confidence} confidence</p>
+              <div class="actions">
+                <button data-select="${action.id}">Inspect evidence</button>
+                <button data-mark-ready="${action.id}">Mark ready</button>
+                <button data-mark-follow="${action.id}">Needs follow-up</button>
+                <span>Current: ${marks[action.id] || "unreviewed"}</span>
+              </div>
+            `;
+            root.appendChild(card);
+          });
+      }
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) return;
+        const nextFilter = target.getAttribute("data-filter");
+        const selectId = target.getAttribute("data-select");
+        const readyId = target.getAttribute("data-mark-ready");
+        const followId = target.getAttribute("data-mark-follow");
+        if (nextFilter) {
+          filter = nextFilter;
+          document.querySelectorAll("[data-filter]").forEach((button) => button.classList.remove("active"));
+          target.classList.add("active");
+          renderCards();
+        }
+        if (selectId) selectAction(actions.find((action) => action.id === selectId));
+        if (readyId) {
+          marks[readyId] = "ready";
+          selectAction(actions.find((action) => action.id === readyId));
+        }
+        if (followId) {
+          marks[followId] = "follow_up";
+          selectAction(actions.find((action) => action.id === followId));
+        }
+        updateSummary();
+      });
+
+      renderCards();
+    </script>
+  </body>
+</html>

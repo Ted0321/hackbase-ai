@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "provider": "google-gemini",
+  "runId": "findy_gemini_evidence",
+  "step": "research",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-07-05T13:12:25.212Z",
+  "status": "prompt_ready",
+  "summary": "--dry-run was specified, so this step was prepared but not sent to Gemini."
+}

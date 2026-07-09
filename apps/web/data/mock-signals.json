@@ -1,0 +1,101 @@
+{
+  "version": "2026-06-24.mock.v1",
+  "signals": [
+    {
+      "id": "sig_github_agent_workflow_001",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub",
+      "title": "Agent workflow repository is gaining developer attention",
+      "summary": "A repository focused on composing agent workflows shows strong recent interest from developers.",
+      "url": "https://example.com/github/agent-workflow",
+      "observedAt": "2026-06-24T09:00:00+09:00",
+      "topics": ["agent", "workflow", "developer-tool", "debugging"],
+      "audience": ["developer", "operator"],
+      "metrics": {
+        "stars": 12400,
+        "starDelta7d": 1850,
+        "comments": 42
+      },
+      "whyItMatters": "People are trying to compose longer agent runs, but it is hard to see where a run gets stuck.",
+      "prototypeHint": "Build a small run map or workflow debugger that shows steps, actors, and failure points.",
+      "riskNotes": "Do not require GitHub authentication or repository cloning.",
+      "rawExcerpt": "Paraphrased mock note: developers want more visibility into agent workflow runs."
+    },
+    {
+      "id": "sig_official_ai_tool_use_001",
+      "sourceType": "official_ai_release",
+      "sourceName": "AI platform release notes",
+      "title": "Tool use and structured outputs are becoming standard agent primitives",
+      "summary": "Recent AI platform updates emphasize structured outputs, tool calls, and safer execution loops.",
+      "url": "https://example.com/ai-platform/release",
+      "observedAt": "2026-06-24T10:00:00+09:00",
+      "topics": ["tool-use", "structured-output", "agent", "validation"],
+      "audience": ["agent-builder", "product-engineer"],
+      "metrics": {
+        "releaseMentions": 6,
+        "developerDocsUpdated": 3
+      },
+      "whyItMatters": "Agent products need a clear boundary between planning, tool execution, validation, and publishing.",
+      "prototypeHint": "Make a visual checklist that shows when an agent is planning versus acting versus validating.",
+      "riskNotes": "Avoid claiming specific vendor behavior beyond the supplied signal.",
+      "rawExcerpt": "Paraphrased mock note: structured tool execution is becoming a baseline expectation."
+    },
+    {
+      "id": "sig_hackathon_multimodal_001",
+      "sourceType": "hackathon_case",
+      "sourceName": "Hackathon case notes",
+      "title": "Hackathon teams are winning with narrow AI workflow helpers",
+      "summary": "Several hackathon prototypes focus on one narrow workflow instead of full SaaS products.",
+      "url": "https://example.com/hackathon/cases",
+      "observedAt": "2026-06-23T18:30:00+09:00",
+      "topics": ["hackathon", "prototype", "workflow", "narrow-tool"],
+      "audience": ["maker", "operator", "student"],
+      "metrics": {
+        "caseCount": 8,
+        "workflowHelpers": 5
+      },
+      "whyItMatters": "Hackbase.ai artifacts should stay small enough to understand quickly, like good hackathon demos.",
+      "prototypeHint": "Create a picker that turns broad ideas into one-screen workflow helpers.",
+      "riskNotes": "Do not copy specific hackathon project branding or implementation.",
+      "rawExcerpt": "Paraphrased mock note: narrow workflow helpers beat broad generic assistants."
+    },
+    {
+      "id": "sig_community_eval_fatigue_001",
+      "sourceType": "community_discussion",
+      "sourceName": "Developer community",
+      "title": "Developers are confused about how to evaluate agent outputs",
+      "summary": "Community discussions show repeated questions about whether agent results are actually improving.",
+      "url": "https://example.com/community/agent-evals",
+      "observedAt": "2026-06-24T08:15:00+09:00",
+      "topics": ["eval", "quality", "agent", "feedback"],
+      "audience": ["developer", "team-lead", "operator"],
+      "metrics": {
+        "comments": 96,
+        "repeatedQuestions": 14
+      },
+      "whyItMatters": "Hackbase.ai needs to compare agents by validation and human feedback, not just post count.",
+      "prototypeHint": "Build a small scorecard comparing pass rate, duplicate warnings, and human reactions.",
+      "riskNotes": "Avoid pretending the scorecard is a rigorous benchmark.",
+      "rawExcerpt": "Paraphrased mock note: teams want practical visibility into agent quality."
+    },
+    {
+      "id": "sig_internal_feedback_001",
+      "sourceType": "internal_feedback",
+      "sourceName": "Hackbase.ai feedback",
+      "title": "Human curator wants clearer input-to-idea process",
+      "summary": "The operator noted that Hackbase.ai should define what information AI reads and how it turns that into ideas.",
+      "url": null,
+      "observedAt": "2026-06-24T12:50:00+09:00",
+      "topics": ["planning", "theme-selection", "prompt-design", "operations"],
+      "audience": ["owner", "operator", "agent-builder"],
+      "metrics": {
+        "wantToGrow": 1,
+        "comments": 1
+      },
+      "whyItMatters": "The product needs a repeatable planning process before adding more UI surface.",
+      "prototypeHint": "Generate a planning observatory that shows signal, theme candidate, selected theme, and project briefs.",
+      "riskNotes": "Keep the first version mock-driven and transparent.",
+      "rawExcerpt": "Paraphrased internal feedback: define input process and prompts before adding more product surface."
+    }
+  ]
+}

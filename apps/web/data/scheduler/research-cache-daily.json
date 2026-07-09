@@ -1,0 +1,163 @@
+{
+  "version": "research-cache-daily.v1",
+  "scheduleName": "research-cache-daily",
+  "intervalHours": 24,
+  "cachePath": "data/research-cache/current.json",
+  "history": [
+    {
+      "startedAt": "2026-06-27T15:22:06.897Z",
+      "status": "completed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T15:22:40.811Z",
+      "signalCount": 12,
+      "loadedSourceCount": 11,
+      "sourceProductEntryCount": 49,
+      "preparedSourceDraft": "data\\research-exploration\\research_product_refresh_20260627T152236"
+    },
+    {
+      "startedAt": "2026-06-27T15:20:31.808Z",
+      "status": "failed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T15:21:01.806Z",
+      "errorMessage": "Command failed: cmd.exe /d /c npm.cmd run research:index:update\nError: Research source product validation failed before TSV write.\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: AudioNova :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/audionova\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: AudioNova :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/audionova\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Canvas Student Insights with AI :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/canvas-student-insights-with-ai\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Canvas Student Insights with AI :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/canvas-student-insights-with-ai\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Civil Dialog :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/civil-dialog\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Civil Dialog :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/civil-dialog\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Fireflai :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/fireflai\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Fireflai :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/fireflai\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Insightify :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/insightify-6rh0sc\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Insightify :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/insightify-6rh0sc\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Neuthera - Drug discovery toolkit :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/neuthera-drug-discovery-platform\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Neuthera - Drug discovery toolkit :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/neuthera-drug-discovery-platform\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: PranAI :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/pranai-g1dtw5\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: PranAI :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/pranai-g1dtw5\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Quad :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/quad-iv8l4h\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Quad :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/quad-iv8l4h\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Snapdragon AI: Multilingual Translator :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/snapdragon-ai-multilingual-translator\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Snapdragon AI: Multilingual Translator :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/snapdragon-ai-multilingual-translator\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: MSC - Vantage :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/vantage-axzd3t\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: MSC - Vantage :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/vantage-axzd3t\n    at validateSourceProductCards (C:\\Users\\ytets\\Prodia\\apps\\web\\scripts\\update-product-source-index.ts:361:9)\n    at main (C:\\Users\\ytets\\Prodia\\apps\\web\\scripts\\update-product-source-index.ts:543:3)\n"
+    },
+    {
+      "startedAt": "2026-06-27T15:14:33.979Z",
+      "status": "failed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T15:15:04.516Z",
+      "errorMessage": "Command failed: cmd.exe /d /c npm.cmd run research:index:update\nError: Research source product validation failed before TSV write.\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: AudioNova :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/audionova\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: AudioNova :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/audionova\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Canvas Student Insights with AI :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/canvas-student-insights-with-ai\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Canvas Student Insights with AI :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/canvas-student-insights-with-ai\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Civil Dialog :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/civil-dialog\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Civil Dialog :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/civil-dialog\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Fireflai :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/fireflai\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Fireflai :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/fireflai\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Insightify :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/insightify-6rh0sc\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Insightify :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/insightify-6rh0sc\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Neuthera - Drug discovery toolkit :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/neuthera-drug-discovery-platform\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Neuthera - Drug discovery toolkit :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/neuthera-drug-discovery-platform\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: PranAI :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/pranai-g1dtw5\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: PranAI :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/pranai-g1dtw5\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Quad :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/quad-iv8l4h\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Quad :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/quad-iv8l4h\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: Snapdragon AI: Multilingual Translator :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/snapdragon-ai-multilingual-translator\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: Snapdragon AI: Multilingual Translator :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/snapdragon-ai-multilingual-translator\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json :: MSC - Vantage :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/vantage-axzd3t\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627_enrichment\\response.json :: MSC - Vantage :: canonicalKey: duplicate canonical key in incoming research responses: product-url:https://devpost.com/software/vantage-axzd3t\n    at validateSourceProductCards (C:\\Users\\ytets\\Prodia\\apps\\web\\scripts\\update-product-source-index.ts:361:9)\n    at main (C:\\Users\\ytets\\Prodia\\apps\\web\\scripts\\update-product-source-index.ts:543:3)\n"
+    },
+    {
+      "startedAt": "2026-06-27T05:06:37.703Z",
+      "status": "completed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T05:06:40.334Z",
+      "signalCount": 12,
+      "loadedSourceCount": 11,
+      "sourceProductEntryCount": 49
+    },
+    {
+      "startedAt": "2026-06-27T04:59:26.995Z",
+      "status": "completed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T04:59:29.042Z",
+      "signalCount": 12,
+      "loadedSourceCount": 11,
+      "sourceProductEntryCount": 51
+    },
+    {
+      "startedAt": "2026-06-27T04:58:54.982Z",
+      "status": "completed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T04:59:00.673Z",
+      "signalCount": 12,
+      "loadedSourceCount": 11,
+      "sourceProductEntryCount": 51,
+      "preparedSourceDraft": "data\\research-exploration\\research_product_refresh_20260627T045857"
+    },
+    {
+      "startedAt": "2026-06-27T04:52:44.708Z",
+      "status": "completed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T04:52:48.914Z",
+      "signalCount": 12,
+      "loadedSourceCount": 11,
+      "sourceProductEntryCount": 51,
+      "preparedSourceDraft": "data\\research-exploration\\research_product_refresh_20260627T045248"
+    },
+    {
+      "startedAt": "2026-06-27T04:30:42.739Z",
+      "status": "completed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T04:30:44.979Z",
+      "signalCount": 12,
+      "loadedSourceCount": 11,
+      "sourceProductEntryCount": 51
+    },
+    {
+      "startedAt": "2026-06-27T04:05:24.626Z",
+      "status": "completed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T04:05:26.807Z",
+      "signalCount": 12,
+      "loadedSourceCount": 11,
+      "sourceProductEntryCount": 50
+    },
+    {
+      "startedAt": "2026-06-27T02:17:38.038Z",
+      "status": "completed",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T02:17:39.983Z",
+      "signalCount": 12,
+      "loadedSourceCount": 11,
+      "sourceProductEntryCount": 6
+    }
+  ],
+  "notifications": [
+    {
+      "createdAt": "2026-06-27T15:22:40.811Z",
+      "level": "info",
+      "message": "Research cache refreshed: signals=12 sources=11 sourceDraft=data\\research-exploration\\research_product_refresh_20260627T152236."
+    },
+    {
+      "createdAt": "2026-06-27T15:21:01.806Z",
+      "level": "error",
+      "message": "Research cache refresh failed: Command failed: cmd.exe /d /c npm.cmd run research:index:update\nError: Research source product validation failed before TSV write.\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json"
+    },
+    {
+      "createdAt": "2026-06-27T15:15:04.516Z",
+      "level": "error",
+      "message": "Research cache refresh failed: Command failed: cmd.exe /d /c npm.cmd run research:index:update\nError: Research source product validation failed before TSV write.\n- C:\\Users\\ytets\\Prodia\\apps\\web\\data\\research-exploration\\research_explore_devpost_ai_20260627\\response.json"
+    },
+    {
+      "createdAt": "2026-06-27T05:06:40.334Z",
+      "level": "info",
+      "message": "Research cache refreshed: signals=12 sources=11."
+    },
+    {
+      "createdAt": "2026-06-27T04:59:29.043Z",
+      "level": "info",
+      "message": "Research cache refreshed: signals=12 sources=11."
+    },
+    {
+      "createdAt": "2026-06-27T04:59:00.673Z",
+      "level": "info",
+      "message": "Research cache refreshed: signals=12 sources=11 sourceDraft=data\\research-exploration\\research_product_refresh_20260627T045857."
+    },
+    {
+      "createdAt": "2026-06-27T04:52:48.915Z",
+      "level": "info",
+      "message": "Research cache refreshed: signals=12 sources=11 sourceDraft=data\\research-exploration\\research_product_refresh_20260627T045248."
+    },
+    {
+      "createdAt": "2026-06-27T04:30:44.979Z",
+      "level": "info",
+      "message": "Research cache refreshed: signals=12 sources=11."
+    },
+    {
+      "createdAt": "2026-06-27T04:05:26.807Z",
+      "level": "info",
+      "message": "Research cache refreshed: signals=12 sources=11."
+    },
+    {
+      "createdAt": "2026-06-27T02:17:39.983Z",
+      "level": "info",
+      "message": "Research cache refreshed: signals=12 sources=11."
+    }
+  ],
+  "nextDueAt": "2026-06-28T15:22:40.811Z",
+  "lastStartedAt": "2026-06-27T15:22:06.897Z",
+  "lastCompletedAt": "2026-06-27T15:22:40.811Z",
+  "lastStatus": "completed"
+}

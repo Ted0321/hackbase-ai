@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "runId": "p0_pipeline_evidence_20260627T120000",
+  "step": "rewriter",
+  "preparedAt": "2026-06-27T08:18:50.822Z",
+  "outputRoot": "artifacts/llm-pipeline-runs/p0_pipeline_evidence_20260627T120000",
+  "files": {
+    "prompt": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\rewriter\\prompt.md",
+    "input": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\rewriter\\input.json",
+    "response": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\rewriter\\response.json",
+    "handoff": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\rewriter\\handoff.md"
+  },
+  "previousResponseStatus": {
+    "requiredPreviousSteps": [
+      "concept",
+      "requirements",
+      "builder",
+      "reviewer"
+    ],
+    "missingRequiredPreviousResponses": [],
+    "missingPreviousResponses": [],
+    "note": "Required upstream response.json files are present for this step."
+  }
+}

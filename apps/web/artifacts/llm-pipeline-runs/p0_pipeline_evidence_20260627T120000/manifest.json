@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "runId": "p0_pipeline_evidence_20260627T120000",
+  "createdAt": "2026-06-27T08:14:15.492Z",
+  "steps": [
+    "research",
+    "combination",
+    "concept",
+    "agent-router",
+    "requirements",
+    "builder",
+    "reviewer",
+    "rewriter",
+    "publisher"
+  ],
+  "outputRoot": "artifacts/llm-pipeline-runs/p0_pipeline_evidence_20260627T120000"
+}

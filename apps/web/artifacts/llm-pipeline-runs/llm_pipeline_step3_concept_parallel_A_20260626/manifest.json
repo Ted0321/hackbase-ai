@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "runId": "llm_pipeline_step3_concept_parallel_A_20260626",
+  "createdAt": "2026-06-26T12:00:36.666Z",
+  "steps": [
+    "research",
+    "combination",
+    "concept",
+    "agent-router",
+    "requirements",
+    "builder",
+    "reviewer",
+    "rewriter",
+    "publisher"
+  ],
+  "outputRoot": "artifacts/llm-pipeline-runs/llm_pipeline_step3_concept_parallel_A_20260626"
+}

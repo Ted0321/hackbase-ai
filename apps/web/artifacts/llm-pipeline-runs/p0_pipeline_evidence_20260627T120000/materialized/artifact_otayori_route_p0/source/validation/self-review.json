@@ -1,0 +1,11 @@
+{
+  "status": "materialized_static_ui",
+  "checks": [
+    "first_screen_value: source notice and action cards are visible",
+    "core_interaction: filters, card selection, and mark buttons use local state",
+    "state_change: selected evidence and review counters update",
+    "source_evidence: every card has a source quote",
+    "static_data_boundary: bundled sample notice data only"
+  ],
+  "notes": "This source-level self-review was updated after materialization. It remains artifact-only until reviewer and publisher are re-run."
+}

@@ -1,0 +1,96 @@
+name: Weekly Input Refresh
+
+# コンセプト生成インプット（シグナル・研究キャッシュ・候補ドラフト）を週次で再取得し、
+# 差分を自動PRとして起票する。索引(source-product-index)へのマージは行わない —
+# 候補は usePolicy=candidate_only のままPRに載り、昇格レビューは
+# docs/operations/DOC-110 / スキル hackbase-input-refresh の役割。
+on:
+  schedule:
+    # 月曜 06:00 JST (日曜 21:00 UTC)
+    - cron: "0 21 * * 0"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh-inputs:
+    name: Refresh research inputs
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npm run db:generate
+
+      - name: Fetch baseline signals (7 lanes) and rebuild collector input
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run research:fetch -- --limit 16
+
+      - name: Prepare source-product candidate draft (candidate_only)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run research:product-index:prepare -- --per-source 5
+
+      - name: Rebuild research cache
+        run: npm run research:cache:refresh -- --skip-collect
+
+      - name: Check research cache
+        run: npm run research:cache:check
+
+      - name: Check product source maintenance
+        run: npm run research:product-index:check
+
+      - name: Check mojibake
+        run: npm run check:mojibake
+
+      - name: Create pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/weekly-input-refresh
+          base: main
+          commit-message: "chore(research): weekly input refresh (signals + candidate draft)"
+          title: "chore(research): 週次インプット更新（シグナル再取得＋候補ドラフト）"
+          body: |
+            自動生成PR（Weekly Input Refresh ワークフロー）。**検証チェック通過後に自動マージされます。**
+
+            ## 含まれるもの
+            - 7レーンのベースラインシグナル再取得（limit 16）と `research-collector-input.json` / `research-cache/current.json` の再構築
+            - `research_product_refresh_*` 候補ドラフト（**usePolicy=candidate_only のまま。索引へは未マージ**）
+
+            ## 索引を成長させたい場合（任意・後日で可）
+            Claude Code で `/hackbase-input-refresh` を起動し、溜まった候補ドラフトの実在検証→昇格→ `research:index:update` を実施（DOC-110 §3）。
+
+            ## 反映
+            マージ後、ローカル量産チェックアウトは `git pull`。本番へは次回デプロイ（DOC-93）で反映。
+
+            ---
+            🤖 Generated with [Claude Code](https://claude.com/claude-code)
+          delete-branch: true
+
+      - name: Auto-merge pull request
+        if: steps.cpr.outputs.pull-request-number
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge ${{ steps.cpr.outputs.pull-request-number }} --merge --delete-branch

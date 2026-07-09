@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-label="プロダクトのトップ画面モック">
+  <rect width="1280" height="800" fill="#111214"/>
+  <rect x="0" y="0" width="1280" height="64" fill="#17181b"/>
+  <text x="58" y="41" fill="#ff3d2e" font-family="Arial, sans-serif" font-size="28" font-weight="700">Prodia Product Lab</text>
+  <rect x="392" y="14" width="460" height="36" rx="4" fill="#f8fafc"/>
+  <text x="414" y="38" fill="#64748b" font-family="Arial, sans-serif" font-size="16">テーマ、用途、対象ユーザーを検索</text>
+  <rect x="0" y="64" width="1280" height="34" fill="#ff4a2b"/>
+  <text x="58" y="87" fill="#fff" font-family="Arial, sans-serif" font-size="15" font-weight="700">AIがテーマを解釈し、小さなWebプロダクトとして形にする実験フィード</text>
+  <text x="88" y="164" fill="#00e0bd" font-family="Arial, sans-serif" font-size="14" font-weight="700">TOP SCREEN</text>
+  <text x="88" y="214" fill="#fff" font-family="Arial, sans-serif" font-size="46" font-weight="800">小さな道具を、まず触れる形へ</text>
+  <text x="88" y="252" fill="#a7b0bd" font-family="Arial, sans-serif" font-size="20">テーマ、素材、想定ユーザーを入力すると、AIがプロダクトの入口を組み立てます。</text>
+  <rect x="88" y="304" width="760" height="74" rx="6" fill="#f8fafc"/>
+  <text x="112" y="350" fill="#1f2937" font-family="Arial, sans-serif" font-size="21">例: 会議メモを次のアクションへ変換するチーム用ボード</text>
+  <rect x="872" y="304" width="242" height="74" rx="6" fill="#00d6b4"/>
+  <text x="922" y="350" fill="#061211" font-family="Arial, sans-serif" font-size="21" font-weight="800">生成を開始</text>
+  <g>
+    <rect x="88" y="430" width="250" height="158" rx="7" fill="#1b1c20" stroke="#34363d"/>
+    <text x="112" y="466" fill="#ff6333" font-family="Arial, sans-serif" font-size="15" font-weight="800">入力</text>
+    <text x="112" y="504" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">テーマと制約</text>
+    <text x="112" y="538" fill="#9ca3af" font-family="Arial, sans-serif" font-size="16">何を作るか、誰に見せるか</text>
+  </g>
+  <g>
+    <rect x="370" y="430" width="250" height="158" rx="7" fill="#1b1c20" stroke="#34363d"/>
+    <text x="394" y="466" fill="#00d6b4" font-family="Arial, sans-serif" font-size="15" font-weight="800">設計</text>
+    <text x="394" y="504" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">価値仮説</text>
+    <text x="394" y="538" fill="#9ca3af" font-family="Arial, sans-serif" font-size="16">面白さ、新規性、伸ばし方</text>
+  </g>
+  <g>
+    <rect x="652" y="430" width="250" height="158" rx="7" fill="#1b1c20" stroke="#34363d"/>
+    <text x="676" y="466" fill="#60a5fa" font-family="Arial, sans-serif" font-size="15" font-weight="800">画面</text>
+    <text x="676" y="504" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">UIモック</text>
+    <text x="676" y="538" fill="#9ca3af" font-family="Arial, sans-serif" font-size="16">トップと作業画面を可視化</text>
+  </g>
+  <g>
+    <rect x="934" y="430" width="250" height="158" rx="7" fill="#1b1c20" stroke="#34363d"/>
+    <text x="958" y="466" fill="#fbbf24" font-family="Arial, sans-serif" font-size="15" font-weight="800">出力</text>
+    <text x="958" y="504" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">README型ページ</text>
+    <text x="958" y="538" fill="#9ca3af" font-family="Arial, sans-serif" font-size="16">見た人が真似できる説明へ</text>
+  </g>
+</svg>

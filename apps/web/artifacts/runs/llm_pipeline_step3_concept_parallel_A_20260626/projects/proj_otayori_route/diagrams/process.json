@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    { "id": "human_input", "label": "Human: paste notice and household context" },
+    { "id": "agent_extract", "label": "Agent: extract action candidates and uncertainties" },
+    { "id": "system_boundary", "label": "System: preserve source evidence and safety boundary" },
+    { "id": "human_decide", "label": "Human: decide next action after checking source" }
+  ],
+  "edges": [
+    ["human_input", "agent_extract"],
+    ["agent_extract", "system_boundary"],
+    ["system_boundary", "human_decide"]
+  ]
+}

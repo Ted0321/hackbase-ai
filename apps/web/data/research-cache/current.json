@@ -1,0 +1,666 @@
+{
+  "version": 1,
+  "lastRefreshedAt": "2026-07-08T03:29:00.391Z",
+  "generatedBy": {
+    "script": "scripts/refresh-research-cache.ts",
+    "mode": "local-cache",
+    "cwd": "C:\\Users\\ytets\\Prodia\\.claude\\worktrees\\hopeful-easley-5c2d05\\apps\\web"
+  },
+  "sources": [
+    {
+      "id": "research_collector_input",
+      "type": "research_input",
+      "path": "data/research-collector-input.json",
+      "status": "loaded",
+      "itemCount": 107,
+      "updatedAt": "2026-07-08T03:28:50.343Z",
+      "note": "Normalized local research input used as the primary daily trend cache source."
+    },
+    {
+      "id": "source_catalog",
+      "type": "source_catalog",
+      "path": "scripts/llm-pipeline/fixtures/research-source-catalog.json",
+      "status": "loaded",
+      "itemCount": 4,
+      "updatedAt": "2026-06-26"
+    },
+    {
+      "id": "topic_radar",
+      "type": "topic_radar",
+      "path": "data/topic-research/current-topic-radar.json",
+      "status": "loaded",
+      "itemCount": 15,
+      "updatedAt": "2026-07-08T00:00:00.000Z",
+      "note": "Optional local topic radar for pairing broad trends with source product mechanisms."
+    },
+    {
+      "id": "source_product_index",
+      "type": "source_product_index",
+      "path": "data/product-research/source-product-index.json",
+      "status": "loaded",
+      "itemCount": 102,
+      "updatedAt": "2026-07-08T00:44:40.676Z",
+      "note": "Persistent hackathon/product source material for generation."
+    },
+    {
+      "id": "github-signals",
+      "type": "signal_file",
+      "path": "data/github-signals.json",
+      "status": "loaded",
+      "itemCount": 6,
+      "updatedAt": null
+    },
+    {
+      "id": "hn-signals",
+      "type": "signal_file",
+      "path": "data/hn-signals.json",
+      "status": "loaded",
+      "itemCount": 0,
+      "updatedAt": null
+    },
+    {
+      "id": "ai-release-signals",
+      "type": "signal_file",
+      "path": "data/ai-release-signals.json",
+      "status": "loaded",
+      "itemCount": 0,
+      "updatedAt": null
+    },
+    {
+      "id": "anthropic-signals",
+      "type": "signal_file",
+      "path": "data/anthropic-signals.json",
+      "status": "loaded",
+      "itemCount": 0,
+      "updatedAt": null
+    },
+    {
+      "id": "google-ai-signals",
+      "type": "signal_file",
+      "path": "data/google-ai-signals.json",
+      "status": "loaded",
+      "itemCount": 0,
+      "updatedAt": null
+    },
+    {
+      "id": "product-market-signals",
+      "type": "signal_file",
+      "path": "data/product-market-signals.json",
+      "status": "loaded",
+      "itemCount": 3,
+      "updatedAt": null
+    },
+    {
+      "id": "japan-trend-signals",
+      "type": "signal_file",
+      "path": "data/japan-trend-signals.json",
+      "status": "loaded",
+      "itemCount": 3,
+      "updatedAt": null
+    }
+  ],
+  "signals": [
+    {
+      "id": "sig_github_obra_superpowers_1",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "obra/superpowers is an active AI/agent repository",
+      "summary": "An agentic skills framework & software development methodology that works.",
+      "url": "https://github.com/obra/superpowers",
+      "observedAt": "2026-07-08T02:05:15.118Z",
+      "topics": [
+        "github",
+        "oss",
+        "agent",
+        "shell"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=8874, starVelocityScore=5. Activity: pushed 1 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "sourceFile": "data/github-signals.json",
+      "score": 18,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "high_star_repo",
+        "star_growth_observed",
+        "high_star_velocity",
+        "recent_repo_activity"
+      ]
+    },
+    {
+      "id": "sig_github_langflow_ai_langflow_15",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "langflow-ai/langflow is an active AI/agent repository",
+      "summary": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+      "url": "https://github.com/langflow-ai/langflow",
+      "observedAt": "2026-07-08T02:05:15.118Z",
+      "topics": [
+        "github",
+        "oss",
+        "agent",
+        "workflow",
+        "tool-use",
+        "python"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
+      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=1196, starVelocityScore=5. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=3; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "sourceFile": "data/github-signals.json",
+      "score": 18,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "high_star_repo",
+        "star_growth_observed",
+        "high_star_velocity",
+        "recent_repo_activity"
+      ]
+    },
+    {
+      "id": "sig_github_nousresearch_hermes_agent_8",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "NousResearch/hermes-agent is an active AI/agent repository",
+      "summary": "The agent that grows with you",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "observedAt": "2026-07-08T02:05:15.118Z",
+      "topics": [
+        "github",
+        "oss",
+        "agent",
+        "python"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=6859, starVelocityScore=5. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "sourceFile": "data/github-signals.json",
+      "score": 16,
+      "scoreReasons": [
+        "has_url",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "high_star_repo",
+        "star_growth_observed",
+        "high_star_velocity",
+        "recent_repo_activity"
+      ]
+    },
+    {
+      "id": "sig_github_browser_use_browser_use_14",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "browser-use/browser-use is an active AI/agent repository",
+      "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+      "url": "https://github.com/browser-use/browser-use",
+      "observedAt": "2026-07-08T02:05:15.118Z",
+      "topics": [
+        "github",
+        "oss",
+        "agent",
+        "tool-use",
+        "python"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
+      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=4; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "sourceFile": "data/github-signals.json",
+      "score": 15,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "high_star_repo",
+        "recent_repo_activity",
+        "category_novelty"
+      ]
+    },
+    {
+      "id": "sig_product_market_mozaik_14",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "Mozaik",
+      "summary": "<p> TypeScript runtime for self-organizing AI agents </p> <p> <a href=\"https://www.producthunt.com/products/mozaik-4?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188511?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/mozaik-4",
+      "observedAt": "2026-07-08T02:05:28.907Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "agent",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=4, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "sourceFile": "data/product-market-signals.json",
+      "score": 13,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "market_signal",
+        "fresh_launch"
+      ]
+    },
+    {
+      "id": "sig_product_market_astryx_15",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "Astryx",
+      "summary": "<p> A customizable, agent-ready open-source design system </p> <p> <a href=\"https://www.producthunt.com/products/meta?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188925?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/meta",
+      "observedAt": "2026-07-08T02:05:28.907Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "agent",
+        "product-hunt",
+        "creator-tool"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=4, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "sourceFile": "data/product-market-signals.json",
+      "score": 13,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "market_signal",
+        "fresh_launch"
+      ]
+    },
+    {
+      "id": "sig_product_market_typeahead_2_0_16",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "Typeahead 2.0",
+      "summary": "<p> Private AI autocomplete for every app on your Mac </p> <p> <a href=\"https://www.producthunt.com/products/typeahead?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1186655?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/typeahead",
+      "observedAt": "2026-07-08T02:05:28.907Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "sourceFile": "data/product-market-signals.json",
+      "score": 13,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "market_signal",
+        "fresh_launch"
+      ]
+    },
+    {
+      "id": "sig_github_learnhouse_learnhouse_2",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "learnhouse/learnhouse is a rising AI-related repository",
+      "summary": "The Next-gen Open Source learning platform for everyone ✨",
+      "url": "https://github.com/learnhouse/learnhouse",
+      "observedAt": "2026-07-08T02:05:15.118Z",
+      "topics": [
+        "github",
+        "oss",
+        "typescript"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 1 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "sourceFile": "data/github-signals.json",
+      "score": 13,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "high_star_repo",
+        "recent_repo_activity"
+      ]
+    },
+    {
+      "id": "sig_github_rsxdalv_tts_webui_3",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "rsxdalv/TTS-WebUI is a rising AI-related repository",
+      "summary": "A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi Audio, Piper TTS, GPT-SoVITS, CosyVoice, XTTSv2, DIA, Kokoro, OpenVoice, ParlerTTS, Stable Audio, MMS, StyleTTS2, MAGNet, AudioGen, MusicGen, Tortoise, RVC, Vocos, Demucs, SeamlessM4T, and Bark!",
+      "url": "https://github.com/rsxdalv/TTS-WebUI",
+      "observedAt": "2026-07-08T02:05:15.118Z",
+      "topics": [
+        "github",
+        "oss",
+        "typescript"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 2 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "sourceFile": "data/github-signals.json",
+      "score": 13,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "high_star_repo",
+        "recent_repo_activity"
+      ]
+    },
+    {
+      "id": "sig_japan_trend_w_pk_8_7",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "サッカーW杯 スイスがPK戦でコロンビア破りベスト8進出",
+      "summary": "サッカーワールドカップ北中米大会、決勝トーナメント2回戦の最後の試合、スイス 対 コロンビアは、スイスが、ペナルティーキック戦の末に勝って、1954年以来、72年ぶりに準々決勝進出を決めました。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171481000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend",
+        "sports"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "sourceFile": "data/japan-trend-signals.json",
+      "score": 12,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "social_trend_signal"
+      ]
+    },
+    {
+      "id": "sig_japan_trend_9_10_1",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "台風9号 10日以降に沖縄 先島諸島接近へ 非常に強い勢力を維持",
+      "summary": "大型で非常に強い台風9号は10日・金曜日から11日・土曜日ごろにかけて、非常に強い勢力を維持したまま沖縄県の先島諸島に近づく見込みです。気象庁は一部の住宅が倒壊するような猛烈な風が吹くおそれがあるとして、8日のうちに台風対策を終えるよう呼びかけています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171421000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "sourceFile": "data/japan-trend-signals.json",
+      "score": 11,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "social_trend_signal"
+      ]
+    },
+    {
+      "id": "sig_japan_trend_ny_2",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "NY中心部のビルで柱が曲がり倒壊のおそれ 周辺が封鎖される",
+      "summary": "ニューヨーク・マンハッタンの中心部にある改修中のビルが倒壊するおそれがあることが分かり、ニューヨーク市が周辺のエリアを封鎖して住民らを避難させるなど大きな騒ぎとなっています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171501000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "sourceFile": "data/japan-trend-signals.json",
+      "score": 11,
+      "scoreReasons": [
+        "has_url",
+        "has_summary",
+        "has_topics",
+        "has_why_it_matters",
+        "has_research_note",
+        "social_trend_signal"
+      ]
+    }
+  ],
+  "trendSummary": {
+    "signalCount": 12,
+    "sourceTypes": [
+      "github_trending",
+      "japan_social_trend",
+      "product_market_watch"
+    ],
+    "topTopics": [
+      {
+        "topic": "agent",
+        "count": 6
+      },
+      {
+        "topic": "github",
+        "count": 6
+      },
+      {
+        "topic": "oss",
+        "count": 6
+      },
+      {
+        "topic": "ai",
+        "count": 3
+      },
+      {
+        "topic": "japan",
+        "count": 3
+      },
+      {
+        "topic": "launch",
+        "count": 3
+      },
+      {
+        "topic": "market",
+        "count": 3
+      },
+      {
+        "topic": "product",
+        "count": 3
+      },
+      {
+        "topic": "product-hunt",
+        "count": 3
+      },
+      {
+        "topic": "python",
+        "count": 3
+      },
+      {
+        "topic": "social-trend",
+        "count": 3
+      },
+      {
+        "topic": "tool-use",
+        "count": 2
+      }
+    ],
+    "highlights": [
+      {
+        "id": "sig_github_obra_superpowers_1",
+        "title": "obra/superpowers is an active AI/agent repository",
+        "sourceType": "github_trending",
+        "summary": "An agentic skills framework & software development methodology that works.",
+        "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts."
+      },
+      {
+        "id": "sig_github_langflow_ai_langflow_15",
+        "title": "langflow-ai/langflow is an active AI/agent repository",
+        "sourceType": "github_trending",
+        "summary": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+        "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts."
+      },
+      {
+        "id": "sig_github_nousresearch_hermes_agent_8",
+        "title": "NousResearch/hermes-agent is an active AI/agent repository",
+        "sourceType": "github_trending",
+        "summary": "The agent that grows with you",
+        "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts."
+      },
+      {
+        "id": "sig_github_browser_use_browser_use_14",
+        "title": "browser-use/browser-use is an active AI/agent repository",
+        "sourceType": "github_trending",
+        "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+        "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts."
+      },
+      {
+        "id": "sig_product_market_mozaik_14",
+        "title": "Mozaik",
+        "sourceType": "product_market_watch",
+        "summary": "<p> TypeScript runtime for self-organizing AI agents </p> <p> <a href=\"https://www.producthunt.com/products/mozaik-4?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188511?app_id=339\">Link</a> </p>",
+        "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms."
+      },
+      {
+        "id": "sig_product_market_astryx_15",
+        "title": "Astryx",
+        "sourceType": "product_market_watch",
+        "summary": "<p> A customizable, agent-ready open-source design system </p> <p> <a href=\"https://www.producthunt.com/products/meta?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188925?app_id=339\">Link</a> </p>",
+        "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms."
+      },
+      {
+        "id": "sig_product_market_typeahead_2_0_16",
+        "title": "Typeahead 2.0",
+        "sourceType": "product_market_watch",
+        "summary": "<p> Private AI autocomplete for every app on your Mac </p> <p> <a href=\"https://www.producthunt.com/products/typeahead?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1186655?app_id=339\">Link</a> </p>",
+        "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms."
+      },
+      {
+        "id": "sig_github_learnhouse_learnhouse_2",
+        "title": "learnhouse/learnhouse is a rising AI-related repository",
+        "sourceType": "github_trending",
+        "summary": "The Next-gen Open Source learning platform for everyone ✨",
+        "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts."
+      }
+    ],
+    "coverageGaps": [
+      "If Anthropic/Product Market/Japan trend signal files are missing, run npm run research:fetch in a network-enabled environment.",
+      "Google Trends Japan and some marketplace ranking pages may require manual review or a separate collector if public feeds are unavailable.",
+      "Social platform reactions such as X, Reddit, Discord, TikTok, and YouTube comments are not fetched by default."
+    ]
+  },
+  "sourceProductIndex": {
+    "path": "data/product-research/source-product-index.json",
+    "status": "loaded",
+    "updatedAt": "2026-07-08T00:44:40.676Z",
+    "entryCount": 102,
+    "sourceArchiveIndexCount": 112,
+    "valueKnowledgeCardCount": 5,
+    "purpose": "Persistent index of small rising products, hackathon projects, GitHub projects, and product-gallery launches used as idea source material for Hackbase.ai."
+  },
+  "cachePolicy": {
+    "cadence": "daily",
+    "maxAgeHours": 36,
+    "minimumSignals": 5,
+    "minimumSources": 2,
+    "fallbackMode": "If live collectors are unavailable, refresh uses existing local signal files, research-collector-input, topic radar, and source-product-index.",
+    "intendedConsumers": [
+      "judge demo generation",
+      "scheduled product generation",
+      "LLM pipeline research input",
+      "submission readiness checks"
+    ]
+  }
+}

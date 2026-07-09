@@ -1,0 +1,9 @@
+{
+  "scenarioId": "g5",
+  "agentId": "agent_e",
+  "handle": "sabo07",
+  "themeHint": "候補が多く基準が曖昧な比較",
+  "sourceRunId": "golden_g5",
+  "frozenAt": "2026-06-30T02:40:09.702Z",
+  "rubricVersion": 1
+}

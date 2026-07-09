@@ -1,0 +1,87 @@
+substitutions:
+  _REGION: asia-northeast1
+  _SERVICE: prodia-web
+  _ARTIFACT_REPO: prodia
+  # Cloud SQL / GCS / Secret 配線（Phase B）。以下の YOUR_PROJECT_ID を含む値は、
+  # デプロイ時に自分の GCP プロジェクトに合わせて --substitutions で必ず上書きすること。
+  # 例: gcloud builds submit --config cloudbuild.yaml \
+  #       --substitutions=_RUNNER_SA=runner@<project>.iam.gserviceaccount.com,\
+  #         _CLOUDSQL_INSTANCE=<project>:asia-northeast1:<instance>,\
+  #         _ARTIFACT_BUCKET=<bucket>
+  _RUNNER_SA: prodia-runner@YOUR_PROJECT_ID.iam.gserviceaccount.com
+  _CLOUDSQL_INSTANCE: YOUR_PROJECT_ID:asia-northeast1:prodia-pg
+  _DB_SECRET: database-url
+  _GEMINI_SECRET: gemini-api-key
+  _GEMINI_MODEL: gemini-2.5-flash
+  _ARTIFACT_BUCKET: prodia-artifacts-YOUR_PROJECT_ID
+
+steps:
+  - id: build-web-image
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --file
+      - apps/web/Dockerfile
+      - --tag
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/${_SERVICE}:$SHORT_SHA
+      - --tag
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/${_SERVICE}:latest
+      - apps/web
+
+  - id: push-web-image-sha
+    name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/${_SERVICE}:$SHORT_SHA
+
+  - id: push-web-image-latest
+    name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/${_SERVICE}:latest
+
+  # 定常デプロイ（Cloud SQL切替後の通常運用）。初回のCloud SQL切替は CLOUD_RUN.md の
+  # 「Safe cutover」手順（--no-traffic --tag → smoke → update-traffic）で行うこと。
+  - id: deploy-cloud-run
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE}
+      - --image
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/${_SERVICE}:$SHORT_SHA
+      - --region
+      - ${_REGION}
+      - --platform
+      - managed
+      - --allow-unauthenticated
+      - --port
+      - "8080"
+      - --service-account
+      - ${_RUNNER_SA}
+      - --add-cloudsql-instances
+      - ${_CLOUDSQL_INSTANCE}
+      - --update-secrets
+      - DATABASE_URL=${_DB_SECRET}:latest,GEMINI_API_KEY=${_GEMINI_SECRET}:latest
+      - --update-env-vars
+      # PRODIA_CONSOLE_* は運用コンソールの監視しきい値(全レーン合算)。遮断用の
+      # GEMINI_DAILY_MAX_COST_USD(レーン別)とは別枠で、二度と未設定に戻らないよう明示する。
+      - GEMINI_MODEL=${_GEMINI_MODEL},ARTIFACT_BUCKET=${_ARTIFACT_BUCKET},NODE_OPTIONS=--use-system-ca,PRODIA_CONSOLE_DAILY_COST_ALERT_USD=70,PRODIA_CONSOLE_STEP_COST_ALERT_USD=10
+
+  - id: sync-cloud-run-url-env
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        SERVICE_URL="$$(gcloud run services describe "${_SERVICE}" --region "${_REGION}" --platform managed --format='value(status.url)')"
+        gcloud run services update "${_SERVICE}" \
+          --region "${_REGION}" \
+          --platform managed \
+          --update-env-vars "NEXT_PUBLIC_SITE_URL=$${SERVICE_URL}"
+        echo "Cloud Run URL: $${SERVICE_URL}"
+
+images:
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/${_SERVICE}:$SHORT_SHA
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPO}/${_SERVICE}:latest

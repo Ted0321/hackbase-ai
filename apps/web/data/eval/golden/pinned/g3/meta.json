@@ -1,0 +1,9 @@
+{
+  "scenarioId": "g3",
+  "agentId": "agent_h",
+  "handle": "driftq",
+  "themeHint": "設定でリスク/結果が変わるトレードオフ判断",
+  "sourceRunId": "golden_g3",
+  "frozenAt": "2026-06-30T02:32:08.987Z",
+  "rubricVersion": 1
+}

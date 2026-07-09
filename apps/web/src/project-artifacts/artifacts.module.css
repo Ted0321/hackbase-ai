@@ -1,0 +1,1060 @@
+.preview {
+  display: grid;
+  gap: 10px;
+  min-height: 176px;
+  margin: 14px 0 16px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.previewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.windowDots {
+  display: flex;
+  gap: 5px;
+}
+
+.windowDots span {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--border-strong);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.column,
+.demoPanel,
+.mapCell,
+.card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.column {
+  min-height: 92px;
+  padding: 9px;
+}
+
+.triageBoard .column:first-child {
+  background: var(--success-soft);
+  border-color: var(--success);
+}
+
+.triageBoard .column:nth-child(2) {
+  background: var(--warning-soft);
+  border-color: var(--warning);
+}
+
+.triageBoard .column:nth-child(3) {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.column strong,
+.demoPanel strong,
+.mapCell strong,
+.card strong {
+  display: block;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.column span,
+.demoPanel span,
+.mapCell span,
+.card span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.roulette {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.dial {
+  display: grid;
+  place-items: center;
+  min-height: 102px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--accent);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.roulettePreview {
+  align-items: center;
+}
+
+.roulettePreview .dial,
+.rouletteStage .dial {
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+}
+
+.explainerPreview .card:first-child {
+  border-left: 4px solid var(--accent);
+}
+
+.explainerPreview .card:nth-child(2) {
+  border-left: 4px solid var(--accent);
+}
+
+.guide {
+  display: grid;
+  gap: 8px;
+}
+
+.card {
+  padding: 10px;
+}
+
+.genericPreview {
+  display: grid;
+  overflow: hidden;
+  min-height: 118px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.genericTopbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--masthead);
+  color: var(--on-dark);
+}
+
+.genericTopbar span,
+.genericTopbar strong {
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.genericTopbar span {
+  color: var(--on-dark-accent);
+}
+
+.genericTopbar strong {
+  padding: 5px 7px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.genericHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.genericHero div {
+  min-width: 0;
+}
+
+.genericHero small {
+  display: block;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.genericHero strong {
+  display: block;
+  overflow: hidden;
+  margin-top: 7px;
+  color: var(--ink);
+  font-size: var(--fs-h4);
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.genericHero span {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.genericHero i {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius);
+  background: var(--masthead);
+  color: var(--on-dark-accent);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+}
+
+.genericMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.genericMetrics span {
+  display: grid;
+  place-items: center;
+  min-height: 30px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.homePreview {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 12px;
+  margin: 14px 0 16px;
+}
+
+.filledVisual,
+.emptyVisual {
+  overflow: hidden;
+  min-height: 168px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.emptyVisual {
+  display: grid;
+  place-items: center;
+  border-style: dashed;
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.thumbTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  background: var(--masthead);
+  color: var(--on-dark-accent);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.thumbTop strong {
+  color: var(--on-dark);
+  text-transform: uppercase;
+}
+
+.thumbBody {
+  display: grid;
+  align-content: center;
+  min-height: 86px;
+  padding: 14px;
+  background: var(--surface);
+}
+
+.thumbBody strong {
+  color: var(--ink);
+  font-size: var(--fs-h4);
+  line-height: 1.25;
+}
+
+.thumbBody span {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.thumbBars {
+  display: grid;
+  gap: 7px;
+  padding: 12px 14px 14px;
+}
+
+.thumbBars i {
+  display: block;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+}
+
+.thumbBars i:nth-child(2) {
+  width: 78%;
+  background: var(--accent-soft);
+}
+
+.thumbBars i:nth-child(3) {
+  width: 52%;
+}
+
+.dashboardMock {
+  display: grid;
+  gap: 12px;
+  height: 100%;
+  min-height: 168px;
+  padding: 12px;
+  background: var(--surface);
+}
+
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  min-height: 28px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.dashboardHeader strong {
+  padding: 4px 7px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 10px;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.dashboardGrid section {
+  display: grid;
+  gap: 4px;
+  min-height: 58px;
+  padding: 9px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.dashboardGrid b {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.dashboardGrid em {
+  color: var(--ink);
+  font-size: var(--fs-h2);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.dashboardRows {
+  display: grid;
+  gap: 7px;
+}
+
+.dashboardRows span {
+  height: 11px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+}
+
+.dashboardRows span:nth-child(2) {
+  width: 84%;
+}
+
+.dashboardRows span:nth-child(3) {
+  width: 62%;
+}
+
+.genericMetrics span + span {
+  border-left: 1px solid var(--border);
+}
+
+.map {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.mapCell {
+  min-height: 64px;
+  padding: 9px;
+}
+
+.mapPreview .mapCell,
+.mapButton,
+.activeMapCell {
+  background: var(--surface);
+}
+
+.demo {
+  min-height: 520px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.triageDemo {
+  background: var(--surface-2);
+}
+
+.rouletteDemo {
+  background: var(--surface-2);
+}
+
+.explainerDemo {
+  background: var(--surface-2);
+}
+
+.mapDemo {
+  background: var(--surface-2);
+}
+
+.demoShell {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+}
+
+.demoHero {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.demoHero h2 {
+  margin-top: 8px;
+  font-size: 32px;
+}
+
+.demoHero p {
+  max-width: 620px;
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.demoTag {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.demoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.triageGrid .demoPanel:first-child {
+  border-top: 4px solid var(--success);
+}
+
+.triageGrid .demoPanel:nth-child(2) {
+  border-top: 4px solid var(--warning);
+}
+
+.triageGrid .demoPanel:nth-child(3) {
+  border-top: 4px solid var(--muted);
+}
+
+.demoPanel {
+  min-height: 170px;
+  padding: 14px;
+}
+
+.demoPanel ul {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.primaryButton,
+.tabs button,
+.toolCard,
+.mapButton,
+.activeMapCell {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  font: inherit;
+}
+
+.primaryButton {
+  min-height: 38px;
+  padding: 0 14px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.primaryButton:hover,
+.tabs button:hover,
+.toolCard:hover,
+.mapButton:hover,
+.activeMapCell {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+
+.cardStack {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.toolCard {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.toolCard:active {
+  transform: translateY(1px);
+}
+
+.toolCard span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tabs button {
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.tabs .activeTab {
+  border-color: var(--accent);
+  background: var(--surface-2);
+  color: var(--accent);
+}
+
+.explainerDemo .demoPanel {
+  max-width: 760px;
+  min-height: 260px;
+  border-left: 5px solid var(--accent);
+}
+
+.mapLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 12px;
+}
+
+.mapButton,
+.activeMapCell {
+  min-height: 118px;
+  padding: 14px;
+  text-align: left;
+}
+
+.activeMapCell {
+  color: var(--accent);
+  box-shadow: var(--shadow-card);
+}
+
+.mapButton strong,
+.activeMapCell strong {
+  display: block;
+  font-size: 15px;
+}
+
+.mapButton span,
+.activeMapCell span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.missionDemo {
+  background: var(--surface-2);
+}
+
+.missionShell {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+}
+
+.missionHero {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.missionHero h2 {
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 31px;
+  line-height: 1.18;
+}
+
+.missionHero p {
+  max-width: 720px;
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.missionScoreCard {
+  display: grid;
+  min-width: 150px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-align: right;
+}
+
+.missionScoreCard span,
+.missionScoreCard small,
+.panelEyebrow,
+.remixMission span,
+.qualityGrid span,
+.previewRepoPane span,
+.previewMissionPane span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.missionScoreCard strong {
+  color: var(--accent);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.repoControlBand {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+}
+
+.repoPicker,
+.modeTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.repoButton,
+.activeRepoButton,
+.modeTabs button,
+.missionStepButton,
+.activeMissionStep,
+.fileRow,
+.activeFileRow {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+}
+
+.repoButton,
+.activeRepoButton {
+  display: grid;
+  gap: 5px;
+  min-width: 178px;
+  padding: 10px;
+  text-align: left;
+}
+
+.repoButton strong,
+.activeRepoButton strong {
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.repoButton span,
+.activeRepoButton span {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.activeRepoButton,
+.modeTabs .activeModeTab {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: var(--shadow-card);
+}
+
+.modeTabs button {
+  min-height: 42px;
+  padding: 0 12px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.missionWorkspace {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.78fr) minmax(260px, 1fr) minmax(260px, 0.92fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.repoPreviewPanel,
+.missionTimelinePanel,
+.missionDetailPanel,
+.remixMission,
+.qualityGrid article {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.repoPreviewPanel,
+.missionTimelinePanel,
+.missionDetailPanel {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 14px;
+}
+
+.repoPreviewPanel h3,
+.missionTimelinePanel h3,
+.missionDetailPanel h3,
+.remixMission h3 {
+  color: var(--ink);
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+}
+
+.repoPreviewPanel p,
+.missionTimelinePanel p,
+.missionDetailPanel p,
+.remixMission p {
+  color: var(--muted);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.stackList,
+.missionBadges,
+.fileRefs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stackList span,
+.missionBadges span,
+.fileRefs span {
+  padding: 5px 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.fileMap,
+.missionTimeline,
+.missionDetailGrid {
+  display: grid;
+  gap: 8px;
+}
+
+.fileRow,
+.activeFileRow {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  padding: 9px;
+  text-align: left;
+}
+
+.fileRow span,
+.activeFileRow span {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.fileRow strong,
+.activeFileRow strong {
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.activeFileRow {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.missionStepButton,
+.activeMissionStep {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+}
+
+.missionStepButton > span,
+.activeMissionStep > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: var(--surface-2);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.missionStepButton strong,
+.activeMissionStep strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: var(--fs-small);
+  line-height: 1.25;
+}
+
+.missionStepButton small,
+.activeMissionStep small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.activeMissionStep {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.missionDetailGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.missionDetailGrid article {
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.missionDetailGrid span {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.missionDetailGrid p {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.remixBand {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 12px;
+}
+
+.remixMission {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-left: 5px solid var(--warning);
+}
+
+.remixMission strong {
+  color: var(--warning);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+.qualityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.qualityGrid article {
+  display: grid;
+  gap: 8px;
+  align-content: center;
+  min-height: 100px;
+  padding: 12px;
+}
+
+.qualityGrid strong {
+  color: var(--accent);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.missionPreview {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 10px;
+  min-height: 156px;
+  margin: 14px 0 16px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.previewRepoPane,
+.previewMissionPane {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.previewRepoPane strong,
+.previewMissionPane strong {
+  color: var(--ink);
+  font-size: var(--fs-small);
+  line-height: 1.25;
+}
+
+.previewRepoPane i {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.previewMissionPane {
+  border-left: 4px solid var(--accent);
+}
+
+.previewMissionPane ol {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.source {
+  overflow: auto;
+  max-height: 720px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: var(--masthead);
+  color: var(--on-dark);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .board,
+  .roulette,
+  .demoHero,
+  .demoGrid,
+  .mapLayout,
+  .missionHero,
+  .repoControlBand,
+  .missionWorkspace,
+  .remixBand,
+  .qualityGrid,
+  .missionPreview {
+    grid-template-columns: 1fr;
+  }
+}

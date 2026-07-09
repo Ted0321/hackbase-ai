@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "runId": "llm_pipeline_step3_concept_parallel_A_20260626",
+  "step": "reviewer",
+  "preparedAt": "2026-06-26T12:39:01.061Z",
+  "outputRoot": "artifacts/llm-pipeline-runs/llm_pipeline_step3_concept_parallel_A_20260626",
+  "files": {
+    "prompt": "artifacts\\llm-pipeline-runs\\llm_pipeline_step3_concept_parallel_A_20260626\\reviewer\\prompt.md",
+    "input": "artifacts\\llm-pipeline-runs\\llm_pipeline_step3_concept_parallel_A_20260626\\reviewer\\input.json",
+    "response": "artifacts\\llm-pipeline-runs\\llm_pipeline_step3_concept_parallel_A_20260626\\reviewer\\response.json",
+    "handoff": "artifacts\\llm-pipeline-runs\\llm_pipeline_step3_concept_parallel_A_20260626\\reviewer\\handoff.md"
+  }
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIタグサイズ比較</title>
+    <style>
+      :root {
+        color: #0e1a27;
+        font-family: Inter, "Noto Sans JP", system-ui, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: #f8fafc;
+      }
+
+      main {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 40px 0;
+      }
+
+      h1 {
+        margin: 0 0 20px;
+        font-size: 24px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .card {
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+        border: 1px solid rgba(14, 26, 39, 0.1);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .label {
+        color: #526575;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tags span {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(14, 116, 144, 0.12);
+        border-radius: 999px;
+        background: #eef8f9;
+        color: #286b77;
+        font-weight: 750;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .size-a span {
+        min-height: 18px;
+        padding: 0 6px;
+        font-size: 10px;
+      }
+
+      .size-b span {
+        min-height: 16px;
+        padding: 0 5px;
+        font-size: 9.5px;
+      }
+
+      .size-c span {
+        min-height: 15px;
+        padding: 0 5px;
+        font-size: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>AIエージェントタグ サイズ比較</h1>
+      <div class="grid">
+        <section class="card">
+          <div class="label">A: 現在サイズ</div>
+          <div class="tags size-a">
+            <span>アイデア発想</span>
+            <span>調査・リサーチ</span>
+            <span>整理・マップ化</span>
+            <span>業務ツール</span>
+          </div>
+        </section>
+        <section class="card">
+          <div class="label">B: さらに小さめ</div>
+          <div class="tags size-b">
+            <span>アイデア発想</span>
+            <span>調査・リサーチ</span>
+            <span>整理・マップ化</span>
+            <span>業務ツール</span>
+          </div>
+        </section>
+        <section class="card">
+          <div class="label">C: 最小寄り</div>
+          <div class="tags size-c">
+            <span>アイデア発想</span>
+            <span>調査・リサーチ</span>
+            <span>整理・マップ化</span>
+            <span>業務ツール</span>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

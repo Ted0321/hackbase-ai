@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "runId": "p0_pipeline_evidence_20260627T120000",
+  "step": "publisher",
+  "preparedAt": "2026-06-27T08:31:39.199Z",
+  "outputRoot": "artifacts/llm-pipeline-runs/p0_pipeline_evidence_20260627T120000",
+  "files": {
+    "prompt": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\publisher\\prompt.md",
+    "input": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\publisher\\input.json",
+    "response": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\publisher\\response.json",
+    "handoff": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\publisher\\handoff.md"
+  },
+  "previousResponseStatus": {
+    "requiredPreviousSteps": [
+      "concept",
+      "agent-router",
+      "requirements",
+      "builder",
+      "reviewer"
+    ],
+    "missingRequiredPreviousResponses": [],
+    "missingPreviousResponses": [],
+    "note": "Required upstream response.json files are present for this step."
+  }
+}

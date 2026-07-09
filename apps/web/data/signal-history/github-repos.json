@@ -1,0 +1,684 @@
+{
+  "version": "github-repo-history.v1",
+  "updatedAt": "2026-07-08T02:05:15.118Z",
+  "repos": {
+    "obra/superpowers": {
+      "fullName": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "observations": [
+        {
+          "observedAt": "2026-06-24T14:46:41.812Z",
+          "stars": 237552,
+          "forks": 21078,
+          "openIssues": 282
+        },
+        {
+          "observedAt": "2026-06-24T15:59:02.181Z",
+          "stars": 237607,
+          "forks": 21080,
+          "openIssues": 282
+        },
+        {
+          "observedAt": "2026-06-26T02:26:39.344Z",
+          "stars": 238759,
+          "forks": 21178,
+          "openIssues": 285
+        },
+        {
+          "observedAt": "2026-06-26T03:29:50.878Z",
+          "stars": 238807,
+          "forks": 21180,
+          "openIssues": 285
+        },
+        {
+          "observedAt": "2026-06-27T15:14:36.751Z",
+          "stars": 239878,
+          "forks": 21280,
+          "openIssues": 286
+        },
+        {
+          "observedAt": "2026-06-27T15:20:34.355Z",
+          "stars": 239881,
+          "forks": 21281,
+          "openIssues": 286
+        },
+        {
+          "observedAt": "2026-06-27T15:22:09.525Z",
+          "stars": 239882,
+          "forks": 21281,
+          "openIssues": 286
+        },
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 248670,
+          "forks": 22083,
+          "openIssues": 342
+        },
+        {
+          "observedAt": "2026-07-08T00:21:48.024Z",
+          "stars": 248671,
+          "forks": 22083,
+          "openIssues": 342
+        },
+        {
+          "observedAt": "2026-07-08T00:24:59.829Z",
+          "stars": 248672,
+          "forks": 22083,
+          "openIssues": 342
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 248727,
+          "forks": 22088,
+          "openIssues": 342
+        },
+        {
+          "observedAt": "2026-07-08T02:05:15.118Z",
+          "stars": 248756,
+          "forks": 22091,
+          "openIssues": 342
+        }
+      ]
+    },
+    "NousResearch/hermes-agent": {
+      "fullName": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "observations": [
+        {
+          "observedAt": "2026-06-24T14:46:41.812Z",
+          "stars": 201703,
+          "forks": 36027,
+          "openIssues": 23263
+        },
+        {
+          "observedAt": "2026-06-24T15:59:02.181Z",
+          "stars": 201766,
+          "forks": 36045,
+          "openIssues": 23298
+        },
+        {
+          "observedAt": "2026-06-26T02:26:39.344Z",
+          "stars": 203118,
+          "forks": 36364,
+          "openIssues": 23698
+        },
+        {
+          "observedAt": "2026-06-26T03:29:50.878Z",
+          "stars": 203163,
+          "forks": 36381,
+          "openIssues": 23709
+        },
+        {
+          "observedAt": "2026-06-27T15:14:36.751Z",
+          "stars": 204149,
+          "forks": 36690,
+          "openIssues": 23963
+        },
+        {
+          "observedAt": "2026-06-27T15:20:34.355Z",
+          "stars": 204154,
+          "forks": 36690,
+          "openIssues": 23965
+        },
+        {
+          "observedAt": "2026-06-27T15:22:09.525Z",
+          "stars": 204156,
+          "forks": 36690,
+          "openIssues": 23965
+        },
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 210972,
+          "forks": 38733,
+          "openIssues": 26638
+        },
+        {
+          "observedAt": "2026-07-08T00:24:59.829Z",
+          "stars": 210973,
+          "forks": 38732,
+          "openIssues": 26630
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 210999,
+          "forks": 38736,
+          "openIssues": 26642
+        },
+        {
+          "observedAt": "2026-07-08T02:05:15.118Z",
+          "stars": 211015,
+          "forks": 38739,
+          "openIssues": 26654
+        }
+      ]
+    },
+    "Snailclimb/JavaGuide": {
+      "fullName": "Snailclimb/JavaGuide",
+      "url": "https://github.com/Snailclimb/JavaGuide",
+      "observations": [
+        {
+          "observedAt": "2026-06-24T14:46:41.812Z",
+          "stars": 156586,
+          "forks": 46152,
+          "openIssues": 60
+        },
+        {
+          "observedAt": "2026-06-26T02:26:39.344Z",
+          "stars": 156616,
+          "forks": 46145,
+          "openIssues": 57
+        },
+        {
+          "observedAt": "2026-06-26T03:29:50.878Z",
+          "stars": 156621,
+          "forks": 46146,
+          "openIssues": 57
+        },
+        {
+          "observedAt": "2026-06-27T15:14:36.751Z",
+          "stars": 156649,
+          "forks": 46149,
+          "openIssues": 58
+        },
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 156860,
+          "forks": 46163,
+          "openIssues": 57
+        }
+      ]
+    },
+    "langflow-ai/langflow": {
+      "fullName": "langflow-ai/langflow",
+      "url": "https://github.com/langflow-ai/langflow",
+      "observations": [
+        {
+          "observedAt": "2026-06-24T14:46:41.812Z",
+          "stars": 150029,
+          "forks": 9329,
+          "openIssues": 945
+        },
+        {
+          "observedAt": "2026-06-26T02:26:39.344Z",
+          "stars": 150094,
+          "forks": 9344,
+          "openIssues": 964
+        },
+        {
+          "observedAt": "2026-06-26T03:29:50.878Z",
+          "stars": 150098,
+          "forks": 9346,
+          "openIssues": 966
+        },
+        {
+          "observedAt": "2026-06-27T15:14:36.751Z",
+          "stars": 150126,
+          "forks": 9355,
+          "openIssues": 991
+        },
+        {
+          "observedAt": "2026-07-08T00:21:48.024Z",
+          "stars": 151317,
+          "forks": 9470,
+          "openIssues": 972
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 151319,
+          "forks": 9470,
+          "openIssues": 974
+        },
+        {
+          "observedAt": "2026-07-08T02:05:15.118Z",
+          "stars": 151322,
+          "forks": 9470,
+          "openIssues": 974
+        }
+      ]
+    },
+    "langgenius/dify": {
+      "fullName": "langgenius/dify",
+      "url": "https://github.com/langgenius/dify",
+      "observations": [
+        {
+          "observedAt": "2026-06-24T14:46:41.812Z",
+          "stars": 146434,
+          "forks": 23034,
+          "openIssues": 772
+        },
+        {
+          "observedAt": "2026-06-26T02:26:39.344Z",
+          "stars": 146584,
+          "forks": 23067,
+          "openIssues": 805
+        },
+        {
+          "observedAt": "2026-06-26T03:29:50.878Z",
+          "stars": 146590,
+          "forks": 23070,
+          "openIssues": 806
+        },
+        {
+          "observedAt": "2026-06-27T15:14:36.751Z",
+          "stars": 146743,
+          "forks": 23116,
+          "openIssues": 834
+        },
+        {
+          "observedAt": "2026-07-08T00:22:02.789Z",
+          "stars": 148080,
+          "forks": 23325,
+          "openIssues": 851
+        }
+      ]
+    },
+    "x1xhlol/system-prompts-and-models-of-ai-tools": {
+      "fullName": "x1xhlol/system-prompts-and-models-of-ai-tools",
+      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+      "observations": [
+        {
+          "observedAt": "2026-06-27T15:14:36.751Z",
+          "stars": 141232,
+          "forks": 34757,
+          "openIssues": 154
+        },
+        {
+          "observedAt": "2026-07-08T00:22:02.789Z",
+          "stars": 141655,
+          "forks": 34800,
+          "openIssues": 155
+        }
+      ]
+    },
+    "langchain-ai/langchain": {
+      "fullName": "langchain-ai/langchain",
+      "url": "https://github.com/langchain-ai/langchain",
+      "observations": [
+        {
+          "observedAt": "2026-06-27T15:14:36.751Z",
+          "stars": 140326,
+          "forks": 23293,
+          "openIssues": 412
+        },
+        {
+          "observedAt": "2026-06-27T15:20:34.355Z",
+          "stars": 140327,
+          "forks": 23293,
+          "openIssues": 412
+        },
+        {
+          "observedAt": "2026-07-08T00:22:02.789Z",
+          "stars": 141219,
+          "forks": 23474,
+          "openIssues": 406
+        }
+      ]
+    },
+    "msitarzewski/agency-agents": {
+      "fullName": "msitarzewski/agency-agents",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "observations": [
+        {
+          "observedAt": "2026-06-27T15:14:36.751Z",
+          "stars": 116160,
+          "forks": 19035,
+          "openIssues": 85
+        },
+        {
+          "observedAt": "2026-06-27T15:20:34.355Z",
+          "stars": 116163,
+          "forks": 19037,
+          "openIssues": 85
+        }
+      ]
+    },
+    "FurkanGozukara/Stable-Diffusion": {
+      "fullName": "FurkanGozukara/Stable-Diffusion",
+      "url": "https://github.com/FurkanGozukara/Stable-Diffusion",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 2732,
+          "forks": 369,
+          "openIssues": 18
+        }
+      ]
+    },
+    "rsxdalv/TTS-WebUI": {
+      "fullName": "rsxdalv/TTS-WebUI",
+      "url": "https://github.com/rsxdalv/TTS-WebUI",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 3191,
+          "forks": 325,
+          "openIssues": 107
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 3191,
+          "forks": 325,
+          "openIssues": 107
+        }
+      ]
+    },
+    "lutzroeder/netron": {
+      "fullName": "lutzroeder/netron",
+      "url": "https://github.com/lutzroeder/netron",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 33192,
+          "forks": 3151,
+          "openIssues": 18
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 33192,
+          "forks": 3151,
+          "openIssues": 18
+        },
+        {
+          "observedAt": "2026-07-08T02:05:15.118Z",
+          "stars": 33193,
+          "forks": 3151,
+          "openIssues": 18
+        }
+      ]
+    },
+    "Dujltqzv/Some-Many-Books": {
+      "fullName": "Dujltqzv/Some-Many-Books",
+      "url": "https://github.com/Dujltqzv/Some-Many-Books",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 20993,
+          "forks": 2068,
+          "openIssues": 10
+        }
+      ]
+    },
+    "K-Dense-AI/scientific-agent-skills": {
+      "fullName": "K-Dense-AI/scientific-agent-skills",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 30407,
+          "forks": 3062,
+          "openIssues": 39
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 30409,
+          "forks": 3062,
+          "openIssues": 39
+        },
+        {
+          "observedAt": "2026-07-08T02:05:15.118Z",
+          "stars": 30410,
+          "forks": 3062,
+          "openIssues": 39
+        }
+      ]
+    },
+    "Significant-Gravitas/AutoGPT": {
+      "fullName": "Significant-Gravitas/AutoGPT",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 185423,
+          "forks": 46122,
+          "openIssues": 470
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 185428,
+          "forks": 46123,
+          "openIssues": 470
+        },
+        {
+          "observedAt": "2026-07-08T02:05:15.118Z",
+          "stars": 185427,
+          "forks": 46123,
+          "openIssues": 471
+        }
+      ]
+    },
+    "learnhouse/learnhouse": {
+      "fullName": "learnhouse/learnhouse",
+      "url": "https://github.com/learnhouse/learnhouse",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 1824,
+          "forks": 393,
+          "openIssues": 15
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 1825,
+          "forks": 393,
+          "openIssues": 15
+        }
+      ]
+    },
+    "NeptuneHub/AudioMuse-AI": {
+      "fullName": "NeptuneHub/AudioMuse-AI",
+      "url": "https://github.com/NeptuneHub/AudioMuse-AI",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 2115,
+          "forks": 123,
+          "openIssues": 16
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 2115,
+          "forks": 123,
+          "openIssues": 16
+        }
+      ]
+    },
+    "DayuanJiang/next-ai-draw-io": {
+      "fullName": "DayuanJiang/next-ai-draw-io",
+      "url": "https://github.com/DayuanJiang/next-ai-draw-io",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 32923,
+          "forks": 3431,
+          "openIssues": 166
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 32925,
+          "forks": 3431,
+          "openIssues": 166
+        },
+        {
+          "observedAt": "2026-07-08T02:05:15.118Z",
+          "stars": 32927,
+          "forks": 3430,
+          "openIssues": 166
+        }
+      ]
+    },
+    "skills/secure-code-game": {
+      "fullName": "skills/secure-code-game",
+      "url": "https://github.com/skills/secure-code-game",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 2780,
+          "forks": 366,
+          "openIssues": 1
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 2780,
+          "forks": 366,
+          "openIssues": 1
+        }
+      ]
+    },
+    "ai4s-research/awesome-ai-for-science": {
+      "fullName": "ai4s-research/awesome-ai-for-science",
+      "url": "https://github.com/ai4s-research/awesome-ai-for-science",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 1738,
+          "forks": 201,
+          "openIssues": 56
+        }
+      ]
+    },
+    "browser-use/browser-use": {
+      "fullName": "browser-use/browser-use",
+      "url": "https://github.com/browser-use/browser-use",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 103341,
+          "forks": 11437,
+          "openIssues": 288
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 103347,
+          "forks": 11436,
+          "openIssues": 288
+        },
+        {
+          "observedAt": "2026-07-08T02:05:15.118Z",
+          "stars": 103352,
+          "forks": 11436,
+          "openIssues": 288
+        }
+      ]
+    },
+    "ai-infra-curriculum/ai-infra-engineer-learning": {
+      "fullName": "ai-infra-curriculum/ai-infra-engineer-learning",
+      "url": "https://github.com/ai-infra-curriculum/ai-infra-engineer-learning",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:20:15.429Z",
+          "stars": 1435,
+          "forks": 234,
+          "openIssues": 1
+        }
+      ]
+    },
+    "mohi-devhub/antivibe": {
+      "fullName": "mohi-devhub/antivibe",
+      "url": "https://github.com/mohi-devhub/antivibe",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:21:48.024Z",
+          "stars": 653,
+          "forks": 42,
+          "openIssues": 2
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 653,
+          "forks": 42,
+          "openIssues": 2
+        }
+      ]
+    },
+    "Card-Forge/forge": {
+      "fullName": "Card-Forge/forge",
+      "url": "https://github.com/Card-Forge/forge",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:21:48.024Z",
+          "stars": 2503,
+          "forks": 985,
+          "openIssues": 589
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 2503,
+          "forks": 985,
+          "openIssues": 589
+        }
+      ]
+    },
+    "aipoch/medical-research-skills": {
+      "fullName": "aipoch/medical-research-skills",
+      "url": "https://github.com/aipoch/medical-research-skills",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:21:48.024Z",
+          "stars": 1314,
+          "forks": 88,
+          "openIssues": 3
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 1314,
+          "forks": 88,
+          "openIssues": 3
+        }
+      ]
+    },
+    "robocode-dev/tank-royale": {
+      "fullName": "robocode-dev/tank-royale",
+      "url": "https://github.com/robocode-dev/tank-royale",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:21:48.024Z",
+          "stars": 254,
+          "forks": 56,
+          "openIssues": 5
+        },
+        {
+          "observedAt": "2026-07-08T01:40:06.095Z",
+          "stars": 254,
+          "forks": 56,
+          "openIssues": 5
+        }
+      ]
+    },
+    "DanielPodolsky/ownyourcode": {
+      "fullName": "DanielPodolsky/ownyourcode",
+      "url": "https://github.com/DanielPodolsky/ownyourcode",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:22:02.789Z",
+          "stars": 198,
+          "forks": 12,
+          "openIssues": 4
+        }
+      ]
+    },
+    "Li-Evan/Bloom": {
+      "fullName": "Li-Evan/Bloom",
+      "url": "https://github.com/Li-Evan/Bloom",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:22:02.789Z",
+          "stars": 190,
+          "forks": 30,
+          "openIssues": 1
+        }
+      ]
+    },
+    "ATOM00blue/machine-learning-library": {
+      "fullName": "ATOM00blue/machine-learning-library",
+      "url": "https://github.com/ATOM00blue/machine-learning-library",
+      "observations": [
+        {
+          "observedAt": "2026-07-08T00:22:02.789Z",
+          "stars": 145,
+          "forks": 14,
+          "openIssues": 0
+        }
+      ]
+    }
+  }
+}

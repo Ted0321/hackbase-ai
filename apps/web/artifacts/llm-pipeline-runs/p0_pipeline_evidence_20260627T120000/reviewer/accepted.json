@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "runId": "p0_pipeline_evidence_20260627T120000",
+  "step": "reviewer",
+  "acceptedAt": "2026-06-27T08:31:24.794Z",
+  "sourceResponsePath": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\reviewer\\codex-materialized-response.json",
+  "targetResponsePath": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\reviewer\\response.json",
+  "note": "This file records that a manual LLM response was accepted for the pipeline step."
+}

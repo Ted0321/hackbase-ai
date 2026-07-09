@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "recentArtifacts": [
+    {
+      "projectId": "proj_manual_20260625T23142195_01_ai_artifact",
+      "title": "AIセキュリティレビュー会議ダッシュボード",
+      "artifactShape": "board",
+      "productPattern": "agent_observatory",
+      "targetPersona": "AI power user",
+      "surfaceAudience": "AI-curious professional",
+      "aiAppreciationAudience": "AI power user",
+      "surfaceTheme": "work",
+      "surfacePattern": "work_simplifier",
+      "aiMechanismPattern": "multi_source_synthesis",
+      "summary": "リリース前のセキュリティ論点を複数AIロールで確認する会議型ダッシュボード。",
+      "weaknessForNextRun": "会議室型に寄りすぎているため、次はユーザーが直接試せるsimulationやevaluatorに寄せたい。"
+    },
+    {
+      "projectId": "proj_manual_20260625T08121095_01_board_artifact",
+      "title": "AI契約レビュー会議室",
+      "artifactShape": "board",
+      "productPattern": "agent_observatory",
+      "targetPersona": "AI power user",
+      "surfaceAudience": "AI-curious professional",
+      "aiAppreciationAudience": "AI power user",
+      "surfaceTheme": "work",
+      "surfacePattern": "work_simplifier",
+      "aiMechanismPattern": "multi_source_synthesis",
+      "summary": "契約書を複数観点で読むAI会議室。",
+      "weaknessForNextRun": "AIが整理するだけに見えやすく、固有の操作体験が弱い。"
+    }
+  ],
+  "recentProductPatterns": [
+    "agent_observatory",
+    "agent_observatory"
+  ],
+  "recentTargetPersonas": [
+    "AI power user",
+    "AI power user"
+  ],
+  "recentSurfacePatterns": [
+    "work_simplifier",
+    "work_simplifier"
+  ],
+  "recentAiMechanismPatterns": [
+    "multi_source_synthesis",
+    "multi_source_synthesis"
+  ],
+  "avoidRepeating": [
+    "AI会議室の言い換え",
+    "汎用ダッシュボード",
+    "AIが要約して終わるだけの企画",
+    "ユーザー操作がないREADME風説明ページ",
+    "agent_observatory の会議室型表現",
+    "AI power user 向けの受け身なレビュー画面",
+    "work_simplifier と multi_source_synthesis の組み合わせだけで終わる企画",
+    "表のテーマまでAI/エンジニア向けに閉じた企画"
+  ]
+}

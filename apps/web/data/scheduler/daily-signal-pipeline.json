@@ -1,0 +1,63 @@
+{
+  "version": "daily-signal-pipeline.v1",
+  "scheduleName": "daily-signal-pipeline",
+  "intervalHours": 24,
+  "source": "github",
+  "planner": "deterministic",
+  "limit": 2,
+  "history": [
+    {
+      "startedAt": "2026-06-24T15:59:00.043Z",
+      "status": "completed",
+      "source": "github",
+      "planner": "deterministic",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-24T15:59:04.925Z",
+      "runId": "run_signal_plan_20260624T155903"
+    },
+    {
+      "startedAt": "2026-06-24T15:58:00.688Z",
+      "completedAt": "2026-06-24T15:58:00.688Z",
+      "status": "skipped",
+      "source": "github",
+      "planner": "deterministic",
+      "reason": "Not due until 2026-06-25T15:45:10.847Z"
+    },
+    {
+      "startedAt": "2026-06-24T15:45:20.106Z",
+      "completedAt": "2026-06-24T15:45:20.106Z",
+      "status": "skipped",
+      "source": "openai",
+      "planner": "deterministic",
+      "reason": "Not due until 2026-06-25T15:45:10.847Z"
+    },
+    {
+      "startedAt": "2026-06-24T15:45:05.872Z",
+      "status": "completed",
+      "source": "openai",
+      "planner": "deterministic",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-24T15:45:10.847Z",
+      "runId": "run_signal_plan_20260624T154509"
+    }
+  ],
+  "nextDueAt": "2026-06-25T15:59:04.925Z",
+  "lastStartedAt": "2026-06-24T15:59:00.043Z",
+  "lastCompletedAt": "2026-06-24T15:59:04.925Z",
+  "lastRunId": "run_signal_plan_20260624T155903",
+  "lastStatus": "completed",
+  "rotationSources": [
+    "openai",
+    "github",
+    "google",
+    "hn"
+  ],
+  "notifications": [
+    {
+      "createdAt": "2026-06-24T15:59:04.925Z",
+      "level": "info",
+      "message": "Daily scheduler completed with github.",
+      "runId": "run_signal_plan_20260624T155903"
+    }
+  ]
+}

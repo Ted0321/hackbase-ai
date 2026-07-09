@@ -1,0 +1,193 @@
+{
+  "version": 2,
+  "updatedAt": "2026-06-26",
+  "sourceGroups": [
+    {
+      "id": "recent_hackathon_winners",
+      "lane": "product_market_watch",
+      "priority": "must",
+      "depth": "deep",
+      "sources": [
+        {
+          "name": "Devpost hackathon projects",
+          "url": "https://devpost.com/hackathons",
+          "checkFor": [
+            "recent winners",
+            "finalists",
+            "demoable mechanisms",
+            "small interactive artifacts",
+            "judge criteria"
+          ],
+          "notes": "Primary source for hackathon-style product seeds. Preserve award context, project URL, demo/repo links, input-output transformation, and anti-clone boundary."
+        },
+        {
+          "name": "AI hackathon winner pages",
+          "url": "https://www.google.com/search?q=recent+AI+hackathon+winners",
+          "checkFor": [
+            "recent AI hackathon winners",
+            "student or maker prototypes",
+            "civic/education/creative demos",
+            "judge reactions"
+          ],
+          "notes": "Use only public result pages and primary hackathon/showcase pages. Do not treat sponsor platforms as source products."
+        },
+        {
+          "name": "community, university, and company demo showcases",
+          "url": "https://www.google.com/search?q=AI+hackathon+demo+showcase+projects",
+          "checkFor": [
+            "demo day projects",
+            "prototype galleries",
+            "small but sharp mechanisms",
+            "before-after transformations"
+          ],
+          "notes": "Good for non-obvious small ideas. Record uncertainty if award status is unclear."
+        }
+      ]
+    },
+    {
+      "id": "github_recent_momentum",
+      "lane": "tech_frontier",
+      "priority": "must",
+      "depth": "deep",
+      "sources": [
+        {
+          "name": "GitHub Trending",
+          "url": "https://github.com/trending",
+          "checkFor": [
+            "recently rising repositories",
+            "small-to-mid-size repos",
+            "active releases",
+            "clear demos or screenshots",
+            "product-like workflows"
+          ],
+          "notes": "Prefer recent momentum and demoable behavior over total star count. Avoid already-canonical mega-products."
+        },
+        {
+          "name": "GitHub Search",
+          "url": "https://api.github.com/search/repositories",
+          "checkFor": [
+            "rapid star growth",
+            "recent pushes",
+            "AI agents",
+            "devtools",
+            "education tools",
+            "simulation tools",
+            "creative utilities"
+          ],
+          "notes": "Use public metadata only. Preserve query, stars, forks, issues, pushed_at, topics, and why the repo is small/rising."
+        },
+        {
+          "name": "Hacker News Show HN / Launch HN",
+          "url": "https://news.ycombinator.com/",
+          "checkFor": [
+            "new repositories",
+            "developer reaction",
+            "product-like OSS",
+            "small tools with discussion"
+          ],
+          "notes": "Use story metadata and linked repo/product pages by default. Do not ingest long comment bodies unless explicitly approved."
+        }
+      ]
+    },
+    {
+      "id": "product_gallery_rising",
+      "lane": "product_market_watch",
+      "priority": "must",
+      "depth": "market_scan",
+      "sources": [
+        {
+          "name": "Product Hunt launches",
+          "url": "https://www.producthunt.com/",
+          "checkFor": [
+            "small product launches",
+            "AI/creator/education/civic tools",
+            "upvotes or comments",
+            "sharp positioning",
+            "visible demo"
+          ],
+          "notes": "Capture metadata, positioning, and audience reaction. Do not use already dominant products as source cards."
+        },
+        {
+          "name": "Hugging Face Spaces",
+          "url": "https://huggingface.co/spaces",
+          "checkFor": [
+            "public demos",
+            "playful AI experiments",
+            "education or visualization tools",
+            "small interactions with visible outputs"
+          ],
+          "notes": "Strong source for small interactive AI demos. Preserve task, input, output, likes/usage signals when visible."
+        },
+        {
+          "name": "Indie maker launches and product galleries",
+          "url": "https://www.indiehackers.com/",
+          "checkFor": [
+            "small product launches",
+            "maker traction",
+            "narrow pain-to-tool products",
+            "demoable workflow"
+          ],
+          "notes": "Use as qualitative market signal, not proof of market size."
+        },
+        {
+          "name": "AI tool directories and public product galleries",
+          "url": "https://www.google.com/search?q=AI+tool+directory+new+launches",
+          "checkFor": [
+            "new small AI tools",
+            "gallery placement",
+            "clear product pages",
+            "visible examples"
+          ],
+          "notes": "Directory entries are weak unless they link to a live demo, product page, or clear public reaction."
+        }
+      ]
+    },
+    {
+      "id": "remix_target_context",
+      "lane": "social_trend",
+      "priority": "could",
+      "depth": "broad",
+      "sources": [
+        {
+          "name": "Google Trends / current events",
+          "url": "https://trends.google.com/",
+          "checkFor": [
+            "seasonal themes",
+            "sports/culture spikes",
+            "education/lifestyle behavior",
+            "public events"
+          ],
+          "notes": "Use only as remix target context. Do not let broad trends replace small product source cards."
+        },
+        {
+          "name": "public civic and education context",
+          "url": "https://www.google.com/search?q=civic+technology+education+public+data+trends",
+          "checkFor": [
+            "recurring civic needs",
+            "education friction",
+            "public data contexts",
+            "local life workflows"
+          ],
+          "notes": "Useful for target themes after a small product value core has been selected."
+        }
+      ]
+    }
+  ],
+  "excludedAsSourceProductCards": [
+    "NotebookLM",
+    "Cursor",
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Perplexity",
+    "GitHub Copilot",
+    "Lovable",
+    "v0",
+    "Bolt",
+    "Replit",
+    "Figma",
+    "Notion",
+    "Slack",
+    "Linear"
+  ]
+}

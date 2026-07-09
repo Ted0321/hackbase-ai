@@ -1,0 +1,714 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Run {
+  id                    String    @id
+  status                String
+  triggerType           String
+  actorType             String    @default("system")
+  actorId               String?
+  actorName             String?
+  autonomyLevel         String    @default("manual_seed")
+  approvalRequired      Boolean   @default(false)
+  approvedByType        String?
+  approvedById          String?
+  approvedByName        String?
+  approvedAt            DateTime?
+  humanInstructionId    String?
+  humanOwnerType        String?
+  humanOwnerId          String?
+  humanOwnerName        String?
+  sourceInteractionType String?
+  toolPolicyJson        String?
+  sandboxMode           String?
+  costSummaryJson       String?
+  startedAt             DateTime?
+  completedAt           DateTime?
+  selectedThemeId       String?
+  generatedProjectCount Int       @default(0)
+  publishedProjectCount Int       @default(0)
+  failedProjectCount    Int       @default(0)
+  summary               String?
+  errorMessage          String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  signals          Signal[]
+  themeCandidates  ThemeCandidate[]
+  themes           Theme[]
+  projects         Project[]
+  validations      Validation[]
+  artifacts        Artifact[]
+  events           RunEvent[]
+  validationChecks ValidationCheck[]
+
+  @@index([status])
+  @@index([triggerType])
+  @@index([actorType])
+  @@index([autonomyLevel])
+  @@index([humanInstructionId])
+  @@index([humanOwnerType])
+  @@index([humanOwnerId])
+  @@index([sourceInteractionType])
+}
+
+model SchedulerRun {
+  id            String    @id
+  scheduleName  String
+  status        String
+  source        String
+  planner       String
+  limit         Int
+  intervalHours Int
+  forced        Boolean   @default(false)
+  dryRun        Boolean   @default(false)
+  reason        String?
+  runId         String?
+  errorMessage  String?
+  startedAt     DateTime
+  completedAt   DateTime?
+  nextDueAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([scheduleName])
+  @@index([status])
+  @@index([source])
+  @@index([planner])
+  @@index([runId])
+  @@index([startedAt])
+}
+
+model SchedulerState {
+  key       String   @id
+  scope     String
+  version   String?
+  stateJson String
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  @@index([scope])
+}
+
+// B-3: feedback guidance（改善ループの「反応→次生成」注入データ）をDB正本化。
+// Cloud Run の FS 揮発で data/feedback/latest-guidance.json が消えるのを防ぐ。
+// SchedulerState 同様の keyed singleton（既定 key="latest" を upsert）。
+model FeedbackGuidance {
+  key          String   @id
+  version      Int      @default(1)
+  generatedAt  DateTime
+  window       String
+  guidanceJson String
+  updatedAt    DateTime @updatedAt
+  createdAt    DateTime @default(now())
+
+  @@index([generatedAt])
+}
+
+model Signal {
+  id          String   @id
+  runId       String
+  sourceType  String
+  title       String
+  body        String?
+  url         String?
+  collectedAt DateTime
+  createdAt   DateTime @default(now())
+
+  run Run @relation(fields: [runId], references: [id])
+
+  @@index([runId])
+}
+
+model ThemeCandidate {
+  id                 String   @id
+  runId              String
+  signalId           String?
+  title              String
+  problemStatement   String
+  prototypeQuestion  String
+  expectedUsers      String?
+  expectedCategories String?
+  whyNow             String?
+  riskNotes          String?
+  evaluationScores   String?
+  selected           Boolean  @default(false)
+  rejectionReason    String?
+  createdAt          DateTime @default(now())
+
+  run    Run     @relation(fields: [runId], references: [id])
+  themes Theme[]
+
+  @@index([runId])
+  @@index([selected])
+}
+
+model Theme {
+  id                String   @id
+  runId             String
+  candidateId       String?
+  title             String
+  sourceSignals     String?
+  problemStatement  String
+  prototypeQuestion String
+  selectionReason   String
+  riskNotes         String?
+  aiBranchingHints  String
+  status            String
+  selectedAt        DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  run       Run             @relation(fields: [runId], references: [id])
+  candidate ThemeCandidate? @relation(fields: [candidateId], references: [id])
+  projects  Project[]
+  themeTags ThemeTag[]
+
+  @@index([runId])
+  @@index([status])
+}
+
+model Agent {
+  id                   String   @id
+  code                 String   @unique
+  name                 String
+  oneLiner             String
+  primaryValue         String
+  primaryCategoryId    String
+  secondaryCategoryId  String?
+  themeDiscoveryPolicy String
+  prototypingPolicy    String
+  descriptionTone      String?
+  avoidPolicy          String?
+  active               Boolean  @default(true)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  primaryCategory   Category  @relation("PrimaryAgentCategory", fields: [primaryCategoryId], references: [id])
+  secondaryCategory Category? @relation("SecondaryAgentCategory", fields: [secondaryCategoryId], references: [id])
+  projects          Project[]
+}
+
+model AgentOperatingContract {
+  agentId                 String    @id
+  version                 Int       @default(1)
+  status                  String
+  role                    String    @default("creator")
+  contractJson            String
+  schedulingPolicyJson    String
+  interactionPolicyJson   String?
+  activationChecklistJson String?
+  source                  String    @default("admin_console")
+  updatedByType           String    @default("human")
+  updatedById             String?
+  updatedByName           String?
+  activatedAt             DateTime?
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+
+  @@index([status])
+  @@index([role])
+  @@index([source])
+  @@index([updatedAt])
+}
+
+model Category {
+  id          String   @id
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  projects                Project[]
+  primaryCategoryAgents   Agent[]   @relation("PrimaryAgentCategory")
+  secondaryCategoryAgents Agent[]   @relation("SecondaryAgentCategory")
+}
+
+model Project {
+  id                    String    @id
+  runId                 String
+  themeId               String
+  agentId               String
+  categoryId            String
+  title                 String
+  oneLiner              String
+  shortTagline          String?
+  concept               String?
+  useCase               String
+  whatWasTried          String
+  howItRuns             String
+  nextGrowth            String
+  status                String
+  validationStatus      String?
+  createdByType         String    @default("agent")
+  createdById           String?
+  createdByName         String?
+  approvalRequired      Boolean   @default(false)
+  approvedByType        String?
+  approvedById          String?
+  approvedByName        String?
+  approvedAt            DateTime?
+  publishedByType       String?
+  publishedById         String?
+  publishedByName       String?
+  publishDecision       String    @default("pending")
+  publishDecisionReason String?
+  featured              Boolean   @default(false)
+  artifactRoot          String
+  thumbnailPath         String?
+  publishedAt           DateTime?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  run              Run               @relation(fields: [runId], references: [id])
+  theme            Theme             @relation(fields: [themeId], references: [id])
+  agent            Agent             @relation(fields: [agentId], references: [id])
+  category         Category          @relation(fields: [categoryId], references: [id])
+  validations      Validation[]
+  artifacts        Artifact[]
+  projectTags      ProjectTag[]
+  events           RunEvent[]
+  validationChecks ValidationCheck[]
+
+  @@index([runId])
+  @@index([themeId])
+  @@index([agentId])
+  @@index([status])
+  @@index([createdByType])
+  @@index([publishedByType])
+  @@index([publishDecision])
+  @@index([featured])
+  @@index([publishedAt])
+}
+
+model Validation {
+  id                       String   @id
+  projectId                String
+  runId                    String
+  status                   String
+  actorType                String   @default("validation_worker")
+  actorId                  String?
+  actorName                String?
+  buildStatus              String
+  runStatus                String
+  screenshotStatus         String
+  metadataStatus           String
+  riskStatus               String
+  duplicateStatus          String?
+  grainStatus              String?
+  secretStatus             String?
+  externalDependencyStatus String?
+  promptInjectionStatus    String?
+  readmeStatus             String?
+  displayStatus            String?
+  summary                  String?
+  errorMessage             String?
+  checkedAt                DateTime
+  createdAt                DateTime @default(now())
+
+  project Project           @relation(fields: [projectId], references: [id])
+  run     Run               @relation(fields: [runId], references: [id])
+  checks  ValidationCheck[]
+
+  @@index([projectId])
+  @@index([runId])
+  @@index([status])
+  @@index([actorType])
+}
+
+model ValidationCheck {
+  id           String   @id
+  validationId String
+  projectId    String
+  runId        String
+  key          String
+  status       String
+  actorType    String   @default("validation_worker")
+  actorId      String?
+  actorName    String?
+  summary      String?
+  createdAt    DateTime @default(now())
+
+  validation Validation @relation(fields: [validationId], references: [id])
+  project    Project    @relation(fields: [projectId], references: [id])
+  run        Run        @relation(fields: [runId], references: [id])
+
+  @@index([validationId])
+  @@index([projectId])
+  @@index([runId])
+  @@index([key])
+  @@index([status])
+  @@index([actorType])
+}
+
+model Artifact {
+  id               String   @id
+  projectId        String?
+  runId            String
+  type             String
+  path             String
+  mimeType         String?
+  sizeBytes        Int?
+  checksum         String?
+  createdByType    String?
+  createdById      String?
+  createdByName    String?
+  validationStatus String?
+  riskSummary      String?
+  metadataJson     String?
+  createdAt        DateTime @default(now())
+
+  project Project? @relation(fields: [projectId], references: [id])
+  run     Run      @relation(fields: [runId], references: [id])
+
+  @@index([projectId])
+  @@index([runId])
+  @@index([type])
+  @@index([createdByType])
+  @@index([validationStatus])
+}
+
+model Feedback {
+  id           String   @id
+  targetType   String
+  targetId     String
+  rating       String
+  comment      String?
+  actorType    String   @default("human")
+  actorId      String?
+  actorName    String?
+  reviewerName String?
+  createdAt    DateTime @default(now())
+
+  @@index([targetType, targetId])
+  @@index([rating])
+  @@index([actorType])
+}
+
+model RunEvent {
+  id           String   @id
+  runId        String
+  projectId    String?
+  agentId      String?
+  type         String
+  actorType    String
+  actorId      String?
+  actorName    String?
+  summary      String
+  metadataJson String?
+  createdAt    DateTime @default(now())
+
+  run     Run      @relation(fields: [runId], references: [id])
+  project Project? @relation(fields: [projectId], references: [id])
+
+  @@index([runId])
+  @@index([projectId])
+  @@index([agentId])
+  @@index([type])
+  @@index([actorType])
+}
+
+model Incident {
+  id                 String    @id
+  fingerprint        String    @unique
+  severity           String
+  status             String    @default("open")
+  source             String
+  impact             String    @default("unknown")
+  category           String    @default("general")
+  priority           String    @default("P2")
+  nextAction         String?
+  title              String
+  summary            String?
+  runId              String?
+  projectId          String?
+  agentId            String?
+  firstSeenAt        DateTime  @default(now())
+  lastSeenAt         DateTime  @default(now())
+  acknowledgedAt     DateTime?
+  acknowledgedByType String?
+  acknowledgedById   String?
+  acknowledgedByName String?
+  resolvedAt         DateTime?
+  notificationStatus String    @default("not_sent")
+  metadataJson       String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  qualityFindings QualityFinding[]
+
+  @@index([severity])
+  @@index([status])
+  @@index([source])
+  @@index([impact])
+  @@index([category])
+  @@index([priority])
+  @@index([runId])
+  @@index([projectId])
+  @@index([agentId])
+  @@index([lastSeenAt])
+}
+
+model QualityReport {
+  id                String   @id
+  generatedAt       DateTime
+  governanceAgentId String?
+  overallStatus     String
+  summary           String?
+  reportPath        String?
+  rawJson           String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  findings QualityFinding[]
+
+  @@index([generatedAt])
+  @@index([overallStatus])
+  @@index([governanceAgentId])
+}
+
+model QualityFinding {
+  id                 String   @id
+  reportId           String
+  severity           String
+  category           String
+  targetType         String?
+  targetId           String?
+  projectId          String?
+  runId              String?
+  agentId            String?
+  summary            String
+  proposedAction     String?
+  status             String   @default("open")
+  notificationStatus String   @default("not_sent")
+  incidentId         String?
+  metadataJson       String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  report   QualityReport @relation(fields: [reportId], references: [id])
+  incident Incident?     @relation(fields: [incidentId], references: [id])
+
+  @@index([reportId])
+  @@index([severity])
+  @@index([category])
+  @@index([targetType, targetId])
+  @@index([projectId])
+  @@index([runId])
+  @@index([agentId])
+  @@index([status])
+  @@index([incidentId])
+}
+
+model Tag {
+  id        String   @id
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  projectTags ProjectTag[]
+  themeTags   ThemeTag[]
+}
+
+model ProjectTag {
+  projectId String
+  tagId     String
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id])
+  tag     Tag     @relation(fields: [tagId], references: [id])
+
+  @@id([projectId, tagId])
+}
+
+model ThemeTag {
+  themeId   String
+  tagId     String
+  createdAt DateTime @default(now())
+
+  theme Theme @relation(fields: [themeId], references: [id])
+  tag   Tag   @relation(fields: [tagId], references: [id])
+
+  @@id([themeId, tagId])
+}
+
+// エージェントの「成功事例スキル」。FSのdata/agents/skills/を置換しDBを唯一の正にする。
+// アーカイブはpublish前(step5b)に走りRun行がまだ無いため、Feedback.targetId同様にFK無し疎結合。
+model AgentSkill {
+  id                   String   @id // = skillId（skill_<stamp>_<tail>）
+  agentId              String
+  runId                String
+  version              Int      @default(1)
+  title                String?
+  oneLiner             String?
+  templatePatternId    String?
+  planningIntent       String?
+  archivedAt           DateTime
+  promoted             Boolean  @default(false)
+  mvpContractJson      String // mvpContract をJSON文字列で
+  implementationNotes  String // string[] をJSON文字列で
+  knownRisks           String // string[] をJSON文字列で
+  sourceFileShapes     String // {relativePath,purpose}[] をJSON文字列で
+  receivedFeedbackJson String? // refresh前はnull。後でReceivedFeedbackをJSONで
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@index([agentId])
+  @@index([runId])
+  @@index([promoted])
+  @@index([archivedAt])
+}
+
+model UserActivityLog {
+  id           String   @id
+  sessionId    String?
+  userId       String?
+  actorType    String   @default("human")
+  actorId      String?
+  action       String
+  targetType   String?
+  targetId     String?
+  projectId    String?
+  runId        String?
+  source       String?
+  metadataJson String?
+  createdAt    DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([userId])
+  @@index([actorType])
+  @@index([action])
+  @@index([targetType, targetId])
+  @@index([projectId])
+  @@index([runId])
+  @@index([createdAt])
+}
+
+model AdminDecision {
+  id             String   @id
+  decisionType   String
+  status         String
+  targetType     String
+  targetId       String
+  projectId      String?
+  runId          String?
+  agentId        String?
+  adminActorId   String?
+  adminName      String?
+  source         String?
+  sourceReportId String?
+  reason         String
+  metadataJson   String?
+  decidedAt      DateTime @default(now())
+  createdAt      DateTime @default(now())
+
+  @@index([decisionType])
+  @@index([status])
+  @@index([targetType, targetId])
+  @@index([projectId])
+  @@index([runId])
+  @@index([agentId])
+  @@index([sourceReportId])
+  @@index([decidedAt])
+}
+
+model ModelUsageLog {
+  id               String   @id
+  provider         String
+  model            String
+  operation        String
+  // 予算レーン(=rate-guardの日次集計プール)。"scheduler"=本番自動運用(Cloud Run Job/Service)、
+  // "manual"=手動スキル実行。既定scheduler: 旧イメージ/旧チェックアウトからのlane未指定INSERTと
+  // 移行時の既存行バックフィルが自動運用側に落ち、本番の保守的な上限が緩む方向に壊れない。
+  lane             String   @default("scheduler")
+  runId            String?
+  step             String?
+  agentId          String?
+  requestId        String?
+  status           String
+  promptTokens     Int?
+  completionTokens Int?
+  totalTokens      Int?
+  estimatedCostUsd Float?
+  latencyMs        Int?
+  errorMessage     String?
+  metadataJson     String?
+  createdAt        DateTime @default(now())
+
+  @@index([provider])
+  @@index([model])
+  @@index([operation])
+  @@index([lane])
+  @@index([runId])
+  @@index([step])
+  @@index([agentId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model AgentRuntimeMetric {
+  id           String    @id
+  agentId      String
+  runId        String?
+  schedulerKey String?
+  eventType    String
+  status       String
+  startedAt    DateTime?
+  completedAt  DateTime?
+  durationMs   Int?
+  metadataJson String?
+  createdAt    DateTime  @default(now())
+
+  @@index([agentId])
+  @@index([runId])
+  @@index([schedulerKey])
+  @@index([eventType])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model ReviewCase {
+  id                String   @id
+  reviewerAgentId   String
+  runId             String?
+  projectId         String?
+  artifactId        String?
+  reviewStatus      String
+  issueSummary      String?
+  reviewResultJson  String
+  humanDecision     String?
+  rewriteSucceeded  Boolean?
+  learningExtracted Boolean  @default(false)
+  createdAt         DateTime @default(now())
+
+  @@index([reviewerAgentId])
+  @@index([runId])
+  @@index([projectId])
+  @@index([artifactId])
+  @@index([reviewStatus])
+  @@index([humanDecision])
+  @@index([learningExtracted])
+  @@index([createdAt])
+}
+
+model ReviewerLearning {
+  id              String   @id
+  reviewerAgentId String
+  sourceCaseId    String?
+  lessonType      String
+  lesson          String
+  evidenceJson    String?
+  promoted        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([reviewerAgentId])
+  @@index([sourceCaseId])
+  @@index([lessonType])
+  @@index([promoted])
+  @@index([createdAt])
+}

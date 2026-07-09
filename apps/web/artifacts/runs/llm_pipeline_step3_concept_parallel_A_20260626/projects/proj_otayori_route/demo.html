@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>おたよりルート</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #f4f7f4; color: #17201a; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      main { min-height: 100vh; padding: 24px; }
+      .hero { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 20px; align-items: end; margin-bottom: 18px; }
+      .eyebrow { margin: 0 0 8px; color: #5b6f3a; font-size: 12px; font-weight: 800; text-transform: uppercase; }
+      h1 { margin: 0; font-size: 42px; line-height: 1.08; letter-spacing: 0; }
+      h2, h3 { letter-spacing: 0; }
+      .hero p { max-width: 760px; margin: 10px 0 0; line-height: 1.8; }
+      .safety { padding: 14px; border: 1px solid #c8d4b8; border-radius: 8px; background: #fffef7; line-height: 1.6; font-weight: 700; }
+      .workspace { display: grid; grid-template-columns: minmax(260px, 360px) minmax(0, 1fr) minmax(240px, 320px); gap: 16px; align-items: start; }
+      .panel { border: 1px solid #d5dfd1; border-radius: 8px; background: #fff; padding: 16px; }
+      .panelHead { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+      .label { color: #5b6f3a; font-size: 12px; font-weight: 900; text-transform: uppercase; }
+      button, textarea, input { font: inherit; }
+      button { cursor: pointer; }
+      .load { min-height: 36px; border: 1px solid #8fa56c; border-radius: 6px; background: #eef6df; color: #26331f; font-weight: 800; }
+      label { display: grid; gap: 7px; font-size: 13px; font-weight: 800; }
+      textarea, input { width: 100%; border: 1px solid #cad6c5; border-radius: 6px; padding: 10px; color: #17201a; background: #fbfcfa; }
+      textarea { min-height: 210px; resize: vertical; line-height: 1.65; }
+      .fieldRow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+      .snippetList { display: grid; gap: 8px; margin-top: 14px; }
+      .snippet, .card { width: 100%; border: 1px solid #d5dfd1; border-radius: 8px; background: #fbfcfa; color: inherit; text-align: left; }
+      .snippet { display: grid; gap: 6px; padding: 10px; }
+      .snippet.active { border-color: #5b6f3a; background: #f0f6e8; box-shadow: inset 4px 0 0 #5b6f3a; }
+      .snippet span, .snippet small, .card p, .card small, .unknown p, .unknown small { line-height: 1.55; color: #4d5b4d; }
+      .routeColumns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+      .column { display: grid; align-content: start; gap: 10px; min-width: 0; }
+      .column h3 { margin: 0; font-size: 14px; }
+      .card { display: grid; gap: 7px; min-height: 168px; padding: 12px; }
+      .card span { color: #6b4f1d; font-size: 12px; font-weight: 900; }
+      .card strong { font-size: 15px; line-height: 1.35; }
+      .card em { color: #2d5f54; font-size: 12px; font-style: normal; font-weight: 900; }
+      .unknowns { display: grid; gap: 12px; }
+      .unknown { border: 1px solid #e0d4c1; border-radius: 8px; background: #fffaf0; padding: 12px; }
+      .unknown strong { display: block; line-height: 1.4; }
+      @media (max-width: 980px) {
+        main { padding: 16px; }
+        .hero, .workspace, .routeColumns, .fieldRow { grid-template-columns: 1fr; }
+        h1 { font-size: 34px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Prodia Concept Artifact</p>
+          <h1>おたよりルート</h1>
+          <p>学校や自治体のお知らせを、家庭ごとの行動ルート、確認質問、原文根拠に分けます。</p>
+        </div>
+        <aside class="safety">公式文書の代替ではありません。原文にない内容は判断せず、確認待ちとして残します。</aside>
+      </header>
+      <section class="workspace">
+        <section class="panel">
+          <div class="panelHead"><span class="label">Input</span><button class="load" type="button" id="loadSample">サンプル読み込み</button></div>
+          <label>お知らせ本文<textarea id="noticeText"></textarea></label>
+          <div class="fieldRow">
+            <label>学年<input id="grade" /></label>
+            <label>家庭メモ<input id="familyContext" /></label>
+          </div>
+          <div class="snippetList">
+            <h2>原文根拠</h2>
+            <button class="snippet active" type="button" data-source="src_deadline"><strong>提出期限</strong><span>参加同意書は6月27日(金)までに担任へ提出してください。</span><small>期限と提出先が明記されているため、今日の行動カードに変換。</small></button>
+            <button class="snippet" type="button" data-source="src_items"><strong>持ち物</strong><span>持ち物は水筒、帽子、筆記用具、雨具です。</span><small>準備物が列挙されているため、今週の準備カードに変換。</small></button>
+            <button class="snippet" type="button" data-source="src_lunch"><strong>未確定情報</strong><span>昼食の有無は後日連絡します。</span><small>原文で未確定とされているため、確認待ちに分離。</small></button>
+            <button class="snippet" type="button" data-source="src_allergy"><strong>家庭条件</strong><span>食物アレルギーや体調面で配慮が必要な場合は、連絡帳でお知らせください。</span><small>家庭メモと関連するため、確認質問に変換。</small></button>
+          </div>
+        </section>
+        <section class="panel">
+          <span class="label">Route</span>
+          <h2>家庭の次アクション</h2>
+          <div class="routeColumns">
+            <div class="column">
+              <h3>今日やる</h3>
+              <button class="card" type="button" data-source="src_deadline"><span>保護者</span><strong>参加同意書を確認して提出準備</strong><small>6月27日(金)まで</small><p>提出期限と提出先が原文にあるため、最優先の行動。</p><em>根拠を見る</em></button>
+            </div>
+            <div class="column">
+              <h3>今週やる</h3>
+              <button class="card" type="button" data-source="src_items"><span>家庭</span><strong>水筒・帽子・筆記用具・雨具をそろえる</strong><small>前日まで</small><p>持ち物が明記されており、購入や準備が必要な可能性がある。</p><em>根拠を見る</em></button>
+            </div>
+            <div class="column">
+              <h3>確認待ち</h3>
+              <button class="card" type="button" data-source="src_lunch"><span>確認待ち</span><strong>昼食の有無は後続連絡を待つ</strong><small>後日</small><p>原文が未確定としているため、AIが断定しない。</p><em>根拠を見る</em></button>
+              <button class="card" type="button" data-source="src_allergy"><span>保護者</span><strong>アレルギー配慮を連絡帳で相談</strong><small>早めに確認</small><p>家庭メモと原文の配慮連絡が一致している。</p><em>根拠を見る</em></button>
+            </div>
+          </div>
+        </section>
+        <aside class="panel unknowns">
+          <span class="label">Unknown</span>
+          <h2>まだ判断しないこと</h2>
+          <article class="unknown"><strong>昼食は必要か</strong><p>原文が後日連絡としており、現時点では判断できない。</p><small>確認先: 学校からの続報</small></article>
+          <article class="unknown"><strong>雨天時の実施判断</strong><p>雨具は指定されているが、中止・延期条件は書かれていない。</p><small>確認先: 担任または学校のお知らせ</small></article>
+        </aside>
+      </section>
+    </main>
+    <script>
+      const sample = {
+        grade: "小学3年",
+        familyContext: "平日は保護者Aが夕方に確認。アレルギー確認が必要。",
+        text: "校外学習のお知らせ\n6月30日(火)に中央公園へ校外学習へ行きます。参加同意書は6月27日(金)までに担任へ提出してください。\n持ち物は水筒、帽子、筆記用具、雨具です。昼食の有無は後日連絡します。\n食物アレルギーや体調面で配慮が必要な場合は、連絡帳でお知らせください。"
+      };
+      const fillSample = () => {
+        document.querySelector("#noticeText").value = sample.text;
+        document.querySelector("#grade").value = sample.grade;
+        document.querySelector("#familyContext").value = sample.familyContext;
+      };
+      const selectSource = (id) => {
+        document.querySelectorAll(".snippet").forEach((item) => item.classList.toggle("active", item.dataset.source === id));
+      };
+      document.querySelector("#loadSample").addEventListener("click", fillSample);
+      document.querySelectorAll("[data-source]").forEach((item) => item.addEventListener("click", () => selectSource(item.dataset.source)));
+      fillSample();
+    </script>
+  </body>
+</html>

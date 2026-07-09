@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI投資会議ダッシュボード 作業画面モックアップ</title>
+  <desc id="desc">複数のAIアナリストが材料を持ち寄り、強気と弱気の議論、リスクレビュー、判断メモへ進む作業画面。</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="#eef2f7"/>
+  <rect x="54" y="44" width="1332" height="812" rx="18" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="54" y="44" width="1332" height="76" rx="18" fill="#171718"/>
+  <rect x="54" y="100" width="1332" height="20" fill="#171718"/>
+  <text x="92" y="92" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="850">AI会議ワークスペース</text>
+  <text x="1120" y="90" fill="#9ca3af" font-family="Inter, Arial, sans-serif" font-size="17">Ticker: NVDA / standard</text>
+
+  <rect x="92" y="154" width="286" height="600" rx="14" fill="#f8fafc" stroke="#d7dce2"/>
+  <text x="120" y="198" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="850">AI Analysts</text>
+  <g transform="translate(120 228)">
+    <rect width="230" height="88" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="18" y="34" fill="#2563eb" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="850">Fundamentals AI</text>
+    <text x="18" y="64" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="15">売上成長と利益率を確認</text>
+  </g>
+  <g transform="translate(120 338)">
+    <rect width="230" height="88" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="18" y="34" fill="#2563eb" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="850">News AI</text>
+    <text x="18" y="64" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="15">直近ニュースを要約</text>
+  </g>
+  <g transform="translate(120 448)">
+    <rect width="230" height="88" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="18" y="34" fill="#2563eb" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="850">Sentiment AI</text>
+    <text x="18" y="64" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="15">SNS反応を整理</text>
+  </g>
+  <g transform="translate(120 558)">
+    <rect width="230" height="88" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="18" y="34" fill="#2563eb" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="850">Technical AI</text>
+    <text x="18" y="64" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="15">節目と出来高を確認</text>
+  </g>
+
+  <rect x="410" y="154" width="520" height="350" rx="14" fill="#ffffff" stroke="#d7dce2"/>
+  <text x="438" y="198" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="850">Bullish vs Bearish</text>
+  <rect x="438" y="230" width="214" height="220" rx="12" fill="#ecfdf5" stroke="#86efac"/>
+  <text x="462" y="270" fill="#16a34a" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">Bullish</text>
+  <text x="462" y="312" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="17">需要の伸び</text>
+  <text x="462" y="350" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="17">粗利率の改善</text>
+  <text x="462" y="388" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="17">ニュース材料あり</text>
+  <rect x="688" y="230" width="214" height="220" rx="12" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="712" y="270" fill="#ef4444" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">Bearish</text>
+  <text x="712" y="312" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="17">過熱感</text>
+  <text x="712" y="350" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="17">期待先行</text>
+  <text x="712" y="388" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="17">決算前リスク</text>
+
+  <rect x="410" y="528" width="520" height="226" rx="14" fill="#171718"/>
+  <text x="438" y="572" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="850">判断メモ</text>
+  <rect x="438" y="600" width="144" height="92" rx="10" fill="#202226" stroke="#33363a"/>
+  <text x="458" y="632" fill="#00d9bd" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="850">強気材料</text>
+  <text x="458" y="664" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18">3件</text>
+  <rect x="610" y="600" width="144" height="92" rx="10" fill="#202226" stroke="#33363a"/>
+  <text x="630" y="632" fill="#ff6333" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="850">弱気材料</text>
+  <text x="630" y="664" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18">2件</text>
+  <rect x="782" y="600" width="120" height="92" rx="10" fill="#2563eb"/>
+  <text x="804" y="632" fill="#dbeafe" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="850">Next</text>
+  <text x="804" y="664" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18">決算</text>
+
+  <rect x="962" y="154" width="384" height="600" rx="14" fill="#f8fafc" stroke="#d7dce2"/>
+  <text x="990" y="198" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="850">Risk Review</text>
+  <rect x="990" y="230" width="328" height="74" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+  <text x="1014" y="276" fill="#ea580c" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="850">Aggressive: 条件付きで注視</text>
+  <rect x="990" y="324" width="328" height="74" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+  <text x="1014" y="370" fill="#2563eb" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="850">Neutral: 決算まで保留</text>
+  <rect x="990" y="418" width="328" height="74" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="1014" y="464" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="850">Conservative: 過熱感を警戒</text>
+  <rect x="990" y="548" width="328" height="136" rx="12" fill="#ffffff" stroke="#d7dce2"/>
+  <text x="1014" y="588" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="850">次に確認すること</text>
+  <text x="1014" y="630" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="17">決算日、出来高、反対意見</text>
+  <text x="1014" y="662" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="15">Decision memo, not investment advice</text>
+</svg>

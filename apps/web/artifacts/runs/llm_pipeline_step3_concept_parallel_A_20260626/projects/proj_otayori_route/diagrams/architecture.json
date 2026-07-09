@@ -1,0 +1,7 @@
+{
+  "runtime": "static_html_and_next_component_draft",
+  "data": ["sample notice", "action cards", "source snippets", "uncertainty items"],
+  "externalDependencies": [],
+  "storage": "none",
+  "safetyBoundary": "source evidence remains visible; unknowns are not converted into instructions"
+}

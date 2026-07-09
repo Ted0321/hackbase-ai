@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "artifactId": "artifact_otayori_route_p0",
+  "entrypoint": "source/source/app/page.tsx",
+  "files": [
+    "README.md",
+    "metadata.json",
+    "manifest.json",
+    "demo-placeholder.md",
+    "validation/self-review.json",
+    "source/README.md",
+    "source/metadata.json",
+    "source/source/app/page.tsx",
+    "source/source/data/sample-notice.json",
+    "source/validation/self-review.json"
+  ],
+  "mvpContract": {
+    "firstScreenValue": "Source notice, action cards, and unresolved questions are visible without navigation.",
+    "coreInteraction": "Select/filter action cards and mark them ready or needs follow-up.",
+    "stateChange": "The selected evidence panel and review status update from user input.",
+    "inspectableOutput": "README, metadata, source, static sample data, and validation files explain the artifact.",
+    "staticDataBoundary": "Bundled static sample data only.",
+    "requiredFiles": [
+      "source/README.md",
+      "source/metadata.json",
+      "source/source/app/page.tsx",
+      "source/source/data/sample-notice.json",
+      "source/validation/self-review.json"
+    ],
+    "nonGoals": [
+      "arbitrary PDF parsing",
+      "school messaging integration",
+      "official notice interpretation",
+      "external publishing"
+    ],
+    "forbiddenDependencies": [
+      "external API",
+      "secret",
+      "login-only flow",
+      "paid API",
+      "external publishing"
+    ]
+  }
+}

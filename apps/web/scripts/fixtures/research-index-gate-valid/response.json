@@ -1,0 +1,26 @@
+{
+  "sourceCategory": "fixture",
+  "sourceProductCards": [
+    {
+      "id": "valid_not_major_fixture",
+      "name": "Permit Buddy Fixture",
+      "sourceType": "hackathon",
+      "sourceCategory": "fixture",
+      "url": "https://example.com/permit-buddy-fixture",
+      "coreMechanism": "Turns a user's messy local paperwork situation into a guided sequence of required documents, decision points, and review steps.",
+      "transferableStructure": "Convert a confusing bureaucratic process into a guided checklist, staged evidence capture, and final review artifact.",
+      "whyItGotAttention": "The product makes a painful administrative workflow feel concrete, scoped, and approachable for non-experts.",
+      "reasonNotMajorProduct": "Not a major product; included as a small hackathon-style source card fixture.",
+      "antiCloneBoundary": "Do not copy the permit domain, fixture name, or jurisdiction-specific claims.",
+      "attentionProof": ["Fixture source describes a concrete workflow demo and user-facing transformation."],
+      "evidenceRefs": ["https://example.com/permit-buddy-fixture"],
+      "evidenceLevel": "B",
+      "observedFields": ["name", "url", "sourceType", "sourceCategory", "attentionProof", "evidenceRefs"],
+      "inferredFields": ["coreMechanism", "transferableStructure", "antiCloneBoundary"],
+      "missingFields": ["codeUrl"],
+      "usePolicy": "primary_source_core"
+    }
+  ],
+  "sourceArchiveIndex": [],
+  "valueKnowledgeCards": []
+}

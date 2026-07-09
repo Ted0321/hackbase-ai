@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "runId": "findy_gemini_evidence",
+  "createdAt": "2026-06-26T23:37:33.454Z",
+  "steps": [
+    "research",
+    "combination",
+    "concept",
+    "agent-router",
+    "requirements",
+    "builder",
+    "reviewer",
+    "rewriter",
+    "publisher"
+  ],
+  "outputRoot": "artifacts/llm-pipeline-runs/findy_gemini_evidence"
+}

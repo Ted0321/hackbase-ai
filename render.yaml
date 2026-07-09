@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: prodia-web
+    env: node
+    rootDir: apps/web
+    buildCommand: npm ci && npm run db:generate && npm run build
+    startCommand: npm run deploy:prepare && npm run start -- --hostname 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: file:/var/data/prodia.db
+      - key: NEXT_PUBLIC_SITE_NAME
+        value: Prodia
+      - key: NODE_OPTIONS
+        value: --use-system-ca
+    disk:
+      name: prodia-data
+      mountPath: /var/data
+      sizeGB: 1

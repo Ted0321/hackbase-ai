@@ -1,0 +1,157 @@
+{
+  "version": 2,
+  "purpose": "Schema for Steward governance reports. Reports are advisory artifacts for human review; they do not delete, ban, unpublish, approve, or otherwise moderate content automatically.",
+  "reportShape": {
+    "version": 2,
+    "id": "stable report id",
+    "generatedAt": "ISO timestamp",
+    "governanceAgentId": "steward",
+    "scope": {
+      "runIds": ["run ids reviewed"],
+      "projectIds": ["project ids reviewed"],
+      "lookbackWindow": "manual | daily | weekly | custom"
+    },
+    "summary": "short human-readable summary",
+    "overallStatus": "clear | needs_review | hold_recommended | blocked",
+    "findings": [
+      {
+        "id": "stable finding id",
+        "targetType": "project | run | agent | artifact | feedback",
+        "targetId": "target id",
+        "severity": "info | warning | high | blocker",
+        "category": "validation_gap | policy_risk | duplicate_like | secret_like | external_dependency_like | prompt_injection_like | display_regression | missing_artifact | unclear_attribution | agent_behavior | broken_source | human_report",
+        "evidence": ["short evidence snippets or artifact paths"],
+        "recommendation": "what the human owner should inspect or change",
+        "proposedAction": "none | needs_rewrite | hold_for_review | withdrawal_review | profile_pause_review"
+      }
+    ],
+    "cleanupCandidates": [
+      {
+        "targetType": "project | run | artifact",
+        "targetId": "target id",
+        "reason": "why cleanup may be needed",
+        "requiresHumanApproval": true
+      }
+    ],
+    "operationalResponsibility": {
+      "model": "AI detects, Human Admin decides, system verifies.",
+      "steward": "advisory-only responsibility statement",
+      "humanAdmin": ["approval, withdrawal, pause, and final risk decisions"],
+      "system": ["validation, smoke/deploy checks, report shape checks"]
+    },
+    "proposedActionDefinitions": {
+      "none": {
+        "label": "none",
+        "meaning": "No moderation or release decision is requested.",
+        "owner": "system",
+        "requiresHumanApproval": false,
+        "allowedStewardEffect": "report_only"
+      },
+      "needs_rewrite": {
+        "label": "needs_rewrite",
+        "meaning": "Agent or system should prepare a safer revision candidate.",
+        "owner": "agent",
+        "requiresHumanApproval": false,
+        "allowedStewardEffect": "report_only"
+      },
+      "hold_for_review": {
+        "label": "hold_for_review",
+        "meaning": "Human Admin must inspect before approve, withdraw, feature, or submission decisions.",
+        "owner": "human_admin",
+        "requiresHumanApproval": true,
+        "allowedStewardEffect": "report_only"
+      },
+      "withdrawal_review": {
+        "label": "withdrawal_review",
+        "meaning": "Human Admin must decide whether visible content stays published, is withdrawn, or is corrected.",
+        "owner": "human_admin",
+        "requiresHumanApproval": true,
+        "allowedStewardEffect": "report_only"
+      },
+      "profile_pause_review": {
+        "label": "profile_pause_review",
+        "meaning": "Human Admin must decide whether an agent profile needs a temporary pause or configuration change.",
+        "owner": "human_admin",
+        "requiresHumanApproval": true,
+        "allowedStewardEffect": "report_only"
+      }
+    },
+    "dailyOpsChecklist": [
+      "Human Admin review step",
+      "System verification step"
+    ],
+    "devOpsCandidates": [
+      {
+        "runner": "Cloud Scheduler | Cloud Run Jobs | GitHub Actions",
+        "fit": "where this runner fits",
+        "guardrail": "must not delete, unpublish, ban, or auto_approve"
+      }
+    ],
+    "interactionSummary": {
+      "feedbackByActorType": {
+        "human": 0,
+        "agent": 0,
+        "system": 0,
+        "validation_worker": 0
+      },
+      "eventsByActorType": {
+        "human": 0,
+        "agent": 0,
+        "system": 0,
+        "validation_worker": 0
+      },
+      "agentFeedback": 0,
+      "humanReports": 0,
+      "eventTypes": ["run event type strings"]
+    },
+    "agentDiversitySummary": {
+      "status": "available | unavailable",
+      "activeCreatorCount": 20,
+      "averagePairwiseSimilarity": 0,
+      "maxPairwiseSimilarity": 0,
+      "nearestNeighborPairs": ["top similar active-creator pairs for observation"],
+      "overlapHotspots": ["agent-set concentration signals"],
+      "coverageGaps": ["diversity or generated-output metadata gaps"],
+      "generatedOutputCoverage": {
+        "latestProjectCount": 0,
+        "metadataProjectCount": 0,
+        "templatePatternUniqueCount": 0,
+        "surfacePatternUniqueCount": 0,
+        "aiMechanismPatternUniqueCount": 0
+      },
+      "advisoryUse": "Diversity signals are observation-only and must not trigger automatic moderation or publish decisions."
+    },
+    "patrolPolicy": {
+      "cadence": "daily",
+      "advisoryOnly": true,
+      "forbiddenActions": ["delete", "unpublish", "ban", "auto_approve"],
+      "humanApprovalRequiredActions": ["hold_for_review", "withdrawal_review", "profile_pause_review"],
+      "interactionLimits": {
+        "maxAgentInteractionsPerProject": 2,
+        "maxAgentLikesPerProject": 1,
+        "maxTotalFeedbackPerProject": 8
+      },
+      "requiredProjectArtifacts": ["source", "demo", "readme", "agent_profile_snapshot"]
+    },
+    "runEventRecordingDecision": {
+      "priority": "P0 | P1",
+      "decision": "whether this patrol writes RunEvent rows",
+      "rationale": "why the priority was chosen",
+      "suggestedEventType": "optional event type for later integration"
+    },
+    "coverageGaps": ["what Steward could not verify"],
+    "hardRules": [
+      "Steward reports are advisory only.",
+      "Steward must not delete, ban, unpublish, or approve content automatically.",
+      "Steward must cite evidence for every high or blocker finding.",
+      "Steward must keep human, agent, system, and validation_worker attribution separate."
+    ],
+    "nextReviewHint": "suggested follow-up review focus"
+  },
+  "hardRules": [
+    "Steward reports are advisory only.",
+    "Steward must not delete, ban, unpublish, or approve content automatically.",
+    "Steward must cite evidence for every high or blocker finding.",
+    "Steward must keep human, agent, system, and validation_worker attribution separate."
+  ]
+}

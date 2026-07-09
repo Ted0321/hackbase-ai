@@ -1,0 +1,484 @@
+{
+  "version": "google-ai.2026-07-08T02:05:28.175Z",
+  "fetchedAt": "2026-07-08T02:05:28.175Z",
+  "source": {
+    "type": "google_ai_release",
+    "feeds": [
+      "https://blog.google/technology/ai/rss/"
+    ],
+    "note": "Fetched Google AI release signals from configured feeds."
+  },
+  "signals": [
+    {
+      "id": "sig_google_ai_expanding_managed_agents_in_gemini_api_background_tasks_remote_m_1",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "Expanding Managed Agents in Gemini API: background tasks, remote MCP and more",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Managed_agents_feature_bundle_l.max-600x600.format-webp.webp\">We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "agent",
+        "gemini",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 1
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Managed_agents_feature_bundle_l.max-600x600.format-webp.webp\">We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents."
+    },
+    {
+      "id": "sig_google_ai_the_latest_ai_news_we_announced_in_june_2026_2",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "The latest AI news we announced in June 2026",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/260701_ICYMI-June-AI_Thumb.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from June 2026.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 6
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/260701_ICYMI-June-AI_Thumb.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from June 2026."
+    },
+    {
+      "id": "sig_google_ai_new_york_city_educators_and_industry_leaders_gathered_at_google__3",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Summit_Photo_1.max-600x600.format-webp.webp\">Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders.",
+      "url": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 6
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Summit_Photo_1.max-600x600.format-webp.webp\">Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders."
+    },
+    {
+      "id": "sig_google_ai_unlocking_britain_s_next_era_of_productivity_building_a_nation_o_4",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "Unlocking Britain’s next era of productivity: Building a nation of AI trailblazers",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Generated_Image_k2dxu1k2.max-600x600.format-webp.webp\">Google UK shares its latest Economic Impact Report and how to enable more people to unlock the benefits of AI-powered technologies.",
+      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/unlocking-britains-next-era-of-productivity-building-a-nation-of-ai-trailblazers/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "gemini",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 8
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Generated_Image_k2dxu1k2.max-600x600.format-webp.webp\">Google UK shares its latest Economic Impact Report and how to enable more people to unlock the benefits of AI-powered technologies."
+    },
+    {
+      "id": "sig_google_ai_ask_an_ai_expert_what_exactly_is_the_full_stack_5",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "Ask an AI expert: What exactly is the full stack?",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Full_Stack.max-600x600.format-webp.webp\">A Google expert explains what it means to take a full-stack approach to AI and why it’s been the foundation of our AI work for so long.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/full-stack-ai-explainer/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 8
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Full_Stack.max-600x600.format-webp.webp\">A Google expert explains what it means to take a full-stack approach to AI and why it’s been the foundation of our AI work for so long."
+    },
+    {
+      "id": "sig_google_ai_our_latest_google_finance_upgrades_including_a_new_app_6",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "Our latest Google Finance upgrades, including a new app",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Finance_blog_image_June_.max-600x600.format-webp.webp\">The new Google Finance is coming out of beta and launching a new Android app.",
+      "url": "https://blog.google/products-and-platforms/products/search/google-finance-updates-june-2026/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "android",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 12
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Finance_blog_image_June_.max-600x600.format-webp.webp\">The new Google Finance is coming out of beta and launching a new Android app."
+    },
+    {
+      "id": "sig_google_ai_new_research_shows_how_amie_our_medical_ai_could_help_manage_hea_7",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "New research shows how AMIE, our medical AI, could help manage health conditions.",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AMIE_Mx_Nature_Social_Visual_Va.max-600x600.format-webp.webp\">Research in “Nature” shows our conversational AI system matches primary care physicians in complex disease management.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "search",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 20
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AMIE_Mx_Nature_Social_Visual_Va.max-600x600.format-webp.webp\">Research in “Nature” shows our conversational AI system matches primary care physicians in complex disease management."
+    },
+    {
+      "id": "sig_google_ai_we_re_strengthening_our_presence_in_alabama_through_new_investme_8",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "We’re strengthening our presence in Alabama through new investments and community support.",
+      "summary": "Google has announced a $1.5 billion investment for 2026 and 2027 to expand its data center campus in Jackson County, Alabama. Operating since 2019 on a repurposed former…",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 22
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Google has announced a $1.5 billion investment for 2026 and 2027 to expand its data center campus in Jackson County, Alabama. Operating since 2019 on a repurposed former…"
+    },
+    {
+      "id": "sig_google_ai_our_new_community_investments_in_virginia_support_local_jobs_and_9",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "Our new community investments in Virginia support local jobs and expand energy affordability.",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/VirginiaSocial.max-600x600.format-webp.webp\">We’re helping build the state’s next-generation workforce and investing in energy programs.",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 26
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/VirginiaSocial.max-600x600.format-webp.webp\">We’re helping build the state’s next-generation workforce and investing in energy programs."
+    },
+    {
+      "id": "sig_google_ai_the_latest_ai_news_we_announced_in_may_2026_10",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "The latest AI news we announced in May 2026",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/May_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from May 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 32
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/May_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from May 2026"
+    },
+    {
+      "id": "sig_google_ai_5_ways_google_search_can_level_up_your_thrift_and_vintage_shoppi_11",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "5 ways Google Search can level up your thrift and vintage shopping",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Thrifting_Header.max-600x600.format-webp.webp\">Uncover second-hand scores with AI tools in Google Search and Shopping.",
+      "url": "https://blog.google/products-and-platforms/products/search/thrifting-tips/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "search",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 35
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Thrifting_Header.max-600x600.format-webp.webp\">Uncover second-hand scores with AI tools in Google Search and Shopping."
+    },
+    {
+      "id": "sig_google_ai_how_we_used_gemini_to_build_google_i_o_2026_12",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "How we used Gemini to build Google I/O 2026",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_IO.max-600x600.format-webp.webp\">Learn how Googlers used AI to produce Google I/O 2026.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-google-ai/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "gemini",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 36
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_IO.max-600x600.format-webp.webp\">Learn how Googlers used AI to produce Google I/O 2026."
+    },
+    {
+      "id": "sig_google_ai_take_our_i_o_2026_quiz_vibe_coded_in_google_ai_studio_13",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "Take our I/O 2026 quiz, vibe coded in Google AI Studio.",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IOQuiz2026_social.max-600x600.format-webp.webp\">We used Google AI Studio to vibe code a quiz about our top I/O 2026 announcements.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-vibe-coded-quiz/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 39
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IOQuiz2026_social.max-600x600.format-webp.webp\">We used Google AI Studio to vibe code a quiz about our top I/O 2026 announcements."
+    },
+    {
+      "id": "sig_google_ai_9_demos_of_gemini_omni_and_gemini_3_5_in_action_14",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "9 demos of Gemini Omni and Gemini 3.5 in action",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Omni_and_Gemini_3.5_hero.max-600x600.format-webp.webp\">Watch 9 videos showing the capabilities of Gemini Omni and Gemini 3.5, announced at Google I/O 2026.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "gemini",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 39
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Omni_and_Gemini_3.5_hero.max-600x600.format-webp.webp\">Watch 9 videos showing the capabilities of Gemini Omni and Gemini 3.5, announced at Google I/O 2026."
+    },
+    {
+      "id": "sig_google_ai_check_out_real_life_ai_prototypes_from_the_futures_lab_15",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "Check out real-life AI prototypes from the Futures Lab.",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FutureLabs_social.max-600x600.format-webp.webp\">University of Waterloo students develop AI prototypes like sign language tutors to reshape the future of education and work.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/university-waterloo-labs/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 40
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FutureLabs_social.max-600x600.format-webp.webp\">University of Waterloo students develop AI prototypes like sign language tutors to reshape the future of education and work."
+    },
+    {
+      "id": "sig_google_ai_catch_up_on_12_major_i_o_2026_moments_16",
+      "sourceType": "google_ai_release",
+      "sourceName": "Google AI Blog",
+      "title": "Catch up on 12 major I/O 2026 moments",
+      "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/KW_KNH.max-600x600.format-webp.webp\">Here are 12 of the biggest Google I/O 2026 keynote moments, including news about Gemini Omni, Gemini 3.5 Flash and more.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/",
+      "observedAt": "2026-07-08T02:05:28.175Z",
+      "topics": [
+        "official-release",
+        "google",
+        "ai",
+        "gemini",
+        "developer",
+        "multimodal"
+      ],
+      "audience": [
+        "operator",
+        "developer",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 40
+      },
+      "whyItMatters": "Google AI releases and product updates often reveal new user workflows that can be turned into small Hackbase.ai artifacts.",
+      "prototypeHint": "Create a capability map, workflow explainer, comparison board, or adoption checklist inspired by the release.",
+      "riskNotes": "Use public release metadata only. Do not require Google account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/KW_KNH.max-600x600.format-webp.webp\">Here are 12 of the biggest Google I/O 2026 keynote moments, including news about Gemini Omni, Gemini 3.5 Flash and more."
+    }
+  ]
+}

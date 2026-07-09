@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "runId": "findy_gemini_evidence",
+  "step": "builder",
+  "generatedAt": "2026-06-27T10:27:57.588Z",
+  "instructions": {
+    "returnFormat": "strict_json_only",
+    "noExternalPublish": true,
+    "noPaidApiRequired": true,
+    "noSecrets": true
+  },
+  "previousResponseStatus": {
+    "requiredPreviousSteps": [
+      "concept",
+      "agent-router",
+      "requirements"
+    ],
+    "missingRequiredPreviousResponses": [],
+    "missingPreviousResponses": [],
+    "note": "Required upstream response.json files are present for this step."
+  },
+  "concept": {
+    "candidates": [
+      {
+        "id": "concept_otayori_route",
+        "title": "Otayori Route",
+        "oneLiner": "Turn a long school or civic notice into family action cards with source evidence and uncertainty.",
+        "sourceSignalIds": [
+          "signal_school_notice_route"
+        ],
+        "notObviousInsight": "The value is not a shorter summary; it is making actors, dates, materials, and open questions visible enough for a household to act.",
+        "researchAngleUsed": "domain_pain_to_tool",
+        "combinationUsed": "remix_school_notice_action_route",
+        "remixUsed": "remix_school_notice_action_route",
+        "sourceProductUsed": "source_crossbeam_pattern",
+        "originalCoreTransferred": "Dense document to guided action workflow.",
+        "newThemeApplied": "school notice family action routing",
+        "ideaMoveUsed": "output_form_shift",
+        "topicCardUsed": "topic_school_parent_communication",
+        "evidenceUsed": [
+          "research_school_notice_route",
+          "signal_school_notice_route"
+        ],
+        "noveltyTypeUsed": "new_workflow",
+        "surfaceAudience": "family/local citizen",
+        "aiAppreciationAudience": "AI-curious professional",
+        "surfaceTheme": "education",
+        "surfacePattern": "daily_utility",
+        "aiMechanismPattern": "workflow_generation",
+        "templatePatternId": "source_to_mission",
+        "templatePatternReason": "The first screen can show original source, extracted actions, and provenance together.",
+        "whyNormalUserCares": "They can see what to do today and what still needs confirmation.",
+        "whyAIUserCares": "The artifact exposes extraction, routing, uncertainty, and provenance instead of hiding them behind a summary.",
+        "aiMechanism": "Extract actors, dates, materials, and questions, then route them into action cards with source references.",
+        "targetUser": "Parent or local resident handling a long notice.",
+        "userMoment": "After receiving a long notice and before deciding who needs to do what.",
+        "coreInteraction": "Paste or inspect a notice, then review action cards, confirmation questions, and source evidence.",
+        "whyDifferentFromRecentArtifacts": "It targets a normal household workflow rather than another AI-operator dashboard.",
+        "artifactShape": "workspace",
+        "antiGenericChecks": [
+          "Not just summary",
+          "Source references remain visible",
+          "Uncertainty remains visible"
+        ],
+        "sharpnessChecks": [
+          "Action cards are visible in the first screen",
+          "At least one source reference is attached to each card"
+        ],
+        "risks": [
+          "Generated guidance may be mistaken for official instruction"
+        ],
+        "successCriteria": [
+          "A user can identify one next action",
+          "A user can see what remains uncertain",
+          "A user can trace a card to source text"
+        ]
+      }
+    ],
+    "selectedConcept": {
+      "id": "concept_otayori_route",
+      "title": "Otayori Route",
+      "oneLiner": "Turn a long school or civic notice into family action cards with source evidence and uncertainty.",
+      "sourceSignalIds": [
+        "signal_school_notice_route"
+      ],
+      "notObviousInsight": "The value is not a shorter summary; it is making actors, dates, materials, and open questions visible enough for a household to act.",
+      "researchAngleUsed": "domain_pain_to_tool",
+      "combinationUsed": "remix_school_notice_action_route",
+      "remixUsed": "remix_school_notice_action_route",
+      "sourceProductUsed": "source_crossbeam_pattern",
+      "originalCoreTransferred": "Dense document to guided action workflow.",
+      "newThemeApplied": "school notice family action routing",
+      "ideaMoveUsed": "output_form_shift",
+      "topicCardUsed": "topic_school_parent_communication",
+      "evidenceUsed": [
+        "research_school_notice_route",
+        "signal_school_notice_route"
+      ],
+      "noveltyTypeUsed": "new_workflow",
+      "surfaceAudience": "family/local citizen",
+      "aiAppreciationAudience": "AI-curious professional",
+      "surfaceTheme": "education",
+      "surfacePattern": "daily_utility",
+      "aiMechanismPattern": "workflow_generation",
+      "templatePatternId": "source_to_mission",
+      "templatePatternReason": "The first screen can show original source, extracted actions, and provenance together.",
+      "whyNormalUserCares": "They can see what to do today and what still needs confirmation.",
+      "whyAIUserCares": "The artifact exposes extraction, routing, uncertainty, and provenance instead of hiding them behind a summary.",
+      "aiMechanism": "Extract actors, dates, materials, and questions, then route them into action cards with source references.",
+      "targetUser": "Parent or local resident handling a long notice.",
+      "userMoment": "After receiving a long notice and before deciding who needs to do what.",
+      "coreInteraction": "Paste or inspect a notice, then review action cards, confirmation questions, and source evidence.",
+      "whyDifferentFromRecentArtifacts": "It targets a normal household workflow rather than another AI-operator dashboard.",
+      "artifactShape": "workspace",
+      "antiGenericChecks": [
+        "Not just summary",
+        "Source references remain visible",
+        "Uncertainty remains visible"
+      ],
+      "sharpnessChecks": [
+        "Action cards are visible in the first screen",
+        "At least one source reference is attached to each card"
+      ],
+      "risks": [
+        "Generated guidance may be mistaken for official instruction"
+      ],
+      "successCriteria": [
+        "A user can identify one next action",
+        "A user can see what remains uncertain",
+        "A user can trace a card to source text"
+      ]
+    },
+    "conceptRunSummary": {
+      "id": "findy_local_concept_chain_check",
+      "generatedAt": "2026-06-27T00:00:00.000Z",
+      "inputCombinationRunId": "findy_local_combination_chain_check",
+      "selectedConceptId": "concept_otayori_route",
+      "whySelected": "It is a small, explainable artifact with clear research, combination, and provenance links.",
+      "risksForBuilder": [
+        "Keep source references and uncertainty visible."
+      ]
+    }
+  },
+  "assignment": {
+    "selectedAgentIds": [
+      "agent_a",
+      "agent_c"
+    ],
+    "reason": "Smoke response for checking that creator agent assignment flows into later pipeline steps.",
+    "assignmentNotes": [
+      "Triage should keep the concept operationally concrete.",
+      "Explainer should make the resulting artifact understandable."
+    ]
+  },
+  "requirementSpec": {
+    "id": "req_otayori_mvp_v1",
+    "conceptId": "concept_otayori_route",
+    "ownerAgentId": "agent_a",
+    "mvpGoal": "Allow a user to paste a school or civic notice and immediately see extracted action cards, each clearly linked to its source and indicating any uncertainty, all within a single, inspectable screen.",
+    "screens": [
+      {
+        "name": "Notice to Action Workspace",
+        "purpose": "To enable users to transform a dense notice into actionable cards with transparent provenance and uncertainty, without leaving the page.",
+        "components": [
+          "Notice Input Area (text field for pasting notice)",
+          "Original Notice Display (read-only text area showing the full notice, with highlightable sections)",
+          "Action Cards Display (container for generated action cards)",
+          "Action Card (component showing actor, action description, due date, materials, confirmation question, uncertainty indicator, and source reference link)",
+          "Source Reference Link (interactive element within an Action Card to highlight text in Original Notice Display)",
+          "Uncertainty Indicator (visual cue on Action Card for uncertain information)",
+          "Disclaimer (prominent text regarding AI generation and need for verification)"
+        ],
+        "interactions": [
+          "User pastes or types notice into 'Notice Input Area', triggering action card generation.",
+          "User reviews generated 'Action Cards' in the 'Action Cards Display'.",
+          "User clicks on a 'Source Reference Link' within an 'Action Card' to highlight the corresponding text in the 'Original Notice Display'."
+        ]
+      }
+    ],
+    "dataModel": [
+      {
+        "name": "Notice",
+        "fields": [
+          "id: string",
+          "rawText: string",
+          "ingestionTimestamp: datetime"
+        ]
+      },
+      {
+        "name": "ActionCard",
+        "fields": [
+          "id: string",
+          "noticeId: string (references Notice)",
+          "actor: string (e.g., 'Parent', 'Student')",
+          "actionDescription: string",
+          "dueDate: date (optional)",
+          "materials: string[] (optional list of items needed)",
+          "sourceReferenceIds: string[] (references SourceReference)",
+          "uncertaintyFlag: boolean",
+          "confirmationQuestion: string (if uncertaintyFlag is true)"
+        ]
+      },
+      {
+        "name": "SourceReference",
+        "fields": [
+          "id: string",
+          "noticeId: string (references Notice)",
+          "startIndex: number (character index in rawText)",
+          "endIndex: number (character index in rawText)",
+          "textSnippet: string (the actual text segment)"
+        ]
+      }
+    ],
+    "acceptanceCriteria": [
+      "A user can paste a long notice into the input area.",
+      "Upon processing, the 'Action Cards Display' populates with at least one action card.",
+      "A user can identify one next action from the displayed action cards.",
+      "A user can see what information remains uncertain via a dedicated indicator on relevant action cards.",
+      "A user can trace any piece of information on an action card directly to its source text by clicking a reference link, which highlights the relevant segment in the 'Original Notice Display'.",
+      "Action cards are prominently visible on the first screen immediately after processing.",
+      "At least one source reference is visibly attached to each generated action card."
+    ],
+    "nonGoals": [
+      "Developing a full-fledged platform for notice management (e.g., saving, editing, organizing multiple notices).",
+      "Allowing users to edit or modify the generated action cards.",
+      "Implementing user authentication or personalized profiles.",
+      "Integrating with external calendars, task managers, or communication tools.",
+      "Providing multi-language support (initially English only).",
+      "Supporting file uploads (initially text paste only)."
+    ],
+    "safetyConstraints": [
+      "A clear and prominent disclaimer must be displayed, stating that the generated guidance is AI-produced and not official instruction, requiring user verification.",
+      "The original source text of the notice must always be visible and easily accessible for users to cross-reference and verify generated actions.",
+      "Uncertainties or ambiguities in the extracted information must be explicitly highlighted on the action cards and accompanied by confirmation questions to prompt user awareness and verification."
+    ]
+  },
+  "missingPreviousResponses": []
+}

@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "createdAt": "2026-06-30",
+  "status": "locked-6core",
+  "note": "上流(research+combination)を凍結し concept->requirements->builder を比較する固定セット。themeHintは凍結時に実research cacheから具体signalを選ぶ指針。pass1は core=true の6本(g1-g6)。g7/g8は将来パス用の予備。",
+  "scenarios": [
+    {
+      "id": "g1",
+      "agentId": "agent_a",
+      "handle": "mugi99",
+      "makerType": "運用判断ツール",
+      "templatePatterns": ["evidence_decision_board", "source_to_mission"],
+      "themeHint": "運用・障害対応・調整コストの現場signal",
+      "coverage": "reliability / decision-loop",
+      "core": true
+    },
+    {
+      "id": "g2",
+      "agentId": "agent_b",
+      "handle": "pino_3",
+      "makerType": "遊べるリミックス",
+      "templatePatterns": ["remix_roulette", "draw_lock_remix"],
+      "themeHint": "堅いテーマに隠れた『つい触る角度』",
+      "coverage": "novelty / touchability / game_like",
+      "core": true
+    },
+    {
+      "id": "g3",
+      "agentId": "agent_h",
+      "handle": "driftq",
+      "makerType": "what-ifシミュ",
+      "templatePatterns": ["boundary_simulator", "scenario_controls"],
+      "themeHint": "設定でリスク/結果が変わるトレードオフ判断",
+      "coverage": "reliability / state-change / simulation",
+      "core": true
+    },
+    {
+      "id": "g4",
+      "agentId": "agent_k",
+      "handle": "kotoq",
+      "makerType": "dev小物変換",
+      "templatePatterns": ["transformation_studio", "input_transform_output"],
+      "themeHint": "GitHub/dev作業のラフ入力→整形",
+      "coverage": "reliability / builder-feasibility / before-after",
+      "core": true
+    },
+    {
+      "id": "g5",
+      "agentId": "agent_e",
+      "handle": "sabo07",
+      "makerType": "採点スコアボード",
+      "templatePatterns": ["evidence_decision_board", "scorecard"],
+      "themeHint": "候補が多く基準が曖昧な比較",
+      "coverage": "evaluation / adjustable-weights",
+      "core": true
+    },
+    {
+      "id": "g6",
+      "agentId": "agent_c",
+      "handle": "yomu",
+      "makerType": "解説ルート",
+      "templatePatterns": ["guided_explainer_path", "comparison_panel"],
+      "themeHint": "用語が多く誤解しやすい先端トピック",
+      "coverage": "surface-diversity / explainer",
+      "core": true
+    },
+    {
+      "id": "g7",
+      "agentId": "agent_g",
+      "handle": "mob42",
+      "makerType": "来歴/出典",
+      "templatePatterns": ["provenance_map", "citation_trail"],
+      "themeHint": "主張の出どころが曖昧なトピック",
+      "coverage": "source-first",
+      "core": false
+    },
+    {
+      "id": "g8",
+      "agentId": "agent_d",
+      "handle": "lattice",
+      "makerType": "構造マップ",
+      "templatePatterns": ["signal_map", "timeline"],
+      "themeHint": "多アクターの関係・依存",
+      "coverage": "map",
+      "core": false
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "source": "DOC-82 TriggerRegistry MVP",
+  "triggers": [
+    {
+      "schemaVersion": 1,
+      "triggerId": "scheduled_creation:daily",
+      "name": "Daily Scheduled Creation",
+      "type": "schedule",
+      "enabled": true,
+      "condition": {
+        "cadence": "daily",
+        "preferredHours": [18]
+      },
+      "actingAgentSelector": {
+        "mode": "due_active_creators",
+        "maxAgents": 4
+      },
+      "inputBundle": ["trendSignals", "productSourceIndex", "currentTopicRadar", "recentArtifacts", "agentMemoryDigest"],
+      "targetPhase": "concept",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 50,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "system_scheduled",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "scheduled_creation:every_other_day",
+      "name": "Every Other Day Scheduled Creation",
+      "type": "schedule",
+      "enabled": true,
+      "condition": {
+        "cadence": "every_other_day",
+        "preferredHours": [18]
+      },
+      "actingAgentSelector": {
+        "mode": "due_active_creators",
+        "maxAgents": 4
+      },
+      "inputBundle": ["trendSignals", "productSourceIndex", "currentTopicRadar", "recentArtifacts", "agentMemoryDigest"],
+      "targetPhase": "concept",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 45,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "system_scheduled",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "scheduled_creation:every_2_days",
+      "name": "Every 2 Days Scheduled Creation",
+      "type": "schedule",
+      "enabled": true,
+      "condition": {
+        "cadence": "every_2_days",
+        "preferredHours": [18]
+      },
+      "actingAgentSelector": {
+        "mode": "due_active_creators",
+        "maxAgents": 4
+      },
+      "inputBundle": ["trendSignals", "productSourceIndex", "currentTopicRadar", "recentArtifacts", "agentMemoryDigest"],
+      "targetPhase": "concept",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 45,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "system_scheduled",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "scheduled_creation:every_3_days",
+      "name": "Every 3 Days Scheduled Creation",
+      "type": "schedule",
+      "enabled": true,
+      "condition": {
+        "cadence": "every_3_days",
+        "preferredHours": [18]
+      },
+      "actingAgentSelector": {
+        "mode": "due_active_creators",
+        "maxAgents": 4
+      },
+      "inputBundle": ["trendSignals", "productSourceIndex", "currentTopicRadar", "recentArtifacts", "agentMemoryDigest"],
+      "targetPhase": "concept",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 40,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "system_scheduled",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "scheduled_creation:weekly",
+      "name": "Weekly Scheduled Creation",
+      "type": "schedule",
+      "enabled": true,
+      "condition": {
+        "cadence": "weekly",
+        "preferredHours": [18]
+      },
+      "actingAgentSelector": {
+        "mode": "due_active_creators",
+        "maxAgents": 4
+      },
+      "inputBundle": ["trendSignals", "productSourceIndex", "currentTopicRadar", "recentArtifacts", "agentMemoryDigest"],
+      "targetPhase": "concept",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 35,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "system_scheduled",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "manual_creation",
+      "name": "Manual Creation",
+      "type": "manual",
+      "enabled": true,
+      "condition": {
+        "cadence": "on_demand"
+      },
+      "actingAgentSelector": {
+        "mode": "due_active_creators",
+        "maxAgents": 1
+      },
+      "inputBundle": ["trendSignals", "productSourceIndex", "currentTopicRadar", "recentArtifacts", "agentMemoryDigest"],
+      "targetPhase": "concept",
+      "autonomyLevel": "L1_assisted",
+      "priority": 80,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "human_requested",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "feedback_received",
+      "name": "Feedback Received",
+      "type": "feedback_received",
+      "enabled": true,
+      "condition": {
+        "eventTypes": ["human_review", "agent_critique", "agent_remix_suggestion", "validation_warning"],
+        "minFeedbackCount": 1
+      },
+      "actingAgentSelector": {
+        "mode": "due_active_creators",
+        "maxAgents": 3
+      },
+      "inputBundle": ["recentArtifacts", "humanFeedback", "agentFeedback", "validationResults", "agentMemoryDigest"],
+      "targetPhase": "reaction",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 65,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "human_seeded",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "like_received",
+      "name": "Like Received",
+      "type": "like_received",
+      "enabled": true,
+      "condition": {
+        "eventTypes": ["agent_like", "human_like"],
+        "minLikeCount": 1
+      },
+      "actingAgentSelector": {
+        "mode": "due_active_creators",
+        "maxAgents": 3
+      },
+      "inputBundle": ["recentArtifacts", "agentFeedback", "agentMemoryDigest"],
+      "targetPhase": "reaction",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 55,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "human_seeded",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "manual_review",
+      "name": "Manual Review",
+      "type": "manual",
+      "enabled": true,
+      "condition": {
+        "cadence": "on_demand"
+      },
+      "actingAgentSelector": {
+        "mode": "specific_agent",
+        "agentId": "reviewer_v1"
+      },
+      "inputBundle": ["recentArtifacts", "humanFeedback", "agentFeedback", "validationResults"],
+      "targetPhase": "reviewer",
+      "autonomyLevel": "L1_assisted",
+      "priority": 80,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "human_requested",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "validation_review",
+      "name": "Validation Review",
+      "type": "threshold",
+      "enabled": true,
+      "condition": {
+        "eventTypes": ["validation_warning", "validation_fail"],
+        "minSignalCount": 1
+      },
+      "actingAgentSelector": {
+        "mode": "specific_agent",
+        "agentId": "reviewer_v1"
+      },
+      "inputBundle": ["recentArtifacts", "validationResults", "agentMemoryDigest"],
+      "targetPhase": "reviewer",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 70,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": false,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "none",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "daily_governance",
+      "name": "Daily Governance",
+      "type": "governance",
+      "enabled": true,
+      "condition": {
+        "cadence": "daily",
+        "preferredHours": [21]
+      },
+      "actingAgentSelector": {
+        "mode": "specific_agent",
+        "agentId": "steward"
+      },
+      "inputBundle": ["recentArtifacts", "validationResults", "agentFeedback", "agentMemoryDigest"],
+      "targetPhase": "governance",
+      "autonomyLevel": "L2_self_directed_draft",
+      "priority": 75,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": true,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "system_scheduled",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "triggerId": "manual_governance",
+      "name": "Manual Governance",
+      "type": "manual",
+      "enabled": true,
+      "condition": {
+        "cadence": "on_demand"
+      },
+      "actingAgentSelector": {
+        "mode": "specific_agent",
+        "agentId": "steward"
+      },
+      "inputBundle": ["recentArtifacts", "validationResults", "agentFeedback", "agentMemoryDigest"],
+      "targetPhase": "governance",
+      "autonomyLevel": "L1_assisted",
+      "priority": 85,
+      "safetyGate": {
+        "validationRequired": false,
+        "stewardCheckRequired": true,
+        "humanApprovalRequired": false
+      },
+      "attribution": {
+        "humanInfluence": "human_requested",
+        "recordPromptSource": true,
+        "recordOwner": true
+      }
+    }
+  ]
+}

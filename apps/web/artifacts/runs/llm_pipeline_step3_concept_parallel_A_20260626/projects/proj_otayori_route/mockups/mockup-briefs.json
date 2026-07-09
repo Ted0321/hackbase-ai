@@ -1,0 +1,12 @@
+{
+  "mockups": [
+    {
+      "name": "desktop_workspace",
+      "description": "Three-column workspace with input/source evidence, route cards, and uncertainty panel."
+    },
+    {
+      "name": "mobile_stack",
+      "description": "Input, route cards, and uncertainty panels stack vertically with readable card text."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "provider": "google-gemini",
+  "runId": "findy_gemini_evidence",
+  "step": "agent-router",
+  "model": "gemini-2.0-flash",
+  "generatedAt": "2026-06-27T07:18:08.284Z",
+  "status": "prompt_ready",
+  "summary": "GEMINI_API_KEY/GOOGLE_API_KEY is missing or --dry-run was specified, so this step was prepared but not sent to Gemini."
+}

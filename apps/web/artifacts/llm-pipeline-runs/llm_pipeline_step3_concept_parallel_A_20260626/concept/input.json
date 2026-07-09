@@ -1,0 +1,1739 @@
+{
+    "version":  1,
+    "runId":  "llm_pipeline_step3_concept_parallel_A_20260626",
+    "step":  "concept",
+    "generatedAt":  "2026-06-26T12:00:36.672Z",
+    "instructions":  {
+                         "returnFormat":  "strict_json_only",
+                         "noExternalPublish":  true,
+                         "noPaidApiRequired":  true,
+                         "noSecrets":  true
+                     },
+    "research":  null,
+    "combination":  {
+                        "remixRunSummary":  {
+                                                "id":  "combination_tsv_index_retest_20260626",
+                                                "generatedAt":  "2026-06-26T11:52:00.000Z",
+                                                "inputResearchRunId":  null,
+                                                "strategySummary":  "TSV由来のsource-product-indexを主材料にし、ハッカソン由来の小さな価値構造を現在の生活・教育・クリエイター系トピックへ移した。TradingAgentsはGitHub高注目枠として使うが、投資判断や売買UIはコピーせず、複数役割のレビュー構造だけを転用した。",
+                                                "sourceIndexUsed":  [
+                                                                        "anthropic_hackathon_crossbeam",
+                                                                        "anthropic_hackathon_postvisit",
+                                                                        "anthropic_hackathon_road_footage_investment",
+                                                                        "smart_india_rake_optimization",
+                                                                        "sp_tradingagents"
+                                                                    ],
+                                                "topicCardsUsed":  [
+                                                                       "topic_school_parent_communication",
+                                                                       "topic_local_disaster_readiness",
+                                                                       "topic_creator_preflight"
+                                                                   ],
+                                                "ideaMovesUsed":  [
+                                                                      "scamper_adapt",
+                                                                      "scamper_put_to_other_use",
+                                                                      "scamper_reverse",
+                                                                      "audience_shift",
+                                                                      "output_form_shift"
+                                                                  ],
+                                                "strongestRemixes":  [
+                                                                         "remix_school_notice_action_route",
+                                                                         "remix_family_disaster_priority_cards",
+                                                                         "remix_creator_review_committee",
+                                                                         "remix_school_after_meeting_explainer"
+                                                                     ],
+                                                "rejectedButInteresting":  [
+                                                                               "remix_household_resource_optimizer"
+                                                                           ],
+                                                "risksForConceptStrategist":  [
+                                                                                  "防災系は公式助言に見せず、家庭内の準備整理・不足可視化に止める。",
+                                                                                  "学校連絡系は公式文書を改変せず、原文参照と不明点を残す。",
+                                                                                  "TradingAgents転用は投資・売買・金融メタファーを外し、複数視点レビューだけを使う。"
+                                                                              ]
+                                            },
+                        "rawIdeaMutations":  [
+                                                 {
+                                                     "id":  "raw_crossbeam_school_notice",
+                                                     "sourceProductCardId":  "anthropic_hackathon_crossbeam",
+                                                     "valueKnowledgeCardId":  "vk_crossbeam_domain_pain_workflow",
+                                                     "topicCardId":  "topic_school_parent_communication",
+                                                     "ideaMoveId":  "scamper_adapt",
+                                                     "rawDirection":  "学校や自治体のお知らせを、家庭ごとの提出物・期限・確認先の行動ルートに変える。",
+                                                     "whatChangedFromSource":  "ADU許認可の専門ワークフローを、保護者向けのお知らせ理解に移した。",
+                                                     "whyItMightBeInteresting":  "読んだだけでは動けない文書を、家族が今日やることへ変換できる。",
+                                                     "riskOrBoringFailure":  "単なる要約になると弱い。期限・誰がやるか・不明点まで分ける必要がある。"
+                                                 },
+                                                 {
+                                                     "id":  "raw_road_footage_disaster_cards",
+                                                     "sourceProductCardId":  "anthropic_hackathon_road_footage_investment",
+                                                     "valueKnowledgeCardId":  "vk_road_footage_evidence_to_priority",
+                                                     "topicCardId":  "topic_local_disaster_readiness",
+                                                     "ideaMoveId":  "scamper_put_to_other_use",
+                                                     "rawDirection":  "家庭状況や地域のお知らせを、優先度つきの防災準備カードに変える。",
+                                                     "whatChangedFromSource":  "道路映像から公共投資順位を出す構造を、家庭の準備不足の優先順位づけへ移した。",
+                                                     "whyItMightBeInteresting":  "漠然とした防災を、足りない順に見える小さなカードへ変えられる。",
+                                                     "riskOrBoringFailure":  "公式避難判断に踏み込むと危険。家庭内準備の整理に限定する。"
+                                                 },
+                                                 {
+                                                     "id":  "raw_tradingagents_creator_review",
+                                                     "sourceProductCardId":  "sp_tradingagents",
+                                                     "valueKnowledgeCardId":  "",
+                                                     "topicCardId":  "topic_creator_preflight",
+                                                     "ideaMoveId":  "scamper_reverse",
+                                                     "rawDirection":  "公開前の投稿・動画企画を、複数AIレビュワーが反対意見つきで審査する。",
+                                                     "whatChangedFromSource":  "投資判断の専門チーム構造を、公開前の弱点発見・読者目線レビューへ反転した。",
+                                                     "whyItMightBeInteresting":  "AIで作ったものをそのまま出す不安に対して、賛成・反対・リスク・改善案が見える。",
+                                                     "riskOrBoringFailure":  "抽象的なAI会議に見えると弱い。出す/直す/保留の判断メモに落とす必要がある。"
+                                                 },
+                                                 {
+                                                     "id":  "raw_postvisit_school_after_meeting",
+                                                     "sourceProductCardId":  "anthropic_hackathon_postvisit",
+                                                     "valueKnowledgeCardId":  "vk_postvisit_after_event_explainer",
+                                                     "topicCardId":  "topic_school_parent_communication",
+                                                     "ideaMoveId":  "audience_shift",
+                                                     "rawDirection":  "面談や学校説明会の後に、保護者向けの理解メモと次の確認事項を作る。",
+                                                     "whatChangedFromSource":  "医療面談後の専門用語説明を、学校・自治体・保護者連絡の後工程へ移した。",
+                                                     "whyItMightBeInteresting":  "話を聞いた後に何を確認し、何を家庭でやるかが曖昧な場面に刺さる。",
+                                                     "riskOrBoringFailure":  "学校の公式判断を代替すると危険。質問リストと理解整理に限定する。"
+                                                 },
+                                                 {
+                                                     "id":  "raw_rake_household_optimizer",
+                                                     "sourceProductCardId":  "smart_india_rake_optimization",
+                                                     "valueKnowledgeCardId":  "vk_rake_constraint_to_plan",
+                                                     "topicCardId":  "topic_local_disaster_readiness",
+                                                     "ideaMoveId":  "output_form_shift",
+                                                     "rawDirection":  "家庭の人数・在庫・制約を入れると、備蓄や準備タスクの配分計画を出す。",
+                                                     "whatChangedFromSource":  "鉄道運用の制約最適化を、家庭内の備蓄・役割分担・準備順序へ小さくした。",
+                                                     "whyItMightBeInteresting":  "家族ごとに違う制約を、表やカードで見える計画にできる。",
+                                                     "riskOrBoringFailure":  "真面目すぎて普通のチェックリストに見える。見える化の面白さが必要。"
+                                                 }
+                                             ],
+                        "evaluatedRemixes":  [
+                                                 {
+                                                     "id":  "remix_school_notice_action_route",
+                                                     "sourceProductCardIds":  [
+                                                                                  "anthropic_hackathon_crossbeam"
+                                                                              ],
+                                                     "productSourceIndexEntryIds":  [
+                                                                                        "anthropic_hackathon_crossbeam"
+                                                                                    ],
+                                                     "valueKnowledgeCardIds":  [
+                                                                                   "vk_crossbeam_domain_pain_workflow"
+                                                                               ],
+                                                     "topicCardIds":  [
+                                                                          "topic_school_parent_communication"
+                                                                      ],
+                                                     "ideaMoveIds":  [
+                                                                         "scamper_adapt",
+                                                                         "output_form_shift"
+                                                                     ],
+                                                     "sourceProductNames":  [
+                                                                                "CrossBeam"
+                                                                            ],
+                                                     "originalDomain":  "housing permit workflow",
+                                                     "newTheme":  "学校・保護者のお知らせ理解",
+                                                     "remixTitle":  "学校お知らせ行動ルート",
+                                                     "whatWasTransferred":  "専門的で手順が見えにくい文書を、利用者ごとの具体的な行動フローに変える構造。",
+                                                     "whatWasChanged":  "許認可手続きから、家庭が読む学校・自治体のお知らせに移した。出力は手続きフローではなく、期限・担当・確認先つきの行動ルートにする。",
+                                                     "ideaMoveApplied":  "Adapt + Output Form Shift",
+                                                     "topicApplied":  "学校・保護者のお知らせ理解",
+                                                     "whyThisMayWork":  "非エンジニアにも価値が直感的で、AIが文書を読むだけでなく家庭の行動に変える点が見える。",
+                                                     "broadAudienceHook":  "長いお知らせを読む負担が減り、今日何をすればいいか分かる。",
+                                                     "aiNativeHook":  "文書理解、タスク抽出、期限抽出、家庭文脈への変換というAIらしい処理が見える。",
+                                                     "possibleUserInputs":  [
+                                                                                "school notice",
+                                                                                "municipal notice",
+                                                                                "child grade",
+                                                                                "deadline",
+                                                                                "family constraints"
+                                                                            ],
+                                                     "visibleInteractionPossibilities":  [
+                                                                                             "原文の重要箇所ハイライト",
+                                                                                             "提出物・期限・確認先カード",
+                                                                                             "不明点だけを質問リスト化"
+                                                                                         ],
+                                                     "antiCloneBoundary":  "ADU許認可や法務手続きはコピーしない。学校連絡の読み替え支援に限定する。",
+                                                     "evidenceRefs":  [
+                                                                          "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                          "topic_school_parent_communication"
+                                                                      ],
+                                                     "scores":  {
+                                                                    "sourceProductStrength":  4,
+                                                                    "coreTransferClarity":  5,
+                                                                    "themeShiftSurprise":  4,
+                                                                    "broadUserAppeal":  5,
+                                                                    "aiNativeInterest":  4,
+                                                                    "oneScreenArtifactPotential":  5,
+                                                                    "noveltyAgainstRecentArtifacts":  4,
+                                                                    "feasibility":  5,
+                                                                    "riskLow":  4,
+                                                                    "total":  40
+                                                                },
+                                                     "reviewerNotes":  [
+                                                                           "生活者向けで分かりやすい。",
+                                                                           "単なる要約ではなく、家庭内の行動ルートにする点が重要。"
+                                                                       ],
+                                                     "iterationNotes":  [
+                                                                            "初期案の『お知らせ要約』から、担当・期限・不明点に分解する行動ルートへ修正した。"
+                                                                        ],
+                                                     "confidence":  "high"
+                                                 },
+                                                 {
+                                                     "id":  "remix_family_disaster_priority_cards",
+                                                     "sourceProductCardIds":  [
+                                                                                  "anthropic_hackathon_road_footage_investment"
+                                                                              ],
+                                                     "productSourceIndexEntryIds":  [
+                                                                                        "anthropic_hackathon_road_footage_investment"
+                                                                                    ],
+                                                     "valueKnowledgeCardIds":  [
+                                                                                   "vk_road_footage_evidence_to_priority"
+                                                                               ],
+                                                     "topicCardIds":  [
+                                                                          "topic_local_disaster_readiness"
+                                                                      ],
+                                                     "ideaMoveIds":  [
+                                                                         "scamper_put_to_other_use",
+                                                                         "output_form_shift"
+                                                                     ],
+                                                     "sourceProductNames":  [
+                                                                                "Road footage to investment recommendations"
+                                                                            ],
+                                                     "originalDomain":  "road infrastructure planning",
+                                                     "newTheme":  "家庭と地域の防災準備",
+                                                     "remixTitle":  "家庭防災の優先カード",
+                                                     "whatWasTransferred":  "雑多な現場情報を、優先度つきの行動リストへ変換する構造。",
+                                                     "whatWasChanged":  "道路映像と公共投資判断から、家庭状況・地域情報・備蓄状態の準備優先度へ移した。",
+                                                     "ideaMoveApplied":  "Put To Other Use + Output Form Shift",
+                                                     "topicApplied":  "家庭と地域の防災準備",
+                                                     "whyThisMayWork":  "防災は情報が多く行動に落ちにくいので、優先順位と理由が見えるカードは使いやすい。",
+                                                     "broadAudienceHook":  "家族ごとに足りない準備が上から順に分かる。",
+                                                     "aiNativeHook":  "制約や状況から不足を推定し、説明つきで優先順位を出す点がAIらしい。",
+                                                     "possibleUserInputs":  [
+                                                                                "family members",
+                                                                                "pets",
+                                                                                "mobility constraints",
+                                                                                "home type",
+                                                                                "local notice"
+                                                                            ],
+                                                     "visibleInteractionPossibilities":  [
+                                                                                             "不足カードのランキング",
+                                                                                             "公式情報への参照欄",
+                                                                                             "今週やること/買うもの/確認することの3列表示"
+                                                                                         ],
+                                                     "antiCloneBoundary":  "道路映像やインフラ投資判断はコピーしない。公式避難判断の代替にしない。",
+                                                     "evidenceRefs":  [
+                                                                          "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                          "topic_local_disaster_readiness"
+                                                                      ],
+                                                     "scores":  {
+                                                                    "sourceProductStrength":  4,
+                                                                    "coreTransferClarity":  5,
+                                                                    "themeShiftSurprise":  4,
+                                                                    "broadUserAppeal":  5,
+                                                                    "aiNativeInterest":  4,
+                                                                    "oneScreenArtifactPotential":  5,
+                                                                    "noveltyAgainstRecentArtifacts":  4,
+                                                                    "feasibility":  4,
+                                                                    "riskLow":  3,
+                                                                    "total":  38
+                                                                },
+                                                     "reviewerNotes":  [
+                                                                           "生活テーマとして強いが、安全境界が必要。",
+                                                                           "公式情報へのリンクと不確実性表示を必須にしたい。"
+                                                                       ],
+                                                     "iterationNotes":  [
+                                                                            "避難アドバイスではなく、家庭内準備の不足可視化へ範囲を狭めた。"
+                                                                        ],
+                                                     "confidence":  "medium"
+                                                 },
+                                                 {
+                                                     "id":  "remix_creator_review_committee",
+                                                     "sourceProductCardIds":  [
+                                                                                  "sp_tradingagents"
+                                                                              ],
+                                                     "productSourceIndexEntryIds":  [
+                                                                                        "sp_tradingagents"
+                                                                                    ],
+                                                     "valueKnowledgeCardIds":  [
+
+                                                                               ],
+                                                     "topicCardIds":  [
+                                                                          "topic_creator_preflight"
+                                                                      ],
+                                                     "ideaMoveIds":  [
+                                                                         "scamper_reverse",
+                                                                         "audience_shift"
+                                                                     ],
+                                                     "sourceProductNames":  [
+                                                                                "TradingAgents"
+                                                                            ],
+                                                     "originalDomain":  "investment and trading analysis",
+                                                     "newTheme":  "個人クリエイターの公開前チェック",
+                                                     "remixTitle":  "公開前レビュー委員会",
+                                                     "whatWasTransferred":  "複数の専門役割が同じ対象を見て、賛成・反対・リスク・最終判断を出す構造。",
+                                                     "whatWasChanged":  "売買判断から、動画・投稿・LP・ニュースレターの公開前レビューへ移した。",
+                                                     "ideaMoveApplied":  "Reverse + Audience Shift",
+                                                     "topicApplied":  "個人クリエイターの公開前チェック",
+                                                     "whyThisMayWork":  "AI生成物を出す前の不安に対し、反対意見や弱点が見えるため判断材料になる。",
+                                                     "broadAudienceHook":  "投稿を出す前に、読者に伝わるか、炎上や弱点がないかを見られる。",
+                                                     "aiNativeHook":  "複数AIロールの議論・リスクレビュー・最終メモという構造がAI好きにも分かりやすい。",
+                                                     "possibleUserInputs":  [
+                                                                                "draft",
+                                                                                "video idea",
+                                                                                "target audience",
+                                                                                "publish goal",
+                                                                                "tone"
+                                                                            ],
+                                                     "visibleInteractionPossibilities":  [
+                                                                                             "賛成レビュワー/反対レビュワー/リスク係/編集長の4列",
+                                                                                             "出す・直す・保留の判定メモ",
+                                                                                             "最も弱い一文の指摘"
+                                                                                         ],
+                                                     "antiCloneBoundary":  "投資、株、売買、金融分析、TradingAgentsの役割名はコピーしない。",
+                                                     "evidenceRefs":  [
+                                                                          "https://github.com/TauricResearch/TradingAgents",
+                                                                          "topic_creator_preflight"
+                                                                      ],
+                                                     "scores":  {
+                                                                    "sourceProductStrength":  5,
+                                                                    "coreTransferClarity":  5,
+                                                                    "themeShiftSurprise":  4,
+                                                                    "broadUserAppeal":  4,
+                                                                    "aiNativeInterest":  5,
+                                                                    "oneScreenArtifactPotential":  5,
+                                                                    "noveltyAgainstRecentArtifacts":  4,
+                                                                    "feasibility":  5,
+                                                                    "riskLow":  4,
+                                                                    "total":  41
+                                                                },
+                                                     "reviewerNotes":  [
+                                                                           "AI/クリエイター層に刺さりやすい。",
+                                                                           "抽象的な会議ではなく、公開判断メモに落とすと強い。"
+                                                                       ],
+                                                     "iterationNotes":  [
+                                                                            "『AI会議』から、公開前の出す/直す/保留判断へ具体化した。"
+                                                                        ],
+                                                     "confidence":  "high"
+                                                 },
+                                                 {
+                                                     "id":  "remix_school_after_meeting_explainer",
+                                                     "sourceProductCardIds":  [
+                                                                                  "anthropic_hackathon_postvisit"
+                                                                              ],
+                                                     "productSourceIndexEntryIds":  [
+                                                                                        "anthropic_hackathon_postvisit"
+                                                                                    ],
+                                                     "valueKnowledgeCardIds":  [
+                                                                                   "vk_postvisit_after_event_explainer"
+                                                                               ],
+                                                     "topicCardIds":  [
+                                                                          "topic_school_parent_communication"
+                                                                      ],
+                                                     "ideaMoveIds":  [
+                                                                         "audience_shift",
+                                                                         "scamper_adapt"
+                                                                     ],
+                                                     "sourceProductNames":  [
+                                                                                "PostVisit.ai"
+                                                                            ],
+                                                     "originalDomain":  "medical after-visit explanation",
+                                                     "newTheme":  "学校・保護者のお知らせ理解",
+                                                     "remixTitle":  "面談後の家庭メモ",
+                                                     "whatWasTransferred":  "専門家とのやりとりの後に、利用者が理解し行動できる形へ変換する構造。",
+                                                     "whatWasChanged":  "医療面談後から、学校面談・説明会・自治体相談後の家庭向けメモへ移した。",
+                                                     "ideaMoveApplied":  "Audience Shift + Adapt",
+                                                     "topicApplied":  "学校・保護者のお知らせ理解",
+                                                     "whyThisMayWork":  "面談後は理解したつもりでも、家庭で何を確認すべきかが曖昧になりやすい。",
+                                                     "broadAudienceHook":  "面談や説明会の後に、次に聞くこと・家庭でやることが残る。",
+                                                     "aiNativeHook":  "会話メモや配布文書から、理解メモ・質問リスト・次アクションを分けて出す。",
+                                                     "possibleUserInputs":  [
+                                                                                "meeting notes",
+                                                                                "school handout",
+                                                                                "teacher comments",
+                                                                                "family concern"
+                                                                            ],
+                                                     "visibleInteractionPossibilities":  [
+                                                                                             "分かったこと/未確認のこと/次に聞くこと",
+                                                                                             "家庭での次アクション",
+                                                                                             "原文に戻れる根拠表示"
+                                                                                         ],
+                                                     "antiCloneBoundary":  "医療診断・治療説明はコピーしない。学校・家庭の理解整理に限定する。",
+                                                     "evidenceRefs":  [
+                                                                          "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                          "topic_school_parent_communication"
+                                                                      ],
+                                                     "scores":  {
+                                                                    "sourceProductStrength":  4,
+                                                                    "coreTransferClarity":  5,
+                                                                    "themeShiftSurprise":  3,
+                                                                    "broadUserAppeal":  5,
+                                                                    "aiNativeInterest":  4,
+                                                                    "oneScreenArtifactPotential":  4,
+                                                                    "noveltyAgainstRecentArtifacts":  4,
+                                                                    "feasibility":  5,
+                                                                    "riskLow":  4,
+                                                                    "total":  38
+                                                                },
+                                                     "reviewerNotes":  [
+                                                                           "実用性は高いが、学校お知らせ行動ルートと近い。",
+                                                                           "面談後という時間軸に絞ると差別化できる。"
+                                                                       ],
+                                                     "iterationNotes":  [
+                                                                            "文書要約から、面談後の家庭メモというタイミング特化へ修正した。"
+                                                                        ],
+                                                     "confidence":  "medium"
+                                                 },
+                                                 {
+                                                     "id":  "remix_household_resource_optimizer",
+                                                     "sourceProductCardIds":  [
+                                                                                  "smart_india_rake_optimization"
+                                                                              ],
+                                                     "productSourceIndexEntryIds":  [
+                                                                                        "smart_india_rake_optimization"
+                                                                                    ],
+                                                     "valueKnowledgeCardIds":  [
+                                                                                   "vk_rake_constraint_to_plan"
+                                                                               ],
+                                                     "topicCardIds":  [
+                                                                          "topic_local_disaster_readiness"
+                                                                      ],
+                                                     "ideaMoveIds":  [
+                                                                         "output_form_shift"
+                                                                     ],
+                                                     "sourceProductNames":  [
+                                                                                "Rake Optimization Suite decision support"
+                                                                            ],
+                                                     "originalDomain":  "railway logistics planning",
+                                                     "newTheme":  "家庭と地域の防災準備",
+                                                     "remixTitle":  "家庭備蓄の配分プラン",
+                                                     "whatWasTransferred":  "制約条件を評価し、実行しやすい計画へ変える構造。",
+                                                     "whatWasChanged":  "鉄道運用から、家庭の備蓄・役割分担・準備順序へ移した。",
+                                                     "ideaMoveApplied":  "Output Form Shift",
+                                                     "topicApplied":  "家庭と地域の防災準備",
+                                                     "whyThisMayWork":  "家族構成や在庫という制約を扱えるため、単なるチェックリストより個別化できる。",
+                                                     "broadAudienceHook":  "家にあるものと足りないものが見える。",
+                                                     "aiNativeHook":  "制約から計画を作るAIらしさがある。",
+                                                     "possibleUserInputs":  [
+                                                                                "family members",
+                                                                                "current supplies",
+                                                                                "budget",
+                                                                                "storage space"
+                                                                            ],
+                                                     "visibleInteractionPossibilities":  [
+                                                                                             "在庫テーブル",
+                                                                                             "不足量の優先順位",
+                                                                                             "今週の購入・確認タスク"
+                                                                                         ],
+                                                     "antiCloneBoundary":  "鉄道・物流ドメインをコピーしない。",
+                                                     "evidenceRefs":  [
+                                                                          "https://timesofindia.indiatimes.com/city/allahabad/iiit-a-team-wins-1st-prize-in-smart-india-hackathon/articleshow/126552451.cms",
+                                                                          "topic_local_disaster_readiness"
+                                                                      ],
+                                                     "scores":  {
+                                                                    "sourceProductStrength":  3,
+                                                                    "coreTransferClarity":  4,
+                                                                    "themeShiftSurprise":  3,
+                                                                    "broadUserAppeal":  4,
+                                                                    "aiNativeInterest":  3,
+                                                                    "oneScreenArtifactPotential":  4,
+                                                                    "noveltyAgainstRecentArtifacts":  3,
+                                                                    "feasibility":  4,
+                                                                    "riskLow":  3,
+                                                                    "total":  31
+                                                                },
+                                                     "reviewerNotes":  [
+                                                                           "有用だが、普通の防災チェックリストに見えやすい。",
+                                                                           "Road footage由来の優先カード案の方が視覚的に強い。"
+                                                                       ],
+                                                     "iterationNotes":  [
+                                                                            "備蓄表だけでは弱いため、今回は選外にした。"
+                                                                        ],
+                                                     "confidence":  "medium"
+                                                 }
+                                             ],
+                        "selectedRemixes":  [
+                                                {
+                                                    "id":  "remix_creator_review_committee",
+                                                    "sourceProductCardIds":  [
+                                                                                 "sp_tradingagents"
+                                                                             ],
+                                                    "productSourceIndexEntryIds":  [
+                                                                                       "sp_tradingagents"
+                                                                                   ],
+                                                    "valueKnowledgeCardIds":  [
+
+                                                                              ],
+                                                    "topicCardIds":  [
+                                                                         "topic_creator_preflight"
+                                                                     ],
+                                                    "ideaMoveIds":  [
+                                                                        "scamper_reverse",
+                                                                        "audience_shift"
+                                                                    ],
+                                                    "sourceProductNames":  [
+                                                                               "TradingAgents"
+                                                                           ],
+                                                    "originalDomain":  "investment and trading analysis",
+                                                    "newTheme":  "個人クリエイターの公開前チェック",
+                                                    "remixTitle":  "公開前レビュー委員会",
+                                                    "whatWasTransferred":  "複数の専門役割が同じ対象を見て、賛成・反対・リスク・最終判断を出す構造。",
+                                                    "whatWasChanged":  "売買判断から、動画・投稿・LP・ニュースレターの公開前レビューへ移した。",
+                                                    "ideaMoveApplied":  "Reverse + Audience Shift",
+                                                    "topicApplied":  "個人クリエイターの公開前チェック",
+                                                    "whyThisMayWork":  "AI生成物を出す前の不安に対し、反対意見や弱点が見えるため判断材料になる。",
+                                                    "broadAudienceHook":  "投稿を出す前に、読者に伝わるか、炎上や弱点がないかを見られる。",
+                                                    "aiNativeHook":  "複数AIロールの議論・リスクレビュー・最終メモという構造がAI好きにも分かりやすい。",
+                                                    "possibleUserInputs":  [
+                                                                               "draft",
+                                                                               "video idea",
+                                                                               "target audience",
+                                                                               "publish goal",
+                                                                               "tone"
+                                                                           ],
+                                                    "visibleInteractionPossibilities":  [
+                                                                                            "賛成レビュワー/反対レビュワー/リスク係/編集長の4列",
+                                                                                            "出す・直す・保留の判定メモ",
+                                                                                            "最も弱い一文の指摘"
+                                                                                        ],
+                                                    "antiCloneBoundary":  "投資、株、売買、金融分析、TradingAgentsの役割名はコピーしない。",
+                                                    "evidenceRefs":  [
+                                                                         "https://github.com/TauricResearch/TradingAgents",
+                                                                         "topic_creator_preflight"
+                                                                     ],
+                                                    "scores":  {
+                                                                   "sourceProductStrength":  5,
+                                                                   "coreTransferClarity":  5,
+                                                                   "themeShiftSurprise":  4,
+                                                                   "broadUserAppeal":  4,
+                                                                   "aiNativeInterest":  5,
+                                                                   "oneScreenArtifactPotential":  5,
+                                                                   "noveltyAgainstRecentArtifacts":  4,
+                                                                   "feasibility":  5,
+                                                                   "riskLow":  4,
+                                                                   "total":  41
+                                                               },
+                                                    "reviewerNotes":  [
+                                                                          "AI/クリエイター層に刺さりやすい。",
+                                                                          "抽象的な会議ではなく、公開判断メモに落とすと強い。"
+                                                                      ],
+                                                    "iterationNotes":  [
+                                                                           "『AI会議』から、公開前の出す/直す/保留判断へ具体化した。"
+                                                                       ],
+                                                    "confidence":  "high"
+                                                },
+                                                {
+                                                    "id":  "remix_school_notice_action_route",
+                                                    "sourceProductCardIds":  [
+                                                                                 "anthropic_hackathon_crossbeam"
+                                                                             ],
+                                                    "productSourceIndexEntryIds":  [
+                                                                                       "anthropic_hackathon_crossbeam"
+                                                                                   ],
+                                                    "valueKnowledgeCardIds":  [
+                                                                                  "vk_crossbeam_domain_pain_workflow"
+                                                                              ],
+                                                    "topicCardIds":  [
+                                                                         "topic_school_parent_communication"
+                                                                     ],
+                                                    "ideaMoveIds":  [
+                                                                        "scamper_adapt",
+                                                                        "output_form_shift"
+                                                                    ],
+                                                    "sourceProductNames":  [
+                                                                               "CrossBeam"
+                                                                           ],
+                                                    "originalDomain":  "housing permit workflow",
+                                                    "newTheme":  "学校・保護者のお知らせ理解",
+                                                    "remixTitle":  "学校お知らせ行動ルート",
+                                                    "whatWasTransferred":  "専門的で手順が見えにくい文書を、利用者ごとの具体的な行動フローに変える構造。",
+                                                    "whatWasChanged":  "許認可手続きから、家庭が読む学校・自治体のお知らせに移した。出力は手続きフローではなく、期限・担当・確認先つきの行動ルートにする。",
+                                                    "ideaMoveApplied":  "Adapt + Output Form Shift",
+                                                    "topicApplied":  "学校・保護者のお知らせ理解",
+                                                    "whyThisMayWork":  "非エンジニアにも価値が直感的で、AIが文書を読むだけでなく家庭の行動に変える点が見える。",
+                                                    "broadAudienceHook":  "長いお知らせを読む負担が減り、今日何をすればいいか分かる。",
+                                                    "aiNativeHook":  "文書理解、タスク抽出、期限抽出、家庭文脈への変換というAIらしい処理が見える。",
+                                                    "possibleUserInputs":  [
+                                                                               "school notice",
+                                                                               "municipal notice",
+                                                                               "child grade",
+                                                                               "deadline",
+                                                                               "family constraints"
+                                                                           ],
+                                                    "visibleInteractionPossibilities":  [
+                                                                                            "原文の重要箇所ハイライト",
+                                                                                            "提出物・期限・確認先カード",
+                                                                                            "不明点だけを質問リスト化"
+                                                                                        ],
+                                                    "antiCloneBoundary":  "ADU許認可や法務手続きはコピーしない。学校連絡の読み替え支援に限定する。",
+                                                    "evidenceRefs":  [
+                                                                         "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                         "topic_school_parent_communication"
+                                                                     ],
+                                                    "scores":  {
+                                                                   "sourceProductStrength":  4,
+                                                                   "coreTransferClarity":  5,
+                                                                   "themeShiftSurprise":  4,
+                                                                   "broadUserAppeal":  5,
+                                                                   "aiNativeInterest":  4,
+                                                                   "oneScreenArtifactPotential":  5,
+                                                                   "noveltyAgainstRecentArtifacts":  4,
+                                                                   "feasibility":  5,
+                                                                   "riskLow":  4,
+                                                                   "total":  40
+                                                               },
+                                                    "reviewerNotes":  [
+                                                                          "生活者向けで分かりやすい。",
+                                                                          "単なる要約ではなく、家庭内の行動ルートにする点が重要。"
+                                                                      ],
+                                                    "iterationNotes":  [
+                                                                           "初期案の『お知らせ要約』から、担当・期限・不明点に分解する行動ルートへ修正した。"
+                                                                       ],
+                                                    "confidence":  "high"
+                                                },
+                                                {
+                                                    "id":  "remix_family_disaster_priority_cards",
+                                                    "sourceProductCardIds":  [
+                                                                                 "anthropic_hackathon_road_footage_investment"
+                                                                             ],
+                                                    "productSourceIndexEntryIds":  [
+                                                                                       "anthropic_hackathon_road_footage_investment"
+                                                                                   ],
+                                                    "valueKnowledgeCardIds":  [
+                                                                                  "vk_road_footage_evidence_to_priority"
+                                                                              ],
+                                                    "topicCardIds":  [
+                                                                         "topic_local_disaster_readiness"
+                                                                     ],
+                                                    "ideaMoveIds":  [
+                                                                        "scamper_put_to_other_use",
+                                                                        "output_form_shift"
+                                                                    ],
+                                                    "sourceProductNames":  [
+                                                                               "Road footage to investment recommendations"
+                                                                           ],
+                                                    "originalDomain":  "road infrastructure planning",
+                                                    "newTheme":  "家庭と地域の防災準備",
+                                                    "remixTitle":  "家庭防災の優先カード",
+                                                    "whatWasTransferred":  "雑多な現場情報を、優先度つきの行動リストへ変換する構造。",
+                                                    "whatWasChanged":  "道路映像と公共投資判断から、家庭状況・地域情報・備蓄状態の準備優先度へ移した。",
+                                                    "ideaMoveApplied":  "Put To Other Use + Output Form Shift",
+                                                    "topicApplied":  "家庭と地域の防災準備",
+                                                    "whyThisMayWork":  "防災は情報が多く行動に落ちにくいので、優先順位と理由が見えるカードは使いやすい。",
+                                                    "broadAudienceHook":  "家族ごとに足りない準備が上から順に分かる。",
+                                                    "aiNativeHook":  "制約や状況から不足を推定し、説明つきで優先順位を出す点がAIらしい。",
+                                                    "possibleUserInputs":  [
+                                                                               "family members",
+                                                                               "pets",
+                                                                               "mobility constraints",
+                                                                               "home type",
+                                                                               "local notice"
+                                                                           ],
+                                                    "visibleInteractionPossibilities":  [
+                                                                                            "不足カードのランキング",
+                                                                                            "公式情報への参照欄",
+                                                                                            "今週やること/買うもの/確認することの3列表示"
+                                                                                        ],
+                                                    "antiCloneBoundary":  "道路映像やインフラ投資判断はコピーしない。公式避難判断の代替にしない。",
+                                                    "evidenceRefs":  [
+                                                                         "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                         "topic_local_disaster_readiness"
+                                                                     ],
+                                                    "scores":  {
+                                                                   "sourceProductStrength":  4,
+                                                                   "coreTransferClarity":  5,
+                                                                   "themeShiftSurprise":  4,
+                                                                   "broadUserAppeal":  5,
+                                                                   "aiNativeInterest":  4,
+                                                                   "oneScreenArtifactPotential":  5,
+                                                                   "noveltyAgainstRecentArtifacts":  4,
+                                                                   "feasibility":  4,
+                                                                   "riskLow":  3,
+                                                                   "total":  38
+                                                               },
+                                                    "reviewerNotes":  [
+                                                                          "生活テーマとして強いが、安全境界が必要。",
+                                                                          "公式情報へのリンクと不確実性表示を必須にしたい。"
+                                                                      ],
+                                                    "iterationNotes":  [
+                                                                           "避難アドバイスではなく、家庭内準備の不足可視化へ範囲を狭めた。"
+                                                                       ],
+                                                    "confidence":  "medium"
+                                                },
+                                                {
+                                                    "id":  "remix_school_after_meeting_explainer",
+                                                    "sourceProductCardIds":  [
+                                                                                 "anthropic_hackathon_postvisit"
+                                                                             ],
+                                                    "productSourceIndexEntryIds":  [
+                                                                                       "anthropic_hackathon_postvisit"
+                                                                                   ],
+                                                    "valueKnowledgeCardIds":  [
+                                                                                  "vk_postvisit_after_event_explainer"
+                                                                              ],
+                                                    "topicCardIds":  [
+                                                                         "topic_school_parent_communication"
+                                                                     ],
+                                                    "ideaMoveIds":  [
+                                                                        "audience_shift",
+                                                                        "scamper_adapt"
+                                                                    ],
+                                                    "sourceProductNames":  [
+                                                                               "PostVisit.ai"
+                                                                           ],
+                                                    "originalDomain":  "medical after-visit explanation",
+                                                    "newTheme":  "学校・保護者のお知らせ理解",
+                                                    "remixTitle":  "面談後の家庭メモ",
+                                                    "whatWasTransferred":  "専門家とのやりとりの後に、利用者が理解し行動できる形へ変換する構造。",
+                                                    "whatWasChanged":  "医療面談後から、学校面談・説明会・自治体相談後の家庭向けメモへ移した。",
+                                                    "ideaMoveApplied":  "Audience Shift + Adapt",
+                                                    "topicApplied":  "学校・保護者のお知らせ理解",
+                                                    "whyThisMayWork":  "面談後は理解したつもりでも、家庭で何を確認すべきかが曖昧になりやすい。",
+                                                    "broadAudienceHook":  "面談や説明会の後に、次に聞くこと・家庭でやることが残る。",
+                                                    "aiNativeHook":  "会話メモや配布文書から、理解メモ・質問リスト・次アクションを分けて出す。",
+                                                    "possibleUserInputs":  [
+                                                                               "meeting notes",
+                                                                               "school handout",
+                                                                               "teacher comments",
+                                                                               "family concern"
+                                                                           ],
+                                                    "visibleInteractionPossibilities":  [
+                                                                                            "分かったこと/未確認のこと/次に聞くこと",
+                                                                                            "家庭での次アクション",
+                                                                                            "原文に戻れる根拠表示"
+                                                                                        ],
+                                                    "antiCloneBoundary":  "医療診断・治療説明はコピーしない。学校・家庭の理解整理に限定する。",
+                                                    "evidenceRefs":  [
+                                                                         "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                         "topic_school_parent_communication"
+                                                                     ],
+                                                    "scores":  {
+                                                                   "sourceProductStrength":  4,
+                                                                   "coreTransferClarity":  5,
+                                                                   "themeShiftSurprise":  3,
+                                                                   "broadUserAppeal":  5,
+                                                                   "aiNativeInterest":  4,
+                                                                   "oneScreenArtifactPotential":  4,
+                                                                   "noveltyAgainstRecentArtifacts":  4,
+                                                                   "feasibility":  5,
+                                                                   "riskLow":  4,
+                                                                   "total":  38
+                                                               },
+                                                    "reviewerNotes":  [
+                                                                          "実用性は高いが、学校お知らせ行動ルートと近い。",
+                                                                          "面談後という時間軸に絞ると差別化できる。"
+                                                                      ],
+                                                    "iterationNotes":  [
+                                                                           "文書要約から、面談後の家庭メモというタイミング特化へ修正した。"
+                                                                       ],
+                                                    "confidence":  "medium"
+                                                }
+                                            ],
+                        "rejectedInterestingRemixes":  [
+                                                           {
+                                                               "id":  "remix_household_resource_optimizer",
+                                                               "sourceProductCardIds":  [
+                                                                                            "smart_india_rake_optimization"
+                                                                                        ],
+                                                               "newTheme":  "家庭と地域の防災準備",
+                                                               "reasonRejected":  "家庭防災の優先カード案と近く、こちらは普通のチェックリスト/在庫表に寄りやすい。",
+                                                               "whyStillInteresting":  "制約から計画を出す構造は、将来的に家族の準備や役割分担に使える。",
+                                                               "whatWouldMakeItStronger":  "ゲーム性やシミュレーション性を足し、単なる表から脱却する。"
+                                                           }
+                                                       ]
+                    },
+    "productSourceIndex":  {
+                               "version":  3,
+                               "updatedAt":  "2026-06-26T11:45:06.676Z",
+                               "purpose":  "Persistent index of small rising products, hackathon projects, GitHub projects, and product-gallery launches used as idea source material for Prodia.",
+                               "updatePolicy":  {
+                                                    "cadence":  "daily",
+                                                    "sourceOfTruth":  "data/product-research/index-tables/*.tsv",
+                                                    "generatedArtifact":  "data/product-research/source-product-index.json",
+                                                    "dedupeKey":  "productUrl first, codeUrl second, then sourceUrl + normalized name + source category",
+                                                    "addWhen":  [
+                                                                    "The source is a recent hackathon winner/finalist/demo, recently rising GitHub project, or small product-gallery launch.",
+                                                                    "The product has a clear input-output transformation, interaction pattern, or value mechanism.",
+                                                                    "The product is not an established major product."
+                                                                ],
+                                                    "updateWhen":  [
+                                                                       "The same product appears again with stronger evidence, a new source, new traction, public code, or clearer value knowledge.",
+                                                                       "The product\u0027s category, URL, target user, evidence, or value frame becomes more precise."
+                                                                   ],
+                                                    "excludeWhen":  [
+                                                                        "The item is an established major product rather than a small rising product.",
+                                                                        "The item is only a broad platform, framework, or directory listing with no product-shaped demo.",
+                                                                        "The item duplicates an existing canonical entry without adding evidence."
+                                                                    ]
+                                                },
+                               "entries":  [
+                                               {
+                                                   "id":  "anthropic_hackathon_crossbeam",
+                                                   "canonicalKey":  "source-url-name:https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay:crossbeam",
+                                                   "name":  "CrossBeam",
+                                                   "sourceCategory":  "hackathon_winner",
+                                                   "sourceType":  "hackathon_winner",
+                                                   "sourceCategories":  [
+                                                                            "hackathon_winner"
+                                                                        ],
+                                                   "url":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                   "productUrl":  null,
+                                                   "codeUrl":  null,
+                                                   "firstSeenAt":  "2026-06-26",
+                                                   "lastSeenAt":  "2026-06-26",
+                                                   "lastUpdatedAt":  "2026-06-26T00:00:00.000Z",
+                                                   "status":  "active",
+                                                   "originalDomain":  "housing permit workflow",
+                                                   "concept":  "A narrow AI workflow product for streamlining California accessory dwelling unit permitting.",
+                                                   "oneLineDescription":  "Streamlines the California accessory dwelling unit permitting process.",
+                                                   "problemSolved":  "Domain-specific permitting is confusing, document-heavy, and hard for non-specialists to navigate.",
+                                                   "targetUser":  "homeowners, lawyers, permit consultants, civic operators",
+                                                   "userFriction":  "Users need to translate regulation and paperwork into a sequence of concrete permit steps.",
+                                                   "coreUserInput":  "Property/project context, local permit requirements, and ADU planning details.",
+                                                   "coreOutput":  "A guided permitting workflow or action plan.",
+                                                   "outputArtifact":  "permit workflow checklist",
+                                                   "coreMechanism":  "Transforms a bureaucratic domain workflow into guided steps using domain-specific rules and AI generation.",
+                                                   "interactionPattern":  "User enters a concrete permit situation and receives a guided workflow.",
+                                                   "whyItIsInteresting":  "A domain expert used AI coding to turn a painful regulatory workflow into software.",
+                                                   "whyItGotAttention":  "It shows non-engineer domain expertise becoming a focused product through AI-assisted building.",
+                                                   "noveltyKernel":  "Expert bureaucratic know-how becomes a narrow guided product instead of a generic assistant.",
+                                                   "transferableStructure":  "Turn a specialized paperwork/regulation process into a guided action workflow.",
+                                                   "ideaKernel":  "Domain pain to guided workflow",
+                                                   "transformationAxes":  [
+                                                                              "domain_shift",
+                                                                              "workflow_generation",
+                                                                              "expert_to_novice_translation"
+                                                                          ],
+                                                   "cloneRisk":  "Copying the ADU permitting domain, name, jurisdictional claims, or legal workflow too directly.",
+                                                   "antiCloneBoundary":  "Do not copy the ADU permitting domain or imply legal advice.",
+                                                   "doNotCopy":  [
+                                                                     "ADU permitting workflow",
+                                                                     "CrossBeam name",
+                                                                     "jurisdiction-specific legal claims"
+                                                                 ],
+                                                   "remixableThemes":  [
+                                                                           "education",
+                                                                           "civic",
+                                                                           "work",
+                                                                           "family paperwork",
+                                                                           "small business compliance"
+                                                                       ],
+                                                   "bestRemixTargets":  [
+                                                                            "school paperwork",
+                                                                            "local subsidies",
+                                                                            "event permits",
+                                                                            "small business onboarding"
+                                                                        ],
+                                                   "adoptionOrAttentionProof":  [
+                                                                                    "Reported as an Anthropic hackathon winner/example in local seed dataset"
+                                                                                ],
+                                                   "attentionProof":  [
+                                                                          "Reported as an Anthropic hackathon winner/example in local seed dataset"
+                                                                      ],
+                                                   "evidenceRefs":  [
+                                                                        "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/"
+                                                                    ],
+                                                   "evidenceStrength":  "medium",
+                                                   "confidence":  "medium",
+                                                   "scaleClassification":  "hackathon",
+                                                   "reasonIncluded":  "Small hackathon product with a concrete domain-pain-to-workflow mechanism.",
+                                                   "reasonNotMajorProduct":  "Not an established commercial platform; included as a hackathon product seed.",
+                                                   "discoverySources":  [
+                                                                            {
+                                                                                "id":  "archive_crossbeam_seed_article",
+                                                                                "sourceProductCardId":  "anthropic_hackathon_crossbeam",
+                                                                                "sourceCategory":  "hackathon_winner",
+                                                                                "sourceName":  "Anthropic hackathon coverage",
+                                                                                "sourceUrl":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                                "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                                                "observedAt":  "2026-06-26",
+                                                                                "revisitCadence":  "monthly",
+                                                                                "storedEvidenceSummary":  "A lawyer used AI coding tools to turn ADU permitting friction into a product.",
+                                                                                "evidenceStrength":  "medium"
+                                                                            }
+                                                                        ],
+                                                   "valueKnowledgeCardIds":  [
+                                                                                 "vk_crossbeam_domain_pain_workflow"
+                                                                             ],
+                                                   "duplicateOf":  null,
+                                                   "sightingsCount":  1
+                                               },
+                                               {
+                                                   "id":  "anthropic_hackathon_generative_band",
+                                                   "canonicalKey":  "source-url-name:https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay:generative-ai-band",
+                                                   "name":  "Generative AI band",
+                                                   "sourceCategory":  "hackathon_winner",
+                                                   "sourceType":  "hackathon_winner",
+                                                   "sourceCategories":  [
+                                                                            "hackathon_winner"
+                                                                        ],
+                                                   "url":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                   "productUrl":  null,
+                                                   "codeUrl":  null,
+                                                   "firstSeenAt":  "2026-06-26",
+                                                   "lastSeenAt":  "2026-06-26",
+                                                   "lastUpdatedAt":  "2026-06-26T00:00:00.000Z",
+                                                   "status":  "active",
+                                                   "originalDomain":  "creative music generation",
+                                                   "concept":  "Uses generative AI to create or operate a band-like music experience.",
+                                                   "oneLineDescription":  "Turns creative direction into a multi-part AI-generated performance.",
+                                                   "problemSolved":  "A solo creator may want the feeling of directing a full creative group without having one.",
+                                                   "targetUser":  "creators and general users",
+                                                   "userFriction":  "Creative output often needs multiple coordinated roles, not just a single generated asset.",
+                                                   "coreUserInput":  "Creative intent, theme, mood, or performance direction.",
+                                                   "coreOutput":  "A multi-part generated band-like performance.",
+                                                   "outputArtifact":  "generated performance",
+                                                   "coreMechanism":  "AI splits creative intent into multiple coordinated performer-like parts.",
+                                                   "interactionPattern":  "User directs a creative system and sees an expressive artifact come back.",
+                                                   "whyItIsInteresting":  "It frames AI as a creative collaborator group rather than a productivity assistant.",
+                                                   "whyItGotAttention":  "It is playful, immediately demoable, and visibly different from ordinary work tools.",
+                                                   "noveltyKernel":  "A user directs an AI ensemble, not a single generator.",
+                                                   "transferableStructure":  "Turn one creative brief into coordinated multi-role output.",
+                                                   "ideaKernel":  "Single intent to multi-role creative ensemble",
+                                                   "transformationAxes":  [
+                                                                              "playful_simulation",
+                                                                              "multi_role_output",
+                                                                              "creative_assistant",
+                                                                              "output_form_shift"
+                                                                          ],
+                                                   "cloneRisk":  "Copying the band/music framing too directly.",
+                                                   "antiCloneBoundary":  "Do not copy the band/music premise; transfer the multi-role creative ensemble structure.",
+                                                   "doNotCopy":  [
+                                                                     "band framing",
+                                                                     "music performance premise",
+                                                                     "Generative AI band name"
+                                                                 ],
+                                                   "remixableThemes":  [
+                                                                           "sports fandom",
+                                                                           "education",
+                                                                           "family planning",
+                                                                           "creator workflow",
+                                                                           "culture"
+                                                                       ],
+                                                   "bestRemixTargets":  [
+                                                                            "AI debate club",
+                                                                            "classroom role play",
+                                                                            "fan chant generator",
+                                                                            "creator campaign room"
+                                                                        ],
+                                                   "adoptionOrAttentionProof":  [
+                                                                                    "Reported as an Anthropic hackathon example in local seed dataset"
+                                                                                ],
+                                                   "attentionProof":  [
+                                                                          "Reported as an Anthropic hackathon example in local seed dataset"
+                                                                      ],
+                                                   "evidenceRefs":  [
+                                                                        "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/"
+                                                                    ],
+                                                   "evidenceStrength":  "low",
+                                                   "confidence":  "low",
+                                                   "scaleClassification":  "hackathon",
+                                                   "reasonIncluded":  "Playful multi-role output pattern, useful for non-work concepts.",
+                                                   "reasonNotMajorProduct":  "Hackathon-scale creative demo, not an established music product.",
+                                                   "discoverySources":  [
+                                                                            {
+                                                                                "id":  "archive_generative_band_seed_article",
+                                                                                "sourceProductCardId":  "anthropic_hackathon_generative_band",
+                                                                                "sourceCategory":  "hackathon_winner",
+                                                                                "sourceName":  "Anthropic hackathon coverage",
+                                                                                "sourceUrl":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                                "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                                                "observedAt":  "2026-06-26",
+                                                                                "revisitCadence":  "monthly",
+                                                                                "storedEvidenceSummary":  "Creative AI hackathon example using a band-like generated experience.",
+                                                                                "evidenceStrength":  "low"
+                                                                            }
+                                                                        ],
+                                                   "valueKnowledgeCardIds":  [
+                                                                                 "vk_generative_band_multi_role_creativity"
+                                                                             ],
+                                                   "duplicateOf":  null,
+                                                   "sightingsCount":  1
+                                               },
+                                               {
+                                                   "id":  "anthropic_hackathon_postvisit",
+                                                   "canonicalKey":  "source-url-name:https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay:postvisit-ai",
+                                                   "name":  "PostVisit.ai",
+                                                   "sourceCategory":  "hackathon_winner",
+                                                   "sourceType":  "hackathon_winner",
+                                                   "sourceCategories":  [
+                                                                            "hackathon_winner"
+                                                                        ],
+                                                   "url":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                   "productUrl":  null,
+                                                   "codeUrl":  null,
+                                                   "firstSeenAt":  "2026-06-26",
+                                                   "lastSeenAt":  "2026-06-26",
+                                                   "lastUpdatedAt":  "2026-06-26T00:00:00.000Z",
+                                                   "status":  "active",
+                                                   "originalDomain":  "medical after-visit explanation",
+                                                   "concept":  "Explains diagnosis and treatment plans to patients after a medical appointment.",
+                                                   "oneLineDescription":  "Turns post-appointment medical information into patient-facing explanations.",
+                                                   "problemSolved":  "Patients leave appointments with complex medical language they may not understand or remember.",
+                                                   "targetUser":  "patients and clinicians",
+                                                   "userFriction":  "Expert language and care instructions are difficult to turn into confident next actions.",
+                                                   "coreUserInput":  "Diagnosis, treatment plan, visit notes, patient questions, or aftercare instructions.",
+                                                   "coreOutput":  "Plain-language explanation and after-visit guidance.",
+                                                   "outputArtifact":  "after-visit explainer",
+                                                   "coreMechanism":  "Transforms expert language into novice-facing explanation and guidance.",
+                                                   "interactionPattern":  "User receives a personalized explanation path after an expert interaction.",
+                                                   "whyItIsInteresting":  "A doctor built around a communication gap he understood personally.",
+                                                   "whyItGotAttention":  "It makes expert-to-novice translation visible in a high-friction, emotionally important moment.",
+                                                   "noveltyKernel":  "The product moment starts after the expert meeting, when the user is most confused.",
+                                                   "transferableStructure":  "Convert expert language into personalized after-action understanding.",
+                                                   "ideaKernel":  "Expert-to-novice aftercare explainer",
+                                                   "transformationAxes":  [
+                                                                              "expert_to_novice_translation",
+                                                                              "after_event_guidance",
+                                                                              "adaptive_explainer"
+                                                                          ],
+                                                   "cloneRisk":  "Copying medical domain claims or giving unsafe medical advice.",
+                                                   "antiCloneBoundary":  "Do not copy medical diagnosis/treatment guidance; transfer the after-event explanation structure.",
+                                                   "doNotCopy":  [
+                                                                     "medical claims",
+                                                                     "diagnosis advice",
+                                                                     "PostVisit.ai name"
+                                                                 ],
+                                                   "remixableThemes":  [
+                                                                           "education",
+                                                                           "legal literacy",
+                                                                           "financial literacy",
+                                                                           "school meetings",
+                                                                           "work feedback"
+                                                                       ],
+                                                   "bestRemixTargets":  [
+                                                                            "parent-teacher meetings",
+                                                                            "municipal consultations",
+                                                                            "job interviews",
+                                                                            "insurance explanations"
+                                                                        ],
+                                                   "adoptionOrAttentionProof":  [
+                                                                                    "Reported as an Anthropic hackathon winner/example in local seed dataset"
+                                                                                ],
+                                                   "attentionProof":  [
+                                                                          "Reported as an Anthropic hackathon winner/example in local seed dataset"
+                                                                      ],
+                                                   "evidenceRefs":  [
+                                                                        "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/"
+                                                                    ],
+                                                   "evidenceStrength":  "medium",
+                                                   "confidence":  "medium",
+                                                   "scaleClassification":  "hackathon",
+                                                   "reasonIncluded":  "Strong expert-to-novice translation pattern with clear user friction.",
+                                                   "reasonNotMajorProduct":  "Hackathon-scale product seed, not a mature platform.",
+                                                   "discoverySources":  [
+                                                                            {
+                                                                                "id":  "archive_postvisit_seed_article",
+                                                                                "sourceProductCardId":  "anthropic_hackathon_postvisit",
+                                                                                "sourceCategory":  "hackathon_winner",
+                                                                                "sourceName":  "Anthropic hackathon coverage",
+                                                                                "sourceUrl":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                                "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                                                "observedAt":  "2026-06-26",
+                                                                                "revisitCadence":  "monthly",
+                                                                                "storedEvidenceSummary":  "Doctor-built hackathon product for explaining post-visit diagnosis and treatment information.",
+                                                                                "evidenceStrength":  "medium"
+                                                                            }
+                                                                        ],
+                                                   "valueKnowledgeCardIds":  [
+                                                                                 "vk_postvisit_after_event_explainer"
+                                                                             ],
+                                                   "duplicateOf":  null,
+                                                   "sightingsCount":  1
+                                               },
+                                               {
+                                                   "id":  "smart_india_rake_optimization",
+                                                   "canonicalKey":  "source-url-name:https://timesofindia.indiatimes.com/city/allahabad/iiit-a-team-wins-1st-prize-in-smart-india-hackathon/articleshow/126552451.cms:rake-optimization-suite-decision-support",
+                                                   "name":  "Rake Optimization Suite decision support",
+                                                   "sourceCategory":  "hackathon_winner",
+                                                   "sourceType":  "hackathon_winner",
+                                                   "sourceCategories":  [
+                                                                            "hackathon_winner"
+                                                                        ],
+                                                   "url":  "https://timesofindia.indiatimes.com/city/allahabad/iiit-a-team-wins-1st-prize-in-smart-india-hackathon/articleshow/126552451.cms",
+                                                   "productUrl":  null,
+                                                   "codeUrl":  null,
+                                                   "firstSeenAt":  "2026-06-26",
+                                                   "lastSeenAt":  "2026-06-26",
+                                                   "lastUpdatedAt":  "2026-06-26T00:00:00.000Z",
+                                                   "status":  "active",
+                                                   "originalDomain":  "railway logistics planning",
+                                                   "concept":  "AI decision support for smart railway rake planning.",
+                                                   "oneLineDescription":  "Uses AI decision support for smart railway rake planning.",
+                                                   "problemSolved":  "Operational teams must optimize constrained logistics decisions under many variables.",
+                                                   "targetUser":  "operations planners and logistics teams",
+                                                   "userFriction":  "Planning requires comparing constraints, assets, timing, and tradeoffs quickly.",
+                                                   "coreUserInput":  "Operational constraints, assets, routes, timing, and planning goals.",
+                                                   "coreOutput":  "Ranked or optimized operational plan.",
+                                                   "outputArtifact":  "optimization scorecard",
+                                                   "coreMechanism":  "Turns operational constraints into a ranked decision support plan.",
+                                                   "interactionPattern":  "User enters constraints and compares recommended plans/scores.",
+                                                   "whyItIsInteresting":  "Concrete operational constraints become a measurable plan rather than a vague recommendation.",
+                                                   "whyItGotAttention":  "It applies AI to a specific, measurable planning problem.",
+                                                   "noveltyKernel":  "A narrow operational problem becomes an explainable planning scorecard.",
+                                                   "transferableStructure":  "Translate constraints into ranked operational options.",
+                                                   "ideaKernel":  "Constraint set to ranked plan",
+                                                   "transformationAxes":  [
+                                                                              "optimization",
+                                                                              "comparison",
+                                                                              "decision_helper",
+                                                                              "constraint_mapping"
+                                                                          ],
+                                                   "cloneRisk":  "Copying railway rake planning or domain-specific operations details.",
+                                                   "antiCloneBoundary":  "Do not copy railway logistics domain; transfer constraint-to-plan structure.",
+                                                   "doNotCopy":  [
+                                                                     "railway rake planning",
+                                                                     "specific logistics domain"
+                                                                 ],
+                                                   "remixableThemes":  [
+                                                                           "home planning",
+                                                                           "event planning",
+                                                                           "school scheduling",
+                                                                           "small business operations"
+                                                                       ],
+                                                   "bestRemixTargets":  [
+                                                                            "family scheduling",
+                                                                            "club event logistics",
+                                                                            "school resource planning",
+                                                                            "creator production planning"
+                                                                        ],
+                                                   "adoptionOrAttentionProof":  [
+                                                                                    "Reported as Smart India Hackathon first-prize coverage in local seed dataset"
+                                                                                ],
+                                                   "attentionProof":  [
+                                                                          "Reported as Smart India Hackathon first-prize coverage in local seed dataset"
+                                                                      ],
+                                                   "evidenceRefs":  [
+                                                                        "https://timesofindia.indiatimes.com/city/allahabad/iiit-a-team-wins-1st-prize-in-smart-india-hackathon/articleshow/126552451.cms"
+                                                                    ],
+                                                   "evidenceStrength":  "medium",
+                                                   "confidence":  "medium",
+                                                   "scaleClassification":  "hackathon",
+                                                   "reasonIncluded":  "Strong constrained-planning pattern useful for many non-railway domains.",
+                                                   "reasonNotMajorProduct":  "Hackathon project seed, not a broad logistics platform.",
+                                                   "discoverySources":  [
+                                                                            {
+                                                                                "id":  "archive_rake_optimization_seed_article",
+                                                                                "sourceProductCardId":  "smart_india_rake_optimization",
+                                                                                "sourceCategory":  "hackathon_winner",
+                                                                                "sourceName":  "Smart India Hackathon coverage",
+                                                                                "sourceUrl":  "https://timesofindia.indiatimes.com/city/allahabad/iiit-a-team-wins-1st-prize-in-smart-india-hackathon/articleshow/126552451.cms",
+                                                                                "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                                                "observedAt":  "2026-06-26",
+                                                                                "revisitCadence":  "monthly",
+                                                                                "storedEvidenceSummary":  "AI decision support for smart railway rake planning.",
+                                                                                "evidenceStrength":  "medium"
+                                                                            }
+                                                                        ],
+                                                   "valueKnowledgeCardIds":  [
+                                                                                 "vk_rake_constraints_to_plan"
+                                                                             ],
+                                                   "duplicateOf":  null,
+                                                   "sightingsCount":  1
+                                               },
+                                               {
+                                                   "id":  "anthropic_hackathon_road_footage_investment",
+                                                   "canonicalKey":  "source-url-name:https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay:road-footage-to-investment-recommendations",
+                                                   "name":  "Road footage to investment recommendations",
+                                                   "sourceCategory":  "hackathon_winner",
+                                                   "sourceType":  "hackathon_winner",
+                                                   "sourceCategories":  [
+                                                                            "hackathon_winner"
+                                                                        ],
+                                                   "url":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                   "productUrl":  null,
+                                                   "codeUrl":  null,
+                                                   "firstSeenAt":  "2026-06-26",
+                                                   "lastSeenAt":  "2026-06-26",
+                                                   "lastUpdatedAt":  "2026-06-26T00:00:00.000Z",
+                                                   "status":  "active",
+                                                   "originalDomain":  "road infrastructure planning",
+                                                   "concept":  "Turns road footage into infrastructure investment recommendations.",
+                                                   "oneLineDescription":  "Converts messy road footage into ranked civic investment decisions.",
+                                                   "problemSolved":  "Infrastructure planning needs to turn field evidence into prioritized action.",
+                                                   "targetUser":  "city operators, civic planners, infrastructure teams",
+                                                   "userFriction":  "Raw visual evidence is hard to compare, rank, and translate into funding priorities.",
+                                                   "coreUserInput":  "Road footage or field observation media.",
+                                                   "coreOutput":  "Ranked investment or repair recommendations.",
+                                                   "outputArtifact":  "ranked civic action list",
+                                                   "coreMechanism":  "AI extracts signals from messy visual evidence and converts them into prioritized decisions.",
+                                                   "interactionPattern":  "User provides evidence and receives ranked actions with rationale.",
+                                                   "whyItIsInteresting":  "Messy real-world observations become concrete civic priorities.",
+                                                   "whyItGotAttention":  "It makes AI useful for visible public infrastructure decisions rather than abstract analysis.",
+                                                   "noveltyKernel":  "Field evidence becomes a decision queue.",
+                                                   "transferableStructure":  "Convert messy observation evidence into ranked action priorities.",
+                                                   "ideaKernel":  "Messy evidence to ranked decision",
+                                                   "transformationAxes":  [
+                                                                              "evidence_to_priority",
+                                                                              "visual_input_shift",
+                                                                              "decision_helper"
+                                                                          ],
+                                                   "cloneRisk":  "Copying the road footage/infrastructure funding domain too directly.",
+                                                   "antiCloneBoundary":  "Do not copy road investment workflow; transfer evidence-to-priority structure.",
+                                                   "doNotCopy":  [
+                                                                     "road footage domain",
+                                                                     "investment recommendation framing"
+                                                                 ],
+                                                   "remixableThemes":  [
+                                                                           "home safety",
+                                                                           "school facilities",
+                                                                           "event readiness",
+                                                                           "sports scouting",
+                                                                           "retail inspection"
+                                                                       ],
+                                                   "bestRemixTargets":  [
+                                                                            "school safety checks",
+                                                                            "home maintenance",
+                                                                            "event venue readiness",
+                                                                            "local disaster prep"
+                                                                        ],
+                                                   "adoptionOrAttentionProof":  [
+                                                                                    "Reported as an Anthropic hackathon winner/example in local seed dataset"
+                                                                                ],
+                                                   "attentionProof":  [
+                                                                          "Reported as an Anthropic hackathon winner/example in local seed dataset"
+                                                                      ],
+                                                   "evidenceRefs":  [
+                                                                        "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/"
+                                                                    ],
+                                                   "evidenceStrength":  "medium",
+                                                   "confidence":  "medium",
+                                                   "scaleClassification":  "hackathon",
+                                                   "reasonIncluded":  "Clear messy-input-to-ranked-action mechanism that can transfer widely.",
+                                                   "reasonNotMajorProduct":  "Hackathon-scale product seed with a specific civic workflow.",
+                                                   "discoverySources":  [
+                                                                            {
+                                                                                "id":  "archive_road_footage_seed_article",
+                                                                                "sourceProductCardId":  "anthropic_hackathon_road_footage_investment",
+                                                                                "sourceCategory":  "hackathon_winner",
+                                                                                "sourceName":  "Anthropic hackathon coverage",
+                                                                                "sourceUrl":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                                                "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                                                "observedAt":  "2026-06-26",
+                                                                                "revisitCadence":  "monthly",
+                                                                                "storedEvidenceSummary":  "Hackathon product turns road footage into infrastructure investment recommendations.",
+                                                                                "evidenceStrength":  "medium"
+                                                                            }
+                                                                        ],
+                                                   "valueKnowledgeCardIds":  [
+                                                                                 "vk_road_footage_evidence_to_priority"
+                                                                             ],
+                                                   "duplicateOf":  null,
+                                                   "sightingsCount":  1
+                                               },
+                                               {
+                                                   "id":  "sp_tradingagents",
+                                                   "canonicalKey":  "product-url:https://github.com/tauricresearch/tradingagents",
+                                                   "name":  "TradingAgents",
+                                                   "sourceCategory":  "github_high_star",
+                                                   "sourceType":  "github_high_star",
+                                                   "sourceCategories":  [
+                                                                            "github_high_star"
+                                                                        ],
+                                                   "url":  "https://github.com/TauricResearch/TradingAgents",
+                                                   "productUrl":  "https://github.com/TauricResearch/TradingAgents",
+                                                   "codeUrl":  null,
+                                                   "observedAt":  "2026-06-26T00:00:00.000Z",
+                                                   "firstSeenAt":  "2026-06-26T00:00:00.000Z",
+                                                   "lastSeenAt":  "2026-06-26T00:00:00.000Z",
+                                                   "lastUpdatedAt":  "2026-06-26T11:45:06.676Z",
+                                                   "status":  "active",
+                                                   "originalDomain":  "investment and trading analysis",
+                                                   "concept":  "A multi-agent framework that turns market analysis into a specialist team workflow.",
+                                                   "oneLineDescription":  "A multi-agent framework that turns market analysis into a specialist team workflow.",
+                                                   "problemSolved":  "A multi-agent framework that turns market analysis into a specialist team workflow.",
+                                                   "targetUser":  "",
+                                                   "userFriction":  "It makes multi-agent reasoning tangible by mapping AI roles to a familiar high-stakes organization.",
+                                                   "coreUserInput":  "Ticker, market data, news, fundamentals, and trading context.",
+                                                   "coreOutput":  "Role-based analysis, debate, risk review, and a synthesized trading decision/report.",
+                                                   "outputArtifact":  "Role-based analysis, debate, risk review, and a synthesized trading decision/report.",
+                                                   "coreMechanism":  "Multiple specialist agents analyze the same target from different roles, debate or contrast viewpoints, then synthesize a decision with risk context.",
+                                                   "interactionPattern":  "A user follows an AI organization: analysts produce views, risk roles critique them, and a manager/trader synthesizes the result.",
+                                                   "whyItIsInteresting":  "It makes multi-agent reasoning tangible by mapping AI roles to a familiar high-stakes organization.",
+                                                   "whyItGotAttention":  "It makes multi-agent reasoning tangible by mapping AI roles to a familiar high-stakes organization.",
+                                                   "noveltyKernel":  "It makes multi-agent reasoning tangible by mapping AI roles to a familiar high-stakes organization.",
+                                                   "transferableStructure":  "Uncertain judgment becomes a visible specialist team: role decomposition, disagreement, evidence/risk review, and final synthesis.",
+                                                   "ideaKernel":  "Uncertain judgment becomes a visible specialist team: role decomposition, disagreement, evidence/risk review, and final synthesis.",
+                                                   "transformationAxes":  [
+                                                                              "mechanism_transfer",
+                                                                              "output_form_shift",
+                                                                              "interaction_pattern_shift"
+                                                                          ],
+                                                   "cloneRisk":  "Copying trading analysis, investment advice, role names, market data workflow, or a stock-decision UI would be too close.",
+                                                   "antiCloneBoundary":  "Copying trading analysis, investment advice, role names, market data workflow, or a stock-decision UI would be too close.",
+                                                   "doNotCopy":  [
+                                                                     "investment advice",
+                                                                     "trading recommendations",
+                                                                     "market-data workflow",
+                                                                     "TradingAgents naming",
+                                                                     "stock buy/sell framing"
+                                                                 ],
+                                                   "remixableThemes":  [
+                                                                           "publishing",
+                                                                           "hiring",
+                                                                           "YouTube planning",
+                                                                           "product planning",
+                                                                           "education",
+                                                                           "policy review"
+                                                                       ],
+                                                   "bestRemixTargets":  [
+                                                                            "publishing",
+                                                                            "hiring",
+                                                                            "YouTube planning",
+                                                                            "product planning",
+                                                                            "education",
+                                                                            "policy review"
+                                                                        ],
+                                                   "adoptionOrAttentionProof":  [
+                                                                                    "High public GitHub attention",
+                                                                                    "Clear multi-agent architecture that is easy to explain and remix"
+                                                                                ],
+                                                   "attentionProof":  [
+                                                                          "High public GitHub attention",
+                                                                          "Clear multi-agent architecture that is easy to explain and remix"
+                                                                      ],
+                                                   "evidenceRefs":  [
+                                                                        "https://github.com/TauricResearch/TradingAgents"
+                                                                    ],
+                                                   "evidenceStrength":  "high",
+                                                   "confidence":  "high",
+                                                   "scaleClassification":  "",
+                                                   "reasonIncluded":  "",
+                                                   "reasonNotMajorProduct":  "",
+                                                   "discoverySources":  [
+                                                                            {
+                                                                                "id":  "archive_sp_tradingagents",
+                                                                                "sourceProductCardId":  "sp_tradingagents",
+                                                                                "sourceCategory":  "github_high_star",
+                                                                                "sourceName":  "github_high_star",
+                                                                                "sourceUrl":  "https://github.com/TauricResearch/TradingAgents",
+                                                                                "retrievalQueryOrPath":  "github_high_star",
+                                                                                "observedAt":  "2026-06-26T00:00:00.000Z",
+                                                                                "revisitCadence":  "weekly",
+                                                                                "storedEvidenceSummary":  "A multi-agent framework that turns market analysis into a specialist team workflow.",
+                                                                                "evidenceStrength":  "high"
+                                                                            }
+                                                                        ],
+                                                   "valueKnowledgeCardIds":  [
+
+                                                                             ],
+                                                   "duplicateOf":  null,
+                                                   "sightingsCount":  2
+                                               }
+                                           ],
+                               "sourceArchiveIndex":  [
+                                                          {
+                                                              "id":  "archive_crossbeam_seed_article",
+                                                              "sourceProductCardId":  "anthropic_hackathon_crossbeam",
+                                                              "sourceCategory":  "hackathon_winner",
+                                                              "sourceName":  "Anthropic hackathon coverage",
+                                                              "sourceUrl":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                              "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                              "observedAt":  "2026-06-26",
+                                                              "revisitCadence":  "monthly",
+                                                              "storedEvidenceSummary":  "A lawyer used AI coding tools to turn ADU permitting friction into a product.",
+                                                              "evidenceStrength":  "medium"
+                                                          },
+                                                          {
+                                                              "id":  "archive_postvisit_seed_article",
+                                                              "sourceProductCardId":  "anthropic_hackathon_postvisit",
+                                                              "sourceCategory":  "hackathon_winner",
+                                                              "sourceName":  "Anthropic hackathon coverage",
+                                                              "sourceUrl":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                              "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                              "observedAt":  "2026-06-26",
+                                                              "revisitCadence":  "monthly",
+                                                              "storedEvidenceSummary":  "Doctor-built hackathon product for explaining post-visit diagnosis and treatment information.",
+                                                              "evidenceStrength":  "medium"
+                                                          },
+                                                          {
+                                                              "id":  "archive_road_footage_seed_article",
+                                                              "sourceProductCardId":  "anthropic_hackathon_road_footage_investment",
+                                                              "sourceCategory":  "hackathon_winner",
+                                                              "sourceName":  "Anthropic hackathon coverage",
+                                                              "sourceUrl":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                              "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                              "observedAt":  "2026-06-26",
+                                                              "revisitCadence":  "monthly",
+                                                              "storedEvidenceSummary":  "Hackathon product turns road footage into infrastructure investment recommendations.",
+                                                              "evidenceStrength":  "medium"
+                                                          },
+                                                          {
+                                                              "id":  "archive_rake_optimization_seed_article",
+                                                              "sourceProductCardId":  "smart_india_rake_optimization",
+                                                              "sourceCategory":  "hackathon_winner",
+                                                              "sourceName":  "Smart India Hackathon coverage",
+                                                              "sourceUrl":  "https://timesofindia.indiatimes.com/city/allahabad/iiit-a-team-wins-1st-prize-in-smart-india-hackathon/articleshow/126552451.cms",
+                                                              "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                              "observedAt":  "2026-06-26",
+                                                              "revisitCadence":  "monthly",
+                                                              "storedEvidenceSummary":  "AI decision support for smart railway rake planning.",
+                                                              "evidenceStrength":  "medium"
+                                                          },
+                                                          {
+                                                              "id":  "archive_generative_band_seed_article",
+                                                              "sourceProductCardId":  "anthropic_hackathon_generative_band",
+                                                              "sourceCategory":  "hackathon_winner",
+                                                              "sourceName":  "Anthropic hackathon coverage",
+                                                              "sourceUrl":  "https://nypost.com/2026/02/27/business/anthropic-hackathon-proves-vibe-coding-is-here-to-stay/",
+                                                              "retrievalQueryOrPath":  "local product_research_dataset seed",
+                                                              "observedAt":  "2026-06-26",
+                                                              "revisitCadence":  "monthly",
+                                                              "storedEvidenceSummary":  "Creative AI hackathon example using a band-like generated experience.",
+                                                              "evidenceStrength":  "low"
+                                                          },
+                                                          {
+                                                              "id":  "archive_sp_tradingagents",
+                                                              "sourceProductCardId":  "sp_tradingagents",
+                                                              "sourceCategory":  "github_high_star",
+                                                              "sourceName":  "github_high_star",
+                                                              "sourceUrl":  "https://github.com/TauricResearch/TradingAgents",
+                                                              "retrievalQueryOrPath":  "github_high_star",
+                                                              "observedAt":  "2026-06-26T00:00:00.000Z",
+                                                              "revisitCadence":  "weekly",
+                                                              "storedEvidenceSummary":  "A multi-agent framework that turns market analysis into a specialist team workflow.",
+                                                              "evidenceStrength":  "high"
+                                                          }
+                                                      ],
+                               "valueKnowledgeCards":  [
+                                                           {
+                                                               "id":  "vk_crossbeam_domain_pain_workflow",
+                                                               "sourceProductCardId":  "anthropic_hackathon_crossbeam",
+                                                               "valueName":  "Domain pain becomes guided workflow",
+                                                               "whatIsValuable":  "A complex expert process becomes a narrow guided product.",
+                                                               "whyPeopleReact":  "The value is obvious because the before state is painful paperwork and the after state is a concrete workflow.",
+                                                               "underlyingMechanism":  "Expert rules and context are converted into an action sequence.",
+                                                               "transferableRule":  "Find another paperwork-heavy domain and turn it into a guided path.",
+                                                               "antiCloneBoundary":  "Do not copy ADU permitting or legal advice claims.",
+                                                               "bestRemixTargets":  [
+                                                                                        "school paperwork",
+                                                                                        "local subsidies",
+                                                                                        "event permits",
+                                                                                        "small business onboarding"
+                                                                                    ],
+                                                               "confidence":  "medium"
+                                                           },
+                                                           {
+                                                               "id":  "vk_postvisit_after_event_explainer",
+                                                               "sourceProductCardId":  "anthropic_hackathon_postvisit",
+                                                               "valueName":  "Expert meeting becomes after-action understanding",
+                                                               "whatIsValuable":  "The product starts when the user leaves an expert interaction confused.",
+                                                               "whyPeopleReact":  "It solves a common gap between expert language and user action.",
+                                                               "underlyingMechanism":  "Expert output is rewritten as personalized novice-facing explanation.",
+                                                               "transferableRule":  "Move the after-event explainer pattern to any domain where experts talk past users.",
+                                                               "antiCloneBoundary":  "Do not copy medical advice or diagnosis use cases.",
+                                                               "bestRemixTargets":  [
+                                                                                        "parent-teacher meetings",
+                                                                                        "municipal consultations",
+                                                                                        "job interviews",
+                                                                                        "insurance explanations"
+                                                                                    ],
+                                                               "confidence":  "medium"
+                                                           },
+                                                           {
+                                                               "id":  "vk_road_footage_evidence_to_priority",
+                                                               "sourceProductCardId":  "anthropic_hackathon_road_footage_investment",
+                                                               "valueName":  "Messy evidence becomes ranked action",
+                                                               "whatIsValuable":  "Unstructured field evidence becomes a prioritized decision list.",
+                                                               "whyPeopleReact":  "The transformation from messy footage to ranked civic action is concrete and demoable.",
+                                                               "underlyingMechanism":  "AI extracts observable signals and maps them to action priorities.",
+                                                               "transferableRule":  "Use messy observations as input, then output a ranked action queue.",
+                                                               "antiCloneBoundary":  "Do not copy road investment or infrastructure-funding claims.",
+                                                               "bestRemixTargets":  [
+                                                                                        "school safety checks",
+                                                                                        "home maintenance",
+                                                                                        "event venue readiness",
+                                                                                        "local disaster prep"
+                                                                                    ],
+                                                               "confidence":  "medium"
+                                                           },
+                                                           {
+                                                               "id":  "vk_rake_constraints_to_plan",
+                                                               "sourceProductCardId":  "smart_india_rake_optimization",
+                                                               "valueName":  "Constraints become explainable plan",
+                                                               "whatIsValuable":  "Many operational constraints are converted into a comparable plan.",
+                                                               "whyPeopleReact":  "It makes an invisible planning problem measurable and actionable.",
+                                                               "underlyingMechanism":  "Constraint mapping, scoring, and recommendation.",
+                                                               "transferableRule":  "Take a constrained planning problem and output ranked options with reasons.",
+                                                               "antiCloneBoundary":  "Do not copy railway planning or logistics-specific claims.",
+                                                               "bestRemixTargets":  [
+                                                                                        "family scheduling",
+                                                                                        "club event logistics",
+                                                                                        "school resource planning",
+                                                                                        "creator production planning"
+                                                                                    ],
+                                                               "confidence":  "medium"
+                                                           },
+                                                           {
+                                                               "id":  "vk_generative_band_multi_role_creativity",
+                                                               "sourceProductCardId":  "anthropic_hackathon_generative_band",
+                                                               "valueName":  "Single intent becomes multi-role creative output",
+                                                               "whatIsValuable":  "A user\u0027s prompt becomes a coordinated ensemble rather than one generated asset.",
+                                                               "whyPeopleReact":  "The output is playful, visible, and easier to understand than a generic creative assistant.",
+                                                               "underlyingMechanism":  "Creative intent is split into multiple coordinated roles.",
+                                                               "transferableRule":  "Turn a single brief into a team-like or ensemble-like generated artifact.",
+                                                               "antiCloneBoundary":  "Do not copy music or band framing directly.",
+                                                               "bestRemixTargets":  [
+                                                                                        "AI debate club",
+                                                                                        "classroom role play",
+                                                                                        "fan chant generator",
+                                                                                        "creator campaign room"
+                                                                                    ],
+                                                               "confidence":  "low"
+                                                           }
+                                                       ],
+                               "excludedAsSourceProductCards":  [
+                                                                    "NotebookLM",
+                                                                    "Cursor",
+                                                                    "ChatGPT",
+                                                                    "Claude",
+                                                                    "Gemini",
+                                                                    "Perplexity",
+                                                                    "GitHub Copilot",
+                                                                    "Lovable",
+                                                                    "v0",
+                                                                    "Bolt",
+                                                                    "Replit",
+                                                                    "Figma",
+                                                                    "Notion",
+                                                                    "Slack",
+                                                                    "Linear"
+                                                                ],
+                               "maintenanceNotes":  [
+                                                        "TSV files under data/product-research/index-tables are the human-editable source of truth.",
+                                                        "source-product-index.json is generated for LLM pipeline consumption. Do not hand-edit it directly.",
+                                                        "List-valued TSV cells use ` | ` as the delimiter."
+                                                    ]
+                           },
+    "currentTopicRadar":  {
+                              "version":  1,
+                              "generatedAt":  "2026-06-26T00:00:00.000Z",
+                              "purpose":  "Daily topic radar for pairing with product-source-index value cores. This is a local validation sample, not live research.",
+                              "topicCards":  [
+                                                 {
+                                                     "id":  "topic_local_disaster_readiness",
+                                                     "category":  "sdgs_civic",
+                                                     "title":  "家庭と地域の防災準備",
+                                                     "summary":  "災害・猛暑・停電・避難など、家庭ごとに準備すべき行動を具体化する需要がある。",
+                                                     "whyHotNow":  "季節性と公共性があり、生活者が自分ごと化しやすい。",
+                                                     "audience":  [
+                                                                      "family/local citizen",
+                                                                      "school",
+                                                                      "local operator"
+                                                                  ],
+                                                     "userFrictionOrDesire":  "一般的な防災情報は多いが、自分の家庭や地域に合わせた行動に落としにくい。",
+                                                     "possibleInputs":  [
+                                                                            "family members",
+                                                                            "home type",
+                                                                            "pets",
+                                                                            "mobility constraints",
+                                                                            "local notice",
+                                                                            "event or weather context"
+                                                                        ],
+                                                     "evidenceRefs":  [
+                                                                          "local validation topic"
+                                                                      ],
+                                                     "trendMaturity":  "seasonal",
+                                                     "remixUse":  "Source product cores that turn messy information into action cards, ranked plans, or printable packs can transfer well.",
+                                                     "riskNotes":  [
+                                                                       "Do not present as official emergency advice.",
+                                                                       "Show missing information and source uncertainty."
+                                                                   ],
+                                                     "confidence":  "medium"
+                                                 },
+                                                 {
+                                                     "id":  "topic_school_parent_communication",
+                                                     "category":  "education",
+                                                     "title":  "学校・保護者のお知らせ理解",
+                                                     "summary":  "学校や自治体からの長いお知らせを、家庭ごとの行動や確認事項に変える需要がある。",
+                                                     "whyHotNow":  "教育・家庭・地域の接点にあり、非エンジニアにも価値が伝わりやすい。",
+                                                     "audience":  [
+                                                                      "family/local citizen",
+                                                                      "teacher/student"
+                                                                  ],
+                                                     "userFrictionOrDesire":  "文章は読めても、いつ何をすればいいか、誰に確認すればいいかが分かりにくい。",
+                                                     "possibleInputs":  [
+                                                                            "school notice",
+                                                                            "municipal notice",
+                                                                            "deadline",
+                                                                            "child grade",
+                                                                            "family context"
+                                                                        ],
+                                                     "evidenceRefs":  [
+                                                                          "local validation topic"
+                                                                      ],
+                                                     "trendMaturity":  "recurring",
+                                                     "remixUse":  "Expert-to-novice explanation, paperwork workflow, and action-card patterns can transfer well.",
+                                                     "riskNotes":  [
+                                                                       "Do not alter official instructions.",
+                                                                       "Keep source snippets and uncertainty visible."
+                                                                   ],
+                                                     "confidence":  "medium"
+                                                 },
+                                                 {
+                                                     "id":  "topic_creator_preflight",
+                                                     "category":  "culture_sports",
+                                                     "title":  "個人クリエイターの公開前チェック",
+                                                     "summary":  "動画、投稿、LP、ニュースレターなどを公開する前に、伝わるか、弱点はないかを見たい需要がある。",
+                                                     "whyHotNow":  "個人や小チームの発信量が増え、AIで作ったものをそのまま出す前の判断が課題になっている。",
+                                                     "audience":  [
+                                                                      "creator",
+                                                                      "AI-curious professional",
+                                                                      "small team marketer"
+                                                                  ],
+                                                     "userFrictionOrDesire":  "作ることは簡単になったが、出す価値があるか、どこが弱いかは判断しにくい。",
+                                                     "possibleInputs":  [
+                                                                            "draft",
+                                                                            "video idea",
+                                                                            "target audience",
+                                                                            "tone",
+                                                                            "publish goal"
+                                                                        ],
+                                                     "evidenceRefs":  [
+                                                                          "local validation topic"
+                                                                      ],
+                                                     "trendMaturity":  "recurring",
+                                                     "remixUse":  "Constraint scoring, multi-role creative output, and after-event explanation patterns can become preflight evaluators.",
+                                                     "riskNotes":  [
+                                                                       "Do not promise virality.",
+                                                                       "Make critique concrete rather than generic."
+                                                                   ],
+                                                     "confidence":  "medium"
+                                                 }
+                                             ],
+                              "coverageGaps":  [
+                                                   "This topic radar is a local validation sample and should be replaced by a real topic-research response before production runs."
+                                               ]
+                          },
+    "ideaMutationFrameworks":  {
+                                   "version":  1,
+                                   "purpose":  "Idea transformation frameworks used by Step2 to mutate indexed product value cores before pairing them with current topics.",
+                                   "frameworks":  [
+                                                      {
+                                                          "id":  "scamper_substitute",
+                                                          "label":  "Substitute",
+                                                          "prompt":  "Replace the source product\u0027s domain, user, input, data, or output with another domain while preserving the value mechanism.",
+                                                          "useWhen":  "The source product is strong but its original domain is too narrow or clone-prone."
+                                                      },
+                                                      {
+                                                          "id":  "scamper_combine",
+                                                          "label":  "Combine",
+                                                          "prompt":  "Combine the source product\u0027s value mechanism with one current topic or social/technical trend.",
+                                                          "useWhen":  "A current topic gives the source product a timely reason to exist."
+                                                      },
+                                                      {
+                                                          "id":  "scamper_adapt",
+                                                          "label":  "Adapt",
+                                                          "prompt":  "Apply the source product\u0027s interaction pattern to a different audience with similar friction.",
+                                                          "useWhen":  "The same friction appears in another user group."
+                                                      },
+                                                      {
+                                                          "id":  "scamper_modify",
+                                                          "label":  "Modify / Magnify / Minify",
+                                                          "prompt":  "Make the source idea smaller, more focused, more playful, more visual, or more one-screen.",
+                                                          "useWhen":  "The original project is too broad for Prodia or lacks demo clarity."
+                                                      },
+                                                      {
+                                                          "id":  "scamper_put_to_other_use",
+                                                          "label":  "Put To Other Use",
+                                                          "prompt":  "Move the same input-output transformation to a different domain or task.",
+                                                          "useWhen":  "The mechanism is valuable but the original use case is not the best fit."
+                                                      },
+                                                      {
+                                                          "id":  "scamper_eliminate",
+                                                          "label":  "Eliminate",
+                                                          "prompt":  "Remove heavy data, accounts, integrations, or broad platform scope until only a small artifact remains.",
+                                                          "useWhen":  "The source product is promising but too complex to prototype."
+                                                      },
+                                                      {
+                                                          "id":  "scamper_reverse",
+                                                          "label":  "Reverse / Invert",
+                                                          "prompt":  "Invert the product\u0027s direction: output to input, expert to novice, risk to prevention, creation to critique, or public to personal.",
+                                                          "useWhen":  "A reversed flow creates surprise or a sharper artifact."
+                                                      },
+                                                      {
+                                                          "id":  "analogy_transfer",
+                                                          "label":  "Analogy Transfer",
+                                                          "prompt":  "Describe the source product as an analogy, then apply that analogy to a different field.",
+                                                          "useWhen":  "The core mechanism is easier to move as a metaphor than as a feature."
+                                                      },
+                                                      {
+                                                          "id":  "audience_shift",
+                                                          "label":  "Audience Shift",
+                                                          "prompt":  "Move the source product from experts to general users, from individuals to teams, or from adults to students/families.",
+                                                          "useWhen":  "The value becomes more surprising when the audience changes."
+                                                      },
+                                                      {
+                                                          "id":  "output_form_shift",
+                                                          "label":  "Output Form Shift",
+                                                          "prompt":  "Change the output into a card, map, simulator, checklist, score, game, route, or printable artifact.",
+                                                          "useWhen":  "The source mechanism needs a stronger first-screen demo."
+                                                      }
+                                                  ]
+                               },
+    "missingPreviousResponses":  [
+                                     "research"
+                                 ],
+    "recentArtifacts":  {
+                            "version":  1,
+                            "recentArtifacts":  [
+                                                    {
+                                                        "projectId":  "proj_manual_20260625T23142195_01_ai_artifact",
+                                                        "title":  "AIセキュリティレビュー会議ダッシュボード",
+                                                        "artifactShape":  "board",
+                                                        "productPattern":  "agent_observatory",
+                                                        "targetPersona":  "AI power user",
+                                                        "surfaceAudience":  "AI-curious professional",
+                                                        "aiAppreciationAudience":  "AI power user",
+                                                        "surfaceTheme":  "work",
+                                                        "surfacePattern":  "work_simplifier",
+                                                        "aiMechanismPattern":  "multi_source_synthesis",
+                                                        "summary":  "リリース前のセキュリティ論点を複数AIロールで確認する会議型ダッシュボード。",
+                                                        "weaknessForNextRun":  "会議室型に寄りすぎているため、次はユーザーが直接試せるsimulationやevaluatorに寄せたい。"
+                                                    },
+                                                    {
+                                                        "projectId":  "proj_manual_20260625T08121095_01_board_artifact",
+                                                        "title":  "AI契約レビュー会議室",
+                                                        "artifactShape":  "board",
+                                                        "productPattern":  "agent_observatory",
+                                                        "targetPersona":  "AI power user",
+                                                        "surfaceAudience":  "AI-curious professional",
+                                                        "aiAppreciationAudience":  "AI power user",
+                                                        "surfaceTheme":  "work",
+                                                        "surfacePattern":  "work_simplifier",
+                                                        "aiMechanismPattern":  "multi_source_synthesis",
+                                                        "summary":  "契約書を複数観点で読むAI会議室。",
+                                                        "weaknessForNextRun":  "AIが整理するだけに見えやすく、固有の操作体験が弱い。"
+                                                    }
+                                                ],
+                            "recentProductPatterns":  [
+                                                          "agent_observatory",
+                                                          "agent_observatory"
+                                                      ],
+                            "recentTargetPersonas":  [
+                                                         "AI power user",
+                                                         "AI power user"
+                                                     ],
+                            "recentSurfacePatterns":  [
+                                                          "work_simplifier",
+                                                          "work_simplifier"
+                                                      ],
+                            "recentAiMechanismPatterns":  [
+                                                              "multi_source_synthesis",
+                                                              "multi_source_synthesis"
+                                                          ],
+                            "avoidRepeating":  [
+                                                   "AI会議室の言い換え",
+                                                   "汎用ダッシュボード",
+                                                   "AIが要約して終わるだけの企画",
+                                                   "ユーザー操作がないREADME風説明ページ",
+                                                   "agent_observatory の会議室型表現",
+                                                   "AI power user 向けの受け身なレビュー画面",
+                                                   "work_simplifier と multi_source_synthesis の組み合わせだけで終わる企画",
+                                                   "表のテーマまでAI/エンジニア向けに閉じた企画"
+                                               ]
+                        },
+    "sourceNotes":  {
+                        "combinationResponseCopiedFrom":  "C:\\Users\\ytets\\AI自律ProtoPedia\\apps\\web\\artifacts\\llm-pipeline-runs\\llm_pipeline_tsv_index_retest_20260626\\combination\\response.json",
+                        "reason":  "This Lane A worktree did not contain the source run artifacts, so the latest Step2 response was injected into the Step3 concept input."
+                    }
+}

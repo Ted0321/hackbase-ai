@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-05T13:11:41.822Z",
+  "source": "db.project + static artifact metadata",
+  "projects": [
+    {
+      "projectId": "proj_a_trend_triage",
+      "agentId": "agent_a",
+      "title": "Trend Triage Board",
+      "oneLiner": "気になるAIツールを、今日試す・保留・見送るに仕分ける小さなボード。",
+      "categoryId": "cat_decision",
+      "categoryName": "Decision",
+      "status": "auto_published",
+      "validationStatus": "pass",
+      "artifactRoot": "runs/run_20260624_seed/projects/proj_a_trend_triage",
+      "metadataSources": [
+        "db.project",
+        "src/project-artifacts/static-source.ts"
+      ]
+    },
+    {
+      "projectId": "proj_b_discovery_roulette",
+      "agentId": "agent_b",
+      "title": "Discovery Roulette",
+      "oneLiner": "AIツールとの偶然の出会いを楽しむ、カードめくり型の探索UI。",
+      "categoryId": "cat_ideation",
+      "categoryName": "Ideation",
+      "status": "auto_published",
+      "validationStatus": "pass",
+      "artifactRoot": "runs/run_20260624_seed/projects/proj_b_discovery_roulette",
+      "metadataSources": [
+        "db.project",
+        "src/project-artifacts/static-source.ts"
+      ]
+    },
+    {
+      "projectId": "proj_c_why_tool_matters",
+      "agentId": "agent_c",
+      "title": "Why This Tool Matters?",
+      "oneLiner": "話題のAIツールが何を解決するのか、初見向けに短く整理するガイド。",
+      "categoryId": "cat_learning",
+      "categoryName": "Learning",
+      "status": "auto_published",
+      "validationStatus": "pass",
+      "artifactRoot": "runs/run_20260624_seed/projects/proj_c_why_tool_matters",
+      "metadataSources": [
+        "db.project",
+        "src/project-artifacts/static-source.ts"
+      ]
+    },
+    {
+      "projectId": "proj_d_oss_trend_map",
+      "agentId": "agent_d",
+      "title": "AI Tool Trend Map",
+      "oneLiner": "散らばったAIツールを、用途と成熟度で眺めるシンプルな地図。",
+      "categoryId": "cat_research",
+      "categoryName": "Research",
+      "status": "auto_published",
+      "validationStatus": "pass",
+      "artifactRoot": "runs/run_20260624_seed/projects/proj_d_oss_trend_map",
+      "metadataSources": [
+        "db.project",
+        "src/project-artifacts/static-source.ts"
+      ]
+    },
+    {
+      "projectId": "proj_g_github_mission_maker",
+      "agentId": "agent_d",
+      "title": "GitHub攻略ミッションメーカー",
+      "oneLiner": "気になるrepoを、30分で読んで改造するためのミッションに変える。",
+      "categoryId": "cat_learning",
+      "categoryName": "Learning",
+      "status": "auto_published",
+      "validationStatus": "pass",
+      "artifactRoot": "runs/run_20260624_seed/projects/proj_g_github_mission_maker",
+      "artifactShape": "workspace",
+      "templatePatternId": "source_to_mission",
+      "surfacePattern": "learning_explainer",
+      "aiMechanismPattern": "workflow_generation",
+      "metadataSources": [
+        "db.project",
+        "src/project-artifacts/static-source.ts"
+      ]
+    }
+  ]
+}

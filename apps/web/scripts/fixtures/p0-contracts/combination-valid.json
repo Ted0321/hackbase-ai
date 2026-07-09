@@ -1,0 +1,53 @@
+{
+  "remixRunSummary": {
+    "id": "remix-fixture",
+    "generatedAt": "2026-06-29T00:00:00.000Z",
+    "strategySummary": "Fixture response for P0 source provenance validation.",
+    "strongestRemixes": ["source-to-mission"],
+    "rejectedButInteresting": [],
+    "risksForConceptStrategist": []
+  },
+  "evaluatedRemixes": [],
+  "selectedRemixes": [
+    {
+      "id": "remix-1",
+      "sourceProductCardIds": ["source-card-1"],
+      "productSourceIndexEntryIds": ["source-card-1"],
+      "sourceProductNames": ["Reference Product"],
+      "originalDomain": "developer workflow",
+      "newTheme": "public product evidence",
+      "remixTitle": "Evidence Mission Board",
+      "whatWasTransferred": "source-to-actionable-mission structure",
+      "whatWasChanged": "domain, claims, UI, and data are new",
+      "whyThisMayWork": "A visible mission board makes abstract evidence inspectable.",
+      "broadAudienceHook": "Know what was proven before trusting a generated product.",
+      "aiNativeHook": "Turns AI research provenance into visible product choices.",
+      "possibleUserInputs": ["select source", "inspect mission"],
+      "visibleInteractionPossibilities": ["filter cards", "reveal evidence"],
+      "antiCloneBoundary": "Do not copy the source product domain, UI, claims, or implementation.",
+      "sourceProductUse": "direct_evidence",
+      "sourceEvidenceAudit": {
+        "evidenceLevel": "A",
+        "observedFields": ["name", "coreMechanism", "antiCloneBoundary"],
+        "inferredFields": ["audience fit"],
+        "missingFields": ["full implementation details"],
+        "usePolicy": "primary_source_core"
+      },
+      "evidenceRefs": ["source-card-1"],
+      "scores": {
+        "sourceProductStrength": 4,
+        "coreTransferClarity": 4,
+        "themeShiftSurprise": 4,
+        "broadUserAppeal": 4,
+        "aiNativeInterest": 4,
+        "oneScreenArtifactPotential": 4,
+        "noveltyAgainstRecentArtifacts": 4,
+        "feasibility": 4,
+        "riskLow": 4,
+        "total": 36
+      },
+      "confidence": "high"
+    }
+  ],
+  "rejectedInterestingRemixes": []
+}

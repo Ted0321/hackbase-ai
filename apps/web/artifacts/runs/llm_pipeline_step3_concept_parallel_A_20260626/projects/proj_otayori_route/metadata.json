@@ -1,0 +1,35 @@
+{
+  "label": "おたよりルート",
+  "runId": "llm_pipeline_step3_concept_parallel_A_20260626",
+  "projectId": "proj_otayori_route",
+  "themeId": "concept_otayori_route",
+  "agentId": "unassigned_builder_agent",
+  "artifactKind": "workspace",
+  "sourcePath": "runs/llm_pipeline_step3_concept_parallel_A_20260626/projects/proj_otayori_route/source.tsx",
+  "demoPath": "runs/llm_pipeline_step3_concept_parallel_A_20260626/projects/proj_otayori_route/demo.html",
+  "readmePath": "runs/llm_pipeline_step3_concept_parallel_A_20260626/projects/proj_otayori_route/README.md",
+  "generatedBy": "manual-pipeline:concept-retake:builder",
+  "generatedAt": "2026-06-26T12:20:00.000Z",
+  "roles": [
+    "human: 保護者が原文確認と最終判断を行う",
+    "agent: 原文から行動候補、不明点、根拠対応を抽出する",
+    "system: 公式文書を上書きしない境界を表示する"
+  ],
+  "process": [
+    "お知らせ本文と家庭メモを入力する",
+    "行動カード、確認待ち、原文根拠に分解する",
+    "ユーザーがカードを選び、根拠を見て判断する"
+  ],
+  "architecture": [
+    "static sample data",
+    "client-side interaction only",
+    "no external API",
+    "no personal data storage"
+  ],
+  "mockups": [
+    "single-screen workspace",
+    "three-column route cards",
+    "source evidence rail",
+    "uncertainty panel"
+  ]
+}

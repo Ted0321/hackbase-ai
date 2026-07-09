@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "runId": "findy_gemini_evidence",
+  "step": "combination",
+  "acceptedAt": "2026-06-27T07:17:47.869Z",
+  "sourceResponsePath": "data\\llm-pipeline-findy-combination-response.json",
+  "targetResponsePath": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\combination\\response.json",
+  "note": "This file records that a manual LLM response was accepted for the pipeline step."
+}

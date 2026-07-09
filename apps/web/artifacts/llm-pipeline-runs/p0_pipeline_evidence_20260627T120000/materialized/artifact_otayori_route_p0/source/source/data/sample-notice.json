@@ -1,0 +1,8 @@
+{
+  "noticeTitle": "School Field Day Notice",
+  "actions": [
+    { "id": "a1", "title": "Submit attendance form", "actor": "guardian", "status": "due_soon", "sourceQuote": "Please return the attendance form by Friday." },
+    { "id": "a2", "title": "Prepare indoor shoes", "actor": "child", "status": "ready", "sourceQuote": "Students should bring indoor shoes in case of rain." },
+    { "id": "a3", "title": "Confirm lunch plan", "actor": "guardian", "status": "needs_confirmation", "sourceQuote": "Lunch details will be announced separately." }
+  ]
+}

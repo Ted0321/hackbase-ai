@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "source": "DOC-82 SkillRegistry MVP",
+  "skills": [
+    {
+      "schemaVersion": 1,
+      "skillId": "concept_signal_to_decision_surface",
+      "name": "Signal to Decision Surface",
+      "description": "Turn weak trend or product-source signals into a concrete decision surface with visible tradeoffs.",
+      "tags": ["concept", "decision_support", "operator_tools"],
+      "applicablePhases": ["concept", "requirements"],
+      "triggerHints": ["schedule", "data_refresh", "manual"],
+      "inputRequirements": ["trendSignals or productSourceIndex", "recentArtifacts", "agent persona creationTaste"],
+      "procedure": [
+        "Find a user moment where a person must compare, decide, or inspect risk.",
+        "Translate the source signal into a concrete first-screen interaction.",
+        "State why the artifact should exist as a tool rather than an explainer.",
+        "Add one uncertainty or review point that keeps the product honest."
+      ],
+      "outputContract": [
+        "Must produce a target user and user moment.",
+        "Must include core interaction and success criteria.",
+        "Must include at least one non-generic artifact shape."
+      ],
+      "examples": [],
+      "failureModes": ["pure_explainer", "generic_dashboard", "no_user_decision"],
+      "validationChecks": ["has_user_moment", "has_core_interaction", "has_risk_boundary"],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "schemaVersion": 1,
+      "skillId": "playful_remix_to_touchable_artifact",
+      "name": "Playful Remix to Touchable Artifact",
+      "description": "Turn surprising source combinations into a small interactive artifact with a clear user action.",
+      "tags": ["concept", "remix", "playful_interaction", "game_design", "analogy_transfer"],
+      "applicablePhases": ["concept", "requirements"],
+      "triggerHints": ["schedule", "data_refresh", "manual"],
+      "inputRequirements": ["trendSignals or productSourceIndex", "source combinations", "agent persona creationTaste"],
+      "procedure": [
+        "Find the odd but useful transfer between two source materials.",
+        "Make the first screen touchable with draw, lock, choose, compare, or reveal controls.",
+        "Keep the payoff practical enough that the artifact is not only a joke.",
+        "State the non-obvious transfer and the boring failure mode."
+      ],
+      "outputContract": [
+        "Must include a visible user action.",
+        "Must explain the source transfer without cloning the source product.",
+        "Must include a practical payoff or learning result."
+      ],
+      "examples": [],
+      "failureModes": ["joke_without_product", "random_remix", "no_clear_payoff"],
+      "validationChecks": ["has_touchable_action", "has_transfer_rationale", "has_payoff"],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "schemaVersion": 1,
+      "skillId": "explain_compare_path_builder",
+      "name": "Explain Compare Path Builder",
+      "description": "Create legible onboarding, comparison, or learning paths that make an AI transformation easy to follow.",
+      "tags": ["concept", "explanation", "comparison", "onboarding", "plain_language", "learning_path"],
+      "applicablePhases": ["concept", "requirements"],
+      "triggerHints": ["schedule", "data_refresh", "manual"],
+      "inputRequirements": ["source material", "target user confusion", "agent persona creationTaste"],
+      "procedure": [
+        "Name the user's before-state and the confusion to resolve.",
+        "Turn the source material into a short guided path or comparison surface.",
+        "Expose what the AI changed, simplified, or ranked.",
+        "Add an example that a non-expert can understand quickly."
+      ],
+      "outputContract": [
+        "Must include a before-state and after-state.",
+        "Must include a guided path, comparison, or explanation surface.",
+        "Must avoid expert-only labels without plain-language context."
+      ],
+      "examples": [],
+      "failureModes": ["abstract_explainer", "expert_only_copy", "no_visible_progression"],
+      "validationChecks": ["has_before_after", "has_guided_surface", "plain_language_check"],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "schemaVersion": 1,
+      "skillId": "evidence_provenance_boundary_builder",
+      "name": "Evidence Provenance Boundary Builder",
+      "description": "Convert thin or mixed source evidence into a product surface with clear provenance and claim boundaries.",
+      "tags": ["concept", "provenance", "sourcing", "citation", "data_quality", "field_notes"],
+      "applicablePhases": ["concept", "requirements", "builder", "reviewer"],
+      "triggerHints": ["schedule", "data_refresh", "manual", "validation_warning"],
+      "inputRequirements": ["source material", "source evidence audit", "agent boundaries"],
+      "procedure": [
+        "Separate observed source facts from inferred or missing details.",
+        "Choose an artifact shape that makes evidence quality inspectable.",
+        "Write public-facing claim boundaries in natural language.",
+        "Add a review point for missing or unverifiable evidence."
+      ],
+      "outputContract": [
+        "Must distinguish observed, inferred, and missing evidence.",
+        "Must include at least one claim boundary.",
+        "Must avoid unsupported claims about external products."
+      ],
+      "examples": [],
+      "failureModes": ["source_overclaim", "citation_theater", "missing_boundary"],
+      "validationChecks": ["evidence_level_present", "claim_boundary_present", "unsupported_claim_check"],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "schemaVersion": 1,
+      "skillId": "simulation_tradeoff_model",
+      "name": "Simulation Tradeoff Model",
+      "description": "Turn scenarios, permissions, or uncertain choices into a small simulator with visible tradeoffs.",
+      "tags": ["concept", "simulation", "scenario_design", "tradeoff_modeling", "trust_boundary", "permission_design"],
+      "applicablePhases": ["concept", "requirements", "builder"],
+      "triggerHints": ["schedule", "data_refresh", "manual"],
+      "inputRequirements": ["scenario inputs", "risk or permission boundary", "agent persona creationTaste"],
+      "procedure": [
+        "Define a scenario that can be changed by one user control.",
+        "Show a tradeoff, risk, or approval boundary after the control changes.",
+        "Keep the output advisory rather than pretending to automate judgment.",
+        "Include the human review point when stakes are ambiguous."
+      ],
+      "outputContract": [
+        "Must include a scenario control.",
+        "Must show a visible tradeoff or risk change.",
+        "Must include a human review or permission boundary when needed."
+      ],
+      "examples": [],
+      "failureModes": ["fake_precision", "hidden_tradeoff", "automated_judgment_claim"],
+      "validationChecks": ["has_scenario_control", "has_tradeoff_output", "human_boundary_check"],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "schemaVersion": 1,
+      "skillId": "artifact_contract_validation_loop",
+      "name": "Artifact Contract Validation Loop",
+      "description": "Keep generated artifacts inside the agreed output contract while preserving the agent's product angle.",
+      "tags": ["builder", "validation", "governance"],
+      "applicablePhases": ["builder", "materialize", "reviewer", "publisher"],
+      "triggerHints": ["manual", "schedule"],
+      "inputRequirements": ["requirements", "buildPlan", "governancePolicy", "toolPolicy"],
+      "procedure": [
+        "Keep public UI free of internal policy field names.",
+        "Check that the artifact exposes user role, AI role, and review boundary.",
+        "Run or request validation before publish-local actions.",
+        "Record any contract gap as validation evidence instead of hiding it."
+      ],
+      "outputContract": [
+        "Must preserve the agreed artifact format.",
+        "Must include validation or a clear not-run status.",
+        "Must not require paid APIs, secrets, or external publication."
+      ],
+      "examples": [],
+      "failureModes": ["raw_policy_leak", "unclear_ai_role", "unvalidated_publish"],
+      "validationChecks": ["public_copy_check", "contract_check", "validation_status_check"],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "schemaVersion": 1,
+      "skillId": "governance_evidence_report",
+      "name": "Governance Evidence Report",
+      "description": "Create a non-destructive governance report from artifacts, feedback, validation results, and memory signals.",
+      "tags": ["governance", "quality_audit", "risk_triage", "cleanup_report", "validation"],
+      "applicablePhases": ["governance", "reviewer", "learning"],
+      "triggerHints": ["governance", "manual", "schedule", "validation_warning"],
+      "inputRequirements": ["recentArtifacts", "validationResults", "agentFeedback", "agentMemoryDigest"],
+      "procedure": [
+        "Group findings by severity and target.",
+        "Record evidence before recommending any action.",
+        "Separate safe recommendations from actions requiring human approval.",
+        "Keep cleanup candidates non-destructive unless explicitly approved."
+      ],
+      "outputContract": [
+        "Must include evidence for each finding.",
+        "Must mark human-approval requirements.",
+        "Must not perform destructive cleanup."
+      ],
+      "examples": [],
+      "failureModes": ["destructive_cleanup", "finding_without_evidence", "unclear_approval_boundary"],
+      "validationChecks": ["evidence_present", "approval_boundary_present", "non_destructive_check"],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "schemaVersion": 1,
+      "skillId": "draft_agent_definition_builder",
+      "name": "Draft Agent Definition Builder",
+      "description": "Create a draft creator-agent definition from a coverage gap without activating it automatically.",
+      "tags": ["agent_design", "registry", "governance", "coverage_gap"],
+      "applicablePhases": ["governance", "learning"],
+      "triggerHints": ["manual", "governance", "coverage_gap", "validation_warning"],
+      "inputRequirements": [
+        "coverage gap or underserved artifact pattern",
+        "current agent registry",
+        "recentArtifacts and validationResults",
+        "allowed tools, skills, and triggers"
+      ],
+      "procedure": [
+        "Name the coverage gap and the evidence that existing active creators do not cover it well.",
+        "Draft mission, preferred inputs, source reading style, default template patterns, quality bar, and boundaries.",
+        "Compare the draft against existing active creators and record the closest overlaps.",
+        "Assign only allowed tools, skills, and triggers that match the draft mission.",
+        "Mark the result as draft-only and require human review before active status."
+      ],
+      "outputContract": [
+        "Must produce a draft agent definition, not an active agent.",
+        "Must include differences from existing agents and a duplicate-risk note.",
+        "Must include risk review, activation recommendation, and human-approval boundary.",
+        "Must not modify the active registry without explicit human approval."
+      ],
+      "examples": [],
+      "failureModes": [
+        "auto_active_agent",
+        "duplicate_creator",
+        "missing_risk_review",
+        "unbounded_tool_policy",
+        "unsupported_activation"
+      ],
+      "validationChecks": [
+        "draft_status_required",
+        "difference_from_existing_agents",
+        "duplicate_risk_present",
+        "tool_skill_trigger_policy_valid",
+        "human_approval_boundary_present"
+      ],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "draft"
+    },
+    {
+      "schemaVersion": 1,
+      "skillId": "reaction_with_persona_boundary",
+      "name": "Reaction With Persona Boundary",
+      "description": "Create useful agent reactions that express persona while staying grounded in product evidence.",
+      "tags": ["reaction", "feedback", "persona"],
+      "applicablePhases": ["reaction", "reviewer", "learning"],
+      "triggerHints": ["feedback_received", "like_received", "manual"],
+      "inputRequirements": ["target artifact", "reactionTaste", "boundaries", "recent feedback"],
+      "procedure": [
+        "React from the agent's specialty instead of generic praise.",
+        "Name one concrete product choice or missing boundary.",
+        "Use the allowed reaction type and avoid social-chat filler.",
+        "Record signals that should affect future memory or skill candidates."
+      ],
+      "outputContract": [
+        "Must use one allowed reaction type.",
+        "Must reference product evidence.",
+        "Must avoid raw internal policy field names."
+      ],
+      "examples": [],
+      "failureModes": ["vanity_like", "off_topic_comment", "policy_name_leak"],
+      "validationChecks": ["reaction_type_allowed", "evidence_present", "public_copy_safe"],
+      "sourceEvidence": {
+        "runIds": [],
+        "projectIds": [],
+        "feedbackIds": []
+      },
+      "version": 1,
+      "status": "active"
+    }
+  ]
+}

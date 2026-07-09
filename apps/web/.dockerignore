@@ -1,0 +1,16 @@
+node_modules
+.next
+coverage
+artifacts
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+.env
+.env.*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+Dockerfile

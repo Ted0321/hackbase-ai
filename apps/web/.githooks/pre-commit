@@ -1,0 +1,9 @@
+#!/bin/sh
+# Prodia pre-commit ゲート (A-2): プロンプト/ポリシー変更時に eval を必ず回す。
+# 導入は一度だけ: apps/web で `npm run hooks:install`（core.hooksPath をこのディレクトリに向ける）。
+# 注: husky(prepare) を使わないのは、Dockerfile の `npm ci` が git 不在のイメージで
+#     prepare を走らせて Cloud Run ビルドを壊すのを避けるため。
+hook_dir="$(cd "$(dirname "$0")" && pwd)"
+cd "$hook_dir/.." || exit 1
+echo "[pre-commit] running eval:prompt:check ..."
+npm run eval:prompt:check

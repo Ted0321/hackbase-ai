@@ -1,0 +1,432 @@
+{
+  "version": "japan-social-trend.2026-07-08T02:05:32.266Z",
+  "fetchedAt": "2026-07-08T02:05:32.266Z",
+  "source": {
+    "type": "japan_social_trend",
+    "urls": [
+      "https://www3.nhk.or.jp/rss/news/cat0.xml",
+      "https://news.yahoo.co.jp/topics",
+      "https://prtimes.jp/"
+    ],
+    "note": "Fetched Japan trend signals from configured public URLs."
+  },
+  "signals": [
+    {
+      "id": "sig_japan_trend_9_10_1",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "台風9号 10日以降に沖縄 先島諸島接近へ 非常に強い勢力を維持",
+      "summary": "大型で非常に強い台風9号は10日・金曜日から11日・土曜日ごろにかけて、非常に強い勢力を維持したまま沖縄県の先島諸島に近づく見込みです。気象庁は一部の住宅が倒壊するような猛烈な風が吹くおそれがあるとして、8日のうちに台風対策を終えるよう呼びかけています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171421000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "大型で非常に強い台風9号は10日・金曜日から11日・土曜日ごろにかけて、非常に強い勢力を維持したまま沖縄県の先島諸島に近づく見込みです。気象庁は一部の住宅が倒壊するような猛烈な風が吹くおそれがあるとして、8日のうちに台風対策を終えるよう呼びかけています。"
+    },
+    {
+      "id": "sig_japan_trend_ny_2",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "NY中心部のビルで柱が曲がり倒壊のおそれ 周辺が封鎖される",
+      "summary": "ニューヨーク・マンハッタンの中心部にある改修中のビルが倒壊するおそれがあることが分かり、ニューヨーク市が周辺のエリアを封鎖して住民らを避難させるなど大きな騒ぎとなっています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171501000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "ニューヨーク・マンハッタンの中心部にある改修中のビルが倒壊するおそれがあることが分かり、ニューヨーク市が周辺のエリアを封鎖して住民らを避難させるなど大きな騒ぎとなっています。"
+    },
+    {
+      "id": "sig_japan_trend__3",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "ホルムズ海峡で船舶に攻撃相次ぐ 支配力の低下にイラン焦りか",
+      "summary": "中東のホルムズ海峡の近くを通航する船舶が7日、相次いで攻撃を受けました。アメリカのメディアはイランの強硬派がアメリカとの協議で頼みの綱としてきた海峡での影響力の低下を感じ、焦りを募らせていると伝えています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171371000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "中東のホルムズ海峡の近くを通航する船舶が7日、相次いで攻撃を受けました。アメリカのメディアはイランの強硬派がアメリカとの協議で頼みの綱としてきた海峡での影響力の低下を感じ、焦りを募らせていると伝えています。"
+    },
+    {
+      "id": "sig_japan_trend__4",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "ハンガリー公共テレビ局「うそをおわび」放送が黒画面に",
+      "summary": "ハンガリーの公共テレビ局は7日、黒い画面と文章を放送し、長年にわたりうそをついてきたとして謝罪したうえでニュース放送を一時的に休止すると明らかにしました。政権交代に伴い、メディアの刷新を掲げるマジャル首相の改革の一環とみられています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171461000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "ハンガリーの公共テレビ局は7日、黒い画面と文章を放送し、長年にわたりうそをついてきたとして謝罪したうえでニュース放送を一時的に休止すると明らかにしました。政権交代に伴い、メディアの刷新を掲げるマジャル首相の改革の一環とみられています。"
+    },
+    {
+      "id": "sig_japan_trend__5",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "小泉防衛相 イギリス国防相と次期戦闘機共同開発など連携確認",
+      "summary": "小泉防衛大臣はイギリスのジャービス国防相と会談し、次期戦闘機の共同開発をはじめ両国の防衛協力の強化に向けて緊密に連携していくことを確認しました。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171471000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "小泉防衛大臣はイギリスのジャービス国防相と会談し、次期戦闘機の共同開発をはじめ両国の防衛協力の強化に向けて緊密に連携していくことを確認しました。"
+    },
+    {
+      "id": "sig_japan_trend_nato_6",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "NATO首脳会議が開幕 米トランプ大統領「がっかり」とけん制",
+      "summary": "NATO＝北大西洋条約機構の首脳会議が7日、トルコで始まりました。会議に先立ち、アメリカのトランプ大統領はイランへの軍事作戦などをめぐり「NATOには非常にがっかりさせられた」と不満をあらわにしていて、ヨーロッパなどの加盟国と一致点を見いだせるかが焦点です。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171261000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "NATO＝北大西洋条約機構の首脳会議が7日、トルコで始まりました。会議に先立ち、アメリカのトランプ大統領はイランへの軍事作戦などをめぐり「NATOには非常にがっかりさせられた」と不満をあらわにしていて、ヨーロッパなどの加盟国と一致点を見いだせるかが焦点です。"
+    },
+    {
+      "id": "sig_japan_trend_w_pk_8_7",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "サッカーW杯 スイスがPK戦でコロンビア破りベスト8進出",
+      "summary": "サッカーワールドカップ北中米大会、決勝トーナメント2回戦の最後の試合、スイス 対 コロンビアは、スイスが、ペナルティーキック戦の末に勝って、1954年以来、72年ぶりに準々決勝進出を決めました。",
+      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171481000.html",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend",
+        "sports"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "サッカーワールドカップ北中米大会、決勝トーナメント2回戦の最後の試合、スイス 対 コロンビアは、スイスが、ペナルティーキック戦の末に勝って、1954年以来、72年ぶりに準々決勝進出を決めました。"
+    },
+    {
+      "id": "sig_japan_trend__8",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "マイページ",
+      "summary": "マイページ",
+      "url": "https://news.yahoo.co.jp/users/me",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "マイページ"
+    },
+    {
+      "id": "sig_japan_trend__9",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "購入履歴",
+      "summary": "購入履歴",
+      "url": "https://news.yahoo.co.jp/purchase",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "購入履歴"
+    },
+    {
+      "id": "sig_japan_trend__10",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "トップ",
+      "summary": "トップ",
+      "url": "https://news.yahoo.co.jp/",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "トップ"
+    },
+    {
+      "id": "sig_japan_trend__11",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "速報",
+      "summary": "速報",
+      "url": "https://news.yahoo.co.jp/flash",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "速報"
+    },
+    {
+      "id": "sig_japan_trend__12",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "ライブ",
+      "summary": "ライブ",
+      "url": "https://news.yahoo.co.jp/live",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "ライブ"
+    },
+    {
+      "id": "sig_japan_trend__13",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "エキスパート",
+      "summary": "エキスパート",
+      "url": "https://news.yahoo.co.jp/expert",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "エキスパート"
+    },
+    {
+      "id": "sig_japan_trend__14",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "オリジナル",
+      "summary": "オリジナル",
+      "url": "https://news.yahoo.co.jp/original/",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "オリジナル"
+    },
+    {
+      "id": "sig_japan_trend__15",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "みんなの意見",
+      "summary": "みんなの意見",
+      "url": "https://news.yahoo.co.jp/polls",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "みんなの意見"
+    },
+    {
+      "id": "sig_japan_trend__16",
+      "sourceType": "japan_social_trend",
+      "sourceName": "Yahoo! Japan Topics",
+      "title": "ランキング",
+      "summary": "ランキング",
+      "url": "https://news.yahoo.co.jp/ranking/access/news",
+      "observedAt": "2026-07-08T02:05:32.266Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "ランキング"
+    }
+  ]
+}

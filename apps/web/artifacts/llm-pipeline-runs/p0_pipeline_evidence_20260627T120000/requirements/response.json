@@ -1,0 +1,71 @@
+{
+  "id": "req_otayori_route_p0",
+  "conceptId": "concept_otayori_route",
+  "ownerAgentId": "agent_a",
+  "templatePatternId": "source_to_mission",
+  "mvpGoal": "Create a one-screen artifact that turns a long school or civic notice into source-linked household action cards, while keeping uncertainty visible.",
+  "screens": [
+    {
+      "name": "Notice Action Workspace",
+      "purpose": "Let a parent or local resident inspect a sample notice, see extracted actions, and identify unresolved confirmation questions.",
+      "components": [
+        "source notice panel",
+        "action card list",
+        "actor/date/material chips",
+        "uncertainty queue",
+        "source evidence drawer",
+        "review status banner"
+      ],
+      "interactions": [
+        "select an action card to reveal the source sentence and extraction reason",
+        "toggle between all actions, due soon, and needs confirmation",
+        "mark a card as ready or needs follow-up to update the review status"
+      ]
+    }
+  ],
+  "dataModel": [
+    {
+      "name": "NoticeAction",
+      "fields": [
+        "id",
+        "title",
+        "actor",
+        "dueDate",
+        "materials",
+        "status",
+        "sourceQuote",
+        "confidence",
+        "uncertainty"
+      ]
+    },
+    {
+      "name": "NoticeReviewState",
+      "fields": [
+        "selectedFilter",
+        "selectedActionId",
+        "readyActionIds",
+        "followUpActionIds"
+      ]
+    }
+  ],
+  "acceptanceCriteria": [
+    "First screen shows the source notice and at least three extracted action cards.",
+    "Each action card exposes a source quote or evidence reference.",
+    "At least one user-controlled interaction changes visible state.",
+    "Uncertainty is not hidden; unresolved questions appear as their own queue.",
+    "The artifact can run with static local data and does not require login, external APIs, paid services, or official-school integrations."
+  ],
+  "nonGoals": [
+    "Do not send messages to schools or families.",
+    "Do not claim official interpretation of the notice.",
+    "Do not parse arbitrary uploaded PDFs in this P0 artifact.",
+    "Do not build a multi-page family operations platform."
+  ],
+  "safetyConstraints": [
+    "Keep all advice framed as extracted planning support, not official instruction.",
+    "Show uncertainty and source evidence beside generated actions.",
+    "Use static sample notice data only.",
+    "Avoid collecting personal student, family, or school information.",
+    "Require human review before any real-world communication or publication."
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "version": 1,
+  "runId": "p0_pipeline_evidence_20260627T120000",
+  "step": "rewriter",
+  "generatedAt": "2026-06-27T08:18:50.818Z",
+  "instructions": {
+    "returnFormat": "strict_json_only",
+    "noExternalPublish": true,
+    "noPaidApiRequired": true,
+    "noSecrets": true
+  },
+  "previousResponseStatus": {
+    "requiredPreviousSteps": [
+      "concept",
+      "requirements",
+      "builder",
+      "reviewer"
+    ],
+    "missingRequiredPreviousResponses": [],
+    "missingPreviousResponses": [],
+    "note": "Required upstream response.json files are present for this step."
+  },
+  "concept": {
+    "candidates": [
+      {
+        "id": "concept_otayori_route",
+        "title": "Otayori Route",
+        "oneLiner": "Turn a long school or civic notice into family action cards with source evidence and uncertainty.",
+        "sourceSignalIds": [
+          "signal_school_notice_route"
+        ],
+        "notObviousInsight": "The value is not a shorter summary; it is making actors, dates, materials, and open questions visible enough for a household to act.",
+        "researchAngleUsed": "domain_pain_to_tool",
+        "combinationUsed": "remix_school_notice_action_route",
+        "remixUsed": "remix_school_notice_action_route",
+        "sourceProductUsed": "source_crossbeam_pattern",
+        "originalCoreTransferred": "Dense document to guided action workflow.",
+        "newThemeApplied": "school notice family action routing",
+        "ideaMoveUsed": "output_form_shift",
+        "topicCardUsed": "topic_school_parent_communication",
+        "evidenceUsed": [
+          "research_school_notice_route",
+          "signal_school_notice_route"
+        ],
+        "noveltyTypeUsed": "new_workflow",
+        "surfaceAudience": "family/local citizen",
+        "aiAppreciationAudience": "AI-curious professional",
+        "surfaceTheme": "education",
+        "surfacePattern": "daily_utility",
+        "aiMechanismPattern": "workflow_generation",
+        "templatePatternId": "source_to_mission",
+        "templatePatternReason": "The first screen can show original source, extracted actions, and provenance together.",
+        "whyNormalUserCares": "They can see what to do today and what still needs confirmation.",
+        "whyAIUserCares": "The artifact exposes extraction, routing, uncertainty, and provenance instead of hiding them behind a summary.",
+        "aiMechanism": "Extract actors, dates, materials, and questions, then route them into action cards with source references.",
+        "targetUser": "Parent or local resident handling a long notice.",
+        "userMoment": "After receiving a long notice and before deciding who needs to do what.",
+        "coreInteraction": "Paste or inspect a notice, then review action cards, confirmation questions, and source evidence.",
+        "whyDifferentFromRecentArtifacts": "It targets a normal household workflow rather than another AI-operator dashboard.",
+        "artifactShape": "workspace",
+        "antiGenericChecks": [
+          "Not just summary",
+          "Source references remain visible",
+          "Uncertainty remains visible"
+        ],
+        "sharpnessChecks": [
+          "Action cards are visible in the first screen",
+          "At least one source reference is attached to each card"
+        ],
+        "risks": [
+          "Generated guidance may be mistaken for official instruction"
+        ],
+        "successCriteria": [
+          "A user can identify one next action",
+          "A user can see what remains uncertain",
+          "A user can trace a card to source text"
+        ]
+      }
+    ],
+    "selectedConcept": {
+      "id": "concept_otayori_route",
+      "title": "Otayori Route",
+      "oneLiner": "Turn a long school or civic notice into family action cards with source evidence and uncertainty.",
+      "sourceSignalIds": [
+        "signal_school_notice_route"
+      ],
+      "notObviousInsight": "The value is not a shorter summary; it is making actors, dates, materials, and open questions visible enough for a household to act.",
+      "researchAngleUsed": "domain_pain_to_tool",
+      "combinationUsed": "remix_school_notice_action_route",
+      "remixUsed": "remix_school_notice_action_route",
+      "sourceProductUsed": "source_crossbeam_pattern",
+      "originalCoreTransferred": "Dense document to guided action workflow.",
+      "newThemeApplied": "school notice family action routing",
+      "ideaMoveUsed": "output_form_shift",
+      "topicCardUsed": "topic_school_parent_communication",
+      "evidenceUsed": [
+        "research_school_notice_route",
+        "signal_school_notice_route"
+      ],
+      "noveltyTypeUsed": "new_workflow",
+      "surfaceAudience": "family/local citizen",
+      "aiAppreciationAudience": "AI-curious professional",
+      "surfaceTheme": "education",
+      "surfacePattern": "daily_utility",
+      "aiMechanismPattern": "workflow_generation",
+      "templatePatternId": "source_to_mission",
+      "templatePatternReason": "The first screen can show original source, extracted actions, and provenance together.",
+      "whyNormalUserCares": "They can see what to do today and what still needs confirmation.",
+      "whyAIUserCares": "The artifact exposes extraction, routing, uncertainty, and provenance instead of hiding them behind a summary.",
+      "aiMechanism": "Extract actors, dates, materials, and questions, then route them into action cards with source references.",
+      "targetUser": "Parent or local resident handling a long notice.",
+      "userMoment": "After receiving a long notice and before deciding who needs to do what.",
+      "coreInteraction": "Paste or inspect a notice, then review action cards, confirmation questions, and source evidence.",
+      "whyDifferentFromRecentArtifacts": "It targets a normal household workflow rather than another AI-operator dashboard.",
+      "artifactShape": "workspace",
+      "antiGenericChecks": [
+        "Not just summary",
+        "Source references remain visible",
+        "Uncertainty remains visible"
+      ],
+      "sharpnessChecks": [
+        "Action cards are visible in the first screen",
+        "At least one source reference is attached to each card"
+      ],
+      "risks": [
+        "Generated guidance may be mistaken for official instruction"
+      ],
+      "successCriteria": [
+        "A user can identify one next action",
+        "A user can see what remains uncertain",
+        "A user can trace a card to source text"
+      ]
+    },
+    "conceptRunSummary": {
+      "id": "findy_local_concept_chain_check",
+      "generatedAt": "2026-06-27T00:00:00.000Z",
+      "inputCombinationRunId": "findy_local_combination_chain_check",
+      "selectedConceptId": "concept_otayori_route",
+      "whySelected": "It is a small, explainable artifact with clear research, combination, and provenance links.",
+      "risksForBuilder": [
+        "Keep source references and uncertainty visible."
+      ]
+    }
+  },
+  "requirementSpec": {
+    "id": "req_otayori_route_p0",
+    "conceptId": "concept_otayori_route",
+    "ownerAgentId": "agent_a",
+    "templatePatternId": "source_to_mission",
+    "mvpGoal": "Create a one-screen artifact that turns a long school or civic notice into source-linked household action cards, while keeping uncertainty visible.",
+    "screens": [
+      {
+        "name": "Notice Action Workspace",
+        "purpose": "Let a parent or local resident inspect a sample notice, see extracted actions, and identify unresolved confirmation questions.",
+        "components": [
+          "source notice panel",
+          "action card list",
+          "actor/date/material chips",
+          "uncertainty queue",
+          "source evidence drawer",
+          "review status banner"
+        ],
+        "interactions": [
+          "select an action card to reveal the source sentence and extraction reason",
+          "toggle between all actions, due soon, and needs confirmation",
+          "mark a card as ready or needs follow-up to update the review status"
+        ]
+      }
+    ],
+    "dataModel": [
+      {
+        "name": "NoticeAction",
+        "fields": [
+          "id",
+          "title",
+          "actor",
+          "dueDate",
+          "materials",
+          "status",
+          "sourceQuote",
+          "confidence",
+          "uncertainty"
+        ]
+      },
+      {
+        "name": "NoticeReviewState",
+        "fields": [
+          "selectedFilter",
+          "selectedActionId",
+          "readyActionIds",
+          "followUpActionIds"
+        ]
+      }
+    ],
+    "acceptanceCriteria": [
+      "First screen shows the source notice and at least three extracted action cards.",
+      "Each action card exposes a source quote or evidence reference.",
+      "At least one user-controlled interaction changes visible state.",
+      "Uncertainty is not hidden; unresolved questions appear as their own queue.",
+      "The artifact can run with static local data and does not require login, external APIs, paid services, or official-school integrations."
+    ],
+    "nonGoals": [
+      "Do not send messages to schools or families.",
+      "Do not claim official interpretation of the notice.",
+      "Do not parse arbitrary uploaded PDFs in this P0 artifact.",
+      "Do not build a multi-page family operations platform."
+    ],
+    "safetyConstraints": [
+      "Keep all advice framed as extracted planning support, not official instruction.",
+      "Show uncertainty and source evidence beside generated actions.",
+      "Use static sample notice data only.",
+      "Avoid collecting personal student, family, or school information.",
+      "Require human review before any real-world communication or publication."
+    ]
+  },
+  "buildPlan": {
+    "requirementSpecId": "req_otayori_route_p0",
+    "framework": "Next.js static artifact bundle",
+    "files": [
+      {
+        "path": "README.md",
+        "purpose": "Explain the Otayori Route artifact, intended user, static data boundary, and human-review limits.",
+        "content": "# Otayori Route\n\nOtayori Route turns a long school or civic notice into source-linked household action cards. This P0 artifact uses static sample data only and does not send messages, parse private documents, or claim official interpretation.\n"
+      },
+      {
+        "path": "metadata.json",
+        "purpose": "Describe the concept, selected agents, template pattern, and MVP Contract for validation.",
+        "content": "{\n  \"artifactId\": \"artifact_otayori_route_p0\",\n  \"title\": \"Otayori Route\",\n  \"conceptId\": \"concept_otayori_route\",\n  \"requirementSpecId\": \"req_otayori_route_p0\",\n  \"templatePatternId\": \"source_to_mission\",\n  \"selectedAgentIds\": [\"agent_a\", \"agent_c\"],\n  \"firstScreenValue\": \"Source notice, action cards, and unresolved questions are visible together.\",\n  \"coreInteraction\": \"Select and filter action cards, then mark each card as ready or needs follow-up.\",\n  \"stateChange\": \"The visible card list and review status update after filtering or marking cards.\",\n  \"staticDataBoundary\": \"Uses bundled sample notice data only.\"\n}\n"
+      },
+      {
+        "path": "source/app/page.tsx",
+        "purpose": "Render the one-screen workspace with source notice, action cards, filters, and review state.",
+        "content": "export default function OtayoriRoutePage() {\n  return <main>Otayori Route static artifact placeholder for materialization.</main>;\n}\n"
+      },
+      {
+        "path": "source/data/sample-notice.json",
+        "purpose": "Hold static sample notice text and extracted action candidates.",
+        "content": "{\n  \"noticeTitle\": \"School Field Day Notice\",\n  \"actions\": [\n    { \"id\": \"a1\", \"title\": \"Submit attendance form\", \"actor\": \"guardian\", \"status\": \"due_soon\", \"sourceQuote\": \"Please return the attendance form by Friday.\" },\n    { \"id\": \"a2\", \"title\": \"Prepare indoor shoes\", \"actor\": \"child\", \"status\": \"ready\", \"sourceQuote\": \"Students should bring indoor shoes in case of rain.\" },\n    { \"id\": \"a3\", \"title\": \"Confirm lunch plan\", \"actor\": \"guardian\", \"status\": \"needs_confirmation\", \"sourceQuote\": \"Lunch details will be announced separately.\" }\n  ]\n}\n"
+      },
+      {
+        "path": "validation/self-review.json",
+        "purpose": "Record initial self-review against the P0 MVP criteria.",
+        "content": "{\n  \"status\": \"needs_materialization\",\n  \"checks\": [\"first_screen_value\", \"core_interaction\", \"state_change\", \"source_evidence\", \"static_data_boundary\"],\n  \"notes\": \"This builder response is a plan-level artifact. It has not yet been compiled into a runnable Project artifact.\"\n}\n"
+      }
+    ],
+    "implementationNotes": [
+      "Use the source_to_mission template pattern: source material on the left, mission/action cards on the right, evidence visible on selection.",
+      "Keep interaction local and stateful: filters and ready/follow-up markings are enough for P0.",
+      "Represent uncertainty as a first-class queue instead of smoothing it into confident advice.",
+      "Materialization should create a static artifact bundle before DB Project registration."
+    ],
+    "knownRisks": [
+      "This response is not yet a compiled runnable artifact.",
+      "The placeholder page content must be replaced during materialization.",
+      "A real-world notice workflow needs stronger privacy and official-source guardrails before use."
+    ],
+    "submissionReadiness": {
+      "firstScreenValue": "The intended first screen shows the notice, extracted actions, and uncertainty queue together.",
+      "coreInteraction": "A user filters action cards, selects one to inspect evidence, and marks review status.",
+      "stateChange": "Filter and status selections change the visible cards and review summary.",
+      "inspectableOutput": "README, metadata, sample data, source placeholder, and self-review are all declared.",
+      "staticDataBoundary": "No external API, login, upload, school system, or paid service is required.",
+      "remainingWeakness": "Needs materialization into a concrete artifact directory and UI smoke verification."
+    },
+    "mvpContract": {
+      "firstScreenValue": "Source notice, action cards, and unresolved questions are visible without navigation.",
+      "coreInteraction": "Select/filter action cards and mark them ready or needs follow-up.",
+      "stateChange": "The selected evidence panel and review status update from user input.",
+      "inspectableOutput": "README, metadata, source, static sample data, and validation files explain the artifact.",
+      "staticDataBoundary": "Bundled static sample data only.",
+      "requiredFiles": [
+        "README.md",
+        "metadata.json",
+        "source/app/page.tsx",
+        "source/data/sample-notice.json",
+        "validation/self-review.json"
+      ],
+      "nonGoals": [
+        "arbitrary PDF parsing",
+        "school messaging integration",
+        "official notice interpretation",
+        "external publishing"
+      ],
+      "forbiddenDependencies": [
+        "external API",
+        "secret",
+        "login-only flow",
+        "paid API",
+        "external publishing"
+      ]
+    }
+  },
+  "reviewResult": {
+    "artifactId": "artifact_otayori_route_p0",
+    "reviewerAgentId": "agent_c",
+    "status": "needs_revision",
+    "scores": {
+      "novelty": 7,
+      "notObviousInsight": 8,
+      "userClarity": 8,
+      "coreInteraction": 7,
+      "visualSpecificity": 6,
+      "codeFeasibility": 6,
+      "sourceInspectability": 8,
+      "artifactCompleteness": 5,
+      "safety": 8,
+      "differenceFromRecentArtifacts": 7
+    },
+    "hackathonDemoChecks": {
+      "firstScreenValue": "pass",
+      "touchability": "needs_revision",
+      "stateChange": "needs_revision",
+      "inspectability": "pass",
+      "provenance": "pass",
+      "agentFit": "pass",
+      "differentiation": "pass"
+    },
+    "strengths": [
+      "The concept avoids generic summarization and focuses on household action routing.",
+      "The requirements keep source evidence and uncertainty visible.",
+      "The selected agents fit the task: Triage for action structure and Explainer for legibility.",
+      "The MVP Contract clearly forbids external APIs, login-only flows, and official interpretation."
+    ],
+    "problems": [
+      {
+        "severity": "high",
+        "issue": "The builder output declares file contents but has not been materialized into a runnable artifact directory.",
+        "requiredChange": "Create a concrete artifact bundle with README.md, metadata.json, source/app/page.tsx, static data, and validation/self-review.json."
+      },
+      {
+        "severity": "medium",
+        "issue": "The current source/app/page.tsx content is a placeholder and does not prove user-controlled state change.",
+        "requiredChange": "Replace the placeholder with a static interactive UI that filters cards and updates review state."
+      },
+      {
+        "severity": "medium",
+        "issue": "Visual layout details are not specific enough for a judge to understand the product without reading the plan.",
+        "requiredChange": "Define the first-screen layout: notice panel, action cards, evidence panel, and uncertainty queue."
+      }
+    ],
+    "rewriteInstructions": [
+      "Keep the same concept and requirement scope.",
+      "Do not add external upload, messaging, login, or school integration.",
+      "Make the next artifact materialization prove one local state change.",
+      "Preserve the human-assisted boundary in the summary so this run is not misrepresented as full auto-publish."
+    ],
+    "publishRecommendation": {
+      "readyForRepresentativeDemo": false,
+      "reason": "The plan-level artifact is useful evidence for the pipeline but is not yet a runnable Project artifact.",
+      "mustFixBeforePublish": [
+        "Materialize files into an artifact directory.",
+        "Replace placeholder source with an interactive static UI.",
+        "Run MVP artifact validation after materialization."
+      ]
+    }
+  },
+  "missingPreviousResponses": []
+}

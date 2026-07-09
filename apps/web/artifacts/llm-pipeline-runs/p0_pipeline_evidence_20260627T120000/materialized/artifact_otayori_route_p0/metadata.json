@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "artifactId": "artifact_otayori_route_p0",
+  "label": "Otayori Route",
+  "sourcePath": "source/source/app/page.tsx",
+  "demoPath": "demo.html",
+  "readmePath": "README.md",
+  "generatedBy": "codex_local",
+  "generatedAt": "2026-06-27T08:28:23.910Z",
+  "targetUser": "Parent or local resident handling a long school or civic notice.",
+  "userMoment": "After receiving a notice and before deciding who needs to do what.",
+  "roles": [
+    "Triage: turns source text into practical next actions",
+    "Explainer: keeps evidence and uncertainty understandable",
+    "Validation worker: checks static-data boundary and MVP Contract"
+  ],
+  "process": [
+    "Research and concept selected Otayori Route from the school notice action-routing idea",
+    "Agent router assigned Triage and Explainer",
+    "Requirements defined a one-screen source-to-action workspace",
+    "Builder materialized source, metadata, manifest, sample data, and validation files",
+    "Reviewer passed the materialized artifact and Publisher marked it as local publish candidate"
+  ],
+  "architecture": [
+    "Static sample notice data: source/source/data/sample-notice.json",
+    "Local React state: filter, selected card, and ready/follow-up marks",
+    "Artifact Store: README, metadata, manifest, source, and validation evidence",
+    "No external API, secret, login-only flow, paid API, or external publishing dependency"
+  ],
+  "mockups": [
+    "Workspace: source notice on the left, action cards and filters on the right",
+    "Evidence panel: selected card source quote, materials, and uncertainty",
+    "Review state: ready/follow-up/unreviewed counters update from user input"
+  ],
+  "sourcePlan": [
+    "Keep the artifact inspectable before DB/feed automation",
+    "Register as a Prodia Project using existing Project/Artifact rows",
+    "Expose pipeline evidence from Source and Run surfaces"
+  ],
+  "sourceProvenance": {
+    "sourceProductUsed": "p0_pipeline_evidence_20260627T120000 requirements -> builder -> reviewer -> publisher chain",
+    "sourceProductUse": "direct",
+    "sourceEvidenceAudit": {
+      "evidenceLevel": "pipeline_materialized_artifact",
+      "observedFields": [
+        "builder/response.json",
+        "reviewer/response.json",
+        "publisher/response.json",
+        "materialized/artifact_otayori_route_p0/metadata.json",
+        "materialized/artifact_otayori_route_p0/source/source/app/page.tsx"
+      ],
+      "inferredFields": [
+        "targetUser",
+        "userMoment",
+        "roles"
+      ],
+      "missingFields": [
+        "live external notice source",
+        "official school-system integration"
+      ],
+      "usePolicy": "Use only as a static sample-data provenance record; human review is required before live notice handling."
+    },
+    "antiCloneBoundary": "This artifact demonstrates source-linked action routing from a static sample notice; it does not claim an official school workflow or live external integration.",
+    "sourceBoundary": "The UI and sample data are materialized from the local LLM pipeline run and bundled static files only."
+  },
+  "interactionProofPlan": {
+    "primaryAction": "Mark ready",
+    "initialState": "Review summary starts with zero ready items and all actions unreviewed.",
+    "expectedState": "Clicking Mark ready updates the review summary and the card status text.",
+    "visibleEvidence": [
+      "Mark ready",
+      "Review state",
+      "Current: ready"
+    ],
+    "proofSelectors": [
+      "[data-proof=\"mark-ready\"]",
+      "[data-proof=\"review-summary\"]",
+      "[data-proof=\"selected-evidence\"]"
+    ],
+    "requiredSourceFiles": [
+      "source/source/app/page.tsx"
+    ]
+  },
+  "interestingness": "It demonstrates that Prodia can turn a dense real-world-style notice into an inspectable, interactive action artifact while preserving provenance and uncertainty.",
+  "productConceptSource": "p0_pipeline_evidence_20260627T120000 requirements -> builder -> reviewer -> publisher chain",
+  "generatedFrom": {
+    "input": "artifacts/llm-pipeline-runs/p0_pipeline_evidence_20260627T120000/builder/response.json",
+    "requirementSpecId": "req_otayori_route_p0",
+    "framework": "Next.js static artifact bundle"
+  },
+  "sourceFiles": [
+    {
+      "relativePath": "source/README.md",
+      "purpose": "Explain the Otayori Route artifact, intended user, static data boundary, and human-review limits.",
+      "sizeBytes": 380,
+      "checksum": "56b265022ea742e722810d4afafa4f2a1bf1adbfa1f0a4c88b26725c49389316",
+      "generatedFrom": "README.md"
+    },
+    {
+      "relativePath": "source/metadata.json",
+      "purpose": "Describe the concept, selected agents, template pattern, and MVP Contract for validation.",
+      "sizeBytes": 625,
+      "checksum": "cd0233c123d71a76c46b720545016a1750458db89e3d0c73aa65b8c9cfe17327",
+      "generatedFrom": "metadata.json"
+    },
+    {
+      "relativePath": "source/source/app/page.tsx",
+      "purpose": "Render the one-screen workspace with source notice, action cards, filters, and review state.",
+      "sizeBytes": 133,
+      "checksum": "ed9d0a70320d2277037444308c9c7720844ad7d986730466377da0dc8557e434",
+      "generatedFrom": "source/app/page.tsx"
+    },
+    {
+      "relativePath": "source/source/data/sample-notice.json",
+      "purpose": "Hold static sample notice text and extracted action candidates.",
+      "sizeBytes": 553,
+      "checksum": "37ac698f2732c9fcf96cc095952fcd9f25f7edf79b7dd7d4fc51d319cc7b8b0a",
+      "generatedFrom": "source/data/sample-notice.json"
+    },
+    {
+      "relativePath": "source/validation/self-review.json",
+      "purpose": "Record initial self-review against the P0 MVP criteria.",
+      "sizeBytes": 280,
+      "checksum": "f28a9588dd7f65d9749b8e59a74e8e93f6f79028fb9675aac266308c46edcc27",
+      "generatedFrom": "validation/self-review.json"
+    }
+  ],
+  "demo": {
+    "path": "demo-placeholder.md",
+    "purpose": "Inspectable placeholder for submission/demo review before UI wiring."
+  },
+  "readiness": {
+    "firstScreenValue": "The intended first screen shows the notice, extracted actions, and uncertainty queue together.",
+    "coreInteraction": "A user filters action cards, selects one to inspect evidence, and marks review status.",
+    "stateChange": "Filter and status selections change the visible cards and review summary.",
+    "inspectableOutput": "README, metadata, sample data, source placeholder, and self-review are all declared.",
+    "staticDataBoundary": "No external API, login, upload, school system, or paid service is required.",
+    "remainingWeakness": "Needs materialization into a concrete artifact directory and UI smoke verification."
+  },
+  "mvpContract": {
+    "firstScreenValue": "Source notice, action cards, and unresolved questions are visible without navigation.",
+    "coreInteraction": "Select/filter action cards and mark them ready or needs follow-up.",
+    "stateChange": "The selected evidence panel and review status update from user input.",
+    "inspectableOutput": "README, metadata, source, static sample data, and validation files explain the artifact.",
+    "staticDataBoundary": "Bundled static sample data only.",
+    "requiredFiles": [
+      "source/README.md",
+      "source/metadata.json",
+      "source/source/app/page.tsx",
+      "source/source/data/sample-notice.json",
+      "source/validation/self-review.json"
+    ],
+    "nonGoals": [
+      "arbitrary PDF parsing",
+      "school messaging integration",
+      "official notice interpretation",
+      "external publishing"
+    ],
+    "forbiddenDependencies": [
+      "external API",
+      "secret",
+      "login-only flow",
+      "paid API",
+      "external publishing"
+    ]
+  },
+  "implementationNotes": [
+    "Use the source_to_mission template pattern: source material on the left, mission/action cards on the right, evidence visible on selection.",
+    "Keep interaction local and stateful: filters and ready/follow-up markings are enough for P0.",
+    "Represent uncertainty as a first-class queue instead of smoothing it into confident advice.",
+    "Materialization should create a static artifact bundle before DB Project registration."
+  ],
+  "knownRisks": [
+    "This response is not yet a compiled runnable artifact.",
+    "The placeholder page content must be replaced during materialization.",
+    "A real-world notice workflow needs stronger privacy and official-source guardrails before use."
+  ],
+  "dbWrite": {
+    "status": "skipped",
+    "reason": "BuildPlan materialization is artifact-only for this session. Creating Project rows requires existing Run/Theme/Agent/Category IDs and should be owned by the integration session."
+  }
+}

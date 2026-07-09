@@ -1,0 +1,122 @@
+{
+  "candidates": [
+    {
+      "id": "concept_otayori_route",
+      "title": "Otayori Route",
+      "oneLiner": "Turn a long school or civic notice into family action cards with source evidence and uncertainty.",
+      "sourceSignalIds": [
+        "signal_school_notice_route"
+      ],
+      "notObviousInsight": "The value is not a shorter summary; it is making actors, dates, materials, and open questions visible enough for a household to act.",
+      "researchAngleUsed": "domain_pain_to_tool",
+      "combinationUsed": "remix_school_notice_action_route",
+      "remixUsed": "remix_school_notice_action_route",
+      "sourceProductUsed": "source_crossbeam_pattern",
+      "originalCoreTransferred": "Dense document to guided action workflow.",
+      "newThemeApplied": "school notice family action routing",
+      "ideaMoveUsed": "output_form_shift",
+      "topicCardUsed": "topic_school_parent_communication",
+      "evidenceUsed": [
+        "research_school_notice_route",
+        "signal_school_notice_route"
+      ],
+      "noveltyTypeUsed": "new_workflow",
+      "surfaceAudience": "family/local citizen",
+      "aiAppreciationAudience": "AI-curious professional",
+      "surfaceTheme": "education",
+      "surfacePattern": "daily_utility",
+      "aiMechanismPattern": "workflow_generation",
+      "templatePatternId": "source_to_mission",
+      "templatePatternReason": "The first screen can show original source, extracted actions, and provenance together.",
+      "whyNormalUserCares": "They can see what to do today and what still needs confirmation.",
+      "whyAIUserCares": "The artifact exposes extraction, routing, uncertainty, and provenance instead of hiding them behind a summary.",
+      "aiMechanism": "Extract actors, dates, materials, and questions, then route them into action cards with source references.",
+      "targetUser": "Parent or local resident handling a long notice.",
+      "userMoment": "After receiving a long notice and before deciding who needs to do what.",
+      "coreInteraction": "Paste or inspect a notice, then review action cards, confirmation questions, and source evidence.",
+      "whyDifferentFromRecentArtifacts": "It targets a normal household workflow rather than another AI-operator dashboard.",
+      "artifactShape": "workspace",
+      "antiGenericChecks": [
+        "Not just summary",
+        "Source references remain visible",
+        "Uncertainty remains visible"
+      ],
+      "sharpnessChecks": [
+        "Action cards are visible in the first screen",
+        "At least one source reference is attached to each card"
+      ],
+      "risks": [
+        "Generated guidance may be mistaken for official instruction"
+      ],
+      "successCriteria": [
+        "A user can identify one next action",
+        "A user can see what remains uncertain",
+        "A user can trace a card to source text"
+      ]
+    }
+  ],
+  "selectedConcept": {
+    "id": "concept_otayori_route",
+    "title": "Otayori Route",
+    "oneLiner": "Turn a long school or civic notice into family action cards with source evidence and uncertainty.",
+    "sourceSignalIds": [
+      "signal_school_notice_route"
+    ],
+    "notObviousInsight": "The value is not a shorter summary; it is making actors, dates, materials, and open questions visible enough for a household to act.",
+    "researchAngleUsed": "domain_pain_to_tool",
+    "combinationUsed": "remix_school_notice_action_route",
+    "remixUsed": "remix_school_notice_action_route",
+    "sourceProductUsed": "source_crossbeam_pattern",
+    "originalCoreTransferred": "Dense document to guided action workflow.",
+    "newThemeApplied": "school notice family action routing",
+    "ideaMoveUsed": "output_form_shift",
+    "topicCardUsed": "topic_school_parent_communication",
+    "evidenceUsed": [
+      "research_school_notice_route",
+      "signal_school_notice_route"
+    ],
+    "noveltyTypeUsed": "new_workflow",
+    "surfaceAudience": "family/local citizen",
+    "aiAppreciationAudience": "AI-curious professional",
+    "surfaceTheme": "education",
+    "surfacePattern": "daily_utility",
+    "aiMechanismPattern": "workflow_generation",
+    "templatePatternId": "source_to_mission",
+    "templatePatternReason": "The first screen can show original source, extracted actions, and provenance together.",
+    "whyNormalUserCares": "They can see what to do today and what still needs confirmation.",
+    "whyAIUserCares": "The artifact exposes extraction, routing, uncertainty, and provenance instead of hiding them behind a summary.",
+    "aiMechanism": "Extract actors, dates, materials, and questions, then route them into action cards with source references.",
+    "targetUser": "Parent or local resident handling a long notice.",
+    "userMoment": "After receiving a long notice and before deciding who needs to do what.",
+    "coreInteraction": "Paste or inspect a notice, then review action cards, confirmation questions, and source evidence.",
+    "whyDifferentFromRecentArtifacts": "It targets a normal household workflow rather than another AI-operator dashboard.",
+    "artifactShape": "workspace",
+    "antiGenericChecks": [
+      "Not just summary",
+      "Source references remain visible",
+      "Uncertainty remains visible"
+    ],
+    "sharpnessChecks": [
+      "Action cards are visible in the first screen",
+      "At least one source reference is attached to each card"
+    ],
+    "risks": [
+      "Generated guidance may be mistaken for official instruction"
+    ],
+    "successCriteria": [
+      "A user can identify one next action",
+      "A user can see what remains uncertain",
+      "A user can trace a card to source text"
+    ]
+  },
+  "conceptRunSummary": {
+    "id": "findy_local_concept_chain_check",
+    "generatedAt": "2026-06-27T00:00:00.000Z",
+    "inputCombinationRunId": "findy_local_combination_chain_check",
+    "selectedConceptId": "concept_otayori_route",
+    "whySelected": "It is a small, explainable artifact with clear research, combination, and provenance links.",
+    "risksForBuilder": [
+      "Keep source references and uncertainty visible."
+    ]
+  }
+}

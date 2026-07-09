@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "purpose": "Schema for collecting hackathon winners, GitHub/open-source apps, indie AI products, and viral product examples before updating Concept Strategist rules.",
+  "itemShape": {
+    "id": "stable snake_case id",
+    "name": "product or project name",
+    "sourceCategory": "hackathon_winner | github_oss | indie_product | product_launch | research_signal | platform_product",
+    "sourceName": "source or event name",
+    "sourceUrl": "public source URL",
+    "observedAt": "ISO date",
+    "audience": [
+      "general_user | office_worker | developer | ai_power_user | creator | domain_expert | civic_user | student | founder"
+    ],
+    "surfaceTheme": "work | education | creativity | civic | security | AI literacy | developer_tool | agent_workflow | entertainment | sports | other",
+    "surfacePattern": "daily_utility | learning_explainer | playful_game | decision_helper | social_civic_tool | event_companion | creative_assistant | work_simplifier | developer_tool | other",
+    "aiMechanismPattern": "personalized_reasoning | multi_source_synthesis | agentic_workflow | simulation | evaluation_scoring | trust_boundary | adaptive_explainer | workflow_generation | code_generation | computer_use | other",
+    "ideaMoves": [
+      "metaphor | diagnosis | transformation | comparison | simulation | learning_package | personalization | radar | failure_analysis | self_relevance | automation | marketplace | observability"
+    ],
+    "whatItDoes": "one sentence factual description",
+    "whyItGotAttention": "observed or inferred attention driver",
+    "interestingMechanic": "the interaction, mechanism, or structural trick worth learning from",
+    "transferableRule": "rule that Concept Strategist can reuse",
+    "prodiaApplicability": "high | medium | low",
+    "evidenceStrength": "high | medium | low",
+    "notes": "short caveat or next research need"
+  },
+  "analysisAxes": [
+    "Does the surface theme make sense to non-engineers in five seconds?",
+    "Is there an AI-native mechanism underneath the simple surface?",
+    "Does the user provide their own input or context?",
+    "Does the product create visible state change instead of only summarizing?",
+    "Is there an aha moment, failure moment, or judgment moment?",
+    "Can the idea be made as a small one-screen artifact?"
+  ]
+}

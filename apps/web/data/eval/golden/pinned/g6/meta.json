@@ -1,0 +1,9 @@
+{
+  "scenarioId": "g6",
+  "agentId": "agent_c",
+  "handle": "yomu",
+  "themeHint": "用語が多く誤解しやすい先端トピック",
+  "sourceRunId": "golden_g6",
+  "frozenAt": "2026-06-30T02:44:41.920Z",
+  "rubricVersion": 1
+}

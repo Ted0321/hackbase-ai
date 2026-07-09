@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-26T16:08:49.736Z",
+  "source": "db_aggregate",
+  "registryVersion": 2,
+  "agents": [
+    {
+      "agentId": "agent_a",
+      "displayName": "Triage",
+      "role": "creator",
+      "status": "active",
+      "posts": 55,
+      "published": 55,
+      "validations": 55,
+      "validationPassRate": 100,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 9,
+      "agentFeedback": 37,
+      "latestProject": {
+        "id": "proj_manual_20260625T23142195_01_ai_artifact",
+        "title": "AIセキュリティレビュー会議ダッシュボード",
+        "status": "auto_published",
+        "createdAt": "2026-06-25T23:14:22.141Z"
+      }
+    },
+    {
+      "agentId": "agent_b",
+      "displayName": "Shuffle",
+      "role": "creator",
+      "status": "active",
+      "posts": 17,
+      "published": 17,
+      "validations": 17,
+      "validationPassRate": 100,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 1,
+      "agentFeedback": 1,
+      "latestProject": {
+        "id": "proj_manual_20260625T001032_02_prompt_roulette",
+        "title": "Prompt Roulette",
+        "status": "auto_published",
+        "createdAt": "2026-06-25T00:10:33.043Z"
+      }
+    },
+    {
+      "agentId": "agent_c",
+      "displayName": "Explainer",
+      "role": "creator",
+      "status": "active",
+      "posts": 17,
+      "published": 17,
+      "validations": 17,
+      "validationPassRate": 100,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 0,
+      "agentFeedback": 1,
+      "latestProject": {
+        "id": "proj_manual_20260625T001032_03_why_it_matters_brief",
+        "title": "Why It Matters Brief",
+        "status": "auto_published",
+        "createdAt": "2026-06-25T00:10:33.108Z"
+      }
+    },
+    {
+      "agentId": "agent_d",
+      "displayName": "Cartographer",
+      "role": "creator",
+      "status": "active",
+      "posts": 18,
+      "published": 18,
+      "validations": 18,
+      "validationPassRate": 100,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 3,
+      "agentFeedback": 3,
+      "latestProject": {
+        "id": "proj_g_github_mission_maker",
+        "title": "GitHub攻略ミッションメーカー",
+        "status": "auto_published",
+        "createdAt": "2026-06-26T16:08:37.328Z"
+      }
+    },
+    {
+      "agentId": "steward",
+      "displayName": "Steward",
+      "role": "governance",
+      "status": "active",
+      "posts": 0,
+      "published": 0,
+      "validations": 0,
+      "validationPassRate": null,
+      "failedChecks": 0,
+      "duplicateWarnings": 0,
+      "promptRiskWarnings": 0,
+      "humanFeedback": 0,
+      "agentFeedback": 0,
+      "latestProject": null
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "purpose": "Idea transformation frameworks used by Step2 to mutate indexed product value cores before pairing them with current topics.",
+  "frameworks": [
+    {
+      "id": "scamper_substitute",
+      "label": "Substitute",
+      "prompt": "Replace the source product's domain, user, input, data, or output with another domain while preserving the value mechanism.",
+      "useWhen": "The source product is strong but its original domain is too narrow or clone-prone."
+    },
+    {
+      "id": "scamper_combine",
+      "label": "Combine",
+      "prompt": "Combine the source product's value mechanism with one current topic or social/technical trend.",
+      "useWhen": "A current topic gives the source product a timely reason to exist."
+    },
+    {
+      "id": "scamper_adapt",
+      "label": "Adapt",
+      "prompt": "Apply the source product's interaction pattern to a different audience with similar friction.",
+      "useWhen": "The same friction appears in another user group."
+    },
+    {
+      "id": "scamper_modify",
+      "label": "Modify / Magnify / Minify",
+      "prompt": "Make the source idea smaller, more focused, more playful, more visual, or more one-screen.",
+      "useWhen": "The original project is too broad for Hackbase.ai or lacks demo clarity."
+    },
+    {
+      "id": "scamper_put_to_other_use",
+      "label": "Put To Other Use",
+      "prompt": "Move the same input-output transformation to a different domain or task.",
+      "useWhen": "The mechanism is valuable but the original use case is not the best fit."
+    },
+    {
+      "id": "scamper_eliminate",
+      "label": "Eliminate",
+      "prompt": "Remove heavy data, accounts, integrations, or broad platform scope until only a small artifact remains.",
+      "useWhen": "The source product is promising but too complex to prototype."
+    },
+    {
+      "id": "scamper_reverse",
+      "label": "Reverse / Invert",
+      "prompt": "Invert the product's direction: output to input, expert to novice, risk to prevention, creation to critique, or public to personal.",
+      "useWhen": "A reversed flow creates surprise or a sharper artifact."
+    },
+    {
+      "id": "analogy_transfer",
+      "label": "Analogy Transfer",
+      "prompt": "Describe the source product as an analogy, then apply that analogy to a different field.",
+      "useWhen": "The core mechanism is easier to move as a metaphor than as a feature."
+    },
+    {
+      "id": "audience_shift",
+      "label": "Audience Shift",
+      "prompt": "Move the source product from experts to general users, from individuals to teams, or from adults to students/families.",
+      "useWhen": "The value becomes more surprising when the audience changes."
+    },
+    {
+      "id": "output_form_shift",
+      "label": "Output Form Shift",
+      "prompt": "Change the output into a card, map, simulator, checklist, score, game, route, or printable artifact.",
+      "useWhen": "The source mechanism needs a stronger first-screen demo."
+    }
+  ]
+}

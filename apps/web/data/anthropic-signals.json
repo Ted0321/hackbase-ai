@@ -1,0 +1,320 @@
+{
+  "version": "anthropic.2026-07-08T02:05:27.357Z",
+  "fetchedAt": "2026-07-08T02:05:27.357Z",
+  "source": {
+    "type": "anthropic_release",
+    "urls": [
+      "https://www.anthropic.com/news/rss.xml",
+      "https://www.anthropic.com/rss.xml",
+      "https://www.anthropic.com/news"
+    ],
+    "note": "Fetched Anthropic signals with fallback failures: https://www.anthropic.com/news/rss.xml failed: 404 / https://www.anthropic.com/rss.xml failed: 404"
+  },
+  "signals": [
+    {
+      "id": "sig_anthropic_announcements_jun_30_2026_redeploying_fable_5_fable_5_returns_gl_1",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Announcements Jun 30, 2026 Redeploying Fable 5 Fable 5 returns globally July 1. We&#x27;re also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners.",
+      "summary": "Announcements Jun 30, 2026 Redeploying Fable 5 Fable 5 returns globally July 1. We&#x27;re also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners.",
+      "url": "https://www.anthropic.com/news/redeploying-fable-5",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Announcements Jun 30, 2026 Redeploying Fable 5 Fable 5 returns globally July 1. We&#x27;re also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners."
+    },
+    {
+      "id": "sig_anthropic_product_jun_30_2026_introducing_claude_sonnet_5_sonnet_5_deliver_2",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Product Jun 30, 2026 Introducing Claude Sonnet 5 Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale.",
+      "summary": "Product Jun 30, 2026 Introducing Claude Sonnet 5 Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale.",
+      "url": "https://www.anthropic.com/news/claude-sonnet-5",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai",
+        "claude",
+        "coding",
+        "agent"
+      ],
+      "audience": [
+        "developer",
+        "agent-builder",
+        "operator"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Product Jun 30, 2026 Introducing Claude Sonnet 5 Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale."
+    },
+    {
+      "id": "sig_anthropic_announcements_jun_30_2026_claude_science_an_ai_workbench_for_sci_3",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Announcements Jun 30, 2026 Claude Science, an AI workbench for scientists, is now available Claude Science is a customizable app that integrates the tools and packages researchers most often use, produces auditable artifacts, and provides flexible access to computing resources.",
+      "summary": "Announcements Jun 30, 2026 Claude Science, an AI workbench for scientists, is now available Claude Science is a customizable app that integrates the tools and packages researchers most often use, produces auditable artifacts, and provides flexible access to computing resources.",
+      "url": "https://www.anthropic.com/news/claude-science-ai-workbench",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai",
+        "claude",
+        "tool-use"
+      ],
+      "audience": [
+        "developer",
+        "agent-builder",
+        "operator"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Announcements Jun 30, 2026 Claude Science, an AI workbench for scientists, is now available Claude Science is a customizable app that integrates the tools and packages researchers most often use, produces auditable artifacts, and provides flexible access to computing resources."
+    },
+    {
+      "id": "sig_anthropic_product_jun_23_2026_introducing_claude_tag_claude_tag_is_a_new_w_4",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Product Jun 23, 2026 Introducing Claude Tag Claude Tag is a new way for teams to work with Claude.",
+      "summary": "Product Jun 23, 2026 Introducing Claude Tag Claude Tag is a new way for teams to work with Claude.",
+      "url": "https://www.anthropic.com/news/introducing-claude-tag",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai",
+        "claude"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Product Jun 23, 2026 Introducing Claude Tag Claude Tag is a new way for teams to work with Claude."
+    },
+    {
+      "id": "sig_anthropic_jul_6_2026_case_study_government_of_alberta_uses_claude_to_find__5",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Jul 6, 2026 Case Study Government of Alberta uses Claude to find and fix cybersecurity vulnerabilities across government systems",
+      "summary": "Jul 6, 2026 Case Study Government of Alberta uses Claude to find and fix cybersecurity vulnerabilities across government systems",
+      "url": "https://www.anthropic.com/news/alberta-government-claude-cybersecurity",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai",
+        "claude"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Jul 6, 2026 Case Study Government of Alberta uses Claude to find and fix cybersecurity vulnerabilities across government systems"
+    },
+    {
+      "id": "sig_anthropic_jul_2_2026_announcements_more_details_on_fable_5_s_cyber_safegua_6",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Jul 2, 2026 Announcements More details on Fable 5’s cyber safeguards and our jailbreak framework",
+      "summary": "Jul 2, 2026 Announcements More details on Fable 5’s cyber safeguards and our jailbreak framework",
+      "url": "https://www.anthropic.com/news/fable-safeguards-jailbreak-framework",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Jul 2, 2026 Announcements More details on Fable 5’s cyber safeguards and our jailbreak framework"
+    },
+    {
+      "id": "sig_anthropic_jun_17_2026_announcements_anthropic_opens_seoul_office_and_annou_7",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Jun 17, 2026 Announcements Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem",
+      "summary": "Jun 17, 2026 Announcements Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem",
+      "url": "https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Jun 17, 2026 Announcements Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem"
+    },
+    {
+      "id": "sig_anthropic_jun_12_2026_announcements_statement_on_the_us_government_directi_8",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Jun 12, 2026 Announcements Statement on the US government directive to suspend access to Fable 5 and Mythos 5",
+      "summary": "Jun 12, 2026 Announcements Statement on the US government directive to suspend access to Fable 5 and Mythos 5",
+      "url": "https://www.anthropic.com/news/fable-mythos-access",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Jun 12, 2026 Announcements Statement on the US government directive to suspend access to Fable 5 and Mythos 5"
+    },
+    {
+      "id": "sig_anthropic_jun_12_2026_announcements_results_from_the_first_anthropic_publi_9",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Jun 12, 2026 Announcements Results from the first Anthropic Public Record",
+      "summary": "Jun 12, 2026 Announcements Results from the first Anthropic Public Record",
+      "url": "https://www.anthropic.com/news/anthropic-public-record",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Jun 12, 2026 Announcements Results from the first Anthropic Public Record"
+    },
+    {
+      "id": "sig_anthropic_jun_12_2026_announcements_tcs_and_anthropic_partner_to_bring_cla_10",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Jun 12, 2026 Announcements TCS and Anthropic partner to bring Claude to regulated industries",
+      "summary": "Jun 12, 2026 Announcements TCS and Anthropic partner to bring Claude to regulated industries",
+      "url": "https://www.anthropic.com/news/tcs-anthropic-partnership",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai",
+        "claude"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Jun 12, 2026 Announcements TCS and Anthropic partner to bring Claude to regulated industries"
+    },
+    {
+      "id": "sig_anthropic_responsible_scaling_policy_11",
+      "sourceType": "anthropic_release",
+      "sourceName": "Anthropic News",
+      "title": "Responsible Scaling Policy",
+      "summary": "Responsible Scaling Policy",
+      "url": "https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy",
+      "observedAt": "2026-07-08T02:05:27.357Z",
+      "topics": [
+        "anthropic",
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "researcher",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "daysSincePublished": 0
+      },
+      "whyItMatters": "Anthropic updates are useful research signals when they expose agent behavior, coding workflows, tool boundaries, enterprise adoption, or safety practices.",
+      "researchNote": "Record the mechanism, user audience, operational constraint, and unresolved question. Do not prescribe a Hackbase.ai concept from this signal alone.",
+      "riskNotes": "Use official public metadata only. Do not require Anthropic account access, paid APIs, secrets, or live product integration.",
+      "rawExcerpt": "Responsible Scaling Policy"
+    }
+  ]
+}

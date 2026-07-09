@@ -1,0 +1,77 @@
+{
+  "requirementSpecId": "req_otayori_route_p0",
+  "framework": "Next.js static artifact bundle",
+  "files": [
+    {
+      "path": "README.md",
+      "purpose": "Explain the Otayori Route artifact, intended user, static data boundary, and human-review limits.",
+      "content": "# Otayori Route\n\nOtayori Route turns a long school or civic notice into source-linked household action cards. This P0 artifact uses static sample data only and does not send messages, parse private documents, or claim official interpretation.\n"
+    },
+    {
+      "path": "metadata.json",
+      "purpose": "Describe the concept, selected agents, template pattern, and MVP Contract for validation.",
+      "content": "{\n  \"artifactId\": \"artifact_otayori_route_p0\",\n  \"title\": \"Otayori Route\",\n  \"conceptId\": \"concept_otayori_route\",\n  \"requirementSpecId\": \"req_otayori_route_p0\",\n  \"templatePatternId\": \"source_to_mission\",\n  \"selectedAgentIds\": [\"agent_a\", \"agent_c\"],\n  \"firstScreenValue\": \"Source notice, action cards, and unresolved questions are visible together.\",\n  \"coreInteraction\": \"Select and filter action cards, then mark each card as ready or needs follow-up.\",\n  \"stateChange\": \"The visible card list and review status update after filtering or marking cards.\",\n  \"staticDataBoundary\": \"Uses bundled sample notice data only.\"\n}\n"
+    },
+    {
+      "path": "source/app/page.tsx",
+      "purpose": "Render the one-screen workspace with source notice, action cards, filters, and review state.",
+      "content": "export default function OtayoriRoutePage() {\n  return <main>Otayori Route static artifact placeholder for materialization.</main>;\n}\n"
+    },
+    {
+      "path": "source/data/sample-notice.json",
+      "purpose": "Hold static sample notice text and extracted action candidates.",
+      "content": "{\n  \"noticeTitle\": \"School Field Day Notice\",\n  \"actions\": [\n    { \"id\": \"a1\", \"title\": \"Submit attendance form\", \"actor\": \"guardian\", \"status\": \"due_soon\", \"sourceQuote\": \"Please return the attendance form by Friday.\" },\n    { \"id\": \"a2\", \"title\": \"Prepare indoor shoes\", \"actor\": \"child\", \"status\": \"ready\", \"sourceQuote\": \"Students should bring indoor shoes in case of rain.\" },\n    { \"id\": \"a3\", \"title\": \"Confirm lunch plan\", \"actor\": \"guardian\", \"status\": \"needs_confirmation\", \"sourceQuote\": \"Lunch details will be announced separately.\" }\n  ]\n}\n"
+    },
+    {
+      "path": "validation/self-review.json",
+      "purpose": "Record initial self-review against the P0 MVP criteria.",
+      "content": "{\n  \"status\": \"needs_materialization\",\n  \"checks\": [\"first_screen_value\", \"core_interaction\", \"state_change\", \"source_evidence\", \"static_data_boundary\"],\n  \"notes\": \"This builder response is a plan-level artifact. It has not yet been compiled into a runnable Project artifact.\"\n}\n"
+    }
+  ],
+  "implementationNotes": [
+    "Use the source_to_mission template pattern: source material on the left, mission/action cards on the right, evidence visible on selection.",
+    "Keep interaction local and stateful: filters and ready/follow-up markings are enough for P0.",
+    "Represent uncertainty as a first-class queue instead of smoothing it into confident advice.",
+    "Materialization should create a static artifact bundle before DB Project registration."
+  ],
+  "knownRisks": [
+    "This response is not yet a compiled runnable artifact.",
+    "The placeholder page content must be replaced during materialization.",
+    "A real-world notice workflow needs stronger privacy and official-source guardrails before use."
+  ],
+  "submissionReadiness": {
+    "firstScreenValue": "The intended first screen shows the notice, extracted actions, and uncertainty queue together.",
+    "coreInteraction": "A user filters action cards, selects one to inspect evidence, and marks review status.",
+    "stateChange": "Filter and status selections change the visible cards and review summary.",
+    "inspectableOutput": "README, metadata, sample data, source placeholder, and self-review are all declared.",
+    "staticDataBoundary": "No external API, login, upload, school system, or paid service is required.",
+    "remainingWeakness": "Needs materialization into a concrete artifact directory and UI smoke verification."
+  },
+  "mvpContract": {
+    "firstScreenValue": "Source notice, action cards, and unresolved questions are visible without navigation.",
+    "coreInteraction": "Select/filter action cards and mark them ready or needs follow-up.",
+    "stateChange": "The selected evidence panel and review status update from user input.",
+    "inspectableOutput": "README, metadata, source, static sample data, and validation files explain the artifact.",
+    "staticDataBoundary": "Bundled static sample data only.",
+    "requiredFiles": [
+      "README.md",
+      "metadata.json",
+      "source/app/page.tsx",
+      "source/data/sample-notice.json",
+      "validation/self-review.json"
+    ],
+    "nonGoals": [
+      "arbitrary PDF parsing",
+      "school messaging integration",
+      "official notice interpretation",
+      "external publishing"
+    ],
+    "forbiddenDependencies": [
+      "external API",
+      "secret",
+      "login-only flow",
+      "paid API",
+      "external publishing"
+    ]
+  }
+}

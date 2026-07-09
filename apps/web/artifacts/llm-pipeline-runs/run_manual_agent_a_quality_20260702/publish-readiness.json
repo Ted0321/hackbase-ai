@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-03T11:02:16.999Z",
+  "mode": "unattended_auto_publish",
+  "artifactPath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702",
+  "runId": "run_manual_agent_a_quality_20260702",
+  "result": "pass",
+  "blockers": [],
+  "warnings": [],
+  "gateResults": [
+    {
+      "id": "artifact_dir",
+      "status": "pass",
+      "message": "artifact directory exists",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702"
+    },
+    {
+      "id": "run_root",
+      "status": "pass",
+      "message": "run root could be derived",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702"
+    },
+    {
+      "id": "metadata.response",
+      "status": "pass",
+      "message": "metadata.json exists",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/metadata.json"
+    },
+    {
+      "id": "metadata.source_provenance",
+      "status": "pass",
+      "message": "source provenance is present for audit",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/metadata.json"
+    },
+    {
+      "id": "mvp.strict_result",
+      "status": "pass",
+      "message": "strict MVP artifact check passed"
+    },
+    {
+      "id": "mvp_contract_v2.result",
+      "status": "pass",
+      "message": "MVP Contract V2 check completed (pass)"
+    },
+    {
+      "id": "interaction_proof.result",
+      "status": "pass",
+      "message": "interaction proof passed"
+    },
+    {
+      "id": "render_proof.result",
+      "status": "pass",
+      "message": "browser render proof passed"
+    },
+    {
+      "id": "validation_summary.status",
+      "status": "pass",
+      "message": "validation-summary.json status is pass",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/validation-summary.json"
+    },
+    {
+      "id": "publisher.status",
+      "status": "pass",
+      "message": "publisher decided publish",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publisher/response.json"
+    },
+    {
+      "id": "publisher.requiredArtifactsPresent",
+      "status": "pass",
+      "message": "publisher.requiredArtifactsPresent=true",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publisher/response.json"
+    },
+    {
+      "id": "publisher.reviewPass",
+      "status": "pass",
+      "message": "publisher.reviewPass=true",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publisher/response.json"
+    },
+    {
+      "id": "publisher.validationPass",
+      "status": "pass",
+      "message": "publisher.validationPass=true",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publisher/response.json"
+    },
+    {
+      "id": "publisher.mvpContractPass",
+      "status": "pass",
+      "message": "publisher.mvpContractPass=true",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publisher/response.json"
+    },
+    {
+      "id": "publisher.safety_blockers",
+      "status": "pass",
+      "message": "publisher has no safety blockers",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publisher/response.json"
+    },
+    {
+      "id": "public_copy.text_quality",
+      "status": "pass",
+      "message": "public copy has no mojibake-like text",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publisher/response.json"
+    },
+    {
+      "id": "reviewer.status_not_block",
+      "status": "pass",
+      "message": "reviewer status is not block",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/reviewer/response.json"
+    },
+    {
+      "id": "rewriter.issue_resolution_coverage",
+      "status": "pass",
+      "message": "rewriter covers all required reviewer issues",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/rewriter/response.json"
+    },
+    {
+      "id": "rewriter.issue_resolution_ids_known",
+      "status": "pass",
+      "message": "rewriter issue IDs all exist in reviewer.problems",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/rewriter/response.json"
+    },
+    {
+      "id": "rewriter.issue_resolution_outcomes_publishable",
+      "status": "pass",
+      "message": "rewriter resolutions are publishable",
+      "evidencePath": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/rewriter/response.json"
+    }
+  ],
+  "evidencePaths": {
+    "metadata": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/metadata.json",
+    "validationSummary": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/validation-summary.json",
+    "publisher": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publisher/response.json",
+    "reviewer": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/reviewer/response.json",
+    "rewriter": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/rewriter/response.json",
+    "interactionProof": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/validation/interaction-proof.json",
+    "renderProof": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/validation/render-verification.json",
+    "mvpContractV2": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/materialized/artifact_manual_agent_a_quality_20260702/validation/mvp-contract-v2.json",
+    "publishReadiness": "artifacts/llm-pipeline-runs/run_manual_agent_a_quality_20260702/publish-readiness.json"
+  },
+  "publisherStatus": "publish",
+  "reviewerStatus": "needs_revision",
+  "validationStatus": "pass",
+  "mvpResult": "pass",
+  "mvpContractV2Result": "pass",
+  "interactionProofResult": "pass",
+  "renderProofResult": "pass"
+}

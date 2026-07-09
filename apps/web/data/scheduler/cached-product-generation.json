@@ -1,0 +1,31 @@
+{
+  "version": "cached-product-generation.v1",
+  "scheduleName": "cached-product-generation",
+  "intervalHours": 12,
+  "script": "demo:generate",
+  "cachePath": "data/research-cache/current.json",
+  "history": [
+    {
+      "startedAt": "2026-06-27T02:17:38.100Z",
+      "status": "completed",
+      "script": "demo:generate",
+      "cachePath": "data/research-cache/current.json",
+      "reason": "Forced by operator",
+      "completedAt": "2026-06-27T02:17:43.620Z",
+      "runId": "run_signal_plan_20260627T021741"
+    }
+  ],
+  "notifications": [
+    {
+      "createdAt": "2026-06-27T02:17:43.620Z",
+      "level": "info",
+      "message": "Cached generation completed with demo:generate.",
+      "runId": "run_signal_plan_20260627T021741"
+    }
+  ],
+  "nextDueAt": "2026-06-27T14:17:43.620Z",
+  "lastStartedAt": "2026-06-27T02:17:38.100Z",
+  "lastCompletedAt": "2026-06-27T02:17:43.620Z",
+  "lastRunId": "run_signal_plan_20260627T021741",
+  "lastStatus": "completed"
+}

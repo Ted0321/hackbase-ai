@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "runId": "p0_pipeline_evidence_20260627T120000",
+  "step": "reviewer",
+  "preparedAt": "2026-06-27T08:17:31.832Z",
+  "outputRoot": "artifacts/llm-pipeline-runs/p0_pipeline_evidence_20260627T120000",
+  "files": {
+    "prompt": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\reviewer\\prompt.md",
+    "input": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\reviewer\\input.json",
+    "response": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\reviewer\\response.json",
+    "handoff": "artifacts\\llm-pipeline-runs\\p0_pipeline_evidence_20260627T120000\\reviewer\\handoff.md"
+  },
+  "previousResponseStatus": {
+    "requiredPreviousSteps": [
+      "concept",
+      "requirements",
+      "builder"
+    ],
+    "missingRequiredPreviousResponses": [],
+    "missingPreviousResponses": [],
+    "note": "Required upstream response.json files are present for this step."
+  }
+}

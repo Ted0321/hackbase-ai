@@ -1,0 +1,36 @@
+{
+  "status": "revised",
+  "changedFiles": [
+    {
+      "path": "README.md",
+      "changeSummary": "Clarify that Otayori Route is a static, source-linked household action planner and that this P0 run is human-assisted evidence, not full auto-publish.",
+      "content": "# Otayori Route\n\nOtayori Route converts a long school or civic notice into source-linked household action cards. It is designed to show who needs to do what, what evidence supports each action, and what still requires confirmation.\n\nP0 boundary: this artifact is generated as pipeline evidence. It uses static sample data, does not parse private documents, does not send messages, and does not claim official interpretation.\n"
+    },
+    {
+      "path": "metadata.json",
+      "changeSummary": "Add MVP Contract fields and explicit human-assisted provenance.",
+      "content": "{\n  \"artifactId\": \"artifact_otayori_route_p0\",\n  \"title\": \"Otayori Route\",\n  \"conceptId\": \"concept_otayori_route\",\n  \"requirementSpecId\": \"req_otayori_route_p0\",\n  \"templatePatternId\": \"source_to_mission\",\n  \"selectedAgentIds\": [\"agent_a\", \"agent_c\"],\n  \"generatedBy\": \"codex_local\",\n  \"humanAssisted\": true,\n  \"pipelineRunId\": \"p0_pipeline_evidence_20260627T120000\",\n  \"firstScreenValue\": \"Source notice, action cards, and unresolved questions are visible together.\",\n  \"coreInteraction\": \"Filter action cards and mark each one ready or needs follow-up.\",\n  \"stateChange\": \"The selected card, evidence panel, and review summary update from user input.\",\n  \"staticDataBoundary\": \"Bundled static sample notice data only.\"\n}\n"
+    },
+    {
+      "path": "source/app/page.tsx",
+      "changeSummary": "Replace placeholder page with a concrete local-state UI in the next materialization step.",
+      "content": "Materialization instruction: render a split workspace with source notice, filter controls, action cards, selected evidence, and uncertainty queue. Use local component state for selected filter, selected action, and ready/follow-up marks."
+    },
+    {
+      "path": "validation/self-review.json",
+      "changeSummary": "Record that the current pipeline evidence is complete as a plan-level chain but not publishable as a runnable artifact.",
+      "content": "{\n  \"status\": \"needs_materialization\",\n  \"pipelineEvidenceComplete\": true,\n  \"publishableProjectArtifact\": false,\n  \"mustFixBeforePublish\": [\"materialize artifact files\", \"replace placeholder source\", \"run MVP validation\"]\n}\n"
+    }
+  ],
+  "addressedReviewIssues": [
+    "The human-assisted provenance boundary is now explicit.",
+    "The MVP Contract fields are carried into metadata.",
+    "The next materialization target is specified as a concrete local-state UI.",
+    "The non-publishable status is preserved instead of pretending validation passed."
+  ],
+  "remainingRisks": [
+    "No runnable artifact directory has been created in this P0 evidence run.",
+    "No browser or Playwright interaction smoke test has been run.",
+    "Publisher must hold this artifact until materialization and validation pass."
+  ]
+}

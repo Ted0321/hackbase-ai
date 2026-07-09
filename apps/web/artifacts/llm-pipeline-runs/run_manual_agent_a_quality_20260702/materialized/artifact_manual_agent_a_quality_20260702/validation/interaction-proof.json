@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-03T11:02:13.761Z",
+  "path": "C:\\Users\\ytets\\Prodia\\apps\\web\\artifacts\\llm-pipeline-runs\\run_manual_agent_a_quality_20260702\\materialized\\artifact_manual_agent_a_quality_20260702",
+  "result": "pass",
+  "checks": [
+    {
+      "id": "metadata.interactionProofPlan",
+      "status": "pass",
+      "message": "metadata.interactionProofPlan exists"
+    },
+    {
+      "id": "proof.primaryAction",
+      "status": "pass",
+      "message": "primaryAction is non-empty"
+    },
+    {
+      "id": "proof.initialState",
+      "status": "pass",
+      "message": "initialState is non-empty"
+    },
+    {
+      "id": "proof.expectedState",
+      "status": "pass",
+      "message": "expectedState is non-empty"
+    },
+    {
+      "id": "proof.visibleEvidence",
+      "status": "pass",
+      "message": "visibleEvidence contains 5 item(s)"
+    },
+    {
+      "id": "proof.requiredSourceFiles",
+      "status": "pass",
+      "message": "requiredSourceFiles contains 3 item(s)"
+    },
+    {
+      "id": "proof.proofSelectors",
+      "status": "pass",
+      "message": "proofSelectors contains 4 item(s)"
+    },
+    {
+      "id": "proof.requiredSourceFiles.present",
+      "status": "pass",
+      "message": "All requiredSourceFiles exist"
+    },
+    {
+      "id": "source.files",
+      "status": "pass",
+      "message": "source contains 8 file(s)"
+    },
+    {
+      "id": "source.proofSelectorsEvidence",
+      "status": "pass",
+      "message": "source contains evidence for 4/4 proof selector(s)"
+    },
+    {
+      "id": "source.primaryActionEvidence",
+      "status": "pass",
+      "message": "source contains primaryAction text"
+    },
+    {
+      "id": "source.initialStateEvidence",
+      "status": "pass",
+      "message": "source contains initial-state selector evidence"
+    },
+    {
+      "id": "source.expectedStateEvidence",
+      "status": "pass",
+      "message": "source contains expected-state selector and visibleEvidence evidence"
+    },
+    {
+      "id": "source.visibleEvidence",
+      "status": "pass",
+      "message": "source contains 4/5 visibleEvidence text"
+    }
+  ],
+  "summary": "14 pass, 0 fail, 0 warn"
+}

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "runId": "findy_gemini_evidence",
+  "step": "rewriter",
+  "preparedAt": "2026-06-27T10:29:31.071Z",
+  "outputRoot": "artifacts/llm-pipeline-runs/findy_gemini_evidence",
+  "files": {
+    "prompt": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\rewriter\\prompt.md",
+    "input": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\rewriter\\input.json",
+    "response": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\rewriter\\response.json",
+    "handoff": "artifacts\\llm-pipeline-runs\\findy_gemini_evidence\\rewriter\\handoff.md"
+  },
+  "previousResponseStatus": {
+    "requiredPreviousSteps": [
+      "concept",
+      "requirements",
+      "builder",
+      "reviewer"
+    ],
+    "missingRequiredPreviousResponses": [],
+    "missingPreviousResponses": [],
+    "note": "Required upstream response.json files are present for this step."
+  }
+}

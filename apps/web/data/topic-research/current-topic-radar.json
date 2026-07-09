@@ -1,0 +1,756 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-08T00:00:00.000Z",
+  "purpose": "Daily topic radar for pairing with product-source-index value cores.",
+  "topicCards": [
+    {
+      "id": "topic_ai_agent_prompt_injection_defense",
+      "category": "technology",
+      "title": "AIエージェント時代のプロンプトインジェクション対策",
+      "summary": "Webを読み書きするAIエージェントが、悪意あるサイトや検索結果に埋め込まれた隠し命令(間接プロンプトインジェクション)で誤動作させられる事故が急増。暗号資産の支払いを実行させる攻撃キャンペーンや、エージェントフレームワークのRCE脆弱性が報告され、個人・小規模チームでも「エージェントに何を読ませるか・何を許可するか」の点検が実務課題になった。",
+      "whyHotNow": "OWASPの2026年LLMセキュリティ報告でプロンプトインジェクション攻撃が前年比340%増と報告され、2026年6〜7月にはSEOポイズニングでAIエージェントに偽ライブラリ(requests-secure-v2)のAPIキー購入・送金をさせる攻撃キャンペーンがSecurityWeekで報道された。MicrosoftもSemantic Kernel経由でプロンプト1つからホスト上のコード実行に至る経路を公表(2026年5月)し、7月時点で「未解決の最重要脅威」として議論が続いている。",
+      "audience": [
+        "AIエージェントを業務に導入した個人・小規模チーム",
+        "副業/個人開発者",
+        "情シス担当",
+        "AIツールを使い始めた非エンジニア"
+      ],
+      "targetAudience": [
+        {
+          "segment": "エージェントに調査・購買・コード実行を任せ始めた個人開発者",
+          "userMoment": "エージェントに新しいMCPツールやWeb閲覧権限を与える直前に、リスクを見積もりたい"
+        },
+        {
+          "segment": "中小企業の情シス・AI導入担当",
+          "userMoment": "社内のAIエージェント利用ルールを作る際、どの操作を人間承認必須にするか決めたい"
+        }
+      ],
+      "userFrictionOrDesire": "エージェントに権限を渡すほど便利になる一方、「読ませたWebページの隠し命令で勝手に送金・削除されるかも」という不安が漠然としており、何をどこまで許可してよいかの判断基準が手元にない。",
+      "friction": "OWASP等の一次情報は英語で長大、脅威の分類も専門的。自分の使い方(どのツール・どの権限)に当てはめて「危険な組み合わせ」を特定する作業が素人には難しい。",
+      "possibleInputs": [
+        "自分が使っているAIツール/エージェントと許可済み権限のリスト",
+        "エージェントの設定ファイルや許可ルールのテキスト",
+        "社内AI利用ルールのドラフト",
+        "OWASP LLM Top 10などの公開資料"
+      ],
+      "bestFitSourceMechanisms": [
+        "constraint_checklist",
+        "evidence_weighted_decision",
+        "draft_preflight",
+        "simulation_or_what_if"
+      ],
+      "evidenceRefs": [
+        "https://www.helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures/",
+        "https://www.securityweek.com/prompt-injection-attacks-trick-ai-agents-into-making-crypto-payments/",
+        "https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/",
+        "https://www.infosecurity-magazine.com/news/infosec-europe-prompt-injection/"
+      ],
+      "trendMaturity": "recurring",
+      "remixUse": "「権限×入力ソース」の組み合わせをリスク評価するチェックリスト系コアや、設定ドラフトのプリフライト系コアと相性が良い。セキュリティ以外でも「AIに何を任せるか」の意思決定支援全般に転用できる。",
+      "riskBoundary": "セキュリティ監査・侵入テストの代替や「安全である」という保証を謳ってはならない。実際の設定変更やインシデント対応を自動実行してはならず、あくまで確認観点の整理に留める。",
+      "riskNotes": [
+        "脅威情報は変化が速く、静的な知識だけで安全性を断定すると誤誘導になる",
+        "具体的な攻撃手順の再現・生成につながる出力は避ける"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_coding_agent_permission_ops",
+      "category": "technology",
+      "title": "コーディングエージェントの権限設計と利用の可視化",
+      "summary": "Claude CodeやCursor等のコーディングエージェントがチーム開発に浸透し、「デフォルトで何を自動許可するか」「誰がどれだけAIに書かせているか」という運用・計測の話題が前面に出てきた。ツール側も既定の権限モード変更や利用計測プラットフォームの登場など、野放し状態からガバナンスへの揺り戻しが起きている。",
+      "whyHotNow": "2026年7月上旬、AnthropicがClaude CodeのデフォルトパーミッションモードをManual(手動承認)に変更したアップデートが話題化。同時期にAI支援開発の計測・最適化プラットフォームDevOS(Journi)のローンチが報じられ、Terminal-Bench 2.1でCodex CLIとClaude Codeが83%台で首位を争うなどエージェント性能競争も過熱している(buildfastwithai 2026-07-07まとめ)。",
+      "audience": [
+        "開発チームのリード",
+        "個人開発者",
+        "エンジニアリングマネージャー",
+        "AI導入を進めるスタートアップ"
+      ],
+      "targetAudience": [
+        {
+          "segment": "エージェント併用開発を始めたチームのテックリード",
+          "userMoment": "許可ルール(何を自動承認し何を人間レビューにするか)をチームで揃えたい"
+        },
+        {
+          "segment": "個人開発者",
+          "userMoment": "複数のAIコーディングツールのうち、自分のワークフローに合う設定・使い分けを決めたい"
+        }
+      ],
+      "userFrictionOrDesire": "エージェントの自動実行は速いが怖い、全部手動承認は遅い。自分たちの作業内容に応じた「ちょうどいい権限ライン」を根拠を持って引きたい。",
+      "friction": "各ツールの権限・設定体系がバラバラで更新も速く、比較検討の材料が整理されていない。チーム内でのAI利用実態も可視化されておらず、ルールを作っても実態と乖離しがち。",
+      "possibleInputs": [
+        "使用中のエージェント設定ファイル(permissions/allowlist)",
+        "チームの開発フロー説明",
+        "リポジトリの構成やCI設定",
+        "直近のAI利用ログやコミット履歴の要約"
+      ],
+      "bestFitSourceMechanisms": [
+        "comparison_or_ranking",
+        "constraint_checklist",
+        "draft_preflight",
+        "messy_information_to_action_cards"
+      ],
+      "evidenceRefs": [
+        "https://www.buildfastwithai.com/blogs/ai-news-today-july-7-2026",
+        "https://www.morphllm.com/best-ai-coding-agents-2026",
+        "https://www.marktechpost.com/2026/06/10/ai-coding-agents-development-platforms-2026/"
+      ],
+      "trendMaturity": "recurring",
+      "remixUse": "設定ドラフトのプリフライト、ツール比較ランキング、チーム運用ルールのチェックリストなど複数のコアと組める。開発以外の「AIに任せる範囲の設計」テーマにも横展開可能。",
+      "riskBoundary": "特定ツールの優劣を断定するベンチマーク結果の保証や、設定の自動書き換え・自動適用をしてはならない。セキュリティ保証も謳わない。",
+      "riskNotes": [
+        "ベンチマーク数値は出典と時点を明示しないと誤解を招く",
+        "ツールのバージョン差で設定項目が変わるため断定表現を避ける"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "topic_kokunai_kaiki_summer_travel",
+      "category": "social_trend",
+      "title": "円安で「国内回帰」の夏休み計画",
+      "summary": "2026年夏休みは総旅行者数7117万人(前年比5%減)、海外旅行は217万人(8.8%減)とコロナ後初の減少見通し。円安・物価高・燃油費上昇で節約志向が強まり、国内・近場へ回帰しつつ、1人あたり旅行費用は物価上昇で増加という「行き先は近く、単価は高く」の圧縮パズルが家庭に発生している。",
+      "whyHotNow": "JTBが2026年7月2日に夏休み(7/15〜8/31)旅行動向推計を発表。総旅行者数95.4%、海外91.2%、理由の上位は「旅行支出を減らしたい」41.8%・混雑回避29.2%。日経も「夏の海外旅行予定8.7%、円安や物価高響く」(7月上旬)と報道。海外はアジア圏(韓国26.2%・台湾16.2%)への集中、国内は猛暑対策で屋内施設観光への関心が特徴として挙がった。",
+      "audience": [
+        "夏休みの家族旅行を計画する保護者",
+        "予算重視の若年旅行者",
+        "帰省と旅行を両立したい社会人"
+      ],
+      "targetAudience": [
+        {
+          "segment": "予算上限が明確な子育て家庭",
+          "userMoment": "限られた予算と休み日数で、混雑と猛暑を避けつつ満足度の高い行き先を絞り込みたい"
+        },
+        {
+          "segment": "海外を諦めて国内に切り替えた若年層",
+          "userMoment": "海外気分や非日常感を国内・近場で代替できるプランを探している"
+        }
+      ],
+      "userFrictionOrDesire": "予算・日程・混雑・暑さという複数制約の同時最適化が必要で、比較サイトを回遊しても「自分の制約での最適解」にたどり着きにくい。",
+      "friction": "価格情報は分散しサーチャージ等で総額が読みにくい。混雑予想・暑さ(屋内比率)まで含めた横断比較は手作業では大変。",
+      "possibleInputs": [
+        "予算上限と日程",
+        "出発地と移動手段の希望",
+        "同行者構成(子供の年齢など)",
+        "暑さ耐性や屋内/屋外の好み",
+        "過去に行って良かった場所のメモ"
+      ],
+      "bestFitSourceMechanisms": [
+        "personalized_plan",
+        "comparison_or_ranking",
+        "constraint_checklist",
+        "simulation_or_what_if"
+      ],
+      "evidenceRefs": [
+        "https://www.travelvoice.jp/20260702-160104",
+        "https://www.jtbcorp.jp/jp/newsroom/2026/07/02_jtb_doukou.html",
+        "https://www.nikkei.com/article/DGXZQOUC014H90R00C26A7000000/"
+      ],
+      "trendMaturity": "seasonal",
+      "remixUse": "制約充足型プランナーや比較・ランキング系コアと好相性。予算配分のwhat-ifシミュレーションにも展開できる。旅行以外の「円安下の支出設計」にも波及可能。",
+      "riskBoundary": "価格・空席・混雑の正確なリアルタイム保証をしてはならない。予約の自動実行や特定事業者の広告的な推奨はしない。",
+      "riskNotes": [
+        "価格は変動が激しいため「目安」であることを常に明示する必要がある"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_gion_matsuri_summer_festivals",
+      "category": "social_trend",
+      "title": "祇園祭など夏祭りシーズン本格化と混雑対策",
+      "summary": "2026年7月1日から祇園祭が1か月にわたり開催中。宵山(7/14〜16)・前祭山鉾巡行(7/17)・後祭(7/21〜24)に国内外の観光客が集中し、猛暑と混雑が重なる。行事日程が多層的(1か月に数十行事)で、「いつ・どこで・何を見るか」「暑さと人出をどう避けるか」の計画が毎年の課題になる。",
+      "whyHotNow": "祇園祭2026が7月1日に開幕済みで、前祭宵山(7/14〜16)と山鉾巡行(7/17)が今週〜来週に迫っている。京都市観光Naviや山鉾連合会が2026年行事日程を公表しており、7月14〜17日は特に人出が多いと案内されている。同時期はウェザーニューズ予想で猛暑ピーク入り口にあたり、暑熱下の観覧計画が現実的な問題になる。",
+      "audience": [
+        "夏祭りに行く観光客・家族連れ",
+        "訪日客をアテンドする人",
+        "地元で祭り期間の生活動線を確保したい住民"
+      ],
+      "targetAudience": [
+        {
+          "segment": "初めて祇園祭に行く国内観光客",
+          "userMoment": "行事一覧から自分の日程・体力に合う見どころだけを選んで動線を組みたい"
+        },
+        {
+          "segment": "子連れ・高齢者連れの家族",
+          "userMoment": "混雑ピークと暑さを避けて、休憩場所込みの観覧計画を立てたい"
+        }
+      ],
+      "userFrictionOrDesire": "公式日程は行事名の羅列で、初見では優先度も所要時間も分からない。混雑・暑さ・交通規制まで踏まえた自分用のタイムラインを作るのに手間がかかる。",
+      "friction": "情報が公式・観光サイト・SNSに分散し、日時×場所×混雑×暑さの4軸を突き合わせる作業が面倒。祭り固有の用語(宵山、辻回し等)も初心者には壁。",
+      "possibleInputs": [
+        "訪問可能な日時と滞在時間",
+        "同行者構成と体力面の制約",
+        "公式行事日程ページのURL",
+        "宿泊地・移動手段"
+      ],
+      "bestFitSourceMechanisms": [
+        "map_or_timeline",
+        "personalized_plan",
+        "messy_information_to_action_cards",
+        "constraint_checklist"
+      ],
+      "evidenceRefs": [
+        "https://ja.kyoto.travel/event/single.php?event_id=6603",
+        "http://www.gionmatsuri.or.jp/schedule/",
+        "https://kyoto-design.jp/special/gionmatsuri/schedule"
+      ],
+      "trendMaturity": "seasonal",
+      "remixUse": "タイムライン/地図系コアの好例。祇園祭に限らず全国の夏祭り・花火大会に同型で展開でき、「公式日程の羅列→個人向け行動計画」への変換は汎用パターン。",
+      "riskBoundary": "交通規制や行事時間の変更をリアルタイム保証してはならない。混雑時の安全判断(雑踏回避)を代行するかのような表現は避け、公式発表の確認を促す。",
+      "riskNotes": [
+        "雑踏事故・熱中症リスクに関わるため、無理な観覧を推奨しない設計が必要"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_mousho_peak_heat_preparedness",
+      "category": "sdgs_civic",
+      "title": "「ダブル高気圧」猛暑ピーク前の暑熱準備",
+      "summary": "ウェザーニューズの猛暑見解2026によると、今夏はダブル高気圧の影響で7月下旬〜8月上旬が暑さのピークとなり、京都・甲府で猛暑日33日、全国延べ7〜14地点で40℃以上の酷暑日が予想される。7月上旬の今が、家庭・職場・部活動などが暑熱順化と対策を仕込む最後のタイミングになっている。",
+      "whyHotNow": "ウェザーニューズが2026年6月23日に「猛暑見解2026」を発表し、ピークは7月下旬からと明示(weathernews.jp)。日本気象協会の3か月予報も6〜8月の全国的高温と40℃以上の酷暑日に言及。環境省の熱中症警戒アラート運用も本格期に入り、7月は関東〜沖縄で「厳重警戒」ランクの見込みと報じられている。",
+      "audience": [
+        "高齢の家族を持つ世帯",
+        "屋外作業・部活動の管理者",
+        "小さい子供のいる家庭",
+        "在宅ワーカー"
+      ],
+      "targetAudience": [
+        {
+          "segment": "離れて暮らす高齢の親を気にかける子世代",
+          "userMoment": "ピーク前に親の住環境(エアコン・水分・見守り)の穴を洗い出したい"
+        },
+        {
+          "segment": "部活動・屋外イベントの運営者",
+          "userMoment": "WBGT基準で練習・イベントの中止判断ラインと代替案を事前に決めたい"
+        }
+      ],
+      "userFrictionOrDesire": "「暑くなるらしい」は知っていても、自分の生活パターンのどこに熱中症リスクの穴があるかを具体的に点検できていない。アラートが出た日の行動変更ルールも決まっていない。",
+      "friction": "環境省WBGTサイト・気象予報・自治体情報が分散しており、個人の生活時間割(通勤・買い物・運動)に引き付けた行動計画への翻訳が手間。",
+      "possibleInputs": [
+        "家族構成と住環境(エアコン有無・階数など)",
+        "1日の行動パターンや通勤時間帯",
+        "部活動・イベントのスケジュール",
+        "環境省WBGT/アラートの公開データ",
+        "居住地域"
+      ],
+      "bestFitSourceMechanisms": [
+        "constraint_checklist",
+        "personalized_plan",
+        "public_data_explainer",
+        "simulation_or_what_if"
+      ],
+      "evidenceRefs": [
+        "https://weathernews.jp/news/202606/230111/",
+        "https://tenki.jp/forecaster/tanaka_masashi/2026/05/19/38974.html",
+        "https://www.wbgt.env.go.jp/alert.php",
+        "https://news.yahoo.co.jp/articles/6135ed8d8b5372c0e77583c8adba27da48ce9a12"
+      ],
+      "trendMaturity": "seasonal",
+      "remixUse": "公開データ(WBGT)の説明系、生活パターン別チェックリスト、行動計画パーソナライズなど複数コアと組める。高齢者見守り・部活動・ペットなどセグメント特化の派生も作りやすい。",
+      "riskBoundary": "医療判断(症状の診断・受診要否の断定)をしてはならない。「この対策で安全」という保証や、公的アラートの代替を名乗ることも不可。緊急時は119番・公式情報への誘導を明示する。",
+      "riskNotes": [
+        "健康リスク領域のため、一般的な予防情報と個別医療助言の線引きを厳格に",
+        "気象予想は外れうるため断定表現を避ける"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_baiu_makki_typhoon_watch",
+      "category": "sdgs_civic",
+      "title": "梅雨末期の大雨とダブル台風への備え",
+      "summary": "2026年は6月末〜7月上旬に台風7号・8号が相次いで日本に接近し、さらに新たなダブル台風の発生・接近可能性が予報されている。梅雨最盛期の前線と台風が重なる「梅雨末期の大雨」パターンで、ハザードマップ確認・避難行動の事前整理・住まいの点検が今まさに必要とされている。",
+      "whyHotNow": "日本気象協会の解説(2026年7月1日)が「新たにダブル台風発生へ 7月上旬は台風が列島に接近の可能性」と警戒を呼びかけ。6月末には台風7号・8号が九州・四国〜関東に影響し、気象庁も6月25日に台風や梅雨前線の影響に関する予告的な報道発表を出している。7月上旬は梅雨最盛期の大雨と台風接近が重なる局面。",
+      "audience": [
+        "河川・低地・土砂災害警戒区域の住民",
+        "戸建て・マンション管理者",
+        "子供や高齢者のいる世帯",
+        "中小事業者"
+      ],
+      "targetAudience": [
+        {
+          "segment": "警戒区域かどうか曖昧なまま住んでいる世帯",
+          "userMoment": "台風接近予報を見て、自宅のリスクと避難先・持ち出し品を今夜のうちに整理したい"
+        },
+        {
+          "segment": "共働きで日中家を空ける家庭",
+          "userMoment": "警報級の雨の日の子供の登下校・引き取りルールを家族で決めたい"
+        }
+      ],
+      "userFrictionOrDesire": "ハザードマップや警戒レベルの用語(レベル3/4、キキクル等)を自分の住所・家族構成に引き付けて「うちは何をいつやるか」に変換できていない。",
+      "friction": "自治体・気象庁・河川事務所と情報源が分散。避難判断のタイミングは個々の立地で異なり、汎用記事では自分事にならない。",
+      "possibleInputs": [
+        "自宅の住所または立地条件(川・崖・海からの距離、階数)",
+        "家族構成と日中の在宅状況",
+        "自治体ハザードマップのURLや画像",
+        "備蓄品の現状リスト"
+      ],
+      "bestFitSourceMechanisms": [
+        "constraint_checklist",
+        "map_or_timeline",
+        "public_data_explainer",
+        "personalized_plan"
+      ],
+      "evidenceRefs": [
+        "https://tenki.jp/forecaster/r_tokuda/2026/07/01/39549.html",
+        "https://tenki.jp/forecaster/m_kimura/2026/06/23/39426.html",
+        "https://www.jma.go.jp/jma/press/2606/25d/20260625_typhoon_yokoku.html"
+      ],
+      "trendMaturity": "temporary_event",
+      "remixUse": "警戒レベル用語の翻訳(公的データ説明)、家庭別タイムライン(マイ・タイムライン)生成、備蓄チェックリストなど防災系コアの定番と組める。台風シーズン通して再利用可能。",
+      "riskBoundary": "避難の要否・タイミングを断定してはならない(公式の避難情報が常に優先)。「安全な場所」の保証や、リアルタイム気象予測の代行も不可。",
+      "riskNotes": [
+        "人命に関わる領域のため、必ず自治体・気象庁の公式情報への参照導線を持たせる",
+        "予報は古くなるため生成時点の明示が必要"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_jiyukenkyu_ai_support",
+      "category": "education",
+      "title": "夏休み自由研究×AI活用の作法",
+      "summary": "夏休みを前に、学研キッズネットが「自由研究おたすけAI検索」を公開するなど、自由研究のテーマ探し〜まとめにAIを使う動きが定着しつつある。一方で「どこまでAIに頼ってよいか」「子供自身の学びを残すには」という保護者・教員の迷いも大きく、テーマ選定・進め方・まとめ方の各段階での適切なAIの使い分けが関心事になっている。",
+      "whyHotNow": "学研キッズネットが2026年7月1日に「夏休み!自由研究プロジェクト2026」の新機能として、疑問を入力すると500超のテーマから最適な研究テーマを提案する「自由研究おたすけAI検索」を公開(リセマム7月2日報道)。夏休み直前で自由研究の計画を立て始める家庭が増えるタイミングと重なっている。",
+      "audience": [
+        "小中学生の保護者",
+        "小中学生本人",
+        "学童・塾のスタッフ",
+        "夏休みイベント運営者"
+      ],
+      "targetAudience": [
+        {
+          "segment": "自由研究のテーマが決まらない小学生の親子",
+          "userMoment": "子供の興味と家でできる条件から、続けられそうなテーマを一緒に絞り込みたい"
+        },
+        {
+          "segment": "AIの使わせ方に迷う保護者",
+          "userMoment": "「調べるのは手伝ってよいが考察は本人」の線引きを具体的な手順に落としたい"
+        }
+      ],
+      "userFrictionOrDesire": "テーマの選択肢が多すぎて選べない。AIに丸投げすると学びが残らず提出物としても不適切になるが、どの工程でどう使えば良いかの実践的な指針がない。",
+      "friction": "子供の学年・興味・家庭環境(道具・予算・日数)という制約と、観察/実験/工作/調べ学習という型のマッチングを人手でやるのは大変。計画倒れも多い。",
+      "possibleInputs": [
+        "子供の学年と興味のあるもの",
+        "使える日数・予算・道具",
+        "学校の提出条件やフォーマット",
+        "途中まで進めた研究メモや写真の説明"
+      ],
+      "bestFitSourceMechanisms": [
+        "personalized_plan",
+        "messy_information_to_action_cards",
+        "constraint_checklist",
+        "draft_preflight"
+      ],
+      "evidenceRefs": [
+        "https://resemom.jp/article/2026/07/02/86632.html",
+        "https://www.manatera.com/blog/jiyuu-kenkyu-ai/",
+        "https://biz.kddi.com/content/column/smb/ai-summer-research/"
+      ],
+      "trendMaturity": "seasonal",
+      "remixUse": "計画立案・日程逆算タイムライン・提出前プリフライト(まとめ方チェック)など複数コアと組める。「本人の学びを残すAIの使い分け」フレームは読書感想文など他の宿題にも転用可能。",
+      "riskBoundary": "宿題の成果物そのものを代作してはならない。子供の個人情報を収集・保存する設計や、学校ルールに反する使い方の推奨も不可。",
+      "riskNotes": [
+        "学校ごとにAI利用ルールが異なるため、確認を促す文言が必要",
+        "子供向けUIでは安全な表現・題材に限定する"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_seisei_ai_pilot_schools",
+      "category": "education",
+      "title": "生成AIパイロット校478校時代の教員ワークフロー",
+      "summary": "文科省ガイドラインVer.2.0(2024年12月)を土台に、2026年度は生成AIパイロット校の取組が478校規模(教育利用10自治体・校務利用100自治体・教材実証51自治体)に拡大。授業での利活用だけでなく、お便り作成・所見・教材づくりなど校務での生成AI活用が現場の実務テーマになり、学期末〜夏休み期間は研修・準備の好機とされる。",
+      "whyHotNow": "文部科学省が2026年4月30日に学校での生成AI利活用のこれまでの取組をまとめて公開し、2026年度パイロット事業が149自治体・478校で進行中と報じられている(こどもとIT)。1学期末の成績・所見作成と夏休みの教員研修シーズン(7〜8月)が重なり、校務での具体的な使い方への関心が高い時期。",
+      "audience": [
+        "小中高の教員",
+        "教育委員会担当者",
+        "学校管理職",
+        "教員向け研修の講師"
+      ],
+      "targetAudience": [
+        {
+          "segment": "学期末業務に追われる教員",
+          "userMoment": "所見・学級通信・保護者向け文書の下書きにAIを使う際の手順と点検観点を知りたい"
+        },
+        {
+          "segment": "校内のAI活用ルールを作る担当者",
+          "userMoment": "ガイドラインVer.2.0のチェック項目を自校の運用ルールに落とし込みたい"
+        }
+      ],
+      "userFrictionOrDesire": "ガイドラインは読んだが、個人情報・著作権・成績情報の扱いなど自分の業務のどこがOKでどこがNGかの具体的判断に迷う。使えば時短になるのは分かるが最初の型がない。",
+      "friction": "ガイドライン文書は長く抽象度が高い。校務文書の種類ごとに「入力してよい情報」「点検すべき観点」を整理する作業が各校任せになっている。",
+      "possibleInputs": [
+        "作成したい校務文書の種類と下書き",
+        "自校・自治体のAI利用ルール",
+        "文科省ガイドラインのチェック項目",
+        "匿名化済みの業務フロー説明"
+      ],
+      "bestFitSourceMechanisms": [
+        "constraint_checklist",
+        "draft_preflight",
+        "messy_information_to_action_cards",
+        "public_data_explainer"
+      ],
+      "evidenceRefs": [
+        "https://edu.watch.impress.co.jp/docs/news/2106509.html",
+        "https://www.mext.go.jp/content/20241226-mxt_shuukyo02-000030823_001.pdf"
+      ],
+      "trendMaturity": "recurring",
+      "remixUse": "文書ドラフトのプリフライト系、ガイドライン→現場チェックリスト変換系のコアと好相性。「公的ガイドラインを職種別の実務チェックリストに翻訳する」パターンは他業種にも展開可能。",
+      "riskBoundary": "児童生徒の個人情報や成績情報の入力を促す設計にしてはならない。ガイドラインの公式解釈を名乗ることや、教育的評価(成績づけ)の自動化も不可。",
+      "riskNotes": [
+        "自治体・学校ごとにルールが異なるため一般化しすぎない",
+        "ガイドラインは改訂されうるため版の明示が必要"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "topic_ai_productivity_evidence_gap",
+      "category": "research",
+      "title": "「AI導入=生産性向上ではない」実証研究の実務化",
+      "summary": "AIと生産性に関する実証研究が2026年に入り出揃いつつある。PwCのAI Jobs Barometer 2026はAI曝露度の高い企業の生産性成長が40%高いと報告する一方、「導入しても生産性向上は保証されない」とする研究や、効果はタスク選択に強く依存する(下書き・調査・分析で3倍、判断・関係構築では効果薄)という知見が蓄積。「どのタスクにAIを当てるか」の見極めが個人・チームの実務課題に降りてきた。",
+      "whyHotNow": "PwC 2026 Global AI Jobs Barometer、NBERワーキングペーパー(経営層調査 w34984)、arXivのポジションペーパー「Adopting AI in Practice Does Not Guarantee the Productivity Boost」(2026年)など、相反する結果を含む実証研究が2026年上半期に相次いで公開され、単純な導入礼賛から「効くタスクの特定」へ議論が移っている。",
+      "audience": [
+        "チームリーダー・マネージャー",
+        "個人事業主・フリーランス",
+        "業務改善担当",
+        "AI導入を検討する中小企業"
+      ],
+      "targetAudience": [
+        {
+          "segment": "AIツール導入済みだが効果を実感できないチームの長",
+          "userMoment": "自分たちの業務リストのうち、AIが本当に効くタスクとそうでないタスクを仕分けたい"
+        },
+        {
+          "segment": "個人の働き方を見直したい知識労働者",
+          "userMoment": "1週間の作業内訳から、AI委譲候補と自分でやるべき作業を切り分けたい"
+        }
+      ],
+      "userFrictionOrDesire": "「AIで生産性◯倍」の言説と自分の実感が噛み合わない。研究知見を自分の業務構成に当てはめて、期待値と投資対象を決める道具がない。",
+      "friction": "研究は英語論文・レポートに分散し、対象業種・タスク粒度もバラバラ。自分の業務の棚卸しと知見のマッピングを人手でやるのは重い。",
+      "possibleInputs": [
+        "自分やチームの業務タスク一覧",
+        "1週間のカレンダーや作業ログの要約",
+        "導入済みAIツールのリスト",
+        "公開研究レポートのURL"
+      ],
+      "bestFitSourceMechanisms": [
+        "evidence_weighted_decision",
+        "comparison_or_ranking",
+        "messy_information_to_action_cards",
+        "simulation_or_what_if"
+      ],
+      "evidenceRefs": [
+        "https://www.pwc.com/gx/en/services/ai/ai-jobs-barometer.html",
+        "https://www.nber.org/papers/w34984",
+        "https://arxiv.org/pdf/2605.24688"
+      ],
+      "trendMaturity": "recurring",
+      "remixUse": "エビデンス加重の意思決定系コアの好例。タスク棚卸し→AI適合度の仕分けはチェックリスト/ランキング系とも組める。教育・医療など分野特化版への派生もしやすい。",
+      "riskBoundary": "特定の生産性向上率を保証してはならない。人員削減・人事評価の判断材料としての利用を促す設計も不可。研究の結論を過度に一般化しない。",
+      "riskNotes": [
+        "研究間で結果が割れている点を正直に扱う必要がある",
+        "雇用不安を煽る表現を避ける"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_work_trend_ai_org_design",
+      "category": "research",
+      "title": "Work Trend Index 2026が示す「個人の時短」から「仕事の再設計」へ",
+      "summary": "Microsoft Work Trend Index 2026は、AIによる個人レベルの生産性向上だけでは不十分で、業務プロセスと組織の再設計が伴わないと成果が頭打ちになると指摘。AIエージェントで週あたり中央値6.4時間を取り戻すという計測がある一方、「浮いた時間を何に振り向けるか」を設計しないと恩恵が消えるという知見が、チーム運営や個人の時間管理の実践課題として注目されている。",
+      "whyHotNow": "Microsoft Work Trend Index 2026(2026年5月公開、Forbes解説)が「AI生産性だけでは足りない」という論点を提示し、6〜7月にかけて各種メディアがAI時代の業務再設計論として取り上げている。企業の期末・半期の振り返りシーズン(7月)に、チームの時間の使い方を見直す文脈で参照されやすい。",
+      "audience": [
+        "マネージャー",
+        "人事・組織開発担当",
+        "小規模チームのリーダー",
+        "働き方を見直したい個人"
+      ],
+      "targetAudience": [
+        {
+          "segment": "AI導入後のチーム運営を見直す管理職",
+          "userMoment": "AIで浮いた時間の再配分先(顧客対応・改善・学習)を具体的に決めたい"
+        },
+        {
+          "segment": "半期の振り返りをする個人",
+          "userMoment": "自分の時間の使い方をAI前提で組み替えるたたき台がほしい"
+        }
+      ],
+      "userFrictionOrDesire": "AIで個別作業は速くなったが、会議・調整・手戻りは減らず総労働時間が変わらない。プロセスごと見直したいが、何から手を付けるかの枠組みがない。",
+      "friction": "組織再設計の議論は大企業向けフレームが多く、個人・小規模チームが今日から試せる粒度に翻訳されていない。",
+      "possibleInputs": [
+        "チームの定例業務・会議の一覧",
+        "1週間分のカレンダー要約",
+        "AIツールの利用状況",
+        "チームの目標・KPI"
+      ],
+      "bestFitSourceMechanisms": [
+        "messy_information_to_action_cards",
+        "personalized_plan",
+        "simulation_or_what_if",
+        "comparison_or_ranking"
+      ],
+      "evidenceRefs": [
+        "https://www.forbes.com/sites/moorinsights/2026/05/19/microsoft-work-trend-index-2026-shows-ai-productivity-is-not-enough/",
+        "https://aibusinessweekly.net/p/ai-productivity-statistics"
+      ],
+      "trendMaturity": "recurring",
+      "remixUse": "時間再配分のwhat-ifシミュレーション、業務一覧→改善アクションカード化など複数コアと組める。前述のAI生産性エビデンスカードと対にして「測る→再設計する」の流れも作れる。",
+      "riskBoundary": "人事評価・人員配置の自動判断に使える装いにしてはならない。特定調査結果を普遍的事実として提示しない。",
+      "riskNotes": [
+        "ベンダー発の調査であるバイアスに言及できる設計が望ましい"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "topic_wc2026_knockout_stage",
+      "category": "culture_sports",
+      "title": "FIFAワールドカップ2026決勝トーナメント佳境",
+      "summary": "北中米3か国共催のW杯2026は史上初の48か国参加で、7月上旬に決勝トーナメントが進行中(ラウンド16が7月7〜8日に終了、準々決勝→準決勝7/14・15→決勝7/19ニューヨーク/ニュージャージー)。日本からは時差14〜17時間で早朝5時・8時キックオフが多く、DAZNが全104試合配信(日本戦無料)。観戦計画・睡眠・仕事の両立と、にわかファンの試合理解が生活レベルの話題になっている。",
+      "whyHotNow": "大会は現在進行中で、2026年7月7〜8日にラウンド16が終了し(アルゼンチンがエジプトに劇的勝利など)、準々決勝〜7/14・15準決勝〜7/19決勝という佳境の日程が確定している(ESPN/Yahoo Sports)。日本時間では早朝・午前キックオフが中心で、観戦と平日の両立が直近2週間の具体的な関心事。",
+      "audience": [
+        "サッカーファン",
+        "にわか観戦層",
+        "家族で観戦する世帯",
+        "スポーツバー・飲食店"
+      ],
+      "targetAudience": [
+        {
+          "segment": "平日早朝の試合を追いたい会社員",
+          "userMoment": "残り試合の日程から、リアルタイム観戦する試合と見逃し視聴の試合を仕分けて睡眠を守りたい"
+        },
+        {
+          "segment": "ルールや戦術に詳しくないにわか観戦層",
+          "userMoment": "注目カードの見どころ・両チームの背景を試合前に短時間で押さえたい"
+        }
+      ],
+      "userFrictionOrDesire": "試合数が多く時差もあるため、全部は追えない。自分の生活時間と推しチームに合わせた観戦計画と、試合を楽しむための背景知識を手早く得たい。",
+      "friction": "日程・キックオフ時刻(日本時間換算)・配信先が複数サイトに分散。トーナメント表の更新も速く、手動での整理が追いつかない。",
+      "possibleInputs": [
+        "応援するチームや注目選手",
+        "平日の起床・就寝時間",
+        "視聴環境(DAZN加入有無など)",
+        "公開されている試合日程"
+      ],
+      "bestFitSourceMechanisms": [
+        "map_or_timeline",
+        "personalized_plan",
+        "comparison_or_ranking",
+        "public_data_explainer"
+      ],
+      "evidenceRefs": [
+        "https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket",
+        "https://sports.yahoo.com/soccer/article/2026-fifa-world-cup-daily-schedule-every-match-date-kickoff-time-and-venue-for-all-48-teams-234515087.html",
+        "https://commuter-stadium.com/worldcup2026-japan-time-kickoff/",
+        "https://www.goal.com/jp/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9/what-time-zone-2026-fifa-worldcup-match/blte47a0b334d8e8aa9"
+      ],
+      "trendMaturity": "temporary_event",
+      "remixUse": "タイムライン系(残り日程の日本時間ビュー)、観戦計画のパーソナライズ、初心者向け試合解説カード化など。大会終了後もオリンピック等の国際大会に同型展開できる。",
+      "riskBoundary": "試合結果の予想を賭博的文脈で提供してはならない。違法配信への誘導や、著作権のある映像・画像の利用も不可。日程は変更されうるため公式確認を促す。",
+      "riskNotes": [
+        "ブックメーカー的な使われ方を避ける設計が必要",
+        "決勝(7/19)以降は鮮度が急落する点をremix側で考慮"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_tour_de_france_2026_barcelona",
+      "category": "culture_sports",
+      "title": "ツール・ド・フランス2026開幕(バルセロナ発・55年ぶりのTTT開幕)",
+      "summary": "ツール・ド・フランス2026が7月4日にバルセロナで開幕(7/4〜26)。第1ステージは1971年以来55年ぶりの開幕チームタイムトライアル(19.7km)で、新ルールにより各選手個別のタイム計測となる話題性の高い大会に。ポガチャルが第3ステージを制してマイヨ・ジョーヌを獲得するなど序盤から展開が速く、7月8日は第5ステージ。ステージレース特有の「毎日変わる見どころ」の追いかけ方が観戦者の関心事。",
+      "whyHotNow": "2026年7月4日にバルセロナで開幕済みで、7月8日に第5ステージが進行中(cyclingnews)。第1ステージが55年ぶりの開幕TTT、ポガチャルの第3ステージ勝利とマイヨ・ジョーヌ獲得(NBC Sports)など、大会前半の具体的なニュースが連日出ている。",
+      "audience": [
+        "自転車ロードレースファン",
+        "スポーツ観戦好き",
+        "サイクリング趣味の人"
+      ],
+      "targetAudience": [
+        {
+          "segment": "ツールを初めて追う観戦初心者",
+          "userMoment": "21ステージのうちどの日が山岳・平坦・TTかを把握し、見るべき日を選びたい"
+        },
+        {
+          "segment": "深夜視聴が難しい社会人ファン",
+          "userMoment": "各ステージの要点を翌朝に短時間でキャッチアップしたい"
+        }
+      ],
+      "userFrictionOrDesire": "3週間・21ステージと長丁場で、ジャージの種類やチーム戦術など前提知識も多い。自分の興味(山岳・スプリント・日本人選手等)に合わせた追い方を設計したい。",
+      "friction": "コース情報・リザルト・順位変動が英語・仏語サイト中心に分散。時差で生放送を追えない層は情報の取捨選択に困る。",
+      "possibleInputs": [
+        "興味のある選手・チーム",
+        "視聴可能な時間帯",
+        "公開されているステージ一覧・コース情報",
+        "ロードレースの知識レベル"
+      ],
+      "bestFitSourceMechanisms": [
+        "map_or_timeline",
+        "public_data_explainer",
+        "personalized_plan",
+        "comparison_or_ranking"
+      ],
+      "evidenceRefs": [
+        "https://en.wikipedia.org/wiki/2026_Tour_de_France",
+        "https://www.nbcsports.com/news/pogacar-wins-stage-3-and-takes-the-tour-de-france-yellow-jersey",
+        "https://www.cyclingstage.com/tour-de-france-2026-route/"
+      ],
+      "trendMaturity": "temporary_event",
+      "remixUse": "地図×タイムライン系コアの好例(ステージ地図+日程)。「長期イベントを自分の生活に合わせて摘まみ食いする」パターンは連続ドラマや長期興行にも転用できる。",
+      "riskBoundary": "賭博的な勝敗予想サービスにしない。公式映像・画像の無断利用や違法視聴手段の案内も不可。",
+      "riskNotes": [
+        "リザルトは日々更新されるため静的生成物は日付明示が必須"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_natsu_anime_2026_season",
+      "category": "culture_sports",
+      "title": "2026年夏アニメ一斉スタート(全58作品)の視聴整理",
+      "summary": "2026年夏アニメが7月第1週から一斉に放送開始。オリコンのまとめでは全58作品で、『攻殻機動隊』新作、『コードギアス 奪還のロゼ』などの話題作を含む。放送局・配信サービスがバラバラで、毎クール恒例の「何をどこで観るか」問題と、序盤数話での取捨選択が視聴者の関心事になっている。",
+      "whyHotNow": "2026年7月1日〜7日にかけて新作が連日放送開始(コミックナタリーが7/6・7/7開始作品を日次で報道)。オリコン・アニメイトタイムズなど主要メディアが「2026夏アニメ全58作品」の一覧・配信情報を公開し、クール頭の視聴計画づくりがまさに進行中。",
+      "audience": [
+        "アニメ視聴者",
+        "配信サービス加入者",
+        "忙しくて全部は追えない社会人ファン"
+      ],
+      "targetAudience": [
+        {
+          "segment": "複数配信サービスを併用する視聴者",
+          "userMoment": "観たい作品リストから、自分の加入サービスで足りるか・何を足すべきかを判断したい"
+        },
+        {
+          "segment": "可処分時間が少ない社会人",
+          "userMoment": "58作品から自分の好みに合う数本を効率よく選び、視聴スケジュールを組みたい"
+        }
+      ],
+      "userFrictionOrDesire": "作品数が多く、あらすじ・スタッフ・配信先の情報が分散していて選びきれない。クール序盤で「切る/続ける」の判断材料も整理したい。",
+      "friction": "配信独占・先行配信などサービスごとの差異が複雑で、加入サービスとの突き合わせが手作業。過去の好みからの推薦も一覧サイトでは得られない。",
+      "possibleInputs": [
+        "過去に好きだった作品リスト",
+        "加入中の配信サービス",
+        "週に使える視聴時間",
+        "公開されている新作一覧ページのURL"
+      ],
+      "bestFitSourceMechanisms": [
+        "comparison_or_ranking",
+        "personalized_plan",
+        "messy_information_to_action_cards",
+        "constraint_checklist"
+      ],
+      "evidenceRefs": [
+        "https://www.oricon.co.jp/anime/2026_summer/",
+        "https://natalie.mu/comic/news/679257",
+        "https://www.famitsu.com/article/202607/79761"
+      ],
+      "trendMaturity": "seasonal",
+      "remixUse": "好み×制約からの絞り込み(ランキング/プランナー)系コアと好相性。四半期ごとに同型で再生成でき、ドラマ・映画・ゲームの新作ラッシュにも転用可能。",
+      "riskBoundary": "作品の映像・画像・長文あらすじの無断転載をしてはならない。違法視聴サイトへの言及・誘導も不可。ネタバレの扱いに配慮する。",
+      "riskNotes": [
+        "配信情報は変動するため公式確認を促す",
+        "作品評価は主観であることを明示"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_natsu_bonus_mamori_shikou",
+      "category": "consumer_life",
+      "title": "夏ボーナス平均47.7万円、「守り」の使い道設計",
+      "summary": "2026年夏季賞与は正社員平均47.7万円(前年比+1.8万円)と微増した一方、使い道は「貯蓄」が5割超で最多と、物価高を背景にした守りの姿勢が鮮明。一方で約6割は増額なしという調査もあり、賞与を貯蓄・投資・物価高対策・自己投資・レジャーにどう配分するかが7月の支給シーズンの実務的な関心事になっている。",
+      "whyHotNow": "帝国データバンクが2026年6月11日に夏季賞与動向を発表(平均47.7万円、37.1%の企業が増加)し、7月の支給時期に合わせてAll Aboutの使い道ランキング(1位貯蓄・2位旅行)やワークポートの「約6割が増額なし」調査など関連報道が集中している。",
+      "audience": [
+        "賞与を受け取る会社員",
+        "家計を管理する世帯主・共働き夫婦",
+        "若手社会人"
+      ],
+      "targetAudience": [
+        {
+          "segment": "初めてまとまった賞与を受け取る若手",
+          "userMoment": "貯蓄・投資・自己投資・娯楽の配分を自分の状況に合わせて決めたい"
+        },
+        {
+          "segment": "物価高で家計が苦しい世帯",
+          "userMoment": "賞与を生活防衛資金・ローン・夏の出費(旅行・帰省)にどう割り振るか整理したい"
+        }
+      ],
+      "userFrictionOrDesire": "「平均」や「ランキング」は分かっても、自分の収入・負債・ライフイベントに即した配分の決め方が分からない。なんとなく口座に置いたまま目減りする不安がある。",
+      "friction": "家計の全体像(固定費・負債・既存貯蓄)の棚卸しが面倒で、配分判断の前提が揃わない。金融商品の情報は営業色が強く中立的な整理がしにくい。",
+      "possibleInputs": [
+        "賞与の手取り額",
+        "月々の収支や固定費の概要",
+        "既存の貯蓄・負債の状況",
+        "今後1年のライフイベント予定"
+      ],
+      "bestFitSourceMechanisms": [
+        "personalized_plan",
+        "simulation_or_what_if",
+        "comparison_or_ranking",
+        "constraint_checklist"
+      ],
+      "evidenceRefs": [
+        "https://www.tdb.co.jp/report/economic/20260611-2026summerbonus/",
+        "https://allabout.co.jp/gm/gc/520138/",
+        "https://prtimes.jp/main/html/rd/p/000000298.000039106.html",
+        "https://www.nippon.com/ja/japan-data/h02815/"
+      ],
+      "trendMaturity": "seasonal",
+      "remixUse": "配分what-ifシミュレーションや優先度チェックリストと好相性。冬の賞与・年度末の臨時収入にも同型展開できる。旅行カード(国内回帰)と組み合わせた「夏の総予算設計」remixも可能。",
+      "riskBoundary": "特定の金融商品・投資の推奨や利回りの約束をしてはならない(投資助言に該当する表現は不可)。税務・法務の個別判断も断定しない。",
+      "riskNotes": [
+        "あくまで考え方の整理であり、金融アドバイスではない旨の明示が必須"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "topic_denki_gas_shien_natsu2026",
+      "category": "consumer_life",
+      "title": "7月開始の電気・ガス料金支援と夏の光熱費最適化",
+      "summary": "政府の「電気・ガス料金支援」が2026年7月使用分から再開(7〜9月、電気は7・9月3.5円/kWh・8月4.5円/kWh、標準家庭で3か月合計約5,000円の負担軽減、申請不要)。猛暑予想でエアコン利用が増える中、補助の仕組みの理解と、我慢しない節電(エアコン設定・契約見直し)の両立が家計の関心事になっている。",
+      "whyHotNow": "2026年7月1日から資源エネルギー庁の電気・ガス料金支援が開始され、補助単価と期間(7〜9月)が公表済み。エネチェンジ等の解説記事も7月上旬に更新が集中。同時にウェザーニューズの猛暑見解(ピーク7月下旬〜)で冷房費増が確実視され、「補助込みで夏の電気代がいくらになるか」を試算したい需要が高まっている。",
+      "audience": [
+        "家計を預かる世帯",
+        "一人暮らし",
+        "高齢者世帯",
+        "在宅ワーカー"
+      ],
+      "targetAudience": [
+        {
+          "segment": "エアコン代を気にして我慢しがちな世帯",
+          "userMoment": "補助を織り込んだ現実的な電気代を試算し、熱中症リスクを冒さない使い方を決めたい"
+        },
+        {
+          "segment": "電力契約を見直したい人",
+          "userMoment": "使用量実績から、プラン変更と支援額を合わせた夏の光熱費を比較したい"
+        }
+      ],
+      "userFrictionOrDesire": "補助はいつからいくらか、自分の請求にどう反映されるかが分かりにくい。節電と熱中症予防のトレードオフを金額ベースで判断したい。",
+      "friction": "単価(円/kWh)ベースの補助を自分の使用量に換算する計算が面倒。検針票や電力会社アプリのデータを読み解く手間もある。",
+      "possibleInputs": [
+        "直近の検針票や月間使用量(kWh)",
+        "契約プラン・アンペア数",
+        "世帯構成と在宅時間",
+        "資源エネルギー庁の公開情報"
+      ],
+      "bestFitSourceMechanisms": [
+        "public_data_explainer",
+        "simulation_or_what_if",
+        "constraint_checklist",
+        "personalized_plan"
+      ],
+      "evidenceRefs": [
+        "https://denkigas-gekihenkanwa.go.jp/",
+        "https://enechange.jp/articles/electricity-subsidy",
+        "https://hojyokin-portal.jp/columns/denki_gas_hojyo"
+      ],
+      "trendMaturity": "temporary_event",
+      "remixUse": "公的制度の説明系+金額シミュレーション系の組み合わせの好例。冬の支援策や他の公的給付にも同型で展開できる。猛暑カードと組み合わせた「健康を削らない節電」remixも有望。",
+      "riskBoundary": "請求額の正確な保証や、電力会社・プランの中立性を欠く推奨をしてはならない。制度内容の公式発表を確認する導線が必須。熱中症リスクを高める過度な節電の推奨も不可。",
+      "riskNotes": [
+        "制度単価・期間は政府発表に依存するため出典と時点の明示が必要"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "coverageGaps": [
+    "受験・進学関連(7月は動きが小さくオープンキャンパス程度)を今回は見送った。8月以降に夏期講習・総合型選抜の話題で再収集したい。",
+    "アクセシビリティ・共生社会系の具体的な7月トリガーを今回見つけられなかった(猛暑×高齢者見守りで部分的にカバー)。",
+    "MLBオールスター(7月中旬)やウィンブルドンなどW杯・ツール以外のスポーツは枠上限のため未収録。",
+    "コメ価格の沈静化(2026年前半に店頭4,000円台へ下落)は消費者関心が下がりつつあるため今回は見送り。"
+  ]
+}

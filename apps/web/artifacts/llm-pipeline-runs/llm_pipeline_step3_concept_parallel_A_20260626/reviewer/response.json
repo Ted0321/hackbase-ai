@@ -1,0 +1,38 @@
+{
+  "artifactId": "proj_otayori_route",
+  "reviewerAgentId": "manual_reviewer_lane_a",
+  "status": "pass",
+  "scores": {
+    "novelty": 4,
+    "notObviousInsight": 5,
+    "userClarity": 5,
+    "coreInteraction": 5,
+    "visualSpecificity": 4,
+    "codeFeasibility": 5,
+    "safety": 4,
+    "differenceFromRecentArtifacts": 5
+  },
+  "strengths": [
+    "Concept, requirements, build plan, and static artifact all preserve the same core: notice text becomes household action routes with source evidence.",
+    "The artifact avoids the recent AI meeting-room pattern and is legible to non-engineer family users.",
+    "Source snippets and uncertainty cards make the safety boundary visible instead of presenting AI output as official instruction.",
+    "The artifact validates with the existing artifact validator and includes metadata, diagrams, mockups, README, and self-review."
+  ],
+  "problems": [
+    {
+      "severity": "low",
+      "issue": "The demo uses fixed static extraction, so the input textarea does not produce new cards from arbitrary text.",
+      "requiredChange": "Keep this explicit as an MVP limitation; do not imply real AI parsing until a parser exists."
+    },
+    {
+      "severity": "low",
+      "issue": "The first screen has dense Japanese text across three panels.",
+      "requiredChange": "During visual polish, check mobile and narrow desktop widths and shorten card copy if text feels crowded."
+    }
+  ],
+  "rewriteInstructions": [
+    "Do not expand into PDF upload, email import, or school-system integration in the MVP.",
+    "If revising UI, preserve source evidence highlighting and the 'まだ判断しないこと' panel.",
+    "If adding real extraction later, treat dates, target students, deadlines, and safety-related notices as low-confidence until verified by the user."
+  ]
+}

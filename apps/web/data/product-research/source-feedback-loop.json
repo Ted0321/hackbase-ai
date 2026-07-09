@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-29T02:41:31.976Z",
+  "inputs": {
+    "sourceProductIndex": "data/product-research/source-product-index.json",
+    "feedbackGuidance": "data/feedback/latest-guidance.json",
+    "explorationDir": "data/research-exploration",
+    "exactProjectToSourceAttribution": "not_available_yet"
+  },
+  "totals": {
+    "sourceProductEntries": 49,
+    "feedbackTopProjects": 5,
+    "recentDrafts": 5,
+    "pendingDraftCandidates": 5
+  },
+  "sourceCategoryStats": [
+    {
+      "sourceCategory": "hackathon_demo",
+      "entryCount": 18,
+      "evidenceLevels": {
+        "A": 9,
+        "B": 9
+      },
+      "missingFieldRows": 14
+    },
+    {
+      "sourceCategory": "hackathon_winner",
+      "entryCount": 15,
+      "evidenceLevels": {
+        "A": 10,
+        "B": 5
+      },
+      "missingFieldRows": 15
+    },
+    {
+      "sourceCategory": "github_rising",
+      "entryCount": 11,
+      "evidenceLevels": {
+        "B": 11
+      },
+      "missingFieldRows": 0
+    },
+    {
+      "sourceCategory": "product_gallery",
+      "entryCount": 4,
+      "evidenceLevels": {
+        "A": 4
+      },
+      "missingFieldRows": 4
+    },
+    {
+      "sourceCategory": "github_high_star",
+      "entryCount": 1,
+      "evidenceLevels": {
+        "A": 1
+      },
+      "missingFieldRows": 1
+    }
+  ],
+  "feedbackCategoryScores": {
+    "Work Tool": 22,
+    "Learning": 5
+  },
+  "sourceRecommendations": [
+    {
+      "category": "Work Tool",
+      "feedbackScore": 22,
+      "suggestedSourceProducts": [
+        {
+          "id": "github_career_ops",
+          "name": "career-ops",
+          "sourceCategory": "github_rising",
+          "evidenceLevel": "B",
+          "matchScore": 3
+        },
+        {
+          "id": "github_rising_nanobot",
+          "name": "nanobot",
+          "sourceCategory": "github_rising",
+          "evidenceLevel": "B",
+          "matchScore": 3
+        },
+        {
+          "id": "devpost_vantage",
+          "name": "MSC - Vantage",
+          "sourceCategory": "hackathon_demo",
+          "evidenceLevel": "B",
+          "matchScore": 2
+        },
+        {
+          "id": "smart_india_rake_optimization",
+          "name": "Rake Optimization Suite decision support",
+          "sourceCategory": "hackathon_winner",
+          "evidenceLevel": "B",
+          "matchScore": 2
+        },
+        {
+          "id": "showhn_tested_ai_tool_panel",
+          "name": "Tested",
+          "sourceCategory": "hackathon_demo",
+          "evidenceLevel": "B",
+          "matchScore": 2
+        }
+      ],
+      "rationale": "Recent feedback favors Work Tool; prefer source products whose transfer themes match this surface before selecting fresh material."
+    },
+    {
+      "category": "Learning",
+      "feedbackScore": 5,
+      "suggestedSourceProducts": [
+        {
+          "id": "github_learn_harness_engineering",
+          "name": "learn-harness-engineering",
+          "sourceCategory": "github_rising",
+          "evidenceLevel": "B",
+          "matchScore": 3
+        },
+        {
+          "id": "github_rising_nanobot",
+          "name": "nanobot",
+          "sourceCategory": "github_rising",
+          "evidenceLevel": "B",
+          "matchScore": 3
+        },
+        {
+          "id": "github_agent_reach",
+          "name": "Agent-Reach",
+          "sourceCategory": "github_rising",
+          "evidenceLevel": "B",
+          "matchScore": 2
+        },
+        {
+          "id": "devpost_audionova",
+          "name": "AudioNova",
+          "sourceCategory": "hackathon_demo",
+          "evidenceLevel": "A",
+          "matchScore": 2
+        },
+        {
+          "id": "hf_deepsite",
+          "name": "DeepSite",
+          "sourceCategory": "product_gallery",
+          "evidenceLevel": "A",
+          "matchScore": 2
+        }
+      ],
+      "rationale": "Recent feedback favors Learning; prefer source products whose transfer themes match this surface before selecting fresh material."
+    }
+  ],
+  "recentDrafts": [
+    {
+      "path": "data\\research-exploration\\research_product_refresh_20260629T023910",
+      "generatedAt": "2026-06-29T02:39:10.634Z",
+      "candidateCount": 4,
+      "byPolicy": {
+        "candidate_only": 4
+      },
+      "byEvidenceLevel": {
+        "C": 4
+      },
+      "promotableCount": 0,
+      "latestCandidates": [
+        {
+          "id": "huggingface_space_open_llm_leaderboard",
+          "name": "open_llm_leaderboard",
+          "sourceCategory": "product_gallery",
+          "sourceType": "huggingface_space",
+          "evidenceLevel": "C",
+          "usePolicy": "candidate_only",
+          "url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard"
+        },
+        {
+          "id": "show_hn_demo_the_cli_for_browser_agents",
+          "name": "The CLI for browser agents",
+          "sourceCategory": "hackathon_demo",
+          "sourceType": "show_hn_demo",
+          "evidenceLevel": "C",
+          "usePolicy": "candidate_only",
+          "url": "https://fuckui.com/fuckui"
+        },
+        {
+          "id": "show_hn_demo_wavecat_a_fully_local_personal_agent_that_watches_your_screen",
+          "name": "wavecat - a fully local personal agent that watches your screen",
+          "sourceCategory": "hackathon_demo",
+          "sourceType": "show_hn_demo",
+          "evidenceLevel": "C",
+          "usePolicy": "candidate_only",
+          "url": "https://wavecat.ai/"
+        },
+        {
+          "id": "show_hn_demo_gotaper_a_minimalist_journal_inspired_race_planner_for_athletes",
+          "name": "Gotaper - A minimalist, journal-inspired race planner for athletes",
+          "sourceCategory": "hackathon_demo",
+          "sourceType": "show_hn_demo",
+          "evidenceLevel": "C",
+          "usePolicy": "candidate_only",
+          "url": "https://gotaper.app/"
+        }
+      ]
+    },
+    {
+      "path": "data\\research-exploration\\research_product_refresh_20260627T152236",
+      "generatedAt": "2026-06-27T15:22:36.665Z",
+      "candidateCount": 0,
+      "byPolicy": {},
+      "byEvidenceLevel": {},
+      "promotableCount": 0,
+      "latestCandidates": []
+    },
+    {
+      "path": "data\\research-exploration\\research_product_refresh_20260627T152048",
+      "generatedAt": "2026-06-27T15:20:48.291Z",
+      "candidateCount": 0,
+      "byPolicy": {},
+      "byEvidenceLevel": {},
+      "promotableCount": 0,
+      "latestCandidates": []
+    },
+    {
+      "path": "data\\research-exploration\\research_product_refresh_20260627T151501",
+      "generatedAt": "2026-06-27T15:15:01.453Z",
+      "candidateCount": 0,
+      "byPolicy": {},
+      "byEvidenceLevel": {},
+      "promotableCount": 0,
+      "latestCandidates": []
+    },
+    {
+      "path": "data\\research-exploration\\research_product_refresh_20260627T042453",
+      "generatedAt": "2026-06-27T04:24:53.413Z",
+      "candidateCount": 1,
+      "byPolicy": {
+        "unknown": 1
+      },
+      "byEvidenceLevel": {
+        "unknown": 1
+      },
+      "promotableCount": 0,
+      "latestCandidates": [
+        {
+          "id": "github_rising_nanobot",
+          "name": "nanobot",
+          "sourceCategory": "github_rising",
+          "sourceType": "github_rising",
+          "url": "https://github.com/HKUDS/nanobot"
+        }
+      ]
+    }
+  ],
+  "guardrails": [
+    "Do not auto-promote candidate_only cards from feedback alone.",
+    "Use feedback to prioritize which source categories and transfer patterns to inspect next.",
+    "Promotion still requires observed facts, A/B evidence, evidence refs, and no missing source-core fields.",
+    "Exact source-to-project attribution should be added when generated projects persist sourceProductUsed metadata."
+  ],
+  "nextActions": [
+    "Review latest source-product drafts and either delete weak cards or manually enrich promising ones before promotion.",
+    "Prioritize source products matching Work Tool feedback patterns in the next Step2 combination pass.",
+    "Add sourceProductUsed persistence to generated projects to make this loop exact rather than category-level."
+  ]
+}

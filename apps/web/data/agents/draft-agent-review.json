@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-26T12:42:15.097Z",
+  "source": "draft-agent-candidates.json",
+  "rule": "This review is advisory. Draft agents must not be activated automatically.",
+  "reviews": [
+    {
+      "agentId": "draft_verifier",
+      "displayName": "Verifier",
+      "decision": "ready_for_human_review",
+      "blockers": [],
+      "warnings": [],
+      "reviewChecklist": [
+        "役割が既存Agentと重複しすぎていない",
+        "作品生成の品質または多様性に具体的に貢献する",
+        "boundariesが人間に読める粒度で明確",
+        "routerで選ばれすぎる偏りを生まない",
+        "active化前にagent-registry.jsonへ手動反映し、agents:registry:checkを通す"
+      ]
+    },
+    {
+      "agentId": "draft_fieldworker",
+      "displayName": "Fieldworker",
+      "decision": "ready_for_human_review",
+      "blockers": [],
+      "warnings": [],
+      "reviewChecklist": [
+        "役割が既存Agentと重複しすぎていない",
+        "作品生成の品質または多様性に具体的に貢献する",
+        "boundariesが人間に読める粒度で明確",
+        "routerで選ばれすぎる偏りを生まない",
+        "active化前にagent-registry.jsonへ手動反映し、agents:registry:checkを通す"
+      ]
+    }
+  ]
+}

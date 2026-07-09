@@ -1,0 +1,1814 @@
+{
+  "researchRunSummary": {
+    "id": "findy_gemini_evidence_step1_20260627",
+    "generatedAt": "2026-06-27T07:42:06.840Z",
+    "coverageSummary": "A diverse set of 15 small/rising products were selected from hackathon winners, GitHub rising projects, and product gallery launches. Key focus was on clear input-output transformation, distinct mechanisms, and strong anti-clone boundaries. Five timely topic cards covering technology, civic, education, culture, and consumer life were integrated. Significant major-product-like GitHub repositories were noted for exclusion.",
+    "coverageGaps": [
+      "No direct Reddit/X/Discord/TikTok/YouTube reaction data was used in collected research.",
+      "Chrome Web Store and Figma Community live ranking pages were not directly collected.",
+      "Japan civic/weather exploration did not add JMA or municipal official sources for baseline signals.",
+      "The topic radar is a local validation sample and requires replacement with live research for production runs."
+    ],
+    "strongestSignals": [
+      "Hackathon winners with clear social or technical impact (e.g., Astro Sweepers, Fireflai, Quad).",
+      "GitHub projects demonstrating agent reliability or workflow transformation (e.g., browser-harness, career-ops).",
+      "Product gallery demos showcasing immediate artifact generation (e.g., DeepSite, AI Comic Factory).",
+      "Topic cards highlighting user friction in agent transparency, disaster readiness, school communication, creator publishing, and civic service navigation."
+    ],
+    "editorNotesForConceptStrategist": "The selected product sources offer robust transferable mechanisms. Focus on re-contextualizing these mechanisms to the diverse range of timely topics. Pay close attention to the anti-clone boundaries and risk notes associated with both sources and topics, especially for civic and health-related patterns. The core idea should stem from the product's transformation axis, applied to a new domain suggested by the topics."
+  },
+  "productSourceIndexSnapshot": {
+    "entryCount": 42,
+    "selectedEntryIds": [
+      "nasa_spaceapps_2025_astro_sweepers",
+      "devpost_audionova",
+      "github_browser_harness",
+      "devpost_canvas_student_insights",
+      "github_career_ops",
+      "devpost_civil_dialog",
+      "hf_ai_comic_factory",
+      "hf_deepsite",
+      "devpost_fireflai",
+      "github_guizang_ppt_skill",
+      "nasa_spaceapps_2025_hercode_space",
+      "devpost_insightify",
+      "nasa_spaceapps_2025_gaia_leo",
+      "nasa_spaceapps_2025_twisters",
+      "devpost_quad"
+    ],
+    "excludedMajorProducts": [
+      "NotebookLM",
+      "Cursor",
+      "ChatGPT",
+      "Claude",
+      "Gemini",
+      "Perplexity",
+      "GitHub Copilot",
+      "Lovable",
+      "v0",
+      "Bolt",
+      "Replit",
+      "Figma",
+      "Notion",
+      "Slack",
+      "Linear",
+      "obra/superpowers",
+      "NousResearch/hermes-agent",
+      "Snailclimb/JavaGuide",
+      "langflow-ai/langflow",
+      "langgenius/dify",
+      "TradingAgents",
+      "nanobot"
+    ],
+    "staleOrDuplicateNotes": []
+  },
+  "sourceProductCards": [
+    {
+      "id": "nasa_spaceapps_2025_astro_sweepers",
+      "name": "Astro Sweepers - We Catch What Space Leaves Behind",
+      "sourceType": "hackathon_winner",
+      "url": "https://www.spaceappschallenge.org/2025/meet-the-2025-global-winners/",
+      "productUrl": "https://www.spaceappschallenge.org/2025/find-a-team/astro-sweepers-we-catch-what-space-leaves-behind/",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:35:00.000Z",
+      "originalDomain": "orbital debris accountability",
+      "concept": "A project that proposes a satellite credit score to incentivize responsible orbital-debris behavior.",
+      "oneLineDescription": "Turns orbital debris responsibility into a visible sustainability score.",
+      "problemSolved": "Space businesses and missions can create debris externalities that are hard for the public or policy makers to compare.",
+      "targetUser": "space policy audiences, mission planners, and sustainability advocates",
+      "coreUserInput": "Satellite, mission, or orbital-debris data associated with space actors.",
+      "coreOutput": "A sustainability score, visual prototype, and accountability signal for future missions.",
+      "outputArtifact": "satellite responsibility scorecard",
+      "coreMechanism": "The project maps orbital debris data into a credit-score-like metric that can be understood by policy, business, and public audiences.",
+      "interactionPattern": "User compares satellite or mission responsibility through a visible score and supporting visual evidence.",
+      "whyItIsInteresting": "It translates a hard public-good problem into a familiar accountability artifact.",
+      "whyItGotAttention": "NASA Space Apps named it the 2025 Galactic Impact Global Winner from the official top-10 winner set.",
+      "adoptionOrAttentionProof": [
+        "NASA Space Apps 2025 Global Winner",
+        "Award: Galactic Impact",
+        "Official team page: https://www.spaceappschallenge.org/2025/find-a-team/astro-sweepers-we-catch-what-space-leaves-behind/"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Excellent hidden-externality-to-scorecard pattern for civic concepts.",
+      "reasonNotMajorProduct": "It is a hackathon prototype, not a space sustainability rating agency.",
+      "transferableStructure": "Convert invisible externalities into a simple public score that can influence behavior and accountability.",
+      "ideaKernel": "Externality to responsibility score",
+      "noveltyKernel": "A credit-score metaphor makes abstract sustainability behavior legible.",
+      "transformationAxes": [
+        "scorecard",
+        "accountability",
+        "public_good",
+        "domain_shift"
+      ],
+      "cloneRisk": "Copying satellite debris scoring, space policy claims, or the Astro Sweepers identity.",
+      "antiCloneBoundary": "Do not copy orbital debris scoring; transfer the externality-to-scorecard structure.",
+      "doNotCopy": [
+        "satellite credit score",
+        "orbital debris domain",
+        "Astro Sweepers name"
+      ],
+      "remixableThemes": [
+        "local sustainability",
+        "school behavior",
+        "event cleanup",
+        "community infrastructure"
+      ],
+      "bestRemixTargets": [
+        "event waste responsibility score",
+        "school club sustainability meter",
+        "neighborhood maintenance scorecard"
+      ],
+      "evidenceRefs": [
+        "https://www.spaceappschallenge.org/2025/meet-the-2025-global-winners/",
+        "https://www.spaceappschallenge.org/2025/find-a-team/astro-sweepers-we-catch-what-space-leaves-behind/"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "devpost_audionova",
+      "name": "AudioNova",
+      "sourceType": "hackathon_demo",
+      "url": "https://devpost.com/software/audionova",
+      "productUrl": "https://devpost.com/software/audionova",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "originalDomain": "local voice generation and transformation",
+      "concept": "A local AI voice generation and transformation project powered by Qualcomm Whisper optimized for Snapdragon X.",
+      "oneLineDescription": "Turns speech or voice intent into local transformed voice output.",
+      "problemSolved": "Voice tools often depend on cloud connectivity, while some users need fast private voice processing on local hardware.",
+      "targetUser": "creators, accessibility users, and offline voice-tool experimenters",
+      "coreUserInput": "Voice audio, text, or transformation intent.",
+      "coreOutput": "Locally generated or transformed voice output.",
+      "outputArtifact": "on-device voice generation result",
+      "coreMechanism": "The project packages speech recognition or voice transformation into a local hardware-optimized workflow so audio can be processed without relying on remote servers.",
+      "interactionPattern": "User supplies audio or generation settings and reviews transformed voice output directly from the local device flow.",
+      "whyItIsInteresting": "It shifts a familiar AI media workflow from cloud generation to local-device capability.",
+      "whyItGotAttention": "The Devpost page presents it as a hackathon project with a clear on-device AI voice tagline and Snapdragon optimization angle.",
+      "adoptionOrAttentionProof": [
+        "Devpost project page observed",
+        "Tagline mentions local AI voice generation and Snapdragon X optimization",
+        "Submitted to: Windows on Snapdragon AI Hackathon",
+        "Devpost status: Winner 1st Place",
+        "Built With: fastapi, python, qualcomm, qualcommaihub, react"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Clear local-AI media transformation pattern with useful privacy and offline angles.",
+      "reasonNotMajorProduct": "It is a Devpost hackathon project page, not an established voice platform.",
+      "transferableStructure": "Move a cloud-like AI transformation into a local device workflow where privacy, latency, or offline use becomes the main value.",
+      "ideaKernel": "Cloud AI effect to local-device artifact",
+      "noveltyKernel": "The product value comes from where the AI runs, not only what it generates.",
+      "transformationAxes": [
+        "local_ai",
+        "media_transformation",
+        "privacy_shift",
+        "offline_workflow"
+      ],
+      "cloneRisk": "Copying AudioNova name, Snapdragon voice positioning, or voice generation workflow directly.",
+      "antiCloneBoundary": "Do not copy the local voice generation product; transfer the local-device transformation pattern to another media or workflow domain.",
+      "doNotCopy": [
+        "AudioNova name",
+        "Snapdragon voice generator positioning",
+        "voice transformation workflow"
+      ],
+      "remixableThemes": [
+        "education",
+        "accessibility",
+        "sports coaching",
+        "field work"
+      ],
+      "bestRemixTargets": [
+        "offline classroom pronunciation coach",
+        "local sports narration transformer",
+        "private meeting note voice assistant"
+      ],
+      "evidenceRefs": [
+        "https://devpost.com/software/audionova"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "github_browser_harness",
+      "name": "browser-harness",
+      "sourceType": "github_rising",
+      "url": "https://github.com/browser-use/browser-harness",
+      "productUrl": "https://github.com/browser-use/browser-harness",
+      "codeUrl": "https://github.com/browser-use/browser-harness",
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "originalDomain": "self-healing browser task harness",
+      "concept": "A self-healing browser harness intended to help LLMs complete browser tasks.",
+      "oneLineDescription": "Wraps browser tasks in a resilient harness for agent execution.",
+      "problemSolved": "Browser agents often break when pages change, selectors fail, or task state is unclear.",
+      "targetUser": "developers building reliable browser agents",
+      "coreUserInput": "Browser task, page context, target website, and action constraints.",
+      "coreOutput": "A harnessed execution path for completing the browser task.",
+      "outputArtifact": "self-healing browser task run",
+      "coreMechanism": "The project introduces a harness around browser automation so task execution can recover from page variation and keep agent state grounded.",
+      "interactionPattern": "Developer sends a browser task through the harness and observes whether the agent can complete it robustly.",
+      "whyItIsInteresting": "It shifts attention from prompt quality to the testable environment around an agent.",
+      "whyItGotAttention": "GitHub API showed more than 15k stars, a 2026 creation date, and a public product URL, indicating strong recent developer interest.",
+      "adoptionOrAttentionProof": [
+        "GitHub stars: 15391",
+        "Created: 2026-04-17",
+        "Pushed: 2026-06-21"
+      ],
+      "scaleClassification": "early_oss",
+      "reasonIncluded": "Agent reliability harness pattern is transferable beyond browser automation.",
+      "reasonNotMajorProduct": "It is a focused OSS harness, not an established browser platform.",
+      "transferableStructure": "Put a fragile AI task inside a measurable harness that observes state, retries, and reports completion.",
+      "ideaKernel": "Fragile task to resilient harness",
+      "noveltyKernel": "The harness becomes the product, not the agent itself.",
+      "transformationAxes": [
+        "reliability_layer",
+        "task_harness",
+        "agent_evaluation",
+        "domain_shift"
+      ],
+      "cloneRisk": "Copying browser-use positioning, browser-agent details, or harness implementation.",
+      "antiCloneBoundary": "Do not copy browser task automation; transfer the resilient-harness idea to another fragile workflow.",
+      "doNotCopy": [
+        "browser-use identity",
+        "browser task harness implementation",
+        "web automation claims"
+      ],
+      "remixableThemes": [
+        "education practice",
+        "public form completion",
+        "home maintenance",
+        "creator review"
+      ],
+      "bestRemixTargets": [
+        "study plan execution harness",
+        "application checklist verifier",
+        "household task completion coach"
+      ],
+      "evidenceRefs": [
+        "https://github.com/browser-use/browser-harness"
+      ],
+      "evidenceStrength": "medium",
+      "confidence": "medium"
+    },
+    {
+      "id": "devpost_canvas_student_insights",
+      "name": "Canvas Student Insights with AI",
+      "sourceType": "hackathon_demo",
+      "url": "https://devpost.com/software/canvas-student-insights-with-ai",
+      "productUrl": "https://devpost.com/software/canvas-student-insights-with-ai",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "originalDomain": "learning management analytics",
+      "concept": "An AI-powered Canvas dashboard for real-time progress summaries, actionable analytics, and personalized study plans.",
+      "oneLineDescription": "Turns LMS activity into student progress summaries and study plans.",
+      "problemSolved": "Teachers and students often see raw LMS activity but struggle to convert it into clear next actions.",
+      "targetUser": "educators and students using Canvas",
+      "coreUserInput": "Course activity, assignments, grades, progress signals, and learning goals.",
+      "coreOutput": "Progress summaries, analytics, and personalized study plans.",
+      "outputArtifact": "student insight dashboard and study plan",
+      "coreMechanism": "The project reads learning platform signals, summarizes progress with AI, and converts weak spots into personalized study guidance inside the dashboard context.",
+      "interactionPattern": "Teacher or student opens the dashboard and reviews summarized progress plus recommended study actions.",
+      "whyItIsInteresting": "It translates passive school data into an active coaching surface.",
+      "whyItGotAttention": "The Devpost page presents a concrete LMS-integrated AI analytics workflow with a clear educator/student user group.",
+      "adoptionOrAttentionProof": [
+        "Devpost project page observed",
+        "Tagline describes real-time progress summaries and personalized study plans",
+        "Submitted to: Google Chrome Built-in AI Challenge",
+        "Devpost status: Winner Honorable Mention",
+        "Built With: gemini, instructure-canvas, javascript"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Strong raw-activity-to-personalized-action pattern.",
+      "reasonNotMajorProduct": "It is a Devpost project page, not Canvas itself or an established edtech platform.",
+      "transferableStructure": "Convert activity logs from an existing system into summaries, friction points, and next-step plans.",
+      "ideaKernel": "Activity stream to coaching plan",
+      "noveltyKernel": "The useful move is making data actionable at the moment of review.",
+      "transformationAxes": [
+        "education",
+        "analytics_to_action",
+        "personalized_plan",
+        "dashboard"
+      ],
+      "cloneRisk": "Copying Canvas-specific integration, education claims, or exact student-insight workflow.",
+      "antiCloneBoundary": "Do not copy Canvas integration or student analytics product; transfer the activity-to-action dashboard pattern.",
+      "doNotCopy": [
+        "Canvas integration",
+        "student analytics UI",
+        "Canvas Student Insights name"
+      ],
+      "remixableThemes": [
+        "work habits",
+        "sports training",
+        "family routines",
+        "creator analytics"
+      ],
+      "bestRemixTargets": [
+        "practice log to coaching plan",
+        "household chores to next actions",
+        "creator dashboard to improvement plan"
+      ],
+      "evidenceRefs": [
+        "https://devpost.com/software/canvas-student-insights-with-ai"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "github_career_ops",
+      "name": "career-ops",
+      "sourceType": "github_rising",
+      "url": "https://github.com/santifer/career-ops",
+      "productUrl": "https://github.com/santifer/career-ops",
+      "codeUrl": "https://github.com/santifer/career-ops",
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "originalDomain": "job search operations",
+      "concept": "An AI-powered job search operations system with skill modes, dashboarding, PDF generation, and batch workflows.",
+      "oneLineDescription": "Turns a job hunt into a multi-mode operations dashboard.",
+      "problemSolved": "Job seekers must repeatedly tailor resumes, track applications, prepare interviews, and produce documents across fragmented tools.",
+      "targetUser": "job seekers managing many applications",
+      "coreUserInput": "Career profile, target roles, job postings, resume material, and application status.",
+      "coreOutput": "Resume PDFs, task batches, dashboard state, and interview preparation artifacts.",
+      "outputArtifact": "career operations dashboard and generated application documents",
+      "coreMechanism": "The project decomposes one messy life workflow into named AI skill modes, then wraps them with dashboard state, batch processing, and document output.",
+      "interactionPattern": "User chooses a career task mode, feeds role or profile context, and reviews generated documents or dashboard updates.",
+      "whyItIsInteresting": "It frames AI as an operations layer for a personal campaign rather than a single chat assistant.",
+      "whyItGotAttention": "GitHub API showed more than 55k stars, a 2026 creation date, and a push on 2026-06-26, indicating unusually strong recent developer attention.",
+      "adoptionOrAttentionProof": [
+        "GitHub stars: 55970",
+        "Created: 2026-04-04",
+        "Pushed: 2026-06-26"
+      ],
+      "scaleClassification": "early_oss",
+      "reasonIncluded": "Strong narrow workflow with reusable personal-operations structure.",
+      "reasonNotMajorProduct": "It is a public 2026 repository and not an established platform listed in the exclusion set.",
+      "transferableStructure": "Convert a recurring personal campaign into modes, queue, artifacts, and progress dashboard for a different life domain.",
+      "ideaKernel": "Personal campaign to AI operations room",
+      "noveltyKernel": "Career work becomes a stateful operations system with multiple AI roles.",
+      "transformationAxes": [
+        "domain_shift",
+        "workflow_decomposition",
+        "artifact_generation",
+        "progress_dashboard"
+      ],
+      "cloneRisk": "Copying the job-search positioning, skill names, dashboard structure, or resume automation claims too directly.",
+      "antiCloneBoundary": "Do not copy the career operations domain, repo identity, or resume/interview automation workflow; transfer only the campaign-operations pattern.",
+      "doNotCopy": [
+        "career operations framing",
+        "resume generation workflow",
+        "career-ops name"
+      ],
+      "remixableThemes": [
+        "education",
+        "family planning",
+        "local civic paperwork",
+        "creator workflow"
+      ],
+      "bestRemixTargets": [
+        "school application planner",
+        "family relocation operations",
+        "local subsidy application room"
+      ],
+      "evidenceRefs": [
+        "https://api.github.com/search/repositories?q=topic:ai-agent+created:%3E2025-12-31+pushed:%3E2026-06-01+stars:%3E50",
+        "https://github.com/santifer/career-ops"
+      ],
+      "evidenceStrength": "medium",
+      "confidence": "medium"
+    },
+    {
+      "id": "devpost_civil_dialog",
+      "name": "Civil Dialog",
+      "sourceType": "hackathon_demo",
+      "url": "https://devpost.com/software/civil-dialog",
+      "productUrl": "https://devpost.com/software/civil-dialog",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "originalDomain": "moderated public discourse",
+      "concept": "A discussion product that creates a safer space for controversial topics by reducing insults and unproductive behavior.",
+      "oneLineDescription": "Turns controversial discussion into moderated productive discourse.",
+      "problemSolved": "Online discussion can break down when insults, harassment, and low-quality conflict crowd out actual reasoning.",
+      "targetUser": "communities, classrooms, and public-discussion organizers",
+      "coreUserInput": "Discussion topic, participant messages, and moderation rules.",
+      "coreOutput": "Safer conversation flow, filtered tone, and more productive dialog space.",
+      "outputArtifact": "moderated civil discussion room",
+      "coreMechanism": "The project applies AI or rule-based moderation to conversational input, separating disagreement from personal attacks so the useful parts of debate can continue.",
+      "interactionPattern": "Participants submit comments while the system guides or filters the conversation toward civil exchange.",
+      "whyItIsInteresting": "It treats civility as an interaction product rather than a static policy page.",
+      "whyItGotAttention": "The Devpost page states a clear social goal: safe discussion without personal insults even around controversy.",
+      "adoptionOrAttentionProof": [
+        "Devpost project page observed",
+        "Tagline describes safe discussion free of personal insults",
+        "Submitted to: Windows on Snapdragon AI Hackathon",
+        "Devpost status: Winner 3rd Place",
+        "Built With: .net, blazor, c#, c++, geniesdk, maui, qai-hub, qnnsdk"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Useful conflict-to-constructive-dialog pattern for public-facing concepts.",
+      "reasonNotMajorProduct": "It is a Devpost hackathon project, not a dominant social platform.",
+      "transferableStructure": "Transform raw interpersonal conflict into structured exchange by moderating tone, roles, and contribution quality.",
+      "ideaKernel": "Conflict to productive dialog room",
+      "noveltyKernel": "The value is preserving disagreement while removing the behaviors that stop conversation.",
+      "transformationAxes": [
+        "moderation",
+        "social_interaction",
+        "civic_tech",
+        "domain_shift"
+      ],
+      "cloneRisk": "Copying the Civil Dialog name, moderation policy, or controversial-topic discussion product directly.",
+      "antiCloneBoundary": "Do not copy the civil-discussion platform; transfer the conflict-to-structured-dialog pattern to a specific, bounded context.",
+      "doNotCopy": [
+        "Civil Dialog name",
+        "general controversy platform",
+        "same moderation framing"
+      ],
+      "remixableThemes": [
+        "school debate",
+        "community planning",
+        "fan discussions",
+        "family decisions"
+      ],
+      "bestRemixTargets": [
+        "student debate facilitator",
+        "neighborhood proposal dialog room",
+        "sports fan argument translator"
+      ],
+      "evidenceRefs": [
+        "https://devpost.com/software/civil-dialog"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "hf_ai_comic_factory",
+      "name": "AI Comic Factory",
+      "sourceType": "huggingface_space",
+      "url": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+      "productUrl": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "originalDomain": "AI comic generation",
+      "concept": "A Hugging Face Space that turns story prompts into comic-style outputs.",
+      "oneLineDescription": "Turns a story idea into a comic artifact.",
+      "problemSolved": "People can imagine visual stories but lack drawing, paneling, and layout skills to make them shareable.",
+      "targetUser": "casual storytellers and creative AI users",
+      "coreUserInput": "Story idea, style direction, characters, or scene prompt.",
+      "coreOutput": "Comic-style visual panels or generated comic artifact.",
+      "outputArtifact": "generated comic page or panels",
+      "coreMechanism": "The demo combines text prompt interpretation, visual generation, and comic framing so a narrative becomes panel-based output.",
+      "interactionPattern": "User enters a story direction and receives a shareable visual sequence.",
+      "whyItIsInteresting": "It moves generation from single image to a familiar narrative format.",
+      "whyItGotAttention": "Hugging Face Spaces API showed 11144 likes, a strong public-gallery signal for a creative artifact demo.",
+      "adoptionOrAttentionProof": [
+        "Hugging Face likes: 11144",
+        "Created: 2023-08-25",
+        "SDK: docker"
+      ],
+      "scaleClassification": "showcase_launch",
+      "reasonIncluded": "Strong transformation from text to structured visual story.",
+      "reasonNotMajorProduct": "It is a public Space demo and not an established comic publishing platform.",
+      "transferableStructure": "Transform a plain idea into a structured, familiar media format with multiple panels or steps.",
+      "ideaKernel": "Idea to narrative visual artifact",
+      "noveltyKernel": "The comic format makes AI output easier to understand and share.",
+      "transformationAxes": [
+        "output_form_shift",
+        "story_to_panels",
+        "visual_generation"
+      ],
+      "cloneRisk": "Copying comic generation, the AI Comic Factory identity, or panel styles directly.",
+      "antiCloneBoundary": "Do not copy comic generation; transfer the idea-to-structured-media pattern.",
+      "doNotCopy": [
+        "AI Comic Factory name",
+        "comic panel generation",
+        "same visual style"
+      ],
+      "remixableThemes": [
+        "education",
+        "local culture",
+        "sports",
+        "family memory"
+      ],
+      "bestRemixTargets": [
+        "lesson to storyboard",
+        "local history to picture sequence",
+        "game recap to fan comic"
+      ],
+      "evidenceRefs": [
+        "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "medium"
+    },
+    {
+      "id": "hf_deepsite",
+      "name": "DeepSite",
+      "sourceType": "huggingface_space",
+      "url": "https://huggingface.co/spaces/enzostvs/deepsite",
+      "productUrl": "https://huggingface.co/spaces/enzostvs/deepsite",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "originalDomain": "AI website generation demo",
+      "concept": "A Hugging Face Space for generating website or app-like outputs from prompts.",
+      "oneLineDescription": "Turns a prompt into an inspectable web artifact.",
+      "problemSolved": "Users want to move from an idea to a visible prototype without setting up a full development environment.",
+      "targetUser": "non-technical makers and prototype builders",
+      "coreUserInput": "A description of a site or small product idea.",
+      "coreOutput": "Generated web page or prototype files shown in the browser.",
+      "outputArtifact": "generated website prototype",
+      "coreMechanism": "The Space packages code generation and preview into a public demo so users can see a prompt become a concrete web artifact.",
+      "interactionPattern": "User enters an idea and reviews the generated page directly inside the Space.",
+      "whyItIsInteresting": "It is a compact public demo of idea-to-artifact generation.",
+      "whyItGotAttention": "Hugging Face Spaces API showed 16617 likes, making it the top liked Space in the observed result set.",
+      "adoptionOrAttentionProof": [
+        "Hugging Face likes: 16617",
+        "Created: 2025-03-26",
+        "SDK: docker"
+      ],
+      "scaleClassification": "showcase_launch",
+      "reasonIncluded": "Strong public signal and direct relevance to Prodia artifact generation.",
+      "reasonNotMajorProduct": "It is a Hugging Face Space demo, not an established website builder platform.",
+      "transferableStructure": "Let a user describe an artifact and immediately inspect a generated version in the same public surface.",
+      "ideaKernel": "Prompt to inspectable artifact",
+      "noveltyKernel": "Immediate preview makes generation feel tangible and shareable.",
+      "transformationAxes": [
+        "prompt_to_artifact",
+        "public_demo",
+        "instant_preview"
+      ],
+      "cloneRisk": "Copying the website generator product, DeepSite name, or prompt-to-site interface directly.",
+      "antiCloneBoundary": "Do not copy website generation; transfer the prompt-to-inspectable-artifact interaction to another artifact type.",
+      "doNotCopy": [
+        "DeepSite name",
+        "site generator interface",
+        "same web-builder positioning"
+      ],
+      "remixableThemes": [
+        "education",
+        "public explainers",
+        "sports",
+        "family planning"
+      ],
+      "bestRemixTargets": [
+        "lesson to interactive card",
+        "local issue to explainer board",
+        "match idea to fan artifact"
+      ],
+      "evidenceRefs": [
+        "https://huggingface.co/api/spaces?sort=likes&direction=-1&limit=20",
+        "https://huggingface.co/spaces/enzostvs/deepsite"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "medium"
+    },
+    {
+      "id": "devpost_fireflai",
+      "name": "Fireflai",
+      "sourceType": "hackathon_demo",
+      "url": "https://devpost.com/software/fireflai",
+      "productUrl": "https://devpost.com/software/fireflai",
+      "codeUrl": "https://github.com/Hrishikesh-Athreya/fireflai/tree/final-code",
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "originalDomain": "firefighter incident response",
+      "concept": "A multi-agent AI tool that turns property information and emergency-call text into a hazard-annotated 3D briefing for firefighters.",
+      "oneLineDescription": "Turns emergency context into a pre-entry tactical briefing.",
+      "problemSolved": "Firefighters may enter unfamiliar buildings with limited layout, hazard, and occupant context while every second matters.",
+      "targetUser": "firefighters and dispatch operators",
+      "coreUserInput": "Property listing link, 911 call text, and incident context.",
+      "coreOutput": "Hazard-annotated 3D model, room graph, recommended path, and briefing.",
+      "outputArtifact": "incident briefing dashboard with hazard overlay",
+      "coreMechanism": "The project collects public property imagery and emergency-call text, reconstructs interior context, maps hazards, and generates a tactical briefing through a multi-agent pipeline.",
+      "interactionPattern": "Operator pastes a property link and call text, then responders review a live dashboard before entry.",
+      "whyItIsInteresting": "It transforms scattered pre-incident evidence into a time-critical situational awareness artifact.",
+      "whyItGotAttention": "The Devpost page includes a detailed What it does section and a GitHub link, making the end-to-end emergency workflow inspectable.",
+      "adoptionOrAttentionProof": [
+        "Devpost project page observed",
+        "GitHub URL listed on Devpost",
+        "Built-with tags include Browserbase, Deepgram, Fetch.ai, Arize, and Aura",
+        "Submitted to: UC Berkeley AI Hackathon 2026",
+        "Built With: arize, aura, browserbase, deepgram, fetchai",
+        "External link: https://github.com/Hrishikesh-Athreya/fireflai/tree/final-code"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Strong messy-evidence-to-operational-briefing pattern.",
+      "reasonNotMajorProduct": "It is a Devpost hackathon demo, not an official emergency response system.",
+      "transferableStructure": "Convert scattered public evidence and urgent text into a spatial briefing with hazards, route, and confidence-aware recommendations.",
+      "ideaKernel": "Messy evidence to tactical briefing",
+      "noveltyKernel": "The value is pre-orientation before a dangerous physical action.",
+      "transformationAxes": [
+        "evidence_to_briefing",
+        "spatial_model",
+        "multi_agent_pipeline",
+        "safety_workflow"
+      ],
+      "cloneRisk": "Copying firefighter response, emergency-safety claims, property scraping, or tactical-route recommendations.",
+      "antiCloneBoundary": "Do not copy emergency response or firefighter tactical claims; transfer only the evidence-to-briefing structure to lower-risk domains.",
+      "doNotCopy": [
+        "firefighter tactical briefing",
+        "911 call workflow",
+        "property listing reconstruction"
+      ],
+      "remixableThemes": [
+        "event readiness",
+        "school trip planning",
+        "home maintenance",
+        "venue accessibility"
+      ],
+      "bestRemixTargets": [
+        "venue readiness briefing",
+        "school field trip risk map",
+        "home repair pre-visit briefing"
+      ],
+      "evidenceRefs": [
+        "https://devpost.com/software/fireflai",
+        "https://github.com/Hrishikesh-Athreya/fireflai/tree/final-code"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "github_guizang_ppt_skill",
+      "name": "guizang-ppt-skill",
+      "sourceType": "github_rising",
+      "url": "https://github.com/op7418/guizang-ppt-skill",
+      "productUrl": "https://github.com/op7418/guizang-ppt-skill",
+      "codeUrl": "https://github.com/op7418/guizang-ppt-skill",
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "originalDomain": "AI slide deck generation",
+      "concept": "An AI-agent skill for creating polished HTML slide decks with magazine and Swiss layouts, image prompts, covers, and runtime behavior.",
+      "oneLineDescription": "Turns a presentation brief into a styled interactive HTML deck.",
+      "problemSolved": "People can generate slide content but still struggle to produce visually coherent, presentation-ready decks.",
+      "targetUser": "AI agent users preparing presentations",
+      "coreUserInput": "Presentation topic, structure, desired visual style, and image requirements.",
+      "coreOutput": "Styled HTML slides, cover assets, layout rules, and presentation runtime files.",
+      "outputArtifact": "polished HTML slide deck",
+      "coreMechanism": "The skill bundles design rules, layout patterns, image prompting, and runtime constraints so an agent can produce a finished deck rather than text-only slides.",
+      "interactionPattern": "User asks an agent for a deck and receives files that can be opened, presented, or revised.",
+      "whyItIsInteresting": "It packages taste and production constraints as a reusable agent skill.",
+      "whyItGotAttention": "GitHub API showed more than 19k stars for a 2026 repository, implying strong demand for artifact-quality generation skills.",
+      "adoptionOrAttentionProof": [
+        "GitHub stars: 19108",
+        "Created: 2026-04-23",
+        "Pushed: 2026-06-02"
+      ],
+      "scaleClassification": "early_oss",
+      "reasonIncluded": "Strong example of turning tacit design practice into an agent-executable artifact recipe.",
+      "reasonNotMajorProduct": "It is a focused skill repository, not a dominant presentation platform.",
+      "transferableStructure": "Encode domain taste, production checks, and output constraints as a reusable generation skill.",
+      "ideaKernel": "Taste as executable skill",
+      "noveltyKernel": "The product is not a deck app but a portable agent skill for polished artifacts.",
+      "transformationAxes": [
+        "artifact_quality",
+        "skill_packaging",
+        "design_rule_transfer",
+        "output_form_shift"
+      ],
+      "cloneRisk": "Copying slide layouts, skill branding, visual presets, or presentation runtime details.",
+      "antiCloneBoundary": "Do not copy the slide-deck domain or visual system; transfer the executable taste-and-checklist pattern.",
+      "doNotCopy": [
+        "Swiss deck presets",
+        "guizang skill name",
+        "HTML slide runtime"
+      ],
+      "remixableThemes": [
+        "student projects",
+        "public reports",
+        "sports storytelling",
+        "family memory artifacts"
+      ],
+      "bestRemixTargets": [
+        "science fair poster skill",
+        "local issue explainer skill",
+        "sports match recap generator"
+      ],
+      "evidenceRefs": [
+        "https://github.com/op7418/guizang-ppt-skill"
+      ],
+      "evidenceStrength": "medium",
+      "confidence": "medium"
+    },
+    {
+      "id": "nasa_spaceapps_2025_hercode_space",
+      "name": "HerCode Space",
+      "sourceType": "hackathon_winner",
+      "url": "https://www.spaceappschallenge.org/2025/meet-the-2025-global-winners/",
+      "productUrl": "https://www.spaceappschallenge.org/2025/find-a-team/hercode-space/",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:35:00.000Z",
+      "originalDomain": "space weather storytelling",
+      "concept": "A storytelling project called A Solar Tale that combines science, poetry, and history to spark curiosity about space weather.",
+      "oneLineDescription": "Turns space-weather science into a child-friendly story experience.",
+      "problemSolved": "Space-weather science can feel abstract, especially for children who need emotionally engaging entry points.",
+      "targetUser": "children, educators, families, and science communicators",
+      "coreUserInput": "Space-weather concepts, story structure, and educational framing.",
+      "coreOutput": "A narrative learning artifact that blends science, poetry, history, and wonder.",
+      "outputArtifact": "science storytelling experience",
+      "coreMechanism": "The project packages scientific ideas into a narrative artifact, using literary and historical framing to make abstract phenomena memorable.",
+      "interactionPattern": "User experiences the science through a story rather than a textbook-style explanation.",
+      "whyItIsInteresting": "It treats storytelling as the primary interface for scientific understanding.",
+      "whyItGotAttention": "NASA Space Apps named it the 2025 Best Use of Storytelling Global Winner from the official top-10 winner set.",
+      "adoptionOrAttentionProof": [
+        "NASA Space Apps 2025 Global Winner",
+        "Award: Best Use of Storytelling",
+        "Official team page: https://www.spaceappschallenge.org/2025/find-a-team/hercode-space/"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Strong science-to-story pattern for visitor-facing public artifacts.",
+      "reasonNotMajorProduct": "It is a hackathon storytelling project, not an established education publisher.",
+      "transferableStructure": "Translate an abstract technical topic into a multi-layered story that blends facts, emotion, and cultural context.",
+      "ideaKernel": "Abstract science to wonder story",
+      "noveltyKernel": "The learning interface is a story that children would want to hear.",
+      "transformationAxes": [
+        "storytelling",
+        "education",
+        "science_translation",
+        "audience_shift"
+      ],
+      "cloneRisk": "Copying A Solar Tale, space-weather education, HerCode Space identity, or the exact story premise.",
+      "antiCloneBoundary": "Do not copy the solar tale or space-weather story; transfer the science-to-wonder storytelling method.",
+      "doNotCopy": [
+        "A Solar Tale",
+        "space weather story",
+        "HerCode Space name"
+      ],
+      "remixableThemes": [
+        "local nature",
+        "history education",
+        "sports science",
+        "public health"
+      ],
+      "bestRemixTargets": [
+        "river ecology bedtime story",
+        "local history interactive tale",
+        "sports physics storybook"
+      ],
+      "evidenceRefs": [
+        "https://www.spaceappschallenge.org/2025/meet-the-2025-global-winners/",
+        "https://www.spaceappschallenge.org/2025/find-a-team/hercode-space/"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "devpost_insightify",
+      "name": "Insightify",
+      "sourceType": "hackathon_demo",
+      "url": "https://devpost.com/software/insightify-6rh0sc",
+      "productUrl": "https://devpost.com/software/insightify-6rh0sc",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "originalDomain": "customer review management",
+      "concept": "An AI tool for international businesses to analyze reviews, generate responses, translate feedback, and summarize insights.",
+      "oneLineDescription": "Turns multilingual reviews into responses and business insights.",
+      "problemSolved": "Small international businesses receive fragmented customer feedback across languages and lack time to respond or extract themes.",
+      "targetUser": "international small businesses and customer support teams",
+      "coreUserInput": "Customer reviews, language context, business profile, and response preferences.",
+      "coreOutput": "Review replies, translations, summaries, and customer-insight themes.",
+      "outputArtifact": "review insight and response dashboard",
+      "coreMechanism": "The project groups and translates customer reviews, summarizes recurring issues, and generates response drafts while considering server-cost constraints.",
+      "interactionPattern": "Business user imports or views reviews, then accepts suggested replies and insight summaries.",
+      "whyItIsInteresting": "It combines translation, summarization, and response generation into one narrow business workflow.",
+      "whyItGotAttention": "The Devpost page gives a concrete SMB use case and emphasizes low server costs, making it product-shaped rather than generic chat.",
+      "adoptionOrAttentionProof": [
+        "Devpost project page observed",
+        "Tagline describes review response generation, translation, and insight summarization",
+        "Submitted to: Google Chrome Built-in AI Challenge",
+        "Devpost status: Winner Honorable Mention",
+        "Built With: typescript"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Strong multilingual-feedback-to-action pattern.",
+      "reasonNotMajorProduct": "It is a Devpost project, not an established review-management platform.",
+      "transferableStructure": "Turn messy multilingual feedback into grouped themes, translated meaning, and ready-to-review response drafts.",
+      "ideaKernel": "Feedback stream to action dashboard",
+      "noveltyKernel": "The business value comes from closing the loop from listening to responding.",
+      "transformationAxes": [
+        "feedback_analysis",
+        "translation",
+        "response_generation",
+        "dashboard"
+      ],
+      "cloneRisk": "Copying review-management domain, Insightify name, or business-response workflow too directly.",
+      "antiCloneBoundary": "Do not copy multilingual review management; transfer the feedback-to-response loop to another context.",
+      "doNotCopy": [
+        "Insightify name",
+        "customer review response product",
+        "international SMB positioning"
+      ],
+      "remixableThemes": [
+        "education feedback",
+        "community input",
+        "sports club comments",
+        "creator audience feedback"
+      ],
+      "bestRemixTargets": [
+        "class feedback response board",
+        "local proposal comment summarizer",
+        "fan comment insight dashboard"
+      ],
+      "evidenceRefs": [
+        "https://devpost.com/software/insightify-6rh0sc"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "nasa_spaceapps_2025_gaia_leo",
+      "name": "Gaia+LEO",
+      "sourceType": "hackathon_winner",
+      "url": "https://www.spaceappschallenge.org/2025/meet-the-2025-global-winners/",
+      "productUrl": "https://www.spaceappschallenge.org/2025/find-a-team/gaialeo/",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:35:00.000Z",
+      "originalDomain": "space-based AI infrastructure sustainability",
+      "concept": "A concept for relocating computer infrastructure into space to reduce local land, water, energy, and heat impacts from AI growth.",
+      "oneLineDescription": "Turns AI infrastructure strain into a space-sustainability concept.",
+      "problemSolved": "AI infrastructure growth can strain land, water, energy systems, and nearby communities on Earth.",
+      "targetUser": "infrastructure planners, sustainability audiences, and space-economy thinkers",
+      "coreUserInput": "AI infrastructure demand, resource-impact assumptions, and LEO infrastructure concept parameters.",
+      "coreOutput": "A sustainability concept showing how relocating compute burden could change environmental impacts.",
+      "outputArtifact": "space-based AI infrastructure concept",
+      "coreMechanism": "The project reframes AI scaling as a geography and infrastructure problem, then proposes moving some burden to orbital infrastructure.",
+      "interactionPattern": "User considers tradeoffs between Earth-based infrastructure strain and a speculative space-based alternative.",
+      "whyItIsInteresting": "It links two current themes, AI growth and space infrastructure, into one provocative systems concept.",
+      "whyItGotAttention": "NASA Space Apps named it the 2025 Global Connection Global Winner from the official top-10 winner set.",
+      "adoptionOrAttentionProof": [
+        "NASA Space Apps 2025 Global Winner",
+        "Award: Global Connection",
+        "Official team page: https://www.spaceappschallenge.org/2025/find-a-team/gaialeo/"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Strong systems-remix pattern connecting AI infrastructure and environmental burden.",
+      "reasonNotMajorProduct": "It is a hackathon concept, not an operating infrastructure company.",
+      "transferableStructure": "Reframe a fast-growing technology burden as a resource-location problem and explore alternative system placement.",
+      "ideaKernel": "Technology burden to relocation concept",
+      "noveltyKernel": "The surprise comes from moving the cost center to a different physical system.",
+      "transformationAxes": [
+        "systems_thinking",
+        "infrastructure_shift",
+        "sustainability",
+        "speculative_concept"
+      ],
+      "cloneRisk": "Copying orbital AI compute, Gaia+LEO identity, or sustainability claims without proof.",
+      "antiCloneBoundary": "Do not copy the space-based AI infrastructure concept; transfer the burden-relocation structure.",
+      "doNotCopy": [
+        "Gaia+LEO name",
+        "AI compute in space concept",
+        "specific sustainability claims"
+      ],
+      "remixableThemes": [
+        "city planning",
+        "school operations",
+        "event logistics",
+        "supply chains"
+      ],
+      "bestRemixTargets": [
+        "school burden relocation map",
+        "event waste system redesign",
+        "community cooling tradeoff simulator"
+      ],
+      "evidenceRefs": [
+        "https://www.spaceappschallenge.org/2025/meet-the-2025-global-winners/",
+        "https://www.spaceappschallenge.org/2025/find-a-team/gaialeo/"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "nasa_spaceapps_2025_twisters",
+      "name": "Twisters",
+      "sourceType": "hackathon_winner",
+      "url": "https://www.spaceappschallenge.org/2025/meet-the-2025-global-winners/",
+      "productUrl": "https://www.spaceappschallenge.org/2025/find-a-team/twisters/",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:35:00.000Z",
+      "originalDomain": "weather planning assistant",
+      "concept": "A weather-planning system that combines NASA satellite and weather datasets into probability metrics for outdoor adventure planning.",
+      "oneLineDescription": "Turns scientific weather data into an everyday outdoor-planning assistant.",
+      "problemSolved": "People planning outdoor activities need actionable rain and weather risk answers instead of raw scientific datasets.",
+      "targetUser": "outdoor planners, travelers, and general weather-aware users",
+      "coreUserInput": "Location, planned activity, date or time window, and weather-data context.",
+      "coreOutput": "Clear probability metrics and a planning recommendation for outdoor activities.",
+      "outputArtifact": "weather probability planning assistant",
+      "coreMechanism": "The project blends satellite and weather sources, cleans and transforms them, then presents probability metrics through a user-facing planning interface.",
+      "interactionPattern": "User asks whether a plan is weather-safe and receives a simple risk answer backed by processed data.",
+      "whyItIsInteresting": "It turns scientific data into a decision helper for a familiar everyday question.",
+      "whyItGotAttention": "NASA Space Apps named it the 2025 Best Use of Technology Global Winner from the official top-10 winner set.",
+      "adoptionOrAttentionProof": [
+        "NASA Space Apps 2025 Global Winner",
+        "Award: Best Use of Technology",
+        "Official team page: https://www.spaceappschallenge.org/2025/find-a-team/twisters/"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Strong scientific-data-to-everyday-decision pattern.",
+      "reasonNotMajorProduct": "It is a NASA Space Apps hackathon project, not a commercial weather platform.",
+      "transferableStructure": "Blend expert datasets into one probability metric that answers a simple planning question.",
+      "ideaKernel": "Expert data to everyday go/no-go assistant",
+      "noveltyKernel": "The project succeeds by narrowing scientific data into one practical user decision.",
+      "transformationAxes": [
+        "decision_helper",
+        "data_pipeline",
+        "everyday_translation",
+        "probability_metric"
+      ],
+      "cloneRisk": "Copying the weather assistant, rain planning, or SkySense/Twisters identity too directly.",
+      "antiCloneBoundary": "Do not copy the weather-planning domain; transfer the expert-data-to-go/no-go metric pattern.",
+      "doNotCopy": [
+        "weather adventure planning",
+        "Twisters name",
+        "SkySense interface"
+      ],
+      "remixableThemes": [
+        "event planning",
+        "school logistics",
+        "sports participation",
+        "family travel"
+      ],
+      "bestRemixTargets": [
+        "school event readiness score",
+        "sports practice weather-and-logistics helper",
+        "family outing confidence meter"
+      ],
+      "evidenceRefs": [
+        "https://www.spaceappschallenge.org/2025/meet-the-2025-global-winners/",
+        "https://www.spaceappschallenge.org/2025/find-a-team/twisters/"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    },
+    {
+      "id": "devpost_quad",
+      "name": "Quad",
+      "sourceType": "hackathon_demo",
+      "url": "https://devpost.com/software/quad-iv8l4h",
+      "productUrl": "https://devpost.com/software/quad-iv8l4h",
+      "codeUrl": null,
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "originalDomain": "agent knowledge infrastructure",
+      "concept": "Knowledge infrastructure for AI employees that proves work with grounded evidence, approval gates, and replayable workflows.",
+      "oneLineDescription": "Turns agent answers into evidence-backed replayable work.",
+      "problemSolved": "Organizations may not trust AI employees if answers are not grounded, reviewable, approved, or replayable.",
+      "targetUser": "teams deploying AI agents for knowledge work",
+      "coreUserInput": "Work request, enterprise knowledge, evidence sources, and approval rules.",
+      "coreOutput": "Grounded answer, evidence trail, approval state, and replayable execution record.",
+      "outputArtifact": "evidence-backed agent work record",
+      "coreMechanism": "The project wraps agent output with evidence grounding, approval gates, and replay logs so work can be audited instead of treated as a black-box response.",
+      "interactionPattern": "User asks an AI employee for work and reviews answer, sources, approval status, and replay path.",
+      "whyItIsInteresting": "It makes agent reliability visible through process artifacts rather than only final answer quality.",
+      "whyItGotAttention": "The Devpost tagline is sharply aligned with current demand for agent governance and replayable AI work.",
+      "adoptionOrAttentionProof": [
+        "Devpost project page observed",
+        "Tagline describes evidence-grounded, approval-gated, replayable AI employees",
+        "Submitted to: UC Berkeley AI Hackathon 2026",
+        "Built With: anthropic-claude, arize-phoenix, browserbase, deepgram, next.js, opentelemetry, pgvector, postgresql, react, redis, sentry, supabase, typescript, upstash",
+        "External link: https://app.quad.stephenhung.me/papers/quad-chain-research-paper.pdf"
+      ],
+      "scaleClassification": "hackathon",
+      "reasonIncluded": "Directly relevant evidence/provenance pattern for Prodia agent artifacts.",
+      "reasonNotMajorProduct": "It is a Devpost hackathon project, not a known enterprise agent platform.",
+      "transferableStructure": "Attach evidence, approval, and replay metadata to generated work so users can inspect process and trust boundaries.",
+      "ideaKernel": "Agent output to auditable work record",
+      "noveltyKernel": "The artifact around the answer is as valuable as the answer itself.",
+      "transformationAxes": [
+        "provenance",
+        "approval_gate",
+        "replayability",
+        "agent_governance"
+      ],
+      "cloneRisk": "Copying Quad's AI employee positioning, evidence system, or enterprise workflow directly.",
+      "antiCloneBoundary": "Do not copy AI employee infrastructure; transfer the evidence-plus-replay wrapper to bounded public artifacts.",
+      "doNotCopy": [
+        "Quad name",
+        "AI employee positioning",
+        "enterprise knowledge infrastructure"
+      ],
+      "remixableThemes": [
+        "education",
+        "public reporting",
+        "creative review",
+        "community decisions"
+      ],
+      "bestRemixTargets": [
+        "student answer provenance viewer",
+        "public proposal evidence trail",
+        "creative critique replay log"
+      ],
+      "evidenceRefs": [
+        "https://devpost.com/software/quad-iv8l4h",
+        "https://app.quad.stephenhung.me/papers/quad-chain-research-paper.pdf"
+      ],
+      "evidenceStrength": "high",
+      "confidence": "high"
+    }
+  ],
+  "sourceArchiveIndex": [
+    {
+      "id": "archive_nasa_spaceapps_2025_astro_sweepers",
+      "sourceProductCardId": "nasa_spaceapps_2025_astro_sweepers",
+      "sourceCategory": "hackathon_winner",
+      "sourceName": "hackathon_winner",
+      "sourceUrl": "https://www.spaceappschallenge.org/2025/find-a-team/astro-sweepers-we-catch-what-space-leaves-behind/",
+      "retrievalQueryOrPath": "hackathon_winner",
+      "observedAt": "2026-06-27T03:35:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns orbital debris responsibility into a visible sustainability score.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_devpost_audionova",
+      "sourceProductCardId": "devpost_audionova",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "hackathon_demo",
+      "sourceUrl": "https://devpost.com/software/audionova",
+      "retrievalQueryOrPath": "hackathon_demo",
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns speech or voice intent into local transformed voice output.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_devpost_audionova_metadata_20260627",
+      "sourceProductCardId": "devpost_audionova",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "Devpost project metadata",
+      "sourceUrl": "https://devpost.com/software/audionova",
+      "retrievalQueryOrPath": "Submitted to: Windows on Snapdragon AI Hackathon; Built With: fastapi, python, qualcomm, qualcommaihub, react",
+      "observedAt": "2026-06-27T04:15:00.000Z",
+      "revisitCadence": "monthly",
+      "storedEvidenceSummary": "Devpost shows AudioNova as Windows on Snapdragon AI Hackathon Winner 1st Place with local AI voice generation tagline.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_github_browser_harness",
+      "sourceProductCardId": "github_browser_harness",
+      "sourceCategory": "github_rising",
+      "sourceName": "github_rising",
+      "sourceUrl": "https://github.com/browser-use/browser-harness",
+      "retrievalQueryOrPath": "github_rising",
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Wraps browser tasks in a resilient harness for agent execution.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_devpost_canvas_student_insights",
+      "sourceProductCardId": "devpost_canvas_student_insights",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "hackathon_demo",
+      "sourceUrl": "https://devpost.com/software/canvas-student-insights-with-ai",
+      "retrievalQueryOrPath": "hackathon_demo",
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns LMS activity into student progress summaries and study plans.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_devpost_canvas_student_insights_metadata_20260627",
+      "sourceProductCardId": "devpost_canvas_student_insights",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "Devpost project metadata",
+      "sourceUrl": "https://devpost.com/software/canvas-student-insights-with-ai",
+      "retrievalQueryOrPath": "Submitted to: Google Chrome Built-in AI Challenge; Built With: gemini, instructure-canvas, javascript",
+      "observedAt": "2026-06-27T04:15:00.000Z",
+      "revisitCadence": "monthly",
+      "storedEvidenceSummary": "Devpost shows Canvas Student Insights with AI as Google Chrome Built-in AI Challenge Winner Honorable Mention.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_github_career_ops",
+      "sourceProductCardId": "github_career_ops",
+      "sourceCategory": "github_rising",
+      "sourceName": "github_rising",
+      "sourceUrl": "https://github.com/santifer/career-ops",
+      "retrievalQueryOrPath": "github_rising",
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns a job hunt into a multi-mode operations dashboard.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_devpost_civil_dialog",
+      "sourceProductCardId": "devpost_civil_dialog",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "hackathon_demo",
+      "sourceUrl": "https://devpost.com/software/civil-dialog",
+      "retrievalQueryOrPath": "hackathon_demo",
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns controversial discussion into moderated productive discourse.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_devpost_civil_dialog_metadata_20260627",
+      "sourceProductCardId": "devpost_civil_dialog",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "Devpost project metadata",
+      "sourceUrl": "https://devpost.com/software/civil-dialog",
+      "retrievalQueryOrPath": "Submitted to: Windows on Snapdragon AI Hackathon; Built With: .net, blazor, c#, c++, geniesdk, maui, qai-hub, qnnsdk",
+      "observedAt": "2026-06-27T04:15:00.000Z",
+      "revisitCadence": "monthly",
+      "storedEvidenceSummary": "Devpost shows Civil Dialog as Windows on Snapdragon AI Hackathon Winner 3rd Place.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_hf_ai_comic_factory",
+      "sourceProductCardId": "hf_ai_comic_factory",
+      "sourceCategory": "product_gallery",
+      "sourceName": "huggingface_space",
+      "sourceUrl": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+      "retrievalQueryOrPath": "product_gallery",
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns a story idea into a comic artifact.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_hf_deepsite",
+      "sourceProductCardId": "hf_deepsite",
+      "sourceCategory": "product_gallery",
+      "sourceName": "huggingface_space",
+      "sourceUrl": "https://huggingface.co/spaces/enzostvs/deepsite",
+      "retrievalQueryOrPath": "product_gallery",
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns a prompt into an inspectable web artifact.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_devpost_fireflai",
+      "sourceProductCardId": "devpost_fireflai",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "hackathon_demo",
+      "sourceUrl": "https://devpost.com/software/fireflai",
+      "retrievalQueryOrPath": "hackathon_demo",
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns emergency context into a pre-entry tactical briefing.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_devpost_fireflai_metadata_20260627",
+      "sourceProductCardId": "devpost_fireflai",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "Devpost project metadata",
+      "sourceUrl": "https://devpost.com/software/fireflai",
+      "retrievalQueryOrPath": "Submitted to: UC Berkeley AI Hackathon 2026; Built With: arize, aura, browserbase, deepgram, fetchai",
+      "observedAt": "2026-06-27T04:15:00.000Z",
+      "revisitCadence": "monthly",
+      "storedEvidenceSummary": "Devpost shows Fireflai as a UC Berkeley AI Hackathon 2026 project with a GitHub final-code link.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_github_guizang_ppt_skill",
+      "sourceProductCardId": "github_guizang_ppt_skill",
+      "sourceCategory": "github_rising",
+      "sourceName": "github_rising",
+      "sourceUrl": "https://github.com/op7418/guizang-ppt-skill",
+      "retrievalQueryOrPath": "github_rising",
+      "observedAt": "2026-06-27T03:10:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns a presentation brief into a styled interactive HTML deck.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_nasa_spaceapps_2025_hercode_space",
+      "sourceProductCardId": "nasa_spaceapps_2025_hercode_space",
+      "sourceCategory": "hackathon_winner",
+      "sourceName": "hackathon_winner",
+      "sourceUrl": "https://www.spaceappschallenge.org/2025/find-a-team/hercode-space/",
+      "retrievalQueryOrPath": "hackathon_winner",
+      "observedAt": "2026-06-27T03:35:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns space-weather science into a child-friendly story experience.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_devpost_insightify",
+      "sourceProductCardId": "devpost_insightify",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "hackathon_demo",
+      "sourceUrl": "https://devpost.com/software/insightify-6rh0sc",
+      "retrievalQueryOrPath": "hackathon_demo",
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns multilingual reviews into responses and business insights.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_devpost_insightify_metadata_20260627",
+      "sourceProductCardId": "devpost_insightify",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "Devpost project metadata",
+      "sourceUrl": "https://devpost.com/software/insightify-6rh0sc",
+      "retrievalQueryOrPath": "Submitted to: Google Chrome Built-in AI Challenge; Built With: typescript",
+      "observedAt": "2026-06-27T04:15:00.000Z",
+      "revisitCadence": "monthly",
+      "storedEvidenceSummary": "Devpost shows Insightify as Google Chrome Built-in AI Challenge Winner Honorable Mention.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_nasa_spaceapps_2025_gaia_leo",
+      "sourceProductCardId": "nasa_spaceapps_2025_gaia_leo",
+      "sourceCategory": "hackathon_winner",
+      "sourceName": "hackathon_winner",
+      "sourceUrl": "https://www.spaceappschallenge.org/2025/find-a-team/gaialeo/",
+      "retrievalQueryOrPath": "hackathon_winner",
+      "observedAt": "2026-06-27T03:35:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns AI infrastructure strain into a space-sustainability concept.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_nasa_spaceapps_2025_twisters",
+      "sourceProductCardId": "nasa_spaceapps_2025_twisters",
+      "sourceCategory": "hackathon_winner",
+      "sourceName": "hackathon_winner",
+      "sourceUrl": "https://www.spaceappschallenge.org/2025/find-a-team/twisters/",
+      "retrievalQueryOrPath": "hackathon_winner",
+      "observedAt": "2026-06-27T03:35:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns scientific weather data into an everyday outdoor-planning assistant.",
+      "evidenceStrength": "high"
+    },
+    {
+      "id": "archive_devpost_quad",
+      "sourceProductCardId": "devpost_quad",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "hackathon_demo",
+      "sourceUrl": "https://devpost.com/software/quad-iv8l4h",
+      "retrievalQueryOrPath": "hackathon_demo",
+      "observedAt": "2026-06-27T03:55:00.000Z",
+      "revisitCadence": "weekly",
+      "storedEvidenceSummary": "Turns agent answers into evidence-backed replayable work.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "id": "archive_devpost_quad_metadata_20260627",
+      "sourceProductCardId": "devpost_quad",
+      "sourceCategory": "hackathon_demo",
+      "sourceName": "Devpost project metadata",
+      "sourceUrl": "https://devpost.com/software/quad-iv8l4h",
+      "retrievalQueryOrPath": "Submitted to: UC Berkeley AI Hackathon 2026; Built With: anthropic-claude, arize-phoenix, browserbase, deepgram, next.js, opentelemetry, pgvector, postgresql, react, redis, sentry, supabase, typescript, upstash",
+      "observedAt": "2026-06-27T04:15:00.000Z",
+      "revisitCadence": "monthly",
+      "storedEvidenceSummary": "Devpost shows Quad as a UC Berkeley AI Hackathon 2026 project with external research-paper link.",
+      "evidenceStrength": "high"
+    }
+  ],
+  "valueKnowledgeCards": [
+    {
+      "id": "vk_crossbeam_domain_pain_workflow",
+      "sourceProductCardId": "anthropic_hackathon_crossbeam",
+      "valueName": "Domain pain becomes guided workflow",
+      "whatIsValuable": "A complex expert process becomes a narrow guided product.",
+      "whyPeopleReact": "The value is obvious because the before state is painful paperwork and the after state is a concrete workflow.",
+      "underlyingMechanism": "Expert rules and context are converted into an action sequence.",
+      "transferableRule": "Find another paperwork-heavy domain and turn it into a guided path.",
+      "antiCloneBoundary": "Do not copy ADU permitting or legal advice claims.",
+      "bestRemixTargets": [
+        "school paperwork",
+        "local subsidies",
+        "event permits",
+        "small business onboarding"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "vk_postvisit_after_event_explainer",
+      "sourceProductCardId": "anthropic_hackathon_postvisit",
+      "valueName": "Expert meeting becomes after-action understanding",
+      "whatIsValuable": "The product starts when the user leaves an expert interaction confused.",
+      "whyPeopleReact": "It solves a common gap between expert language and user action.",
+      "underlyingMechanism": "Expert output is rewritten as personalized novice-facing explanation.",
+      "transferableRule": "Move the after-event explainer pattern to any domain where experts talk past users.",
+      "antiCloneBoundary": "Do not copy medical advice or diagnosis use cases.",
+      "bestRemixTargets": [
+        "parent-teacher meetings",
+        "municipal consultations",
+        "job interviews",
+        "insurance explanations"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "vk_road_footage_evidence_to_priority",
+      "sourceProductCardId": "anthropic_hackathon_road_footage_investment",
+      "valueName": "Messy evidence becomes ranked action",
+      "whatIsValuable": "Unstructured field evidence becomes a prioritized decision list.",
+      "whyPeopleReact": "The transformation from messy footage to ranked civic action is concrete and demoable.",
+      "underlyingMechanism": "AI extracts observable signals and maps them to action priorities.",
+      "transferableRule": "Use messy observations as input, then output a ranked action queue.",
+      "antiCloneBoundary": "Do not copy road investment or infrastructure-funding claims.",
+      "bestRemixTargets": [
+        "school safety checks",
+        "home maintenance",
+        "event venue readiness",
+        "local disaster prep"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "vk_rake_constraints_to_plan",
+      "sourceProductCardId": "smart_india_rake_optimization",
+      "valueName": "Constraints become explainable plan",
+      "whatIsValuable": "Many operational constraints are converted into a comparable plan.",
+      "whyPeopleReact": "It makes an invisible planning problem measurable and actionable.",
+      "underlyingMechanism": "Constraint mapping, scoring, and recommendation.",
+      "transferableRule": "Take a constrained planning problem and output ranked options with reasons.",
+      "antiCloneBoundary": "Do not copy railway planning or logistics-specific claims.",
+      "bestRemixTargets": [
+        "family scheduling",
+        "club event logistics",
+        "school resource planning",
+        "creator production planning"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "vk_generative_band_multi_role_creativity",
+      "sourceProductCardId": "anthropic_hackathon_generative_band",
+      "valueName": "Single intent becomes multi-role creative output",
+      "whatIsValuable": "A user's prompt becomes a coordinated ensemble rather than one generated asset.",
+      "whyPeopleReact": "The output is playful, visible, and easier to understand than a generic creative assistant.",
+      "underlyingMechanism": "Creative intent is split into multiple coordinated roles.",
+      "transferableRule": "Turn a single brief into a team-like or ensemble-like generated artifact.",
+      "antiCloneBoundary": "Do not copy music or band framing directly.",
+      "bestRemixTargets": [
+        "AI debate club",
+        "classroom role play",
+        "fan chant generator",
+        "creator campaign room"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "vk_astro_sweepers_externality_scorecard",
+      "sourceProductCardId": "nasa_spaceapps_2025_astro_sweepers",
+      "valueName": "Invisible externality to public accountability score",
+      "whatIsValuable": "Abstract, difficult-to-track behaviors (like orbital debris) are made legible and comparable through a simple scoring system.",
+      "whyPeopleReact": "It provides a clear, digestible metric for a complex problem, enabling public discussion and influencing behavior without requiring deep domain expertise.",
+      "underlyingMechanism": "Translating data (e.g., debris generation) into a standardized, credit-score-like metric visible to a broader audience.",
+      "transferableRule": "Identify a domain where hidden or diffuse negative externalities can be quantified and visualized as a simple, public accountability score.",
+      "antiCloneBoundary": "Do not copy specific orbital debris data models or make claims about space policy or regulation.",
+      "bestRemixTargets": [
+        "local sustainability",
+        "school behavior",
+        "event cleanup",
+        "community infrastructure"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "vk_audionova_local_ai_media_transform",
+      "sourceProductCardId": "devpost_audionova",
+      "valueName": "Cloud-dependent AI media transformation to local-device workflow",
+      "whatIsValuable": "AI tasks that typically require cloud services (voice generation, transformation) are re-engineered to run efficiently on local hardware.",
+      "whyPeopleReact": "Addresses user needs for privacy, offline functionality, and low latency, which cloud-based solutions might not offer.",
+      "underlyingMechanism": "Hardware-optimized models and local processing pipelines for AI media tasks.",
+      "transferableRule": "Re-architect a common cloud-AI media task (e.g., image, audio, video generation) to prioritize local, on-device execution for privacy, speed, or offline access.",
+      "antiCloneBoundary": "Do not copy specific voice generation models, Snapdragon optimization claims, or generic translation software.",
+      "bestRemixTargets": [
+        "education (offline pronunciation)",
+        "accessibility (on-device speech-to-text)",
+        "field work (private voice notes)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "vk_browser_harness_resilient_task_execution",
+      "sourceProductCardId": "github_browser_harness",
+      "valueName": "Fragile AI task to resilient, observable harness",
+      "whatIsValuable": "Transforms brittle automation tasks (like browser navigation) into robust, self-healing workflows with clear state and recovery mechanisms.",
+      "whyPeopleReact": "Solves frustration with AI agents failing silently or unpredictably; makes automation trustworthy and debuggable.",
+      "underlyingMechanism": "Wrapping core task logic with error handling, state tracking, and retry mechanisms that are observable to the developer/user.",
+      "transferableRule": "Apply a 'harness' pattern to any AI-driven or complex automation task that is prone to breaking, making its execution more reliable and inspectable.",
+      "antiCloneBoundary": "Do not copy specific browser automation techniques, web scraping implementations, or claims about general-purpose agent reliability.",
+      "bestRemixTargets": [
+        "education practice (study plan execution)",
+        "public form completion (application checklist)",
+        "home maintenance (chore automation)"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "vk_canvas_student_insights_activity_to_action_plan",
+      "sourceProductCardId": "devpost_canvas_student_insights",
+      "valueName": "Passive activity logs to active coaching plans",
+      "whatIsValuable": "Converts raw data from user activity (e.g., in an LMS) into actionable insights, personalized summaries, and clear next steps.",
+      "whyPeopleReact": "Empowers users (teachers, students) by transforming overwhelming data into concrete guidance, making data analysis practical for non-experts.",
+      "underlyingMechanism": "AI-driven summarization and pattern recognition on activity logs, combined with rules for generating personalized recommendations or plans.",
+      "transferableRule": "For any system generating activity logs, transform those logs into targeted insights and actionable plans for the end-user, emphasizing 'what to do next'.",
+      "antiCloneBoundary": "Do not copy Canvas LMS integration, specific education analytics algorithms, or student performance metrics.",
+      "bestRemixTargets": [
+        "work habits (project progress to next steps)",
+        "sports training (performance logs to training plans)",
+        "family routines (household task tracking to reminders)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "vk_career_ops_personal_campaign_ops_dashboard",
+      "sourceProductCardId": "github_career_ops",
+      "valueName": "Personal, messy campaigns to structured operations dashboard",
+      "whatIsValuable": "Transforms chaotic, multi-step personal goals (like job searching) into an organized, trackable 'operations room' with clear modes, artifacts, and progress.",
+      "whyPeopleReact": "Provides a sense of control and clarity over overwhelming personal projects, making complex processes manageable and visually trackable.",
+      "underlyingMechanism": "Decomposing a complex personal goal into defined 'skill modes' or stages, and providing a dashboard for state management, task batching, and artifact generation.",
+      "transferableRule": "Apply an 'operations dashboard' metaphor to any recurring, multi-faceted personal or small-team campaign, allowing users to track progress and manage sub-tasks systematically.",
+      "antiCloneBoundary": "Do not copy job search content, resume generation algorithms, or claims of guaranteed career outcomes.",
+      "bestRemixTargets": [
+        "education (college application planner)",
+        "family planning (relocation operations)",
+        "creator workflow (content series management)"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "vk_civil_dialog_conflict_to_productive_discourse",
+      "sourceProductCardId": "devpost_civil_dialog",
+      "valueName": "Controversial conflict to moderated, productive dialog",
+      "whatIsValuable": "Creates a structured environment that filters unproductive or hostile elements from discussions, allowing participants to engage in reasoned debate.",
+      "whyPeopleReact": "Addresses the common frustration of online discussions devolving into toxicity, creating spaces where genuine disagreement can occur without personal attacks.",
+      "underlyingMechanism": "AI or rule-based moderation that identifies and mitigates insults or inflammatory language while preserving substantive arguments, potentially through tone transformation or framing.",
+      "transferableRule": "Design a 'dialog room' interface for any context prone to conflict, focusing on mechanisms that guide participants toward constructive exchange, even on sensitive topics.",
+      "antiCloneBoundary": "Do not copy specific moderation algorithms for hate speech, claims of preventing all online harassment, or the ability to host general controversial forums.",
+      "bestRemixTargets": [
+        "school debate (facilitator for sensitive topics)",
+        "community planning (proposal discussion space)",
+        "family decisions (structured conversation aid)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "vk_fireflai_messy_evidence_to_tactical_briefing",
+      "sourceProductCardId": "devpost_fireflai",
+      "valueName": "Scattered urgent evidence to critical tactical briefing",
+      "whatIsValuable": "Converts disparate, time-sensitive information (e.g., 911 calls, property data) into an immediate, visually clear tactical overview for dangerous situations.",
+      "whyPeopleReact": "Provides crucial situational awareness to professionals in high-stakes environments, potentially saving lives by reducing cognitive load under pressure.",
+      "underlyingMechanism": "Multi-agent pipelines that ingest various data types (text, visual, spatial), synthesize them, and generate a structured, hazard-annotated output like a 3D model or map.",
+      "transferableRule": "Develop a 'tactical briefing' system that takes messy, urgent data from multiple sources and synthesizes it into a clear, visual, and actionable overview for a specific time-critical domain.",
+      "antiCloneBoundary": "Do not copy specific emergency response protocols, claims of guaranteeing safety, or direct interfaces for 911 systems or public safety dispatch.",
+      "bestRemixTargets": [
+        "event readiness (venue safety briefing)",
+        "school trip planning (risk map with hazards)",
+        "home repair (pre-visit brief for technicians)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "vk_guizang_ppt_skill_taste_as_executable_skill",
+      "sourceProductCardId": "github_guizang_ppt_skill",
+      "valueName": "Implicit design 'taste' as an executable agent skill",
+      "whatIsValuable": "Encodes subjective design principles and production constraints into a reusable AI agent 'skill' that can generate high-quality, styled artifacts.",
+      "whyPeopleReact": "Democratizes good design by allowing users to generate polished outputs that embody specific aesthetic rules, beyond just raw content generation.",
+      "underlyingMechanism": "Bundling design rules, layout templates, image prompting guidelines, and output format constraints into a callable function or agent module.",
+      "transferableRule": "Identify a domain where specific 'taste' or production standards are desired but hard to achieve manually, and package those standards into an executable AI skill or artifact recipe.",
+      "antiCloneBoundary": "Do not copy specific presentation layouts (e.g., 'Swiss style'), branding of AI slide generators, or claims of replacing human designers.",
+      "bestRemixTargets": [
+        "student projects (science fair poster skill)",
+        "public reports (local issue explainer skill)",
+        "creative practice (visual storytelling template)"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "vk_gaia_leo_burden_relocation_concept",
+      "sourceProductCardId": "nasa_spaceapps_2025_gaia_leo",
+      "valueName": "Growing technological burden to speculative system relocation concept",
+      "whatIsValuable": "Reframes an escalating Earth-bound problem (like AI's resource demands) as a challenge solvable by radically relocating the system to an alternative environment (e.g., space).",
+      "whyPeopleReact": "Provokes thought and discussion by offering a bold, 'sci-fi'-like solution to a pressing issue, inviting exploration of new system architectures and trade-offs.",
+      "underlyingMechanism": "Connecting two distinct domains (AI infrastructure and space exploration) to hypothesize how their intersection could resolve a current strain, focusing on systemic shifts.",
+      "transferableRule": "For a fast-growing, resource-intensive technological trend, explore scenarios where its environmental or social burden could be alleviated by shifting its physical or operational location.",
+      "antiCloneBoundary": "Do not copy specific claims about space-based compute feasibility, orbital mechanics, or 'Gaia+LEO' branding.",
+      "bestRemixTargets": [
+        "city planning (urban waste management to off-site solutions)",
+        "school operations (energy consumption to micro-grid concepts)",
+        "event logistics (crowd management to dispersed venues)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "vk_twisters_expert_data_to_everyday_decision",
+      "sourceProductCardId": "nasa_spaceapps_2025_twisters",
+      "valueName": "Complex scientific data to simple, everyday go/no-go decisions",
+      "whatIsValuable": "Simplifies overwhelming scientific datasets (e.g., weather models) into clear, practical probability metrics that answer common user questions for daily planning.",
+      "whyPeopleReact": "Empowers ordinary users to make informed decisions without needing to interpret complex scientific outputs, reducing anxiety and decision paralysis.",
+      "underlyingMechanism": "A data pipeline that integrates multiple expert sources, processes them into a single, understandable probability metric, and presents it in a user-friendly planning interface.",
+      "transferableRule": "Take complex data from an expert domain and distill it into a simple, confidence-based 'go/no-go' or 'risk level' metric for a specific, everyday user decision.",
+      "antiCloneBoundary": "Do not copy specific weather prediction algorithms, claims of 100% accurate forecasts, or the 'Twisters' brand.",
+      "bestRemixTargets": [
+        "event planning (event readiness score)",
+        "school logistics (school trip weather safety)",
+        "sports participation (practice condition meter)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "vk_quad_agent_output_to_auditable_work_record",
+      "sourceProductCardId": "devpost_quad",
+      "valueName": "Opaque AI agent output to evidence-backed, replayable work record",
+      "whatIsValuable": "Transforms black-box AI responses into transparent, trustworthy 'work products' by adding layers of evidence, approval gates, and execution logs.",
+      "whyPeopleReact": "Addresses trust and accountability issues with AI, enabling human oversight and confidence in automated tasks, crucial for professional contexts.",
+      "underlyingMechanism": "Wrapping AI agent output with metadata about its sources, intermediate steps, human approval status, and a full execution trace for auditing and re-running.",
+      "transferableRule": "For any AI-generated output where trust, accountability, or auditability is critical, design a 'work record' artifact that exposes the process, evidence, and decision points.",
+      "antiCloneBoundary": "Do not copy 'AI employee' terminology, specific enterprise integration architectures, or claims of legal compliance without explicit validation.",
+      "bestRemixTargets": [
+        "education (student answer provenance viewer)",
+        "public reporting (proposal evidence trail)",
+        "creative review (critique replay log)"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "topicCards": [
+    {
+      "id": "topic_agent_trace_literacy",
+      "category": "technology",
+      "title": "AIエージェント出力の根拠確認",
+      "summary": "AIエージェントや自動生成ワークフローの利用が広がるほど、出力がどの入力・判断・制約から来たのかを確認したい需要が強くなる。",
+      "whyHotNow": "AIを使った下書き・調査・コード生成が日常化し、作る速さよりも確認・説明・引き継ぎの摩擦が目立ちやすくなっている。",
+      "audience": [
+        "agent builder",
+        "AI-curious professional",
+        "small team operator"
+      ],
+      "targetAudience": [
+        {
+          "segment": "AIを業務や制作に使う個人・小チーム",
+          "userMoment": "AIが作った成果物をレビュー、共有、再利用する前"
+        }
+      ],
+      "userFrictionOrDesire": "結果は得られるが、どこを信じてよいか、何を再確認すべきか、次の人にどう渡すかが分かりにくい。",
+      "friction": "入力、判断根拠、未確認事項、リスクを短時間で切り分けられない。",
+      "possibleInputs": [
+        "AI output",
+        "prompt",
+        "source notes",
+        "diff",
+        "run log",
+        "review policy"
+      ],
+      "bestFitSourceMechanisms": [
+        "evidence_weighted_decision",
+        "constraint_checklist",
+        "messy_information_to_action_cards"
+      ],
+      "evidenceRefs": [
+        "local validation topic"
+      ],
+      "trendMaturity": "recurring",
+      "remixUse": "Step2 can pair this with source cores that expose evidence, score confidence, or turn opaque outputs into reviewable artifacts.",
+      "riskBoundary": "Do not claim to prove truth, security, authorship, or compliance. Keep uncertainty, missing evidence, and human review visible.",
+      "riskNotes": [
+        "Avoid security or legal guarantees.",
+        "Do not hide missing evidence behind a single confidence score."
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "topic_household_disaster_heat_readiness",
+      "category": "sdgs_civic",
+      "title": "家庭と地域の災害・猛暑準備",
+      "summary": "災害、猛暑、停電、避難などについて、一般情報を家庭や地域ごとの具体行動に落としたい需要がある。",
+      "whyHotNow": "季節性と公共性があり、天候・地域通知・家庭事情によって必要な準備が変わるため、生活者が自分ごと化しやすい。",
+      "audience": [
+        "family/local citizen",
+        "school",
+        "local operator"
+      ],
+      "targetAudience": [
+        {
+          "segment": "子ども、高齢者、ペット、移動制約のある家族を持つ生活者",
+          "userMoment": "注意喚起や自治体通知を見たが、家庭で何を確認すべきか整理したい時"
+        }
+      ],
+      "userFrictionOrDesire": "防災情報は多いが、自分の住居、家族構成、持ち物、地域事情に合わせた準備リストに変換しにくい。",
+      "friction": "公式情報を読んでも、今日できる確認事項、買い足す物、家族内で決めることに分解しにくい。",
+      "possibleInputs": [
+        "family members",
+        "home type",
+        "pets",
+        "mobility constraints",
+        "local notice",
+        "weather context"
+      ],
+      "bestFitSourceMechanisms": [
+        "personalized_plan",
+        "constraint_checklist",
+        "messy_information_to_action_cards",
+        "map_or_timeline"
+      ],
+      "evidenceRefs": [
+        "local validation topic"
+      ],
+      "trendMaturity": "seasonal",
+      "remixUse": "Source product cores that turn messy information into action cards, ranked plans, or printable packs can transfer well.",
+      "riskBoundary": "Do not present generated output as official emergency guidance or replace local authority instructions.",
+      "riskNotes": [
+        "Show missing information and source uncertainty.",
+        "Avoid playful framing for active emergencies."
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "topic_school_parent_notice_actions",
+      "category": "education",
+      "title": "学校・保護者のお知らせ理解",
+      "summary": "学校、塾、自治体からの長いお知らせを、家庭ごとの行動や確認事項に変える需要がある。",
+      "whyHotNow": "教育、家庭、地域の接点にあり、非エンジニアにも価値が伝わりやすい。年度行事、休校、提出物、支払いなどで繰り返し発生する。",
+      "audience": [
+        "family/local citizen",
+        "teacher/student"
+      ],
+      "targetAudience": [
+        {
+          "segment": "保護者・学生・学校事務担当",
+          "userMoment": "複数のお知らせ、締切、持ち物、提出先を整理したい時"
+        }
+      ],
+      "userFrictionOrDesire": "文章は読めても、いつ何をすればいいか、誰に確認すればいいかが分かりにくい。",
+      "friction": "予定、持ち物、支払い、同意、連絡先が文章内に散らばり、家庭内共有もしづらい。",
+      "possibleInputs": [
+        "school notice",
+        "municipal notice",
+        "deadline",
+        "child grade",
+        "family context"
+      ],
+      "bestFitSourceMechanisms": [
+        "messy_information_to_action_cards",
+        "constraint_checklist",
+        "personalized_plan",
+        "comparison_or_ranking"
+      ],
+      "evidenceRefs": [
+        "local validation topic"
+      ],
+      "trendMaturity": "recurring",
+      "remixUse": "Expert-to-novice explanation, paperwork workflow, and action-card patterns can transfer well.",
+      "riskBoundary": "Do not alter official instructions, invent deadlines, or act as the school authority.",
+      "riskNotes": [
+        "Keep source snippets and uncertainty visible.",
+        "Make translation or simplification clearly secondary to the original notice."
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "topic_creator_publish_preflight",
+      "category": "culture_sports",
+      "title": "個人クリエイターの公開前チェック",
+      "summary": "動画、投稿、LP、ニュースレター、イベント告知などを公開する前に、伝わるか、弱点はないかを見たい需要がある。",
+      "whyHotNow": "個人や小チームの発信量が増え、AIで作った素材をそのまま出す前の判断や編集が課題になっている。",
+      "audience": [
+        "creator",
+        "AI-curious professional",
+        "small team marketer"
+      ],
+      "targetAudience": [
+        {
+          "segment": "個人クリエイター、同人・イベント運営、小規模マーケター",
+          "userMoment": "公開直前に、伝わり方、誤解、弱い訴求を確認したい時"
+        }
+      ],
+      "userFrictionOrDesire": "作ることは簡単になったが、出す価値があるか、誰に刺さるか、どこが弱いかは判断しにくい。",
+      "friction": "自分の意図と初見の受け取り方のズレを、公開前に短時間で見つけにくい。",
+      "possibleInputs": [
+        "draft",
+        "video idea",
+        "target audience",
+        "tone",
+        "publish goal",
+        "event context"
+      ],
+      "bestFitSourceMechanisms": [
+        "draft_preflight",
+        "comparison_or_ranking",
+        "constraint_checklist",
+        "simulation_or_what_if"
+      ],
+      "evidenceRefs": [
+        "local validation topic"
+      ],
+      "trendMaturity": "recurring",
+      "remixUse": "Constraint scoring, multi-role creative output, and after-event explanation patterns can become preflight evaluators.",
+      "riskBoundary": "Do not promise virality, platform performance, or legal clearance.",
+      "riskNotes": [
+        "Make critique concrete rather than generic.",
+        "Avoid imitating a specific creator's brand without permission."
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "topic_local_civic_service_navigation",
+      "category": "consumer_life",
+      "title": "自治体・公共サービス手続きの入口整理",
+      "summary": "補助金、証明書、子育て、介護、引っ越しなどの公共手続きについて、自分が何を確認し、どこから始めるべきか知りたい需要がある。",
+      "whyHotNow": "生活イベントごとに必要手続きが変わり、自治体サイトやPDFが複数に分かれているため、日常の小さな混乱が発生し続けている。",
+      "audience": [
+        "family/local citizen",
+        "caregiver",
+        "local operator"
+      ],
+      "targetAudience": [
+        {
+          "segment": "引っ越し、育児、介護、申請を抱える生活者",
+          "userMoment": "公式ページを見たが、自分に関係する手続きと順番を整理したい時"
+        }
+      ],
+      "userFrictionOrDesire": "制度名や条件が分かりにくく、自分が対象か、どの書類が必要か、何から読むべきか判断しにくい。",
+      "friction": "公式情報の入口、対象条件、必要書類、次の確認先がばらばらで、行動に移る前に疲れる。",
+      "possibleInputs": [
+        "official URL",
+        "municipal PDF",
+        "life event",
+        "household context",
+        "deadline",
+        "location"
+      ],
+      "bestFitSourceMechanisms": [
+        "public_data_explainer",
+        "messy_information_to_action_cards",
+        "personalized_plan",
+        "evidence_weighted_decision"
+      ],
+      "evidenceRefs": [
+        "local validation topic"
+      ],
+      "trendMaturity": "evergreen",
+      "remixUse": "Step2 can combine this with source cores that simplify official information, rank next actions, or preserve source-grounded explanations.",
+      "riskBoundary": "Do not replace official advice, determine eligibility as fact, submit forms, or impersonate a government service.",
+      "riskNotes": [
+        "Cite official sources when available.",
+        "Flag when a user must confirm with the responsible office."
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "themeMaterials": [],
+  "winningPatternReports": [],
+  "combinationHints": [
+    {
+      "id": "hint_astro_sweepers_disaster_readiness",
+      "sourceProductCardId": "nasa_spaceapps_2025_astro_sweepers",
+      "valueKnowledgeCardId": "vk_astro_sweepers_externality_scorecard",
+      "topicCardId": "topic_household_disaster_heat_readiness",
+      "whyThisPairingMayBeInteresting": "Astro Sweepers turns invisible space debris externalities into a public score. This could be remixed to quantify and visualize 'hidden' household vulnerabilities or neighborhood risks for disaster/heat readiness, making complex civic information actionable and personal.",
+      "audienceHypothesis": "Families and local communities needing clear, personalized risk assessments for their specific homes and situations.",
+      "evidenceRefs": [
+        "nasa_spaceapps_2025_astro_sweepers",
+        "topic_household_disaster_heat_readiness"
+      ],
+      "riskOrUnknown": "Ensuring any generated scores are clearly informational and do not replace official emergency assessments or advice."
+    },
+    {
+      "id": "hint_canvas_insights_school_notices",
+      "sourceProductCardId": "devpost_canvas_student_insights",
+      "valueKnowledgeCardId": "vk_canvas_student_insights_activity_to_action_plan",
+      "topicCardId": "topic_school_parent_notice_actions",
+      "whyThisPairingMayBeInteresting": "Canvas Student Insights transforms LMS activity into actionable study plans. This pattern can be applied to school notices, turning long, scattered information into personalized action items or checklists for parents and students, reducing information overload.",
+      "audienceHypothesis": "Parents struggling to extract actionable tasks and deadlines from multiple school announcements.",
+      "evidenceRefs": [
+        "devpost_canvas_student_insights",
+        "topic_school_parent_notice_actions"
+      ],
+      "riskOrUnknown": "Avoid altering official instructions or creating a false sense of authority for the generated action items."
+    },
+    {
+      "id": "hint_quad_agent_trace_literacy",
+      "sourceProductCardId": "devpost_quad",
+      "valueKnowledgeCardId": "vk_quad_agent_output_to_auditable_work_record",
+      "topicCardId": "topic_agent_trace_literacy",
+      "whyThisPairingMayBeInteresting": "Quad's concept of evidence-backed, replayable AI work directly addresses the 'agent trace literacy' topic. The transferable structure of wrapping AI output with provenance and review metadata is highly relevant for building trust and explainability in any AI agent workflow.",
+      "audienceHypothesis": "AI-curious professionals and small teams who need to understand, verify, and share the reasoning behind AI-generated outputs.",
+      "evidenceRefs": [
+        "devpost_quad",
+        "topic_agent_trace_literacy"
+      ],
+      "riskOrUnknown": "Ensure generated 'evidence trails' are clearly presented as interpretations or summaries, not exhaustive legal proofs, and do not make claims about proving truth or compliance."
+    },
+    {
+      "id": "hint_ai_comic_factory_creator_preflight",
+      "sourceProductCardId": "hf_ai_comic_factory",
+      "valueKnowledgeCardId": "vk_ai_comic_factory_idea_to_narrative_visual_artifact",
+      "topicCardId": "topic_creator_publish_preflight",
+      "whyThisPairingMayBeInteresting": "AI Comic Factory turns story ideas into visual narrative artifacts. This creative output transformation could be adapted for 'creator publish preflight' by generating diverse visual interpretations or narrative flows of a creator's draft. The output would help the creator 'see' their content from different angles before publishing.",
+      "audienceHypothesis": "Individual creators needing a fresh, structured perspective on their content's visual or narrative impact before sharing it publicly.",
+      "evidenceRefs": [
+        "hf_ai_comic_factory",
+        "topic_creator_publish_preflight"
+      ],
+      "riskOrUnknown": "Avoid promising specific audience reactions or platform performance. The tool should offer creative perspectives, not marketing guarantees."
+    },
+    {
+      "id": "hint_civil_dialog_local_civic_navigation",
+      "sourceProductCardId": "devpost_civil_dialog",
+      "valueKnowledgeCardId": "vk_civil_dialog_conflict_to_productive_discourse",
+      "topicCardId": "topic_local_civic_service_navigation",
+      "whyThisPairingMayBeInteresting": "Civil Dialog creates moderated spaces for controversial topics. This mechanism of structuring discussion to foster productivity could be used to help users navigate complex 'local civic service navigation' by structuring their questions and potential answers, helping them formulate clearer inquiries to authorities or understand different aspects of a service.",
+      "audienceHypothesis": "Citizens feeling overwhelmed by ambiguous public service information and needing assistance to articulate their needs and understand official responses more clearly.",
+      "evidenceRefs": [
+        "devpost_civil_dialog",
+        "topic_local_civic_service_navigation"
+      ],
+      "riskOrUnknown": "Do not impersonate official government services or provide definitive legal/administrative advice. The tool should support clarity in user-to-system communication, not replace the system."
+    }
+  ],
+  "researchReports": [],
+  "signalCards": []
+}

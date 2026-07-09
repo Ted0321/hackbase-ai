@@ -1,0 +1,145 @@
+{
+  "version": 4,
+  "researchBrief": "Hackbase.aiのStep1は、毎回ゼロからGitHub/ハッカソン/プロダクトギャラリーを調べ直すのではなく、永続的な productSourceIndex と当日の currentTopicRadar を整理してStep2へ渡す。productSourceIndexは、最近のハッカソン受賞作、GitHubで最近注目され始めている小型/中型プロジェクト、Product Hunt・Hugging Face Spaces・indie galleryなどで急上昇している小型プロダクトを辞書のように蓄積する。currentTopicRadarは、技術・社会情勢・SDGs/公共・教育・研究・文化/スポーツ・生活者行動など、毎回新しく調べるトピックを保持する。",
+  "operatingModel": {
+    "persistentProductSourceIndex": {
+      "path": "data/product-research/source-product-index.json",
+      "cadence": "daily update or manual refresh",
+      "purpose": "小さくても面白い視点を持つプロダクトのコンセプト、課題、価値構造、入力、出力、UI/AIメカニズム、受けた理由、コピー禁止境界を蓄積する。",
+      "sourceCategories": [
+        "recent_hackathon_winners",
+        "github_recent_momentum",
+        "product_gallery_rising"
+      ],
+      "dedupeRule": "canonical URLを最優先し、なければ normalized name + source category で重複判定する。同じプロダクトなら追加せず、証拠・価値ナレッジ・lastSeenAtを更新する。",
+      "doNotUseAsSourceCards": [
+        "NotebookLM",
+        "Cursor",
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity",
+        "GitHub Copilot",
+        "Lovable",
+        "v0",
+        "Bolt",
+        "Replit",
+        "Figma",
+        "Notion",
+        "Slack",
+        "Linear"
+      ]
+    },
+    "dailyTopicRadar": {
+      "path": "data/topic-research/current-topic-radar.json",
+      "cadence": "every concept run or daily",
+      "purpose": "今掛け合わせると意味が出る技術・社会・教育・研究・文化・生活トピックを集める。これはインデックスとして長期蓄積するより、鮮度重視で毎回更新する。",
+      "topicCategories": [
+        "technology",
+        "social_trend",
+        "sdgs_civic",
+        "education",
+        "research",
+        "culture_sports",
+        "consumer_life"
+      ]
+    }
+  },
+  "step1Role": {
+    "name": "Research Editor / Material Curator",
+    "do": [
+      "productSourceIndexから、Step2で使う価値コア候補を選ぶ",
+      "currentTopicRadarから、掛け合わせ先として使えるトピックを選ぶ",
+      "古い・弱い・重複・大手プロダクト由来の情報を降格する",
+      "sourceProductCards、valueKnowledgeCards、sourceArchiveIndex、topicCardsを後段が使いやすい形に整理する"
+    ],
+    "doNot": [
+      "毎回3ソースをゼロから調査し直す",
+      "メジャープロダクトをsourceProductCardsにする",
+      "Step1で最終企画を決める",
+      "要件定義やUI仕様を書く"
+    ]
+  },
+  "productSourceIndexEntryFrame": {
+    "requiredForPlanning": [
+      "name",
+      "sourceCategory",
+      "productUrl",
+      "codeUrl",
+      "concept",
+      "problemSolved",
+      "targetUser",
+      "coreUserInput",
+      "outputArtifact",
+      "coreMechanism",
+      "interactionPattern",
+      "whyItGotAttention",
+      "noveltyKernel",
+      "valueKnowledgeCards",
+      "transferableStructure",
+      "ideaKernel",
+      "transformationAxes",
+      "attentionProof",
+      "antiCloneBoundary",
+      "bestRemixTargets",
+      "evidenceStrength",
+      "firstSeenAt",
+      "lastSeenAt"
+    ],
+    "whyTheseFieldsMatter": "Step2で、既存の小型プロダクトのアイデア根幹をSCAMPERやアナロジー転用でずらし、当日トピックと掛け合わせるため。"
+  },
+  "topicRadarFrame": {
+    "requiredForPlanning": [
+      "category",
+      "title",
+      "summary",
+      "whyHotNow",
+      "audience",
+      "userFrictionOrDesire",
+      "possibleInputs",
+      "trendMaturity",
+      "remixUse",
+      "riskNotes",
+      "evidenceRefs"
+    ],
+    "whyTheseFieldsMatter": "Step2で、プロダクト価値コアの移植先・掛け算相手として使うため。"
+  },
+  "primarySourceCategories": [
+    {
+      "id": "recent_hackathon_winners",
+      "label": "最近のハッカソン受賞作品",
+      "indexingRole": "daily source-index update",
+      "goal": "世界中の最近のハッカソン受賞作、finalist、demo showcaseから、小さいが鋭い入力→変換→出力の型を蓄積する。"
+    },
+    {
+      "id": "github_recent_momentum",
+      "label": "GitHubで最近注目され始めているもの",
+      "indexingRole": "daily source-index update",
+      "goal": "GitHub Trending、recently active repos、Show HN/開発者コミュニティで話題化している小型/中型OSSから、プロダクトとして転用できるコア構造を蓄積する。"
+    },
+    {
+      "id": "product_gallery_rising",
+      "label": "プロダクトギャラリー/紹介サイトで急上昇しているもの",
+      "indexingRole": "daily source-index update",
+      "goal": "Product Hunt、Hugging Face Spaces、indie maker launch、AI tool directory、public product galleryから、反応・伸び・デモ映えが見える小さな公開作品を蓄積する。"
+    }
+  ],
+  "ideaGenerationPrincipleForStep2": {
+    "base": "productSourceIndexにある既存の小型プロダクト/ハッカソン作品のアイデア根幹を使う。",
+    "move": "SCAMPER、アナロジー転用、逆転、対象ユーザー変更、出力形式変更、スケール変更などで、元アイデアをずらす。",
+    "multiply": "ずらした価値コアに currentTopicRadar のトピックを掛け合わせる。",
+    "review": "IdeatorとReviewerのサブチームで、新規性、面白さ、一般ユーザーへの分かりやすさ、AIらしさ、実現性、安全性をスコアリングして修正する。"
+  },
+  "constraints": [
+    "外部APIやログインを必須にしない",
+    "長い本文をコピーしない",
+    "URLと短い根拠要約を残す",
+    "観測事実と解釈を分ける",
+    "Researcherは最終コンセプトを決めない",
+    "実在作品を丸ごとコピーしない",
+    "メジャープロダクトをsourceProductCardsにしない",
+    "同じプロダクトはインデックス上で重複登録せず更新する",
+    "トピックは鮮度重視で毎回更新し、長期の価値ナレッジとは分ける",
+    "後段が企画化できるよう、素材タグや使われそうな文脈は残す"
+  ]
+}

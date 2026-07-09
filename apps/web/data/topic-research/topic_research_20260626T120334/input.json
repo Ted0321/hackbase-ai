@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "topicResearchRunId": "topic_research_20260626T120334",
+  "generatedAt": "2026-06-26T12:03:34.901Z",
+  "topicResearchBrief": "Collect today's current topics across technology, social trends, civic/SDGs, education, research, culture/sports, and consumer life. Return topic cards only.",
+  "coverageTargets": [
+    "technology",
+    "social_trend",
+    "sdgs_civic",
+    "education",
+    "research",
+    "culture_sports",
+    "consumer_life"
+  ],
+  "topicCardContract": {
+    "keepProductSourcesOut": true,
+    "downstreamConsumer": "Step2 combination strategist reads currentTopicRadar.topicCards.",
+    "requiredCombinationFields": [
+      "whyHotNow",
+      "targetAudience",
+      "userFrictionOrDesire",
+      "friction",
+      "possibleInputs",
+      "riskBoundary",
+      "bestFitSourceMechanisms"
+    ],
+    "bestFitSourceMechanisms": [
+      "messy_information_to_action_cards",
+      "evidence_weighted_decision",
+      "comparison_or_ranking",
+      "constraint_checklist",
+      "personalized_plan",
+      "public_data_explainer",
+      "draft_preflight",
+      "simulation_or_what_if",
+      "map_or_timeline",
+      "other"
+    ]
+  },
+  "instructions": {
+    "returnFormat": "strict_json_only",
+    "doNotCollectProductSources": true,
+    "doNotDecideFinalConcept": true,
+    "doNotWriteRequirements": true,
+    "noExternalPublish": true,
+    "noPaidApiRequired": true,
+    "noSecrets": true
+  }
+}

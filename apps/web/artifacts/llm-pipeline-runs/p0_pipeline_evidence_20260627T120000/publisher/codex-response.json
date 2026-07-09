@@ -1,0 +1,10 @@
+{
+  "status": "hold_for_review",
+  "reason": "The P0 run now proves the late-stage pipeline chain from requirements through publisher, but the builder output is still a plan-level artifact and has not been materialized or validated as a runnable Project.",
+  "requiredArtifactsPresent": false,
+  "reviewPass": false,
+  "validationPass": false,
+  "mvpContractPass": false,
+  "safetyBlockers": [],
+  "publishSummary": "Do not publish this run to the Prodia feed yet. It is valid as human-assisted pipeline evidence showing requirements, build plan, review, rewrite, and publish decision. The next required step is materializing the BuildPlan into an inspectable static artifact, running the MVP artifact checker, and only then reconsidering publish."
+}
