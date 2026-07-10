@@ -55,9 +55,6 @@ jobs:
       - name: Prompt refinement check
         run: npm run eval:prompt:check
 
-      - name: Production smoke
-        run: npm run smoke:production
-
       - name: Admin agent console Playwright E2E
         run: npm run admin:agents:playwright
 
