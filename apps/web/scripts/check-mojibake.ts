@@ -20,8 +20,6 @@ const targets = [
   "docs/product/DOC-20_企画生成プロンプト設計書.md",
   "docs/architecture/DOC-29_コードArtifact保管設計.md",
   "docs/product/DOC-33_Hackbase.ai名称決定メモ.md",
-  "docs/submission/findy/SUBMISSION.md",
-  "docs/submission/findy/FINDY_PROTO_PEDIA_FINAL.md",
   "apps/web/README.md",
   "apps/web/src/app/page.tsx",
   "apps/web/src/app/layout.tsx",
