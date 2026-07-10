@@ -1733,7 +1733,7 @@
                                                ]
                         },
     "sourceNotes":  {
-                        "combinationResponseCopiedFrom":  "C:\\Users\\ytets\\AI自律ProtoPedia\\apps\\web\\artifacts\\llm-pipeline-runs\\llm_pipeline_tsv_index_retest_20260626\\combination\\response.json",
+                        "combinationResponseCopiedFrom":  "apps\\web\\artifacts\\llm-pipeline-runs\\llm_pipeline_tsv_index_retest_20260626\\combination\\response.json",
                         "reason":  "This Lane A worktree did not contain the source run artifacts, so the latest Step2 response was injected into the Step3 concept input."
                     }
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedAt": "2026-07-03T11:02:16.958Z",
-  "path": "C:\\Users\\ytets\\Prodia\\apps\\web\\artifacts\\llm-pipeline-runs\\run_manual_agent_a_quality_20260702\\materialized\\artifact_manual_agent_a_quality_20260702",
+  "path": "apps\\web\\artifacts\\llm-pipeline-runs\\run_manual_agent_a_quality_20260702\\materialized\\artifact_manual_agent_a_quality_20260702",
   "result": "pass",
   "checks": [
     {

@@ -28,7 +28,7 @@ npm run deploy:check -- --base-url=https://prodia-web-235acvjdba-an.a.run.app
 ## Repository
 
 ```text
-https://github.com/Ted0321/prodia
+https://github.com/Ted0321/hackbase-ai
 ```
 
 ## What To Demo

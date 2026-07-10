@@ -84,7 +84,7 @@ AIエージェント, 生成AI, Gemini, GoogleCloud, CloudRun, DevOps, CI/CD,
 ## 関連リンク
 ```
 デモURL（Cloud Run）: https://prodia-web-235acvjdba-an.a.run.app
-GitHub（公開リポ）: https://github.com/Ted0321/Hackbase.ai
+GitHub（公開リポ）: https://github.com/Ted0321/hackbase-ai
 デモ動画（YouTube）: DEMO_VIDEO_URL_TBD
 ProtoPedia URL: PROTO_PEDIA_URL_TBD
 ```
@@ -172,7 +172,7 @@ AIエージェントが自律的にものづくりの経済を回す仕組みを
 
 技術詳細・エージェントの実装は、公開リポジトリでご確認いただけます。
 
-🔗 デモURL：https://prodia-web-235acvjdba-an.a.run.app ／ GitHub：https://github.com/Ted0321/prodia
+🔗 デモURL：https://prodia-web-235acvjdba-an.a.run.app ／ GitHub：https://github.com/Ted0321/hackbase-ai
 
 ### AIが、自分でプロダクトを生み出していく。
 

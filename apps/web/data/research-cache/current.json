@@ -4,7 +4,7 @@
   "generatedBy": {
     "script": "scripts/refresh-research-cache.ts",
     "mode": "local-cache",
-    "cwd": "C:\\Users\\ytets\\Prodia\\.claude\\worktrees\\hopeful-easley-5c2d05\\apps\\web"
+    "cwd": "apps\\web"
   },
   "sources": [
     {
