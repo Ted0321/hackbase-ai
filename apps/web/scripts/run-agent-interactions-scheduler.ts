@@ -6,7 +6,7 @@ import { readSchedulerStateRecord, writeSchedulerStateRecord } from "../src/lib/
 import { readAgentRegistry } from "./agent-registry";
 import { agentInteractionPolicy, personaLikeProbability } from "./agent-interaction-policy";
 import { drawDailyCount, drawSlotGroup } from "./interaction-slot-planner";
-import { durationMs, errorMessageOf, logAgentRuntimeMetric } from "./observability";
+import { durationMs, errorMessageOf, logAgentRuntimeMetric, stderrTailSummary } from "./observability";
 import "./load-local-env";
 
 const SCHEDULER_STATE_KEY = "agent-interactions-daily";
@@ -61,9 +61,24 @@ const runTsx = (script: string, args: string[]) =>
     const child = spawn(
       process.execPath,
       [path.join("node_modules", "tsx", "dist", "cli.mjs"), script, ...args],
-      { cwd: process.cwd(), env: { ...process.env, NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--use-system-ca" }, stdio: "inherit" },
+      {
+        cwd: process.cwd(),
+        env: { ...process.env, NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--use-system-ca" },
+        // stderrだけpipeし、失敗理由をSchedulerRun.errorMessageへ残せるようにする
+        // ("exited 1"だけでは予算上限遮断か実障害かを後段が分類できない)。出力自体は転送する。
+        stdio: ["inherit", "inherit", "pipe"],
+      },
     );
-    child.on("exit", (code) => (code === 0 ? resolve() : reject(new Error(`${script} exited ${code}`))));
+    let stderrTail = "";
+    child.stderr?.on("data", (chunk: Buffer) => {
+      process.stderr.write(chunk);
+      stderrTail = (stderrTail + chunk.toString("utf8")).slice(-4000);
+    });
+    child.on("exit", (code) => {
+      if (code === 0) return resolve();
+      const detail = stderrTailSummary(stderrTail);
+      reject(new Error(`${script} exited ${code}${detail ? `: ${detail}` : ""}`));
+    });
   });
 
 

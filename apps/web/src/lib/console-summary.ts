@@ -3,6 +3,7 @@ import { getConsoleLogEpoch, gteWithEpoch, hideStaleSchedulerState } from "./con
 import { estimateModelUsageCostUsd, type ModelUsageCostInput } from "./model-usage-cost";
 import { readObservabilitySummary } from "./observability-summary";
 import { activeProjectWhere, HOLD_PUBLISH_DECISIONS, PUBLIC_PROJECT_STATUSES } from "./project-visibility";
+import { classifySchedulerFailures, SCHEDULER_FAILURE_LOOKBACK_DAYS } from "./scheduler-run-health";
 import { readSchedulerStateRecord } from "./scheduler-state";
 
 type SchedulerState = {
@@ -277,7 +278,8 @@ export const readConsoleSummary = async (
     agents,
     runtimeMetrics,
     activeCreatorGroups,
-    failedSchedulerRunCount,
+    failedSchedulerRunsWindow,
+    completedSchedulerRunMarkers,
     observabilitySummary,
     projectTotalActiveCount,
     projectHeldForReviewCount,
@@ -367,8 +369,25 @@ export const readConsoleSummary = async (
       by: ["agentId"],
       where: { eventType: "self_directed_run", createdAt: { gte: gteWithEpoch(last24Hours) } },
     }),
-    prisma.schedulerRun.count({
-      where: { status: "failed", ...(logEpoch ? { startedAt: { gte: logEpoch } } : {}) },
+    // 失敗Schedulerバッジ用。sync側の派生incidentと同じ窓・同じ分類(scheduler-run-health)で
+    // 「未回復・予算上限以外」の失敗だけを数える(回復済みの一過性失敗を出し続けない)。
+    prisma.schedulerRun.findMany({
+      where: {
+        status: "failed",
+        startedAt: { gte: gteWithEpoch(new Date(now.getTime() - SCHEDULER_FAILURE_LOOKBACK_DAYS * 24 * 60 * 60 * 1000)) },
+      },
+      select: { scheduleName: true, startedAt: true, errorMessage: true },
+      take: 100,
+      orderBy: { startedAt: "desc" },
+    }),
+    prisma.schedulerRun.findMany({
+      where: {
+        status: "completed",
+        startedAt: { gte: gteWithEpoch(new Date(now.getTime() - SCHEDULER_FAILURE_LOOKBACK_DAYS * 24 * 60 * 60 * 1000)) },
+      },
+      select: { scheduleName: true, startedAt: true },
+      take: 1000,
+      orderBy: { startedAt: "desc" },
     }),
     readObservabilitySummary(prisma),
     prisma.project.count({ where: activeProjectWhere }),
@@ -464,6 +483,12 @@ export const readConsoleSummary = async (
 
   const latestRun = recentRuns[0] ? toRunItem(recentRuns[0]) : null;
   const latestRunningRun = recentRuns.find((run) => run.status === "running");
+
+  // 「未回復・予算上限以外」の失敗だけをバッジに出す(sync側の派生incidentと同じ分類)。
+  const failedSchedulerRunCount = classifySchedulerFailures(
+    failedSchedulerRunsWindow,
+    completedSchedulerRunMarkers,
+  ).active.length;
 
   const latestRuntimeByAgent = new Map<string, (typeof runtimeMetrics)[number]>();
   for (const metric of runtimeMetrics) {

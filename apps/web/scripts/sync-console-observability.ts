@@ -5,12 +5,14 @@ import type { PrismaClient } from "@prisma/client";
 import { gteWithEpoch } from "../src/lib/console-epoch";
 import { estimateModelUsageCostUsd } from "../src/lib/model-usage-cost";
 import { HOLD_PUBLISH_DECISIONS } from "../src/lib/project-visibility";
+import { classifySchedulerFailures, isBudgetCapFailure, SCHEDULER_FAILURE_LOOKBACK_DAYS } from "../src/lib/scheduler-run-health";
 import { createPrismaClient } from "./prisma-client";
 
 // 派生incidentの遡及窓。これより前の失敗はincident化しない（lastSeenAt=nowで起票するため
 // 窓が無いと過去の失敗が毎回「今起きた」incidentとして対応キューを埋めてしまう）。
 // PRODIA_CONSOLE_EPOCH が設定されていれば、そのepochとこの窓の遅い方を下限にする。
-const DERIVED_INCIDENT_LOOKBACK_DAYS = 7;
+// scheduler失敗の分類(scheduler-run-health)もこの窓と同じ値を共有する。
+const DERIVED_INCIDENT_LOOKBACK_DAYS = SCHEDULER_FAILURE_LOOKBACK_DAYS;
 
 // incident化する検証statusは「実際の失敗」のみ(表示側 console-summary と統一)。
 // pending(未実行)や warn(助言/初期ロールアウトのhold)や high_risk_topic等の意図的ゲート結果を
@@ -419,7 +421,7 @@ async function syncDerivedIncidents(prisma: PrismaClient) {
   const lookbackStart = gteWithEpoch(
     new Date(Date.now() - DERIVED_INCIDENT_LOOKBACK_DAYS * 24 * 60 * 60 * 1000),
   );
-  const [failedRuns, failedSchedulers, validationChecks, todayUsage] = await Promise.all([
+  const [failedRuns, failedSchedulers, completedSchedulerMarkers, validationChecks, todayUsage] = await Promise.all([
     prisma.run.findMany({
       where: {
         OR: [{ status: "failed" }, { failedProjectCount: { gt: 0 } }],
@@ -431,6 +433,13 @@ async function syncDerivedIncidents(prisma: PrismaClient) {
     prisma.schedulerRun.findMany({
       where: { status: "failed", startedAt: { gte: lookbackStart } },
       take: 100,
+      orderBy: { startedAt: "desc" },
+    }),
+    // 回復判定(scheduler-run-health)用の成功マーカー。毎時レーン×7日でも数百行程度。
+    prisma.schedulerRun.findMany({
+      where: { status: "completed", startedAt: { gte: lookbackStart } },
+      select: { scheduleName: true, startedAt: true },
+      take: 1000,
       orderBy: { startedAt: "desc" },
     }),
     prisma.validationCheck.findMany({
@@ -488,14 +497,22 @@ async function syncDerivedIncidents(prisma: PrismaClient) {
     incidentCount += 1;
   }
 
-  for (const run of failedSchedulers) {
+  // 失敗SchedulerRunの分類(2026-07-10恒久対策)。一過性の失敗が7日間P0として残り、
+  // 手動DB操作(neutralize-failed-scheduler-runs.ts)でしか消せなかった事故への対応:
+  //  - recovered: その後に同scheduleの成功がある = incident化しない(冒頭のblanket
+  //    auto-resolveが既存incidentを自動クローズする)。
+  //  - budgetCapped: 予算上限による想定内の遮断 = P2(対応キュー/総合状態に乗せない)。
+  //  - active: 未回復の実失敗 = 単発はP1。P0は下のscheduler_repeated_failure(繰り返し)に
+  //    予約する(validationゲートと同じ「P0=生成停止・公開事故・コスト超過」方針)。
+  const classifiedSchedulerFailures = classifySchedulerFailures(failedSchedulers, completedSchedulerMarkers);
+  for (const run of classifiedSchedulerFailures.active) {
     await upsertIncident(prisma, {
       fingerprint: `scheduler:${run.id}`,
-      severity: "critical",
+      severity: "warning",
       source: "scheduler",
       impact: "generation_blocked",
       category: "scheduler_failed",
-      priority: "P0",
+      priority: "P1",
       nextAction: "check_scheduler_run",
       title: `Scheduler failed: ${run.scheduleName}`,
       summary: run.errorMessage ?? run.reason ?? "Scheduler run failed.",
@@ -506,9 +523,30 @@ async function syncDerivedIncidents(prisma: PrismaClient) {
     incidentCount += 1;
   }
 
+  for (const run of classifiedSchedulerFailures.budgetCapped) {
+    await upsertIncident(prisma, {
+      fingerprint: `scheduler:${run.id}`,
+      severity: "warning",
+      source: "scheduler",
+      impact: "cost_risk",
+      category: "scheduler_budget_capped",
+      priority: "P2",
+      nextAction: "review_usage",
+      title: `Scheduler paused by daily budget cap: ${run.scheduleName}`,
+      summary: run.errorMessage ?? "Daily Gemini budget cap reached; the lane resumes after the UTC day rollover.",
+      runId: run.runId,
+      notificationStatus: "not_sent",
+      metadata: { schedulerRunId: run.id, source: run.source, planner: run.planner },
+    });
+    incidentCount += 1;
+  }
+
   const repeatedSchedulerFailureThreshold = Number(process.env.SCHEDULER_REPEATED_FAILURE_THRESHOLD ?? 3);
   if (Number.isFinite(repeatedSchedulerFailureThreshold) && repeatedSchedulerFailureThreshold > 1) {
-    const failuresBySchedule = failedSchedulers.reduce((groups, run) => {
+    // 繰り返し失敗の検知は回復済みも含めた「窓内の全失敗」を母数にする(フラッピング検知)。
+    // ただし予算上限の遮断は想定内なので繰り返してもP0にしない。
+    const repeatedFailureCandidates = failedSchedulers.filter((run) => !isBudgetCapFailure(run.errorMessage));
+    const failuresBySchedule = repeatedFailureCandidates.reduce((groups, run) => {
       const key = run.scheduleName || "unknown";
       const group = groups.get(key) ?? [];
       group.push(run);

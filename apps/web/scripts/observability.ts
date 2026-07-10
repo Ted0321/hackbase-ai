@@ -56,6 +56,22 @@ const asNumber = (value: unknown): number | undefined =>
 export const errorMessageOf = (error: unknown): string =>
   error instanceof Error ? error.message : String(error);
 
+/**
+ * 子プロセスのstderr末尾から「失敗理由として意味のある1行」を取り出す。
+ * scheduler系のrunTsxが失敗を "<script> exited 1" としか記録できず、SchedulerRun.errorMessage
+ * から原因(予算上限遮断か実障害か)を分類できなかったため。エラーらしい行(error/failed/cap reached)
+ * を優先し、無ければ最後の非空行を返す。
+ */
+export const stderrTailSummary = (tail: string, maxLength = 300): string => {
+  const lines = tail
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  if (lines.length === 0) return "";
+  const errorLike = [...lines].reverse().find((line) => /error|failed|cap reached/i.test(line));
+  return (errorLike ?? lines[lines.length - 1]).slice(0, maxLength);
+};
+
 export const durationMs = (startedAt: Date, completedAt: Date): number =>
   Math.max(0, completedAt.getTime() - startedAt.getTime());
 

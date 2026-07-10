@@ -13,7 +13,7 @@ import {
   type AgentDueDecision,
   type AgentDueRunState,
 } from "../src/lib/agent-due-decision";
-import { durationMs, errorMessageOf, logAgentRuntimeMetric } from "./observability";
+import { durationMs, errorMessageOf, logAgentRuntimeMetric, stderrTailSummary } from "./observability";
 import "./load-local-env";
 
 const SCHEDULER_STATE_KEY = "agent-creation-daily";
@@ -176,10 +176,21 @@ const runTsx = (script: string, args: string[]) =>
           PRODIA_TRIGGER_TYPE: process.env.PRODIA_TRIGGER_TYPE ?? "schedule",
           NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--use-system-ca",
         },
-        stdio: "inherit",
+        // stderrだけpipeし、失敗理由をSchedulerRun.errorMessageへ残せるようにする
+        // ("exited 1"だけでは予算上限遮断か実障害かを後段が分類できない)。出力自体は転送する。
+        stdio: ["inherit", "inherit", "pipe"],
       },
     );
-    child.on("exit", (code) => (code === 0 ? resolve() : reject(new Error(`${script} exited ${code}`))));
+    let stderrTail = "";
+    child.stderr?.on("data", (chunk: Buffer) => {
+      process.stderr.write(chunk);
+      stderrTail = (stderrTail + chunk.toString("utf8")).slice(-4000);
+    });
+    child.on("exit", (code) => {
+      if (code === 0) return resolve();
+      const detail = stderrTailSummary(stderrTail);
+      reject(new Error(`${script} exited ${code}${detail ? `: ${detail}` : ""}`));
+    });
   });
 
 async function main() {
