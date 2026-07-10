@@ -419,6 +419,25 @@ async function main() {
       } catch (persistError) {
         console.warn(`[self-directed] failed to persist hold evidence:`, persistError);
       }
+      // Issue #100: 保留ランも held_for_review(ops_review) でDB登録し、/human から検分・
+      // 承認(llm:approve)・却下できるようにする。publisher revise の理由や readiness の
+      // blockers は publish スクリプト側が publishDecisionReason に取り込む。登録失敗は
+      // run を落とさない(証跡はGCSに残っており、旧来の手動 llm:publish で救済可能)。
+      try {
+        await runTsx("scripts/publish-llm-pipeline-artifact.ts", [
+          "--path",
+          materializedDir,
+          "--run",
+          runId,
+          "--write",
+        ]);
+        const heldProjectId = `proj_llm_${artifactId.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`;
+        console.log(`[self-directed] held run registered for ops review. project=${heldProjectId}`);
+        console.log(`[self-directed] review: /human/projects/${heldProjectId}`);
+        console.log(`[self-directed] approve with: npm run llm:approve -- --project ${heldProjectId} --write`);
+      } catch (registerError) {
+        console.warn(`[self-directed] failed to register held run for ops review:`, registerError);
+      }
       console.log(`[self-directed] run evidence: /runs/${runId}`);
       return;
     }

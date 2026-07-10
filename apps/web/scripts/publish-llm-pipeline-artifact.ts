@@ -865,20 +865,32 @@ async function main() {
   // Publish gate: the pipeline's Publisher stage must have decided to publish this
   // artifact. The decision lives at <runRoot>/publisher/response.json. The artifact
   // dir is typically <runRoot>/materialized/<artifactId>, so we walk parent dirs up
-  // to find a publisher/response.json. If found and its status is not "publish",
-  // refuse to register the artifact.
+  // to find a publisher/response.json.
+  // --auto-publish: any non-"publish" decision refuses registration (strict).
+  // Without --auto-publish the registration is held_for_review(ops_review) and never
+  // public, so a revise/hold decision does not block it; instead the decision and its
+  // reason are carried into publishDecisionReason so /human shows why it was held.
   const publisherResponse = await findPublisherResponse(resolvedPath);
+  let opsHoldDetail = "";
   if (publisherResponse) {
     const status = String(publisherResponse.parsed.status ?? "").trim();
     if (status !== "publish") {
-      console.error(
-        `Error: Publisher decision is "${status || "(missing)"}", not "publish".`,
+      if (args.autoPublish) {
+        console.error(
+          `Error: Publisher decision is "${status || "(missing)"}", not "publish".`,
+        );
+        console.error(`  Publisher file: ${publisherResponse.path}`);
+        console.error("Refusing to register an artifact that did not clear the AI publisher gate.");
+        process.exit(1);
+      }
+      const reasonText = String(publisherResponse.parsed.reason ?? "").trim();
+      opsHoldDetail = ` publisher=${status || "missing"}${reasonText ? `: ${reasonText}` : ""}`;
+      console.warn(
+        `Publisher decision is "${status || "(missing)"}"; registering for ops review only (not published). ${publisherResponse.path}`,
       );
-      console.error(`  Publisher file: ${publisherResponse.path}`);
-      console.error("Refusing to register an artifact that did not clear the AI publisher gate.");
-      process.exit(1);
+    } else {
+      console.log(`Publisher decision: publish (${publisherResponse.path})`);
     }
-    console.log(`Publisher decision: publish (${publisherResponse.path})`);
   } else {
     if (args.autoPublish) {
       console.error("Error: No publisher/response.json found near the artifact dir.");
@@ -888,6 +900,15 @@ async function main() {
     console.warn(
       "Warning: No publisher/response.json found near the artifact dir; skipping publish gate.",
     );
+  }
+  if (!args.autoPublish) {
+    const blockers = await findPublishReadinessBlockers(resolvedPath);
+    if (blockers.length > 0) {
+      opsHoldDetail += ` blockers=${blockers.join(" | ")}`;
+    }
+    if (opsHoldDetail.length > 500) {
+      opsHoldDetail = `${opsHoldDetail.slice(0, 499)}…`;
+    }
   }
 
   // Derive IDs and labels
@@ -1269,7 +1290,7 @@ async function main() {
         publishDecision: args.autoPublish ? "auto_published" : "ops_review",
         publishDecisionReason: args.autoPublish
           ? `Self-directed run passed the AI publisher gate and MVP artifact validation; auto-published by the agent pipeline. provenance=${provenanceLabel}`
-          : `Registered from LLM pipeline materialized artifact for ops inspection. provenance=${provenanceLabel}`,
+          : `Registered from LLM pipeline materialized artifact for ops inspection.${opsHoldDetail} provenance=${provenanceLabel}`,
         // Auto-publish enters the public feed immediately. Non-auto registrations stay out
         // of the feed as direct-route ops review records until a human operator approves.
         publishedAt: args.autoPublish ? now : null,
@@ -1700,6 +1721,29 @@ async function findPublisherResponse(
     dir = parent;
   }
   return null;
+}
+
+// Held-registration note: the readiness gate writes <runRoot>/publish-readiness.json
+// with a blockers[] array. When registering without --auto-publish we surface those
+// blockers in publishDecisionReason so /human shows why the run was held.
+async function findPublishReadinessBlockers(artifactDir: string): Promise<string[]> {
+  let dir = artifactDir;
+  for (let depth = 0; depth < 5; depth += 1) {
+    const candidate = path.join(dir, "publish-readiness.json");
+    try {
+      const raw = await readFile(candidate, "utf8");
+      const parsed = JSON.parse(raw.replace(/^\uFEFF/, "")) as unknown;
+      if (isRecord(parsed) && Array.isArray(parsed.blockers)) {
+        return parsed.blockers.map((blocker) => String(blocker).trim()).filter(Boolean);
+      }
+    } catch {
+      // Not at this level; continue walking up.
+    }
+    const parent = path.dirname(dir);
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return [];
 }
 
 function mimeTypeForPath(filePath: string): string {
