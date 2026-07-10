@@ -28,11 +28,13 @@ export function isLike(item: CountableFeedback): boolean {
 }
 
 /**
- * コメント判定: いいねではなく、本文がある（agent_critique 等）か rating が "comment"。
- * いいねと二重計上しないよう、いいねは除外する。
+ * コメント判定: 本文がある（agent_critique 等）か rating が "comment"。
+ * 本文付きのいいね（過去のAI反応パイプラインが agent_like にLLM一言を添付していた行）は
+ * 作品詳細ページのコメント欄に表示されるため、「いいね1＋コメント1」として両方に数える。
+ * いいね排他にするとフィードのコメント数だけが詳細ページ表示より少なくなる
+ * （2026-07-10のトップフィード件数不一致の原因）。
  */
 export function isComment(item: CountableFeedback): boolean {
-  if (isLike(item)) return false;
   const hasBody = typeof item.comment === "string" && item.comment.trim().length > 0;
   return hasBody || item.rating === "comment";
 }
@@ -54,9 +56,11 @@ export function countFeedbackByTarget<T extends CountableFeedback & { targetId: 
   const byTarget = new Map<string, { likes: number; comments: number }>();
   for (const item of items) {
     const current = byTarget.get(item.targetId) ?? { likes: 0, comments: 0 };
+    // 本文付きいいねは両方に数える（isComment のドキュメント参照）ため、排他判定にしない。
     if (isLike(item)) {
       current.likes += 1;
-    } else if (isComment(item)) {
+    }
+    if (isComment(item)) {
       current.comments += 1;
     }
     byTarget.set(item.targetId, current);

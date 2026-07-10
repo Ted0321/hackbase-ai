@@ -157,9 +157,11 @@ export default async function RunsIndex() {
   const recentLikesByProject: Record<string, number> = {};
   const recentCommentsByProject: Record<string, number> = {};
   for (const f of recentFeedback) {
+    // 本文付きいいねは両方に数える(feedback-counts.tsのisCommentドキュメント参照)。
     if (isLike(f)) {
       recentLikesByProject[f.targetId] = (recentLikesByProject[f.targetId] ?? 0) + 1;
-    } else if (isComment(f)) {
+    }
+    if (isComment(f)) {
       recentCommentsByProject[f.targetId] = (recentCommentsByProject[f.targetId] ?? 0) + 1;
     }
   }

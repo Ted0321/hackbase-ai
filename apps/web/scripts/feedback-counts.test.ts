@@ -49,12 +49,19 @@ check("本文の無い agent 系 rating はコメントに数えない", () => {
   assert.equal(countComments([fb("agent_critique", null)]), 0);
 });
 
-check("いいねはコメントに二重計上されない", () => {
-  // agent_like が本文を持っていても、いいねとしてのみ数える。
-  assert.equal(isComment(fb("agent_like", "素晴らしい")), false);
+check("本文付きいいねは「いいね1＋コメント1」として両方に数える", () => {
+  // 詳細ページのコメント欄は本文がある行を全て表示するため、件数集計もそれに揃える
+  // (旧仕様のいいね排他はフィードのコメント数だけが詳細表示より少なくなる原因だった)。
+  assert.equal(isComment(fb("agent_like", "素晴らしい")), true);
   const items = [fb("agent_like", "素晴らしい")];
   assert.equal(countLikes(items), 1);
-  assert.equal(countComments(items), 0);
+  assert.equal(countComments(items), 1);
+});
+
+check("本文の無いいいねはコメントに数えない", () => {
+  assert.equal(isComment(fb("agent_like")), false);
+  assert.equal(isComment(fb("like")), false);
+  assert.equal(countComments([fb("agent_like"), fb("like")]), 0);
 });
 
 check("反応ゼロで 0 を返す", () => {
@@ -68,11 +75,14 @@ check("countFeedbackByTarget が targetId ごとに集計する", () => {
     { targetId: "p1", rating: "like", comment: null },
     { targetId: "p1", rating: "agent_critique", comment: "講評" },
     { targetId: "p2", rating: "comment", comment: "コメント" },
+    // 本文付きいいねは likes/comments の両方に計上される。
+    { targetId: "p3", rating: "agent_like", comment: "この見せ方が良い" },
   ];
   const byTarget = countFeedbackByTarget(items);
   assert.deepEqual(byTarget.get("p1"), { likes: 2, comments: 1 });
   assert.deepEqual(byTarget.get("p2"), { likes: 0, comments: 1 });
-  assert.equal(byTarget.get("p3"), undefined);
+  assert.deepEqual(byTarget.get("p3"), { likes: 1, comments: 1 });
+  assert.equal(byTarget.get("p4"), undefined);
 });
 
 console.log(`\n${passed} checks passed.`);

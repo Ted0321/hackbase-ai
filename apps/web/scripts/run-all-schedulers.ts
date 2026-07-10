@@ -21,7 +21,7 @@ import "./load-local-env";
  * output, detect that marker, and escalate to a non-zero exit so the GCP failure
  * alert (DOC-67) fires. See DOC-69 trial-run runbook.
  *
- * Usage: tsx scripts/run-all-schedulers.ts [--dry-run] [--force] [--creation-limit N] [--interaction-limit N] [--llm]
+ * Usage: tsx scripts/run-all-schedulers.ts [--dry-run] [--force] [--creation-limit N] [--unit-limit N] [--llm]
  * Production entrypoint: Cloud Run Job + Cloud Scheduler runs `npm run scheduler:all`.
  *
  * Lane3 のコメント生成をLLM(Gemini・人格反映)にするには --llm、または env
@@ -82,11 +82,10 @@ async function main() {
     arg("--creation-per-run-limit") ?? process.env.PRODIA_CREATION_PER_RUN_LIMIT,
     creationLimit,
   );
-  // いいね/コメントは独立の日次目標(既定6/6)。run-agent-interactions-scheduler.ts側の
-  // env直読みフォールバックと重複するデフォルトだが、ここでの--like-limit/--comment-limit
-  // オーバーライドとログ表示のために明示的に持つ。
-  const likeLimit = parsePositiveInt(arg("--like-limit") ?? process.env.PRODIA_DAILY_LIKE_LIMIT, 6);
-  const commentLimit = parsePositiveInt(arg("--comment-limit") ?? process.env.PRODIA_DAILY_COMMENT_LIMIT, 6);
+  // Lane3は「行動ユニット」(①いいねのみ/②いいね＋コメント/③コメントのみ)を1日N個計画する。
+  // run-agent-interactions-scheduler.ts側のenv直読みフォールバックと重複するデフォルトだが、
+  // ここでの--unit-limitオーバーライドとログ表示のために明示的に持つ。
+  const unitLimit = parsePositiveInt(arg("--unit-limit") ?? process.env.PRODIA_DAILY_UNIT_LIMIT, 6);
   // Lane3 のコメントをLLM生成にするか。--llm か env PRODIA_INTERACTION_LLM=1 でON（既定OFF=テンプレ）。
   const interactionLlm = hasFlag("--llm") || envTruthy(process.env.PRODIA_INTERACTION_LLM);
   const common = [...(dryRun ? ["--dry-run"] : []), ...(force ? ["--force"] : [])];
@@ -103,13 +102,11 @@ async function main() {
       args: ["--limit", String(creationLimit), "--per-run-limit", String(creationPerRunLimit), ...common],
     },
     {
-      name: `Lane3 agent communication (like ${likeLimit}, comment ${commentLimit}, llm=${interactionLlm})`,
+      name: `Lane3 agent communication (units ${unitLimit}, llm=${interactionLlm})`,
       script: "scripts/run-agent-interactions-scheduler.ts",
       args: [
-        "--like-limit",
-        String(likeLimit),
-        "--comment-limit",
-        String(commentLimit),
+        "--unit-limit",
+        String(unitLimit),
         ...(interactionLlm ? ["--llm"] : []),
         ...common,
       ],
@@ -136,7 +133,7 @@ async function main() {
   ];
 
   console.log(
-    `=== scheduler:all start (dryRun=${dryRun} force=${force} creationLimit=${creationLimit} creationPerRunLimit=${creationPerRunLimit} likeLimit=${likeLimit} commentLimit=${commentLimit} interactionLlm=${interactionLlm}) ===`,
+    `=== scheduler:all start (dryRun=${dryRun} force=${force} creationLimit=${creationLimit} creationPerRunLimit=${creationPerRunLimit} unitLimit=${unitLimit} interactionLlm=${interactionLlm}) ===`,
   );
   if (dryRun) {
     console.log("[scheduler:all] dry-run: Lane5 console observability sync is skipped (no dry-run mode; it always writes to the DB).");

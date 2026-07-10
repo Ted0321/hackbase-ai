@@ -5,7 +5,21 @@ import { createPrismaClient } from "./prisma-client";
 import { readSchedulerStateRecord, writeSchedulerStateRecord } from "../src/lib/scheduler-state";
 import { readAgentRegistry } from "./agent-registry";
 import { agentInteractionPolicy, personaLikeProbability } from "./agent-interaction-policy";
-import { drawDailyCount, drawSlotGroup } from "./interaction-slot-planner";
+import {
+  parseUnitPatternWeights,
+  planDailyUnits,
+  type PlannedUnit,
+  type UnitPattern,
+} from "./interaction-slot-planner";
+import {
+  DEFAULT_UNIT_SPREAD_HOURS,
+  buildDayPlan,
+  dueUnits,
+  expireLeftoverUnits,
+  markUnitResult,
+  planSummary,
+  type DayPlan,
+} from "./interaction-unit-queue";
 import { durationMs, errorMessageOf, logAgentRuntimeMetric, stderrTailSummary } from "./observability";
 import "./load-local-env";
 
@@ -14,26 +28,36 @@ const SCHEDULER_STATE_SCOPE = "interactions";
 const prisma = createPrismaClient();
 
 /**
- * A-4 (Lane 3): コミュニケーションの日次スケジューラ。
+ * A-4 (Lane 3): コミュニケーションの日次スケジューラ(日次プラン＋毎時キュー消化)。
  *
- * 各active creatorが「1日数回（既定は1回程度）」、上限内でランダムに他作品へ反応する。
- * いいね/コメントは「日次目標いいねN・コメントM」を独立プールとして管理し、各反応スロットを
- * 残数比の重み付き抽選でどちらのプールから引くか決める(自己補正: 片方が枯渇したら残り全部を
- * もう片方に強制する)。2026-07-08以前は単一の合計上限のみで、実際のタイプ選択は性格重み
- * (LIKE_PROPENSITY_WEIGHT≈1.8→like比率約35%)任せだったため、目標比率(例:6/6=50%)から
- * systematicにズレていた。ここでの重み付き抽選プールが「日次目標」を担保する。
- * 暴走防止の上限は agent-interaction-policy（日次/週次/プロジェクト単位）で担保(不変)。
+ * 反応は「行動ユニット」単位で計画する(2026-07-10、旧like/comment独立プール方式から変更):
+ *   ① like_only         いいねのみ(本文なし)           … 既定55%
+ *   ② like_with_comment いいね＋コメント(同一作品セット) … 既定30%
+ *   ③ comment_only      コメントのみ                    … 既定15%
  *
- * 1日1回 due-gate（state: data/scheduler/agent-interactions-daily.json）。
- * 実体は run-agent-interactions.ts を agent単位・グループ単位(--group like|comment)で呼ぶ
- * （--project under-interacted）。
+ * Stage 2(時間分散): 24時間ごとのプラン更新時に、その日の PRODIA_DAILY_UNIT_LIMIT(既定6)
+ * ユニットへ PRODIA_UNIT_SPREAD_HOURS(既定22h)内のランダム実行予定時刻を割り当てて
+ * SchedulerState(dayPlan)に保存し、毎時tick(Cloud Scheduler既存トリガー)で期限到来分のみ
+ * 実行する。従来は due-gate が開いた1回のtickで全ユニットを一括バースト実行しており、
+ * 全反応が同時刻に固まって見えた。--force は「プラン再構築＋全件即時実行」(従来バースト互換)。
+ *
+ * SchedulerRunの記録粒度(コンソールの失敗分類と整合させるための約束):
+ *   - due前・実行ユニットなし → skipped ("Not due: next unit at ...")
+ *   - プラン構築のみ/実行あり・全成功 → completed
+ *   - 実行あり・1件でも失敗 → failed
+ *   実行なしtickをcompletedにしないこと — classifySchedulerFailures はcompletedを回復マーカー
+ *   として使うため、空のcompletedを毎時積むと実際には直っていない失敗が自動クローズされる。
+ *
+ * ユニット実行の失敗は attempts=2 まで自然リトライ(scheduledAt超過のpendingが次tickで再実行)。
+ * プラン更新時に残っていたpendingは expired(日跨ぎ持ち越しなし)。
  *
  * Usage: tsx scripts/run-agent-interactions-scheduler.ts [--force] [--dry-run] [--llm]
- *          [--like-limit N] [--comment-limit N]
+ *          [--unit-limit N] [--pattern-weights "0.55,0.30,0.15"] [--limit N] [--spread-hours H]
  *
- * 日次目標は --like-limit/--comment-limit、または env PRODIA_DAILY_LIKE_LIMIT/
- * PRODIA_DAILY_COMMENT_LIMIT（既定 6/6）。PRODIA_DAILY_INTERACTION_LIMIT（既定なし=無制限）は
- * 合計の安全上限として残し、目標の合計がそれを超える場合のみ按分で縮める。
+ * 日次ユニット数は --unit-limit または env PRODIA_DAILY_UNIT_LIMIT（既定6）。
+ * パターン重みは --pattern-weights または env PRODIA_UNIT_PATTERN_WEIGHTS（順序=①,②,③）。
+ * PRODIA_DAILY_INTERACTION_LIMIT（--limit、既定なし=無制限）はFeedback行数の安全上限で、
+ * ②が2行消費するため 2×ユニット数 まで見込むこと(本番は12を想定)。
  */
 
 const arg = (flag: string) => {
@@ -45,132 +69,196 @@ const parsePositiveInt = (value: string | undefined, fallback: number) => {
   const parsed = Number.parseInt(value ?? "", 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 };
+const parseNonNegativeFloat = (value: string | undefined, fallback: number) => {
+  const parsed = Number.parseFloat(value ?? "");
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : fallback;
+};
 
 type State = {
   lastStatus?: "completed" | "failed";
   lastCompletedAt?: string;
+  // 「次のプラン更新時刻」(24h周期)。旧バースト方式から意味を変えていないため、
+  // console-summary.ts など既存の読者はそのまま動く。
   nextDueAt?: string;
-  history?: Array<{ at: string; planned: number; plannedLikes?: number; plannedComments?: number }>;
+  // Stage 2 で追加した当日実行キュー。旧形式state(dayPlanなし)は「nextDueAtのみのdue-gate」
+  // として扱われ、次のプラン更新で自然にこの形式へ合流する(ロールバック時も旧コードは
+  // nextDueAtしか読まないため安全)。
+  dayPlan?: DayPlan;
+  history?: Array<{
+    at: string;
+    planned: number;
+    plannedUnits?: number;
+    executedUnits?: number;
+    expiredUnits?: number;
+    patterns?: Partial<Record<UnitPattern, number>>;
+    plannedLikes?: number;
+    plannedComments?: number;
+  }>;
 };
 
 const readState = async (): Promise<State | null> =>
   readSchedulerStateRecord<State>(prisma, SCHEDULER_STATE_KEY);
 
+// 子プロセスのstdoutをteeしつつ捕捉し、runner出力の "created": N をユニットの実行行数として
+// 読み取る(手動レーン parseOutcome と同流儀)。stderrは失敗理由の要約用に末尾を保持する。
 const runTsx = (script: string, args: string[]) =>
-  new Promise<void>((resolve, reject) => {
+  new Promise<{ createdRows: number }>((resolve, reject) => {
     const child = spawn(
       process.execPath,
       [path.join("node_modules", "tsx", "dist", "cli.mjs"), script, ...args],
       {
         cwd: process.cwd(),
         env: { ...process.env, NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--use-system-ca" },
-        // stderrだけpipeし、失敗理由をSchedulerRun.errorMessageへ残せるようにする
-        // ("exited 1"だけでは予算上限遮断か実障害かを後段が分類できない)。出力自体は転送する。
-        stdio: ["inherit", "inherit", "pipe"],
+        stdio: ["inherit", "pipe", "pipe"],
       },
     );
+    let stdoutTail = "";
+    child.stdout?.on("data", (chunk: Buffer) => {
+      process.stdout.write(chunk);
+      stdoutTail = (stdoutTail + chunk.toString("utf8")).slice(-8000);
+    });
     let stderrTail = "";
     child.stderr?.on("data", (chunk: Buffer) => {
       process.stderr.write(chunk);
       stderrTail = (stderrTail + chunk.toString("utf8")).slice(-4000);
     });
     child.on("exit", (code) => {
-      if (code === 0) return resolve();
+      if (code === 0) {
+        const matches = [...stdoutTail.matchAll(/"created":\s*(\d+)/g)];
+        const createdRows = matches.length > 0 ? Number.parseInt(matches[matches.length - 1][1], 10) : 0;
+        return resolve({ createdRows });
+      }
       const detail = stderrTailSummary(stderrTail);
       reject(new Error(`${script} exited ${code}${detail ? `: ${detail}` : ""}`));
     });
   });
 
+const patternCounts = (units: readonly PlannedUnit[]): Record<UnitPattern, number> => ({
+  like_only: units.filter((unit) => unit.pattern === "like_only").length,
+  like_with_comment: units.filter((unit) => unit.pattern === "like_with_comment").length,
+  comment_only: units.filter((unit) => unit.pattern === "comment_only").length,
+});
+
+const formatPatternCounts = (counts: Record<UnitPattern, number>) =>
+  `like_only=${counts.like_only} like_with_comment=${counts.like_with_comment} comment_only=${counts.comment_only}`;
 
 async function main() {
   const force = hasFlag("--force");
   const dryRun = hasFlag("--dry-run");
   const llm = hasFlag("--llm");
-  let likeLimit = parsePositiveInt(arg("--like-limit") ?? process.env.PRODIA_DAILY_LIKE_LIMIT, 6);
-  let commentLimit = parsePositiveInt(arg("--comment-limit") ?? process.env.PRODIA_DAILY_COMMENT_LIMIT, 6);
-  // 合計の安全上限(未設定なら無制限)。目標いいね+コメントがこれを超える場合のみ按分で縮める。
-  const overallCeiling = Number.parseInt(arg("--limit") ?? process.env.PRODIA_DAILY_INTERACTION_LIMIT ?? "", 10);
-  if (Number.isFinite(overallCeiling) && overallCeiling > 0 && likeLimit + commentLimit > overallCeiling) {
-    const ratio = overallCeiling / (likeLimit + commentLimit);
-    likeLimit = Math.max(0, Math.floor(likeLimit * ratio));
-    commentLimit = Math.max(0, overallCeiling - likeLimit);
-  }
+  const unitLimit = parsePositiveInt(arg("--unit-limit") ?? process.env.PRODIA_DAILY_UNIT_LIMIT, 6);
+  const weights = parseUnitPatternWeights(
+    arg("--pattern-weights") ?? process.env.PRODIA_UNIT_PATTERN_WEIGHTS,
+  );
+  const spreadHours = parseNonNegativeFloat(
+    arg("--spread-hours") ?? process.env.PRODIA_UNIT_SPREAD_HOURS,
+    DEFAULT_UNIT_SPREAD_HOURS,
+  );
+  // Feedback行数の安全上限(未設定なら無制限)。②は1ユニットで2行消費する。
+  const rowCeilingRaw = Number.parseInt(
+    arg("--limit") ?? process.env.PRODIA_DAILY_INTERACTION_LIMIT ?? "",
+    10,
+  );
+  const rowCeiling = Number.isFinite(rowCeilingRaw) && rowCeilingRaw > 0 ? rowCeilingRaw : undefined;
   const now = new Date();
 
   const state = await readState();
-  const due = force || !state?.nextDueAt || now.getTime() >= Date.parse(state.nextDueAt);
-  // Lane1(run-research-cache-scheduler.ts)と同じ流儀でSchedulerRun行を残す(dry-runでは書かない)。
+  const planDue = force || !state?.nextDueAt || now.getTime() >= Date.parse(state.nextDueAt);
   const schedulerRunId = `sched_interactions_${now.toISOString().replace(/[-:]/g, "").slice(0, 15)}_${randomUUID().slice(0, 8)}`;
-  if (!due) {
-    console.log(`[interactions-scheduler] not due. next=${state?.nextDueAt}`);
-    if (!dryRun) {
-      await prisma.schedulerRun.create({
-        data: {
-          id: schedulerRunId,
-          scheduleName: SCHEDULER_STATE_KEY,
-          status: "skipped",
-          source: "interactions",
-          planner: "daily-slot-pool",
-          limit: likeLimit + commentLimit,
-          intervalHours: 24,
-          forced: false,
-          dryRun: false,
-          reason: `Not due until ${state?.nextDueAt}`,
-          startedAt: now,
-          completedAt: now,
-          nextDueAt: state?.nextDueAt ? new Date(state.nextDueAt) : undefined,
-        },
-      });
+
+  let dayPlan: DayPlan | undefined = state?.dayPlan;
+  let nextDueAt = state?.nextDueAt ? new Date(state.nextDueAt) : new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  let expiredUnits = 0;
+  let planBuilt = false;
+
+  if (planDue) {
+    if (dayPlan) {
+      const expiry = expireLeftoverUnits(dayPlan, now);
+      expiredUnits = expiry.expired;
     }
-    return;
+    const registry = await readAgentRegistry();
+    const creators = registry.agents.filter(
+      (a) => (a.role ?? "creator") === "creator" && (a.status ?? "active") === "active",
+    );
+    const plannedUnits = planDailyUnits({
+      agents: creators.map((agent) => ({
+        agentId: agent.agentId,
+        personaLikeProbability: personaLikeProbability(agent),
+      })),
+      unitLimit,
+      maxUnitsPerAgent: agentInteractionPolicy.maxDailyInteractionsPerAgent,
+      maxRowsPerAgent: agentInteractionPolicy.maxDailyInteractionsPerAgent,
+      rowCeiling,
+      weights,
+    });
+    dayPlan = buildDayPlan({
+      units: plannedUnits,
+      now,
+      spreadHours,
+      // --force は従来バースト互換(全件即時)。運用Runbookの意味論を維持する。
+      immediate: force,
+      idSuffixes: plannedUnits.map(() => randomUUID().slice(0, 8)),
+    });
+    planBuilt = true;
+    nextDueAt = new Date(now.getTime() + 24 * 60 * 60 * 1000);
   }
 
-  const registry = await readAgentRegistry();
-  const creators = registry.agents.filter(
-    (a) => (a.role ?? "creator") === "creator" && (a.status ?? "active") === "active",
-  );
-
-  // 各エージェントの合計スロット数(0..maxDaily)は従来どおり抽選。各スロットがlike/commentの
-  // どちらかは、日次プールの残数比とそのエージェント自身の性格(いいね好き/講評好き)をブレンド
-  // して決める(POOL_BALANCE_WEIGHTで比率調整、片方が枯渇したら残りは全部もう片方へ強制)。
-  // よって最終合計は必ず(likeLimit, commentLimit)通りになる(対象が十分にある限り)。
-  let remainingLike = likeLimit;
-  let remainingComment = commentLimit;
-  const plan = creators.map((agent) => {
-    const drawn = drawDailyCount(agentInteractionPolicy.maxDailyInteractionsPerAgent);
-    const persona = personaLikeProbability(agent);
-    let likeCount = 0;
-    let commentCount = 0;
-    for (let i = 0; i < drawn; i += 1) {
-      const group = drawSlotGroup({ remainingLike, remainingComment, personaLikeProbability: persona });
-      if (!group) break;
-      if (group === "like") {
-        likeCount += 1;
-        remainingLike -= 1;
-      } else {
-        commentCount += 1;
-        remainingComment -= 1;
-      }
-    }
-    return { agentId: agent.agentId, likeCount, commentCount };
-  });
+  const due = dueUnits(dayPlan, now);
+  const summaryBefore = planSummary(dayPlan);
 
   console.log(
     `[interactions-scheduler] now=${now.toISOString()} force=${force} dryRun=${dryRun} llm=${llm} ` +
-      `likeLimit=${likeLimit} commentLimit=${commentLimit}`,
+      `unitLimit=${unitLimit} rowCeiling=${rowCeiling ?? "none"} spreadHours=${spreadHours} ` +
+      `weights=${weights.like_only.toFixed(2)}/${weights.like_with_comment.toFixed(2)}/${weights.comment_only.toFixed(2)}`,
   );
-  for (const entry of plan) {
-    if (entry.likeCount === 0 && entry.commentCount === 0) continue;
-    console.log(`  - ${entry.agentId}: like=${entry.likeCount} comment=${entry.commentCount}`);
+  if (planBuilt && dayPlan) {
+    console.log(
+      `[interactions-scheduler] ${force ? "(force) " : ""}new day plan: ${dayPlan.units.length} unit(s) ` +
+        `(${formatPatternCounts(patternCounts(dayPlan.units))}), expired leftover=${expiredUnits}`,
+    );
+    for (const unit of dayPlan.units) {
+      console.log(`  - ${unit.agentId}: ${unit.pattern} at ${unit.scheduledAt}`);
+    }
+  } else {
+    console.log(
+      `[interactions-scheduler] queue: pending=${summaryBefore.pending} next=${summaryBefore.nextUnitAt ?? "none"} planRenews=${nextDueAt.toISOString()}`,
+    );
   }
-
-  const totalPlannedLikes = plan.reduce((s, p) => s + p.likeCount, 0);
-  const totalPlannedComments = plan.reduce((s, p) => s + p.commentCount, 0);
+  console.log(`[interactions-scheduler] due this tick: ${due.length} unit(s)`);
 
   if (dryRun) {
+    // 書き込みなし。planDue時のサンプルプランは実行時に別乱数で引き直されることに注意。
     console.log(
-      `[interactions-scheduler] dry-run: would plan ${totalPlannedLikes} like(s) + ${totalPlannedComments} comment(s).`,
+      `[interactions-scheduler] dry-run: ${
+        planBuilt
+          ? `would build a new plan (sample above; the real run redraws) and execute ${due.length} unit(s) now.`
+          : `would execute ${due.length} of ${summaryBefore.pending} pending unit(s).`
+      }`,
     );
+    return;
+  }
+
+  // due前・実行ユニットなし: skippedのみ記録して終了(stateは無変化なので書かない)。
+  // completedにしないこと(ヘッダコメントの記録粒度の約束)。
+  if (!planBuilt && due.length === 0) {
+    console.log(`[interactions-scheduler] not due. next unit=${summaryBefore.nextUnitAt ?? "none"}`);
+    await prisma.schedulerRun.create({
+      data: {
+        id: schedulerRunId,
+        scheduleName: SCHEDULER_STATE_KEY,
+        status: "skipped",
+        source: "interactions",
+        planner: "daily-unit-queue",
+        limit: unitLimit,
+        intervalHours: 24,
+        forced: false,
+        dryRun: false,
+        reason: `Not due: next unit at ${summaryBefore.nextUnitAt ?? "none"} / plan renews ${nextDueAt.toISOString()}`,
+        startedAt: now,
+        completedAt: now,
+        nextDueAt: summaryBefore.nextUnitAt ? new Date(summaryBefore.nextUnitAt) : nextDueAt,
+      },
+    });
     return;
   }
 
@@ -180,79 +268,96 @@ async function main() {
       scheduleName: SCHEDULER_STATE_KEY,
       status: "running",
       source: "interactions",
-      planner: "daily-slot-pool",
-      limit: likeLimit + commentLimit,
+      planner: "daily-unit-queue",
+      limit: unitLimit,
       intervalHours: 24,
       forced: force,
       dryRun: false,
-      reason: `plan like=${totalPlannedLikes} comment=${totalPlannedComments}`,
+      reason: planBuilt
+        ? `planned ${dayPlan?.units.length ?? 0} unit(s) (${formatPatternCounts(patternCounts(dayPlan?.units ?? []))}), executing ${due.length} now`
+        : `executing ${due.length} unit(s), pending ${summaryBefore.pending}`,
       startedAt: now,
     },
   });
 
-  let plannedLikes = 0;
-  let plannedComments = 0;
+  let executedUnits = 0;
+  const executedCounts: Record<UnitPattern, number> = {
+    like_only: 0,
+    like_with_comment: 0,
+    comment_only: 0,
+  };
   const failures: string[] = [];
-  for (const entry of plan) {
-    for (const group of ["like", "comment"] as const) {
-      const count = group === "like" ? entry.likeCount : entry.commentCount;
-      if (count <= 0) continue;
-      const startedAt = new Date();
-      const runId = `run_interactions_${entry.agentId}_${group}_${now.toISOString().replace(/[-:]/g, "").slice(0, 15)}`;
-      try {
-        await runTsx("scripts/run-agent-interactions.ts", [
-          "--agent",
-          entry.agentId,
-          "--project",
-          "under-interacted",
-          "--group",
-          group,
-          "--limit",
-          String(count),
-          ...(llm ? ["--llm"] : []),
-        ]);
-        if (group === "like") plannedLikes += count;
-        else plannedComments += count;
-        const completedAt = new Date();
-        await logAgentRuntimeMetric({
-          agentId: entry.agentId,
-          runId,
-          schedulerKey: SCHEDULER_STATE_KEY,
-          eventType: "agent_interactions_scheduler_run",
-          status: "completed",
-          startedAt,
-          completedAt,
-          durationMs: durationMs(startedAt, completedAt),
-          metadata: { group, planned: count, llm },
-        });
-      } catch (error) {
-        failures.push(`${entry.agentId}(${group}): ${errorMessageOf(error)}`);
-        const failedAt = new Date();
-        await logAgentRuntimeMetric({
-          agentId: entry.agentId,
-          runId,
-          schedulerKey: SCHEDULER_STATE_KEY,
-          eventType: "agent_interactions_scheduler_run",
-          status: "failed",
-          startedAt,
-          completedAt: failedAt,
-          durationMs: durationMs(startedAt, failedAt),
-          metadata: { group, planned: count, llm, errorMessage: errorMessageOf(error) },
-        });
-        console.error(`[interactions-scheduler] ${entry.agentId} (${group}) failed (continuing):`, error);
-      }
+  let currentPlan = dayPlan as DayPlan;
+  for (const unit of due) {
+    const startedAt = new Date();
+    const runId = `run_interactions_${unit.agentId}_${unit.id}_${now.toISOString().replace(/[-:]/g, "").slice(0, 15)}`;
+    try {
+      const { createdRows } = await runTsx("scripts/run-agent-interactions.ts", [
+        "--agent",
+        unit.agentId,
+        "--project",
+        "under-interacted",
+        "--unit",
+        unit.pattern,
+        "--limit",
+        "1",
+        ...(llm ? ["--llm"] : []),
+      ]);
+      currentPlan = markUnitResult(currentPlan, unit.id, { outcome: "completed", rows: createdRows }, new Date());
+      executedUnits += 1;
+      executedCounts[unit.pattern] += 1;
+      const completedAt = new Date();
+      await logAgentRuntimeMetric({
+        agentId: unit.agentId,
+        runId,
+        schedulerKey: SCHEDULER_STATE_KEY,
+        eventType: "agent_interactions_scheduler_run",
+        status: "completed",
+        startedAt,
+        completedAt,
+        durationMs: durationMs(startedAt, completedAt),
+        metadata: { unitId: unit.id, pattern: unit.pattern, rows: createdRows, llm },
+      });
+    } catch (error) {
+      failures.push(`${unit.agentId}(${unit.pattern}): ${errorMessageOf(error)}`);
+      currentPlan = markUnitResult(
+        currentPlan,
+        unit.id,
+        { outcome: "failed", error: errorMessageOf(error) },
+        new Date(),
+      );
+      const failedAt = new Date();
+      await logAgentRuntimeMetric({
+        agentId: unit.agentId,
+        runId,
+        schedulerKey: SCHEDULER_STATE_KEY,
+        eventType: "agent_interactions_scheduler_run",
+        status: "failed",
+        startedAt,
+        completedAt: failedAt,
+        durationMs: durationMs(startedAt, failedAt),
+        metadata: { unitId: unit.id, pattern: unit.pattern, llm, errorMessage: errorMessageOf(error) },
+      });
+      console.error(`[interactions-scheduler] ${unit.agentId} (${unit.pattern}) failed (continuing):`, error);
     }
   }
 
-  const planned = plannedLikes + plannedComments;
   const completedAt = new Date();
-  const nextDueAtDate = new Date(completedAt.getTime() + 24 * 60 * 60 * 1000);
+  const summaryAfter = planSummary(currentPlan);
   const nextState: State = {
     lastStatus: failures.length > 0 ? "failed" : "completed",
     lastCompletedAt: completedAt.toISOString(),
-    nextDueAt: nextDueAtDate.toISOString(),
+    nextDueAt: nextDueAt.toISOString(),
+    dayPlan: currentPlan,
     history: [
-      { at: completedAt.toISOString(), planned, plannedLikes, plannedComments },
+      {
+        at: completedAt.toISOString(),
+        planned: executedUnits,
+        ...(planBuilt ? { plannedUnits: currentPlan.units.length } : {}),
+        executedUnits,
+        ...(expiredUnits > 0 ? { expiredUnits } : {}),
+        patterns: executedCounts,
+      },
       ...((state?.history ?? []).slice(0, 29)),
     ],
   };
@@ -267,7 +372,7 @@ async function main() {
         status: failures.length > 0 ? "failed" : "completed",
         errorMessage: failures.length > 0 ? failures.join(" / ").slice(0, 1000) : undefined,
         completedAt,
-        nextDueAt: nextDueAtDate,
+        nextDueAt: summaryAfter.nextUnitAt ? new Date(summaryAfter.nextUnitAt) : nextDueAt,
       },
     });
   } catch (error) {
@@ -279,7 +384,10 @@ async function main() {
       .catch(() => {});
     throw error;
   }
-  console.log(`[interactions-scheduler] done. planned=${planned} (like=${plannedLikes} comment=${plannedComments})`);
+  console.log(
+    `[interactions-scheduler] tick done. executed=${executedUnits}/${due.length} ` +
+      `(${formatPatternCounts(executedCounts)}) pending=${summaryAfter.pending} next=${summaryAfter.nextUnitAt ?? "none"}`,
+  );
 }
 
 main()

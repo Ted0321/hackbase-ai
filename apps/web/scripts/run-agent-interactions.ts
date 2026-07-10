@@ -8,10 +8,12 @@ import {
   evaluateInteractionLimits,
   isInteractionType,
   selectInteractionType,
+  usedReactionGroups,
   weekWindowStart,
   type ExistingAgentInteraction,
   type InteractionType,
 } from "./agent-interaction-policy";
+import { isUnitPattern, type UnitPattern } from "./interaction-slot-planner";
 import { generateAgentReactionComment } from "./agent-reaction";
 import { projectPreferenceSignals, rankByTargetPreference } from "./target-preference";
 import "./load-local-env";
@@ -23,6 +25,8 @@ type Args = {
   agentId?: string;
   type?: InteractionType;
   group?: "like" | "comment";
+  // 行動ユニット(①like_only/②like_with_comment/③comment_only)。指定時、--limitはユニット数。
+  unit?: UnitPattern;
   limit: number;
   dryRun: boolean;
   force: boolean;
@@ -44,11 +48,17 @@ type PlannedInteraction = {
   actingAgentId: string;
   actingAgentName: string;
   type: InteractionType;
-  // comment: null は「コメント無しのいいね」(LLM生成が通らなかった agent_like)。
-  // UI はコメント無し Feedback をコメント一覧に出さないため、反応数だけが加算される。
+  // comment: null は「コメント無しのいいね」。ユニット経路(--unit)のいいね行は常に本文なし
+  // (公開フィードで全いいねにコメントが付いて見える不自然さを避ける。2026-07-10仕様変更)。
+  // 旧経路では LLM 生成が通らなかった agent_like のみ。
   comment: string | null;
   commentSource: "template" | "llm" | "none";
   llmAttempts?: Array<{ ok: boolean; reason?: string }>;
+  // 行動ユニット情報(--unit 経路のみ)。②のペア2行は同じ unitId を共有する。
+  unitId?: string;
+  unitPattern?: UnitPattern;
+  // ②のコメント行が上限/LLM却下で落ち、いいね行だけ残って①へ降格したとき true。
+  unitDegraded?: boolean;
 };
 
 const prisma = createPrismaClient();
@@ -91,6 +101,15 @@ function parseArgs(): Args {
     throw new Error('--group must be "like" or "comment"');
   }
 
+  const rawUnit = values.get("unit");
+  const unit = rawUnit ? String(rawUnit) : undefined;
+  if (unit && !isUnitPattern(unit)) {
+    throw new Error('--unit must be "like_only", "like_with_comment", or "comment_only"');
+  }
+  if (unit && (type || group)) {
+    throw new Error("--unit cannot be combined with --type or --group");
+  }
+
   const rawLimit = Number(values.get("limit") ?? agentInteractionPolicy.defaultBatchLimit);
   if (!Number.isInteger(rawLimit) || rawLimit < 1) {
     throw new Error("--limit must be a positive integer");
@@ -101,6 +120,7 @@ function parseArgs(): Args {
     agentId: values.get("agent") ? String(values.get("agent")) : undefined,
     type: type as InteractionType | undefined,
     group: group as "like" | "comment" | undefined,
+    unit: unit as UnitPattern | undefined,
     limit: Math.min(rawLimit, agentInteractionPolicy.maxBatchLimit),
     dryRun: values.has("dry-run") || values.has("dryRun"),
     force: values.has("force"),
@@ -241,6 +261,8 @@ function planInteractions(args: {
   agents: AgentRegistryProfile[];
   requestedType?: InteractionType;
   requestedGroup?: "like" | "comment";
+  // 行動ユニット指定時、limit はユニット数(②のペア2行で1ユニット)。
+  requestedUnit?: UnitPattern;
   limit: number;
   force: boolean;
   existingByProject: Map<string, ExistingAgentInteraction[]>;
@@ -250,18 +272,145 @@ function planInteractions(args: {
   const planned: PlannedInteraction[] = [];
   const skipped: Array<{ projectId: string; agentId?: string; reasons: string[] }> = [];
   let likesAlreadyPlanned = 0;
+  let unitsPlanned = 0;
+  const reachedLimit = () =>
+    args.requestedUnit ? unitsPlanned >= args.limit : planned.length >= args.limit;
+
+  // 1行分を上限評価して計画に積む共通処理。②の2行目は、直前に積んだいいね行が
+  // dailyCounts/weeklyCounts へ反映済みの状態で評価される(セットで日次2行を消費)。
+  const planRow = (
+    project: ProjectWithAgent,
+    agent: AgentRegistryProfile,
+    selectedType: InteractionType,
+    projectInteractions: ExistingAgentInteraction[],
+    options?: { unitId?: string; unitPattern?: UnitPattern; commentless?: boolean },
+  ): boolean => {
+    const limitCheck = evaluateInteractionLimits({
+      existingProjectInteractions: projectInteractions,
+      actingAgentId: agent.agentId,
+      selectedType,
+      dailyCount: args.dailyCounts.get(agent.agentId) ?? 0,
+      weeklyCount: args.weeklyCounts.get(agent.agentId) ?? 0,
+      force: args.force,
+    });
+    if (!limitCheck.allowed) {
+      skipped.push({ projectId: project.id, agentId: agent.agentId, reasons: limitCheck.reasons });
+      return false;
+    }
+
+    const feedbackId = randomUUID();
+    planned.push({
+      feedbackId,
+      eventId: `event_${selectedType}_${feedbackId}`,
+      runId: project.runId,
+      projectId: project.id,
+      projectTitle: project.title,
+      targetAgentId: project.agentId,
+      targetAgentName: project.agent.name,
+      actingAgentId: agent.agentId,
+      actingAgentName: agent.displayName,
+      type: selectedType,
+      // ユニット経路のいいね行は本文なしで確定。それ以外は従来どおりテンプレ→(--llm時)LLM置換。
+      comment: options?.commentless
+        ? null
+        : defaultComment(selectedType, agent.displayName, project.title, project.oneLiner),
+      commentSource: options?.commentless ? "none" : "template",
+      unitId: options?.unitId,
+      unitPattern: options?.unitPattern,
+    });
+
+    projectInteractions.push({ actorId: agent.agentId, rating: selectedType, createdAt: new Date() });
+    args.existingByProject.set(project.id, projectInteractions);
+    args.dailyCounts.set(agent.agentId, (args.dailyCounts.get(agent.agentId) ?? 0) + 1);
+    args.weeklyCounts.set(agent.agentId, (args.weeklyCounts.get(agent.agentId) ?? 0) + 1);
+    if (selectedType === "agent_like") likesAlreadyPlanned += 1;
+    return true;
+  };
 
   for (const project of args.projects) {
-    if (planned.length >= args.limit) break;
+    if (reachedLimit()) break;
     const projectInteractions = args.existingByProject.get(project.id) ?? [];
 
     for (const agent of args.agents) {
-      if (planned.length >= args.limit) break;
+      if (reachedLimit()) break;
       if (agent.agentId === project.agentId) {
         skipped.push({ projectId: project.id, agentId: agent.agentId, reasons: ["acting agent owns this project"] });
         continue;
       }
 
+      if (args.requestedUnit) {
+        // ユニット経路はユニット数でlimit管理するため、混在バッチ用のいいね上限
+        // (maxLikesPerBatch)は適用しない(likesAlreadyPlanned: 0 を渡す)。
+        const pattern = args.requestedUnit;
+        const unitId = `unit_${randomUUID().slice(0, 8)}`;
+
+        if (pattern === "like_only" || pattern === "comment_only") {
+          const selectedType = selectInteractionType({
+            agent,
+            existingProjectInteractions: projectInteractions,
+            requestedGroup: pattern === "like_only" ? "like" : "comment",
+            likesAlreadyPlanned: 0,
+            force: args.force,
+          });
+          if (!selectedType) {
+            skipped.push({ projectId: project.id, agentId: agent.agentId, reasons: ["no allowed interaction type"] });
+            continue;
+          }
+          if (
+            planRow(project, agent, selectedType, projectInteractions, {
+              unitId,
+              unitPattern: pattern,
+              commentless: pattern === "like_only",
+            })
+          ) {
+            unitsPlanned += 1;
+          }
+          continue;
+        }
+
+        // like_with_comment: 同一作品で like/comment 両グループが空いているエージェント×作品のみ。
+        // (どちらかを既に使っていたら別作品で改めてセットにする — 部分的なセットは作らない)
+        if (usedReactionGroups(projectInteractions, agent.agentId).size > 0) {
+          skipped.push({
+            projectId: project.id,
+            agentId: agent.agentId,
+            reasons: ["unit requires both like and comment slots free on this project"],
+          });
+          continue;
+        }
+        const likeType = selectInteractionType({
+          agent,
+          existingProjectInteractions: projectInteractions,
+          requestedGroup: "like",
+          likesAlreadyPlanned: 0,
+          force: args.force,
+        });
+        const commentType = selectInteractionType({
+          agent,
+          existingProjectInteractions: projectInteractions,
+          requestedGroup: "comment",
+          likesAlreadyPlanned: 0,
+          force: args.force,
+        });
+        if (!likeType || !commentType) {
+          skipped.push({ projectId: project.id, agentId: agent.agentId, reasons: ["no allowed interaction type"] });
+          continue;
+        }
+        if (!planRow(project, agent, likeType, projectInteractions, { unitId, unitPattern: pattern, commentless: true })) {
+          continue;
+        }
+        if (!planRow(project, agent, commentType, projectInteractions, { unitId, unitPattern: pattern })) {
+          // コメント行だけ上限で落ちた(例: rolling 24h窓の日次残が1行)。いいね行は成立している
+          // ので、ユニットを①へ降格して継続する。
+          const likeRow = planned[planned.length - 1];
+          likeRow.unitPattern = "like_only";
+          likeRow.unitDegraded = true;
+        }
+        unitsPlanned += 1;
+        continue;
+      }
+
+      // 従来経路(--type/--group/混在バッチ)。手動レーンはこちらを使う。
       const selectedType = selectInteractionType({
         agent,
         existingProjectInteractions: projectInteractions,
@@ -276,41 +425,7 @@ function planInteractions(args: {
         continue;
       }
 
-      const limitCheck = evaluateInteractionLimits({
-        existingProjectInteractions: projectInteractions,
-        actingAgentId: agent.agentId,
-        selectedType,
-        dailyCount: args.dailyCounts.get(agent.agentId) ?? 0,
-        weeklyCount: args.weeklyCounts.get(agent.agentId) ?? 0,
-        force: args.force,
-      });
-
-      if (!limitCheck.allowed) {
-        skipped.push({ projectId: project.id, agentId: agent.agentId, reasons: limitCheck.reasons });
-        continue;
-      }
-
-      const feedbackId = randomUUID();
-      planned.push({
-        feedbackId,
-        eventId: `event_${selectedType}_${feedbackId}`,
-        runId: project.runId,
-        projectId: project.id,
-        projectTitle: project.title,
-        targetAgentId: project.agentId,
-        targetAgentName: project.agent.name,
-        actingAgentId: agent.agentId,
-        actingAgentName: agent.displayName,
-        type: selectedType,
-        comment: defaultComment(selectedType, agent.displayName, project.title, project.oneLiner),
-        commentSource: "template",
-      });
-
-      projectInteractions.push({ actorId: agent.agentId, rating: selectedType, createdAt: new Date() });
-      args.existingByProject.set(project.id, projectInteractions);
-      args.dailyCounts.set(agent.agentId, (args.dailyCounts.get(agent.agentId) ?? 0) + 1);
-      args.weeklyCounts.set(agent.agentId, (args.weeklyCounts.get(agent.agentId) ?? 0) + 1);
-      if (selectedType === "agent_like") likesAlreadyPlanned += 1;
+      planRow(project, agent, selectedType, projectInteractions);
     }
   }
 
@@ -376,6 +491,7 @@ async function main() {
     agents,
     requestedType: args.type,
     requestedGroup: args.group,
+    requestedUnit: args.unit,
     limit: args.limit,
     force: args.force,
     existingByProject,
@@ -387,6 +503,7 @@ async function main() {
     dryRun: args.dryRun,
     batchId,
     selector: args.project,
+    unit: args.unit,
     force: args.force,
     limit: args.limit,
     policy: agentInteractionPolicy,
@@ -416,11 +533,18 @@ async function main() {
   // 現在はテンプレへ落とさず、agent_like のみコメント無しいいねとして成立させ、
   // それ以外の反応タイプはスキップする(数より質を優先)。
   let finalPlanned = planned;
+  let degradedToLikeOnly = 0;
   if (args.llm) {
     const projectMap = new Map(projects.map((project) => [project.id, project]));
     const agentMap = new Map(agents.map((agent) => [agent.agentId, agent]));
     const kept: PlannedInteraction[] = [];
+    const degradedUnitIds = new Set<string>();
     for (const interaction of planned) {
+      // ユニット経路の本文なしいいね行は生成対象外(Gemini呼び出しも発生しない)。
+      if (interaction.commentSource === "none") {
+        kept.push(interaction);
+        continue;
+      }
       const project = projectMap.get(interaction.projectId);
       const profile = agentMap.get(interaction.actingAgentId);
       if (!project || !profile) continue;
@@ -444,6 +568,16 @@ async function main() {
         interaction.comment = null;
         interaction.commentSource = "none";
         kept.push(interaction);
+      } else if (interaction.unitPattern === "like_with_comment" && interaction.unitId) {
+        // ②のコメント行が品質検証を通らなかった → コメント行を落とし、ユニットを①へ降格
+        // (いいね行は残す。テンプレ文へ落とすくらいなら投稿しない、の既存方針と同じ)。
+        degradedUnitIds.add(interaction.unitId);
+        const lastReason = result.attempts.at(-1)?.reason ?? "unknown";
+        skipped.push({
+          projectId: interaction.projectId,
+          agentId: interaction.actingAgentId,
+          reasons: [`llm_comment_rejected: ${lastReason} (unit degraded to like_only)`],
+        });
       } else {
         const lastReason = result.attempts.at(-1)?.reason ?? "unknown";
         skipped.push({
@@ -453,6 +587,13 @@ async function main() {
         });
       }
     }
+    for (const interaction of kept) {
+      if (interaction.unitId && degradedUnitIds.has(interaction.unitId) && interaction.type === "agent_like") {
+        interaction.unitPattern = "like_only";
+        interaction.unitDegraded = true;
+      }
+    }
+    degradedToLikeOnly = degradedUnitIds.size;
     finalPlanned = kept;
     if (finalPlanned.length === 0) {
       console.log(JSON.stringify({ ...output, planned: [], skipped: skipped.slice(0, 20), created: 0 }, null, 2));
@@ -493,6 +634,13 @@ async function main() {
             targetAgentName: interaction.targetAgentName,
             comment: interaction.comment,
             commentSource: interaction.commentSource,
+            ...(interaction.unitId
+              ? {
+                  unitId: interaction.unitId,
+                  unitPattern: interaction.unitPattern,
+                  ...(interaction.unitDegraded ? { unitDegraded: true } : {}),
+                }
+              : {}),
             ...(interaction.llmAttempts ? { llmAttempts: interaction.llmAttempts } : {}),
             policy: agentInteractionPolicy,
           }),
@@ -507,6 +655,8 @@ async function main() {
         llmRetried: finalPlanned.filter((item) => (item.llmAttempts?.length ?? 0) > 1).length,
         commentlessLikes: finalPlanned.filter((item) => item.commentSource === "none").length,
         rejectedAndSkipped: planned.length - finalPlanned.length,
+        // ②のコメント行がLLM却下され、いいね行だけ残して①へ降格したユニット数(観測用)。
+        degradedToLikeOnly,
       }
     : undefined;
 

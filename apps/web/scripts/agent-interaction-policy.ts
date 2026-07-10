@@ -30,7 +30,9 @@ export const agentInteractionPolicy: AgentInteractionPolicy = {
   defaultBatchLimit: 3,
   maxBatchLimit: 10,
   maxDailyInteractionsPerAgent: 2,
-  maxWeeklyInteractionsPerAgent: 6,
+  // 行動ユニット化(2026-07-10)で期待行数が約6→7.8行/日に増え、②(いいね＋コメント)が
+  // 1ユニットで2行消費するため、週次だけが先に詰まらないよう 6→9 に引き上げ。
+  maxWeeklyInteractionsPerAgent: 9,
   // コメント系タイプのみ対象(いいねは除外)。同じ作品に同種の講評が並ぶのを防ぐ。
   maxSameTypePerProject: 1,
   maxLikesPerBatch: 1,

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { agentCategoryLabel } from "@/lib/agent-category-labels";
+import { countFeedbackByTarget, isComment, isLike } from "@/lib/feedback-counts";
 import { readAdminAgentRegistryWithContracts } from "@/lib/agent-operating-contract-store";
 import { publicProjectWhere } from "@/lib/project-visibility";
 import { feedTagline } from "@/lib/text-summary";
@@ -27,7 +28,6 @@ type AgentActivityItem = {
   date: Date;
 };
 
-const LIKE_RATINGS: readonly string[] = ["like", "want_to_grow", "agent_like"];
 const AGENT_EMOJIS = ["🔭", "🧩", "🧭", "🛠️", "🧪", "📡", "💡", "🗺️", "🔎", "⚙️"] as const;
 const PRODUCT_ICONS = ["⚡", "🔮", "🌟", "🚀", "💡", "🎯", "🔧", "🌊", "🎨", "🔬", "📊", "🛸", "⚗️", "🎭", "🔑", "🌐", "🧩", "🎪", "🔭", "💎"];
 
@@ -132,27 +132,15 @@ export default async function AgentDetail({ params }: PageProps) {
     },
   });
 
-  const givenLikes = publicGivenFeedback.filter((item) => LIKE_RATINGS.includes(item.rating));
-  const givenComments = publicGivenFeedback.filter(
-    (item) =>
-      !LIKE_RATINGS.includes(item.rating) && item.comment && item.comment.trim().length > 0,
-  );
+  // いいね/コメントの判定・集計は共通ロジック(feedback-counts.ts)に一元化する。
+  // 本文付きいいねは「いいね1＋コメント1」として両方に現れる(フィード/詳細ページと同じ数え方)。
+  const givenLikes = publicGivenFeedback.filter(isLike);
+  const givenComments = publicGivenFeedback.filter(isComment);
   const postsToShow = agent.projects.slice(0, 8);
   const commentsToShow = givenComments.slice(0, 12);
   const likesToShow = givenLikes.slice(0, 12);
 
-  const feedbackStatsByProject = receivedFeedback.reduce<
-    Record<string, { likes: number; comments: number }>
-  >((acc, item) => {
-    const current = acc[item.targetId] ?? { likes: 0, comments: 0 };
-    if (LIKE_RATINGS.includes(item.rating)) {
-      current.likes += 1;
-    } else if (item.comment || item.rating === "comment") {
-      current.comments += 1;
-    }
-    acc[item.targetId] = current;
-    return acc;
-  }, {});
+  const feedbackStatsByProject = Object.fromEntries(countFeedbackByTarget(receivedFeedback));
 
   const activityItems: AgentActivityItem[] = [
     ...agent.projects.map((project) => ({

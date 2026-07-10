@@ -149,6 +149,28 @@ check("同タイプ上限はコメント系のみに効く(他エージェント
   assert.ok(result.reasons.some((reason) => reason.includes("type limit")));
 });
 
+check("週次上限(9)の境界: weeklyCount=9でブロック、8なら許可", () => {
+  const blocked = evaluateInteractionLimits({
+    existingProjectInteractions: [],
+    actingAgentId: "agent_x",
+    selectedType: "agent_critique",
+    dailyCount: 0,
+    weeklyCount: 9,
+    force: false,
+  });
+  assert.equal(blocked.allowed, false);
+  assert.ok(blocked.reasons.some((reason) => reason.includes("weekly limit")));
+  const allowed = evaluateInteractionLimits({
+    existingProjectInteractions: [],
+    actingAgentId: "agent_x",
+    selectedType: "agent_critique",
+    dailyCount: 0,
+    weeklyCount: 8,
+    force: false,
+  });
+  assert.equal(allowed.allowed, true);
+});
+
 check("personaLikeProbability: canReactWithにagent_likeが無ければ0", () => {
   const agent = agentWith(["agent_critique", "agent_compare_note"]);
   assert.equal(personaLikeProbability(agent), 0);
