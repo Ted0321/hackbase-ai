@@ -9,6 +9,7 @@ import { archiveAgentSkill } from "./archive-agent-skill";
 import { durationMs, errorMessageOf, logAgentRuntimeMetric } from "./observability";
 import { assertPipelineResponsesWritten } from "./self-directed-response-guard";
 import { buildAntidupSteering, fetchPublishedProducts } from "./llm-pipeline/antidup-steering";
+import { persistRunEvidence } from "./persist-run-evidence";
 
 /**
  * P1-C: エージェント主語の自走run。
@@ -311,6 +312,14 @@ async function main() {
         console.log(
           `[self-directed] review loop report: artifacts/llm-pipeline-runs/${runId}/review-loop.json`,
         );
+        try {
+          const ev = await persistRunEvidence(runId);
+          console.log(
+            `[self-directed] hold evidence persisted to artifact store (persisted=${ev.persisted}, failed=${ev.failed}). run=${runId}`,
+          );
+        } catch (persistError) {
+          console.warn(`[self-directed] failed to persist hold evidence:`, persistError);
+        }
         console.log(`[self-directed] run evidence: /runs/${runId}`);
         return;
       }
@@ -402,6 +411,14 @@ async function main() {
       console.log("");
       console.log(`[self-directed] held before publish. run=${runId}`);
       console.log(`[self-directed] readiness report: artifacts/llm-pipeline-runs/${runId}/publish-readiness.json`);
+      try {
+        const ev = await persistRunEvidence(runId);
+        console.log(
+          `[self-directed] hold evidence persisted to artifact store (persisted=${ev.persisted}, failed=${ev.failed}). run=${runId}`,
+        );
+      } catch (persistError) {
+        console.warn(`[self-directed] failed to persist hold evidence:`, persistError);
+      }
       console.log(`[self-directed] run evidence: /runs/${runId}`);
       return;
     }
