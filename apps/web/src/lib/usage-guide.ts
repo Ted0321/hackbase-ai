@@ -13,27 +13,30 @@
  */
 
 export type UsageGuideStep = {
-  // ユーザーが行う操作。命令形の日本語1文(実UI要素名を含むことを builder.md が要求)。
+  // ステップの見出し(日本語1文・句点なし)。v2はデータフローの段階名
+  // (例:「設備IDを起点に資料を集める」「AIが安全分析者として資料を読み解く」)。
   action: string;
-  // その操作で画面に起きること1文。
+  // ステップ本文(2〜3文)。「何が起きるか/どういう観点・基準か/サンプルでの実例」を
+  // ソース(steps/*.tsのプロンプト・sample-trace)にある事実だけで書く。
   result: string;
 };
 
 export type UsageGuide = {
   // 任意の導入1文(どんな場面で使うか)。
   intro?: string;
-  // 2〜4件の番号付き手順。
+  // 2〜5件の番号付き手順(インプット準備→処理のポイント→AIの処理→アウトプット)。
   steps: UsageGuideStep[];
-  // 画面のどこを見ればこの作品の価値を判断できるか(任意1文)。
+  // どこを見ればこの作品の価値を判断できるか(任意1文)。デモがトレース再生である旨も担える。
   checkPoint?: string;
 };
 
 export const USAGE_GUIDE_MIN_STEPS = 2;
-export const USAGE_GUIDE_MAX_STEPS = 4;
-// builder.md は action ≦約50字 / result ≦約100字を指示する。正規化側は少し緩い上限で
-// 受け、超過は途中切断せず棄却する(切断された文は壊れたコピーになるため)。
+export const USAGE_GUIDE_MAX_STEPS = 5;
+// builder.md は action ≦約50字 / result 2〜3文≦約200字を指示する(v2: データフロー構成)。
+// 正規化側は少し緩い上限で受け、超過は途中切断せず棄却する(切断された文は壊れたコピーになるため)。
 export const USAGE_ACTION_MAX_CHARS = 60;
-export const USAGE_RESULT_MAX_CHARS = 120;
+export const USAGE_RESULT_MAX_CHARS = 220;
+export const USAGE_RESULT_MAX_SENTENCES = 3;
 export const USAGE_NOTE_MAX_CHARS = 160;
 
 // 全体を囲んでいる場合にだけ剥がす囲み記号のペア(normalizeShortTagline と同じ吸収)。
@@ -63,16 +66,19 @@ const stripEnclosures = (value: string): string => {
   return result;
 };
 
-// 複数文が来たら第1文のみ採用する。ASCIIピリオドは「Node.js」「2.5」等を誤分割するため
-// 文区切りに含めない(shortTagline 正規化と同じ判断)。
-const firstSentenceOnly = (value: string): string => {
-  const [head] = value.split(/(?<=[。！？!?])\s*/);
-  return (head ?? value).trim();
-};
+// 文区切り。ASCIIピリオドは「Node.js」「2.5」等を誤分割するため文区切りに含めない
+// (shortTagline 正規化と同じ判断)。
+const splitSentences = (value: string): string[] =>
+  value
+    .split(/(?<=[。！？!?])\s*/)
+    .map((item) => item.trim())
+    .filter(Boolean);
 
-const normalizeLine = (raw: unknown, maxChars: number): string | null => {
+// 上限文数まで採用して連結する(既定は1文)。日本語コピー前提なので区切りなしで連結する。
+const normalizeLine = (raw: unknown, maxChars: number, maxSentences = 1): string | null => {
   if (typeof raw !== "string") return null;
-  const value = firstSentenceOnly(stripEnclosures(raw.replace(/\s+/g, " ").trim()));
+  const sentences = splitSentences(stripEnclosures(raw.replace(/\s+/g, " ").trim()));
+  const value = sentences.slice(0, maxSentences).join("");
   if (!value) return null;
   if ([...value].length > maxChars) return null;
   return value;
@@ -90,18 +96,24 @@ export const normalizeUsageGuide = (raw: unknown): UsageGuide | null => {
     if (!rawStep || typeof rawStep !== "object" || Array.isArray(rawStep)) continue;
     const stepRecord = rawStep as Record<string, unknown>;
     const action = normalizeLine(stepRecord.action, USAGE_ACTION_MAX_CHARS)
-      // 操作見出しは句点で終わらせない。
+      // ステップ見出しは句点で終わらせない。
       ?.replace(/[。．.]+$/u, "")
       .trim();
-    const result = normalizeLine(stepRecord.result, USAGE_RESULT_MAX_CHARS);
+    // 本文はデータフロー説明のため複数文(何が起きるか/観点・基準/実例)を許容する。
+    const result = normalizeLine(stepRecord.result, USAGE_RESULT_MAX_CHARS, USAGE_RESULT_MAX_SENTENCES);
     if (!action || !result) continue;
     const actionKey = usageSentenceKey(action);
     const resultKey = usageSentenceKey(result);
-    // 操作と結果が同一文、または既出文と重複するステップは落とす(使い方タブの重複表示の再発防止)。
+    // 見出しと本文が同一文、または既出文と重複するステップは落とす(使い方タブの重複表示の再発防止)。
     if (!actionKey || !resultKey || actionKey === resultKey) continue;
     if (seen.has(actionKey) || seen.has(resultKey)) continue;
     seen.add(actionKey);
     seen.add(resultKey);
+    // 本文中の各文もキー登録し、intro/checkPoint が本文の1文をなぞる重複を検知できるようにする。
+    for (const sentence of splitSentences(result)) {
+      const key = usageSentenceKey(sentence);
+      if (key) seen.add(key);
+    }
     steps.push({ action, result });
   }
 
@@ -111,7 +123,8 @@ export const normalizeUsageGuide = (raw: unknown): UsageGuide | null => {
 
   const intro = normalizeLine(record.intro, USAGE_NOTE_MAX_CHARS);
   const introKey = intro ? usageSentenceKey(intro) : null;
-  const checkPoint = normalizeLine(record.checkPoint, USAGE_NOTE_MAX_CHARS);
+  // checkPoint は「デモは記録済みトレースの再生です。○○を見てください。」の2文構成を許容する。
+  const checkPoint = normalizeLine(record.checkPoint, USAGE_NOTE_MAX_CHARS, 2);
   const checkPointKey = checkPoint ? usageSentenceKey(checkPoint) : null;
 
   return {

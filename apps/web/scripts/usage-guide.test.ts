@@ -79,13 +79,31 @@ check("normalizeUsageGuide dedupes repeated sentences across steps", () => {
 
 check("normalizeUsageGuide caps steps at USAGE_GUIDE_MAX_STEPS", () => {
   const guide = normalizeUsageGuide({
-    steps: Array.from({ length: 6 }, (_, i) => ({
+    steps: Array.from({ length: 7 }, (_, i) => ({
       action: `操作${i + 1}をする`,
       result: `画面に変化${i + 1}が起きる。`,
     })),
   });
   assert.ok(guide);
   assert.equal(guide.steps.length, USAGE_GUIDE_MAX_STEPS);
+});
+
+check("normalizeUsageGuide keeps multi-sentence results up to 3 sentences", () => {
+  const guide = normalizeUsageGuide({
+    steps: [
+      {
+        action: "AIが資料を読み解く",
+        result: "資料を横断して危険源を抽出します。出力は名前と説明の構造化データに固定してあります。サンプルでは高圧ガス配管が抽出されます。4文目は捨てられます。",
+      },
+      validGuide.steps[1],
+    ],
+  });
+  assert.ok(guide);
+  // 3文まで保持し、4文目は落ちる。
+  assert.equal(
+    guide.steps[0].result,
+    "資料を横断して危険源を抽出します。出力は名前と説明の構造化データに固定してあります。サンプルでは高圧ガス配管が抽出されます。",
+  );
 });
 
 check("normalizeUsageGuide rejects over-length lines instead of truncating", () => {
@@ -99,6 +117,35 @@ check("normalizeUsageGuide rejects over-length lines instead of truncating", () 
     }),
     null,
   );
+  // result 全体(3文以内でも221字以上)超過のステップも切断せず落ちる。
+  assert.equal(
+    normalizeUsageGuide({
+      steps: [
+        { action: "長すぎる本文のステップ", result: `${"あ".repeat(120)}。${"い".repeat(120)}。` },
+        validGuide.steps[0],
+      ],
+    }),
+    null,
+  );
+});
+
+check("normalizeUsageGuide detects intro/checkPoint duplicating one sentence inside a result", () => {
+  const guide = normalizeUsageGuide({
+    intro: "サンプルでは高圧ガス配管が抽出されます。",
+    steps: [
+      {
+        action: "AIが資料を読み解く",
+        result: "資料を横断して危険源を抽出します。サンプルでは高圧ガス配管が抽出されます。",
+      },
+      validGuide.steps[1],
+    ],
+    checkPoint: "資料を横断して危険源を抽出します。",
+  });
+  assert.ok(guide);
+  // 本文中の1文と同じ intro / checkPoint はフィールド単位で落ち、ガイドは生きる。
+  assert.equal(guide.intro, undefined);
+  assert.equal(guide.checkPoint, undefined);
+  assert.equal(guide.steps.length, 2);
 });
 
 check("normalizeUsageGuide strips enclosures and takes first sentence of action", () => {
