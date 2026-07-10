@@ -6,6 +6,7 @@ import { generateVisualAssetFiles } from "./generate-visual-assets";
 import { repairJsonFileContent } from "./llm-pipeline/json-file-repair";
 import { isProductCategoryId } from "./product-categories";
 import { normalizeShortTagline } from "./product-copy";
+import { normalizeUsageGuide, type UsageGuide } from "../src/lib/usage-guide";
 
 type BuildPlan = {
   requirementSpecId: string;
@@ -18,6 +19,8 @@ type BuildPlan = {
   // 公開時 Project.categoryId の第1候補(builder選択)。PRODUCT_CATEGORIES 内の id のみ metadata へ伝搬する。
   categoryId?: string;
   categoryReason?: string;
+  // 詳細ページ「使い方」タブの番号付き手順(builder生成の生値)。正規化は metadata 構築時に行う。
+  usageGuide?: Record<string, unknown>;
   files: Array<{
     path: string;
     purpose: string;
@@ -198,6 +201,8 @@ type MaterializedMetadata = {
   productSummary?: string;
   // 公開時 Project.categoryId の第1候補(builder選択、whitelist検証済みのみ)。
   categoryId?: string;
+  // 詳細ページ「使い方」タブの番号付き手順(normalizeUsageGuide 済み)。
+  usageGuide?: UsageGuide;
   mvpContract: MvpContract;
   mvpContractV2: MvpContractV2;
   interactionProofPlan?: InteractionProofPlan;
@@ -417,6 +422,12 @@ const assertBuildPlan = (value: unknown): BuildPlan => {
     categoryReason:
       typeof plan.categoryReason === "string" && plan.categoryReason.trim()
         ? plan.categoryReason
+        : undefined,
+    // 使い方タブの番号付き手順。ここに列挙しないと暗黙破棄される(上記コメント参照)。
+    // 構造検証は metadata 構築時の normalizeUsageGuide が担うため、ここでは形だけ通す。
+    usageGuide:
+      plan.usageGuide && typeof plan.usageGuide === "object" && !Array.isArray(plan.usageGuide)
+        ? (plan.usageGuide as Record<string, unknown>)
         : undefined,
   };
 };
@@ -1239,6 +1250,7 @@ async function main() {
   // トップフィード/詳細ページ「名前直下の一文キャッチコピー」。決定論正規化(囲み記号除去/第1文抽出/
   // 末尾句点除去/40字超は棄却)を通し、不合格なら metadata から落として表示側の oneLiner フォールバックに委ねる。
   const normalizedShortTagline = normalizeShortTagline(plan.shortTagline);
+  const normalizedUsageGuide = normalizeUsageGuide(plan.usageGuide);
   const metadata: MaterializedMetadata = {
     version: 1,
     artifactId,
@@ -1267,6 +1279,9 @@ async function main() {
     // 公開時 Project.categoryId の第1候補。builder 選択値をカタログ whitelist で検証して伝搬し、
     // 不正な id はここで棄却して publish 側の決定論フォールバック(テンプレ表→agent主カテゴリ)に委ねる。
     ...(isProductCategoryId(plan.categoryId) ? { categoryId: plan.categoryId } : {}),
+    // 詳細ページ「使い方」タブの番号付き手順。決定論正規化(重複文除去/2〜4件/文長上限)を通し、
+    // 不合格なら metadata から落として表示側の howItRuns 決定論導出にフォールバックさせる。
+    ...(normalizedUsageGuide ? { usageGuide: normalizedUsageGuide } : {}),
     mvpContract,
     mvpContractV2,
     ...(interactionProofPlan ? { interactionProofPlan } : {}),

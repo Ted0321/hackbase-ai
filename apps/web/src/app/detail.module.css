@@ -7827,7 +7827,7 @@
   color: var(--accent);
 }
 
-/* ---- 使い方: horizontal section bullets ---- */
+/* ---- 使い方: numbered steps + check point ---- */
 .phTabPanel {
   min-height: 300px;
 }
@@ -7861,13 +7861,17 @@
   border-bottom: 1px solid rgba(14, 26, 39, 0.09);
 }
 
-.usageSectionIcon {
+.usageStepNumber {
   display: inline-grid;
   place-items: center;
   width: 28px;
   height: 28px;
   margin-top: 2px;
-  font-size: 21px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -7883,31 +7887,40 @@
   line-height: 1.35;
 }
 
-.usageSectionBullets {
-  display: grid;
-  gap: 7px;
+.usageStepResult {
   margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.usageSectionBullets li {
-  position: relative;
-  padding-left: 16px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
-.usageSectionBullets li::before {
-  position: absolute;
-  top: 0.72em;
-  left: 2px;
-  width: 5px;
-  height: 5px;
-  border-radius: var(--radius-pill);
-  background: var(--accent);
-  content: "";
+.usageStepResult::before {
+  color: var(--accent);
+  font-weight: 700;
+  content: "→ ";
+}
+
+.usageCheckPoint {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0;
+  background: rgba(14, 116, 144, 0.06);
+}
+
+.usageCheckPoint strong {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.usageCheckPoint p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .productionMemoPanel {
@@ -9449,10 +9462,10 @@
     padding: 24px 0;
   }
 
-  .usageSectionIcon {
+  .usageStepNumber {
     width: 24px;
     height: 24px;
-    font-size: 19px;
+    font-size: 13px;
   }
 
   .usageSectionBody h3 {

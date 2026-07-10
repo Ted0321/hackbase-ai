@@ -10,6 +10,12 @@ import { isPublicProject, publicProjectWhere } from "@/lib/project-visibility";
 import { readVisitorId } from "@/lib/visitor-cookie";
 import { projectHasSource } from "@/lib/project-source";
 import { firstSentence } from "@/lib/text-summary";
+import {
+  parseStoredUsageGuide,
+  usageSentenceKey,
+  type UsageGuide,
+  type UsageGuideStep,
+} from "@/lib/usage-guide";
 import { readVisualAssets } from "@/lib/visual-assets";
 import { projectArtifactMeta } from "@/project-artifacts/metadata";
 import { getStaticArtifactMetadata, getStaticArtifactSourceFiles } from "@/project-artifacts/static-source";
@@ -56,34 +62,24 @@ const MOCK_DETAIL_COPY = {
   ],
   origin:
     "AIツールが増えすぎて追いきれない問題から、仕組みを転用する発想に絞って作られました。",
-  usageSummary:
-    "参考にしたい仕組みを別領域へ移すために、何を渡し、AIが何を整理し、どんな形で試せる案にするかを確認できます。",
-  usageSteps: [
-    {
-      icon: "🔎",
-      title: "参考にしたい材料を渡す",
-      body: [
-        "サービス名、習慣、課題、気になっている場面を入力します。",
-        "必要に応じて、対象ユーザーや制約も追加できます。",
-      ],
-    },
-    {
-      icon: "🧩",
-      title: "効いている理由を分解する",
-      body: [
-        "AIが、表面の見た目ではなく、成立している構造を抽出します。",
-        "使えそうな前提、危ない前提、転用時に変えるべき点を整理します。",
-      ],
-    },
-    {
-      icon: "🚀",
-      title: "別領域の案として返す",
-      body: [
-        "転用案と、それが効きそうな理由が並びます。",
-        "ユーザーは候補を比べ、試したい案を選べます。",
-      ],
-    },
-  ],
+  usageGuide: {
+    intro: "参考にしたい仕組みを渡すと、効いている理由を分解し、別領域で試せる案として返します。",
+    steps: [
+      {
+        action: "参考にしたい材料を入力する",
+        result: "サービス名や習慣、課題を渡すと、対象ユーザーや制約も添えて分析の準備が整います。",
+      },
+      {
+        action: "分解の実行ボタンを押す",
+        result: "表面の見た目ではなく、成立している構造と、転用時に変えるべき前提が整理されます。",
+      },
+      {
+        action: "転用案の一覧を見比べる",
+        result: "別領域の案と「なぜ効きそうか」の理由がセットで並び、試したい案を選べます。",
+      },
+    ],
+    checkPoint: "転用案に「そのまま使える部分」と「変えるべき部分」の区別が付いているかが、この作品の見どころです。",
+  } satisfies UsageGuide,
 };
 
 const projectIcon = (id: string): string => {
@@ -160,14 +156,58 @@ type ProjectBriefArtifact = {
 const shortText = (value: string, max = 92) =>
   value.length > max ? `${value.slice(0, max).trim()}...` : value;
 
-const splitPoints = (value?: string | null, fallback: string[] = []) => {
-  const text = value?.trim();
-  if (!text) return fallback;
-  const sentences = text
-    .split(/(?<=[。.!?！？])\s*/)
+// 全文を文単位に分割する。ラテン文字のピリオドは「直後に空白がある場合」だけ文末とみなす
+// (ファイル名 "materialize-llm-plan.ts" やバージョン "2.5" を文境界と誤認しないため)。
+const splitAllSentences = (value?: string | null): string[] =>
+  (value ?? "")
+    .split(/(?<=[。！？])\s*|(?<=[.!?])\s+/)
     .map((item) => item.trim())
     .filter(Boolean);
-  return sentences.length > 0 ? sentences.slice(0, 2) : [text];
+
+type UsageGuideSource = {
+  howItRuns: string;
+  useCase: string;
+  shortTagline: string | null;
+  oneLiner: string;
+};
+
+// 使い方タブの決定論導出。howItRuns は publish 時に mvpContract の
+// coreInteraction + stateChange + inspectableOutput を連結した文字列なので、文分割で
+// 「操作 → 画面の変化 → 確認する出力」を復元できる。useCase(=coreInteraction)を
+// サマリーとステップ両方へ流し込んで同一文が最大3回並んだ旧実装の重複は、
+// usageSentenceKey の照合ですべて排除する。導出できない作品は null を返しモックへ委ねる。
+const deriveUsageGuide = (project: UsageGuideSource): UsageGuide | null => {
+  const seen = new Set<string>();
+  const steps: UsageGuideStep[] = [];
+  const pushStep = (action: string | undefined, result: string | undefined) => {
+    if (!action || !result) return;
+    const actionKey = usageSentenceKey(action);
+    const resultKey = usageSentenceKey(result);
+    if (!actionKey || !resultKey || actionKey === resultKey) return;
+    if (seen.has(resultKey)) return;
+    seen.add(actionKey);
+    seen.add(resultKey);
+    steps.push({ action: action.replace(/[。．]+$/u, ""), result });
+  };
+  const [core, state, inspect, ...rest] = splitAllSentences(project.howItRuns);
+  pushStep(core, state);
+  pushStep("結果の出力を確かめる", inspect);
+  for (const sentence of rest) {
+    if (steps.length >= 4) break;
+    pushStep("画面の変化を追う", sentence);
+  }
+  if (steps.length === 0) return null;
+  const introCandidate = project.useCase.trim();
+  const intro =
+    introCandidate && !seen.has(usageSentenceKey(introCandidate)) ? introCandidate : undefined;
+  // inspectableOutput はステップ側で消費済みなので、確認ポイントは別ソース(キャッチコピー)から
+  // 組み立てて重複を避ける。Phase B の生成フィールドが入れば丸ごと置き換わる暫定文。
+  const highlight = (project.shortTagline?.trim() || firstSentence(project.oneLiner, "").trim())
+    .replace(/[。．]+$/u, "");
+  const checkPoint = highlight
+    ? `「${highlight}」が実際に画面で確認できるかが、この作品の見どころです。`
+    : undefined;
+  return { intro, steps, checkPoint };
 };
 
 const naturalGrowthText = (value?: string | null, fallback = MOCK_DETAIL_COPY.growthBody) => {
@@ -704,7 +744,6 @@ export default async function ProjectDetail({ params }: PageProps) {
     // セクション2: タブ上のボックス（2〜3文の説明）。whatWasTried は説明ソースへ付け替え済み。
     description: project.whatWasTried || project.oneLiner || project.useCase || MOCK_DETAIL_COPY.description,
     previewSummary: firstSentence(project.oneLiner, MOCK_DETAIL_COPY.previewSummary),
-    usageSummary: project.useCase || MOCK_DETAIL_COPY.usageSummary,
     // 段落(body)と箇条書き(points)を同一ソースから作ると、1文のときに全く同じ文が
     // 段落＋bulletで重複する。要約カードは自然な段落のみにして重複を排除する。
     interestingBody: interestingSource,
@@ -727,23 +766,12 @@ export default async function ProjectDetail({ params }: PageProps) {
       points: detailCopy.growthPoints,
     },
   ];
-  const usageSteps = [
-    {
-      icon: "🔎",
-      title: "入力と目的を確認する",
-      body: splitPoints(project.oneLiner || project.concept, MOCK_DETAIL_COPY.usageSteps[0]?.body ?? []),
-    },
-    {
-      icon: "🤖",
-      title: "AIが整理する処理を見る",
-      body: splitPoints(project.useCase || project.whatWasTried, MOCK_DETAIL_COPY.usageSteps[1]?.body ?? []),
-    },
-    {
-      icon: "📤",
-      title: "出力と次の一手を確認する",
-      body: splitPoints(project.howItRuns || project.nextGrowth, MOCK_DETAIL_COPY.usageSteps[2]?.body ?? []),
-    },
-  ];
+  // 使い方タブ: 第一級フィールド(Project.usageGuide、builder生成/backfill)を最優先し、
+  // 未設定の作品は howItRuns からの決定論導出 → モックの順にフォールバックする。
+  const usageGuide =
+    parseStoredUsageGuide(project.usageGuide) ??
+    deriveUsageGuide(project) ??
+    MOCK_DETAIL_COPY.usageGuide;
   return (
     <main className={`${styles.readmePage} ${styles.productDetailPage}`}>
       <AppHeader />
@@ -827,24 +855,28 @@ export default async function ProjectDetail({ params }: PageProps) {
                       <h2>{"\u4F7F\u3044\u65B9"}</h2>
                       <p>{"\u3053\u306E\u4F5C\u54C1\u306E\u4F7F\u3044\u65B9\u3068\u3001\u753B\u9762\u3067\u78BA\u8A8D\u3059\u308B\u30DD\u30A4\u30F3\u30C8\u3092\u307E\u3068\u3081\u3066\u8868\u793A\u3057\u307E\u3059\u3002"}</p>
                     </div>
-                    <p className={styles.usageSummary}>{detailCopy.usageSummary}</p>
+                    {usageGuide.intro ? (
+                      <p className={styles.usageSummary}>{usageGuide.intro}</p>
+                    ) : null}
                     <div className={styles.usageSections}>
-                      {usageSteps.map((step) => (
-                        <article className={styles.usageSection} key={step.title}>
-                          <span className={styles.usageSectionIcon} aria-hidden="true">
-                            {step.icon}
+                      {usageGuide.steps.map((step, index) => (
+                        <article className={styles.usageSection} key={`usage-step-${index}`}>
+                          <span className={styles.usageStepNumber} aria-hidden="true">
+                            {index + 1}
                           </span>
                           <div className={styles.usageSectionBody}>
-                            <h3>{step.title}</h3>
-                            <ul className={styles.usageSectionBullets}>
-                              {step.body.map((item) => (
-                                <li key={item}>{item}</li>
-                              ))}
-                            </ul>
+                            <h3>{step.action}</h3>
+                            <p className={styles.usageStepResult}>{step.result}</p>
                           </div>
                         </article>
                       ))}
                     </div>
+                    {usageGuide.checkPoint ? (
+                      <aside className={styles.usageCheckPoint}>
+                        <strong>{"確認ポイント"}</strong>
+                        <p>{usageGuide.checkPoint}</p>
+                      </aside>
+                    ) : null}
                   </section>
                 ),
               },

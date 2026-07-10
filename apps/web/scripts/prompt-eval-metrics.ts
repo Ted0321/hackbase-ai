@@ -8,6 +8,11 @@
 
 import { isProductCategoryId } from "./product-categories";
 import { normalizeShortTagline, SHORT_TAGLINE_MAX_CHARS } from "./product-copy";
+import {
+  normalizeUsageGuide,
+  USAGE_GUIDE_MAX_STEPS,
+  USAGE_GUIDE_MIN_STEPS,
+} from "../src/lib/usage-guide";
 
 export type StepName =
   | "research"
@@ -849,6 +854,17 @@ export const builderQuality = (plan: unknown): StepQuality => {
       "shortTagline.normalizable",
       normalizeShortTagline(shortTaglineRaw) !== null,
       `shortTagline must normalize to a non-empty catch copy within ${SHORT_TAGLINE_MAX_CHARS} chars; got ${[...shortTaglineRaw].length} chars: ${shortTaglineRaw.slice(0, 60)}`,
+    );
+  }
+  // 詳細ページ「使い方」タブの番号付き手順。存在する場合のみ、決定論正規化(normalizeUsageGuide)が
+  // 非nullを返すこと(=重複除去後に2〜4件の使えるステップが残る)を検証する。
+  // presence は必須化しない(shortTagline と同じ baseline eval 保護 + researchQuality 全滅事故の教訓:
+  // 欠落は表示側の howItRuns 決定論導出フォールバックが吸収するため run を止める理由にならない)。
+  if (record.usageGuide !== undefined && record.usageGuide !== null) {
+    gate(
+      "usageGuide.normalizable",
+      normalizeUsageGuide(record.usageGuide) !== null,
+      `usageGuide must normalize to ${USAGE_GUIDE_MIN_STEPS}-${USAGE_GUIDE_MAX_STEPS} usable steps (non-empty distinct action/result within length caps)`,
     );
   }
   // 公開時 Project.categoryId の第1候補。存在する場合のみカタログ内 id であることを検証する

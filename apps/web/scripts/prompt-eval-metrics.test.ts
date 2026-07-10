@@ -630,6 +630,32 @@ check("builderQuality gates MVP Contract V2 and interaction proof", () => {
     categoryId: "cat_made_up",
   });
   assert.ok(unknownCategory.issues.some((issue) => issue.check === "categoryId.catalog"));
+
+  // usageGuide も lenient ゲート: 欠落は pass（good フィクスチャは欠落 = 上の assert(result.ok) で担保済み）、
+  // 存在時のみ「正規化して2〜4ステップ残る」ことを検証する。
+  const validUsageGuide = builderQuality({
+    ...good,
+    usageGuide: {
+      intro: "サンプルデータで分析の流れを試せます。",
+      steps: [
+        { action: "「サンプル実行トレースを再生」ボタンを押す", result: "結果エリアに各ステップの出力が順に表示される。" },
+        { action: "ステップごとの出力カードを読む", result: "各処理が何を受け取り何を返したかが確認できる。" },
+      ],
+      checkPoint: "指摘が具体的な修正案まで踏み込んでいるか。",
+    },
+  });
+  assert.equal(validUsageGuide.ok, true);
+
+  // 操作と結果が同一文の1ステップだけ → 正規化で全滅 = 構造欠陥として fail（生成時リトライで矯正させる）。
+  const brokenUsageGuide = builderQuality({
+    ...good,
+    usageGuide: { steps: [{ action: "同じ文。", result: "同じ文。" }] },
+  });
+  assert.ok(brokenUsageGuide.issues.some((issue) => issue.check === "usageGuide.normalizable"));
+
+  // オブジェクトでない usageGuide も fail。
+  const stringUsageGuide = builderQuality({ ...good, usageGuide: "テキスト" });
+  assert.ok(stringUsageGuide.issues.some((issue) => issue.check === "usageGuide.normalizable"));
 });
 
 check("promptWiringChecks detects wiring instructions", () => {

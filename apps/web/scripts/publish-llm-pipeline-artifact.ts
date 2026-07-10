@@ -9,6 +9,7 @@ import { generateVisualAssetsForArtifactDir } from "./generate-visual-assets";
 import { isProductCategoryId, TEMPLATE_PATTERN_CATEGORY } from "./product-categories";
 import { normalizeShortTagline } from "./product-copy";
 import { highRiskTopicValidationCheck } from "./prompt-eval-metrics";
+import { normalizeUsageGuide, serializeUsageGuide } from "../src/lib/usage-guide";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -116,6 +117,8 @@ type MaterializedMetadata = {
   shortTagline?: string;
   // 詳細ページ「タブ上のボックス」に出す2〜3文のプロダクト説明。新規性の主張は interestingness 側に置く。
   productSummary?: string;
+  // 詳細ページ「使い方」タブの番号付き手順(materialize で正規化済み。publish 時に再正規化する)。
+  usageGuide?: unknown;
   interestingness?: string;
   // Project.categoryId の第1候補(builder選択、materialize で whitelist 検証済み)。
   categoryId?: string;
@@ -1268,6 +1271,12 @@ async function main() {
         // 旧 artifact を直接 publish する経路に備えて決定論正規化を再適用する。
         // 不合格(空/40字超)は null＝表示側で oneLiner 先頭文にフォールバック。
         shortTagline: normalizeShortTagline(metadata.shortTagline),
+        // 使い方タブの番号付き手順。materialize で正規化済みだが、旧 artifact を直接 publish する
+        // 経路に備えて再正規化する。不合格は null＝表示側が howItRuns からの決定論導出へフォールバック。
+        usageGuide: (() => {
+          const guide = normalizeUsageGuide(metadata.usageGuide);
+          return guide ? serializeUsageGuide(guide) : null;
+        })(),
         concept,
         useCase: metadata.mvpContract.coreInteraction || oneLiner,
         // 詳細ページ「タブ上のボックス（2〜3文説明）」の元。新規性テキスト(interestingness/concept)との重複を避けるため、

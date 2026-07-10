@@ -238,6 +238,8 @@ model Project {
   title                 String
   oneLiner              String
   shortTagline          String?
+  // 使い方タブの番号付き手順(UsageGuideのJSON文字列)。null=表示側がhowItRunsから決定論導出。
+  usageGuide            String?
   concept               String?
   useCase               String
   whatWasTried          String

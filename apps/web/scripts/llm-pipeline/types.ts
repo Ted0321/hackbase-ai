@@ -814,6 +814,13 @@ export type BuildPlan = {
   categoryId?: string;
   // カテゴリー選定根拠の1文(監査用。DBには保存しない)。
   categoryReason?: string;
+  // 詳細ページ「使い方」タブの番号付き手順。action=実UI要素名を含む命令形1文、result=画面に起きること1文。
+  // 正規化・保存契約は src/lib/usage-guide.ts(normalizeUsageGuide)が正典。
+  usageGuide?: {
+    intro?: string;
+    steps: Array<{ action: string; result: string }>;
+    checkPoint?: string;
+  };
   submissionReadiness: {
     firstScreenValue: string;
     coreInteraction: string;
