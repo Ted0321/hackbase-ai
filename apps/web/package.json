@@ -86,6 +86,7 @@
     "agents:registry:check": "tsx scripts/llm-pipeline/validate-agent-registry.ts",
     "agents:shared-registries:check": "tsx scripts/validate-agent-shared-registries.ts",
     "agents:contracts:import": "tsx scripts/import-agent-operating-contracts.ts",
+    "agents:db:register": "tsx scripts/register-agent-db.ts",
     "agents:due:test": "tsx scripts/agent-due-decision.test.ts",
     "agents:due:history:test": "tsx scripts/scheduler-history.test.ts",
     "llm:json-repair:test": "tsx scripts/llm-pipeline/json-file-repair.test.ts",
