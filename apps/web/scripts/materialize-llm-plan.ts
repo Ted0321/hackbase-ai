@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { writeStoredArtifactFile } from "../src/lib/artifact-store";
 import { generateVisualAssetFiles } from "./generate-visual-assets";
+import { repairJsonFileContent } from "./llm-pipeline/json-file-repair";
 import { isProductCategoryId } from "./product-categories";
 import { normalizeShortTagline } from "./product-copy";
 
@@ -1323,7 +1324,10 @@ async function main() {
 
   for (const planned of plannedWrites) {
     const target = path.join(outputDir, planned.relativePath);
-    const content = planned.content.endsWith("\n") ? planned.content : `${planned.content}\n`;
+    let content = planned.content.endsWith("\n") ? planned.content : `${planned.content}\n`;
+    if (planned.relativePath.endsWith(".json")) {
+      content = repairJsonFileContent(planned.relativePath, content);
+    }
     const relFromCwd = path.relative(process.cwd(), target).replaceAll("\\", "/");
 
     if (relFromCwd.startsWith("artifacts/")) {

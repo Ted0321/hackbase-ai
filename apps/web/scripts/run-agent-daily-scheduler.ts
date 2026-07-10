@@ -14,6 +14,7 @@ import {
   type AgentDueRunState,
 } from "../src/lib/agent-due-decision";
 import { durationMs, errorMessageOf, logAgentRuntimeMetric, stderrTailSummary } from "./observability";
+import { jstDateKey, pruneHistory } from "./scheduler-history";
 import "./load-local-env";
 
 const SCHEDULER_STATE_KEY = "agent-creation-daily";
@@ -65,17 +66,9 @@ const arg = (flag: string) => {
 const hasFlag = (flag: string) => process.argv.includes(flag);
 const STANDARD_ROTATION_START_MS = Date.UTC(2026, 6, 10);
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
-const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
 
 const utcDayStartMs = (date: Date) =>
   Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-
-const jstDateKey = (date: Date) => {
-  const shifted = new Date(date.getTime() + JST_OFFSET_MS);
-  return `${shifted.getUTCFullYear()}-${String(shifted.getUTCMonth() + 1).padStart(2, "0")}-${String(
-    shifted.getUTCDate(),
-  ).padStart(2, "0")}`;
-};
 
 const completedRunsOnJstDay = (state: SchedulerState, now: Date) => {
   const key = jstDateKey(now);
@@ -367,7 +360,10 @@ async function main() {
     }
   }
 
-  nextState.history = nextState.history.slice(0, 50);
+  // 毎時実行が積むskipエントリ(~20件/回)で50件枠からcompletedが押し出されると、
+  // completedRunsOnJstDayが過小になり日次生成上限が実質効かなくなる(2026-07-10に
+  // completedToday=1(実完了2)として顕在化)。当日JSTのcompletedは枠外でも保持する。
+  nextState.history = pruneHistory(nextState.history, now);
   const finishedAt = new Date();
   nextState.lastStatus = due.length === 0 ? "skipped" : failedAgents.length > 0 ? "failed" : "completed";
   if (due.length > 0) {

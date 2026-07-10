@@ -48,7 +48,8 @@ const extractJsonFenceBlocks = (text: string): string[] => {
   return blocks;
 };
 
-const extractBalancedJsonObject = (text: string): string | undefined => {
+// materialize-llm-plan の .json 修復(末尾ゴミ除去)でも再利用するため export する。
+export const extractBalancedJsonObject = (text: string): string | undefined => {
   const start = text.indexOf("{");
   if (start < 0) return undefined;
 
