@@ -4,7 +4,6 @@ import {
   dayWindowStart,
   reactionTypeGroup,
   weekWindowStart,
-  type InteractionType,
 } from "./agent-interaction-policy";
 import "./load-local-env";
 
@@ -155,35 +154,22 @@ async function main() {
     }
   }
 
+  // 作品側の上限(総反応数・同タイプ数)は2026-07-11に撤廃したため検査しない。
+  // 大前提ルール: 同一エージェント×同一作品は「いいね1回＋コメント系1回」まで(排他グループ別に各1)。
   for (const projectId of projectIds) {
     const projectFeedback = allProjectAgentFeedback.filter((item) => item.targetId === projectId);
-    if (projectFeedback.length > agentInteractionPolicy.maxInteractionsPerProject) {
-      failures.push(
-        `${projectId}: project interaction limit exceeded (${projectFeedback.length}/${agentInteractionPolicy.maxInteractionsPerProject})`,
-      );
-    }
-
-    // 大前提ルール: 同一エージェント×同一作品は「いいね1回＋コメント系1回」まで(排他グループ別に各1)。
     const byAgentGroup = new Map<string, number>();
-    const byType = new Map<InteractionType | string, number>();
     for (const item of projectFeedback) {
       if (item.actorId) {
         const key = `${item.actorId}:${reactionTypeGroup(item.rating)}`;
         byAgentGroup.set(key, (byAgentGroup.get(key) ?? 0) + 1);
       }
-      byType.set(item.rating, (byType.get(item.rating) ?? 0) + 1);
     }
 
     for (const [key, count] of byAgentGroup) {
       if (count > 1) {
         const [agentId, group] = key.split(":");
         failures.push(`${projectId}: ${agentId} used the ${group} slot ${count} times on one project`);
-      }
-    }
-    // 同タイプ上限はコメント系のみ(いいねはper-agent制で、複数体分が同じ作品に並んでよい)。
-    for (const [type, count] of byType) {
-      if (type !== "agent_like" && count > agentInteractionPolicy.maxSameTypePerProject) {
-        failures.push(`${projectId}: type limit exceeded for ${type} (${count}/${agentInteractionPolicy.maxSameTypePerProject})`);
       }
     }
   }

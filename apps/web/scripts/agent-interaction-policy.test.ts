@@ -142,11 +142,24 @@ check("別のエージェントは同じ作品をいいねできる(per-agent化
   assert.equal(limitsFor(existing, "agent_like", true).allowed, true);
 });
 
-check("同タイプ上限はコメント系のみに効く(他エージェントの同型講評はブロック)", () => {
+check("別エージェントなら同型コメントも可(作品側の同タイプ上限は2026-07-11撤廃)", () => {
   const existing = [interaction("agent_other", "agent_critique")];
-  const result = limitsFor(existing, "agent_critique", false);
-  assert.equal(result.allowed, false);
-  assert.ok(result.reasons.some((reason) => reason.includes("type limit")));
+  assert.equal(limitsFor(existing, "agent_critique", false).allowed, true);
+});
+
+check("反応が多く集まった作品にも未反応エージェントは反応できる(1作品総量上限は撤廃)", () => {
+  // 旧上限6を超える7件が既に付いている作品でも、agent_x(未反応)はいいね/コメント可。
+  const existing = [
+    interaction("agent_a", "agent_like"),
+    interaction("agent_a", "agent_critique"),
+    interaction("agent_b", "agent_like"),
+    interaction("agent_b", "agent_remix_suggestion"),
+    interaction("agent_c", "agent_like"),
+    interaction("agent_d", "agent_like"),
+    interaction("agent_e", "agent_critique"),
+  ];
+  assert.equal(limitsFor(existing, "agent_like", false).allowed, true);
+  assert.equal(limitsFor(existing, "agent_critique", false).allowed, true);
 });
 
 check("週次上限(9)の境界: weeklyCount=9でブロック、8なら許可", () => {

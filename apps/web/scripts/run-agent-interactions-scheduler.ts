@@ -35,7 +35,7 @@ const prisma = createPrismaClient();
  *   ② like_with_comment いいね＋コメント(同一作品セット) … 既定30%
  *   ③ comment_only      コメントのみ                    … 既定15%
  *
- * Stage 2(時間分散): 24時間ごとのプラン更新時に、その日の PRODIA_DAILY_UNIT_LIMIT(既定6)
+ * Stage 2(時間分散): 24時間ごとのプラン更新時に、その日の PRODIA_DAILY_UNIT_LIMIT(既定9)
  * ユニットへ PRODIA_UNIT_SPREAD_HOURS(既定22h)内のランダム実行予定時刻を割り当てて
  * SchedulerState(dayPlan)に保存し、毎時tick(Cloud Scheduler既存トリガー)で期限到来分のみ
  * 実行する。従来は due-gate が開いた1回のtickで全ユニットを一括バースト実行しており、
@@ -53,8 +53,14 @@ const prisma = createPrismaClient();
  *
  * Usage: tsx scripts/run-agent-interactions-scheduler.ts [--force] [--dry-run] [--llm]
  *          [--unit-limit N] [--pattern-weights "0.55,0.30,0.15"] [--limit N] [--spread-hours H]
+ *          [--target-selection MODE]
  *
- * 日次ユニット数は --unit-limit または env PRODIA_DAILY_UNIT_LIMIT（既定6）。
+ * 対象作品の選定は --target-selection または env PRODIA_TARGET_SELECTION
+ * （既定 engagement-weighted=人気×新着×ペルソナ親和の重み付き抽選、2026-07-11導入。
+ *   旧 under-interacted を指定するとロールバック。llm-selected を指定すると
+ *   ペルソナLLMが候補から理由付きで選ぶ(失敗時はengagement-weightedへ自動フォールバック、
+ *   理由は RunEvent.metadataJson.targetSelection に記録。interaction-target-llm.ts)）。
+ * 日次ユニット数は --unit-limit または env PRODIA_DAILY_UNIT_LIMIT（既定9）。
  * パターン重みは --pattern-weights または env PRODIA_UNIT_PATTERN_WEIGHTS（順序=①,②,③）。
  * PRODIA_DAILY_INTERACTION_LIMIT（--limit、既定なし=無制限）はFeedback行数の安全上限で、
  * ②が2行消費するため 2×ユニット数 まで見込むこと(本番は12を想定)。
@@ -146,7 +152,7 @@ async function main() {
   const force = hasFlag("--force");
   const dryRun = hasFlag("--dry-run");
   const llm = hasFlag("--llm");
-  const unitLimit = parsePositiveInt(arg("--unit-limit") ?? process.env.PRODIA_DAILY_UNIT_LIMIT, 6);
+  const unitLimit = parsePositiveInt(arg("--unit-limit") ?? process.env.PRODIA_DAILY_UNIT_LIMIT, 9);
   const weights = parseUnitPatternWeights(
     arg("--pattern-weights") ?? process.env.PRODIA_UNIT_PATTERN_WEIGHTS,
   );
@@ -160,6 +166,11 @@ async function main() {
     10,
   );
   const rowCeiling = Number.isFinite(rowCeilingRaw) && rowCeilingRaw > 0 ? rowCeilingRaw : undefined;
+  // 対象作品の選定モード。既定は人気×新着×ペルソナ親和の重み付き抽選(2026-07-11導入)。
+  // ロールバック: env PRODIA_TARGET_SELECTION=under-interacted(旧・反応少ない作品優先)。
+  const targetSelection =
+    (arg("--target-selection") ?? process.env.PRODIA_TARGET_SELECTION ?? "engagement-weighted").trim() ||
+    "engagement-weighted";
   const now = new Date();
 
   const state = await readState();
@@ -209,6 +220,7 @@ async function main() {
   console.log(
     `[interactions-scheduler] now=${now.toISOString()} force=${force} dryRun=${dryRun} llm=${llm} ` +
       `unitLimit=${unitLimit} rowCeiling=${rowCeiling ?? "none"} spreadHours=${spreadHours} ` +
+      `targetSelection=${targetSelection} ` +
       `weights=${weights.like_only.toFixed(2)}/${weights.like_with_comment.toFixed(2)}/${weights.comment_only.toFixed(2)}`,
   );
   if (planBuilt && dayPlan) {
@@ -296,7 +308,7 @@ async function main() {
         "--agent",
         unit.agentId,
         "--project",
-        "under-interacted",
+        targetSelection,
         "--unit",
         unit.pattern,
         "--limit",

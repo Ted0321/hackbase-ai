@@ -14,27 +14,25 @@ export type ExistingAgentInteraction = {
 };
 
 export type AgentInteractionPolicy = {
-  maxInteractionsPerProject: number;
   defaultBatchLimit: number;
   maxBatchLimit: number;
   maxDailyInteractionsPerAgent: number;
   maxWeeklyInteractionsPerAgent: number;
-  maxSameTypePerProject: number;
   maxLikesPerBatch: number;
   typePriority: InteractionType[];
 };
 
 export const agentInteractionPolicy: AgentInteractionPolicy = {
-  // いいねが per-agent 化(複数体が同じ作品をいいね可)されたため、like複数+コメントが乗る前提の値。
-  maxInteractionsPerProject: 6,
+  // 作品側の上限(1作品あたりの総反応数=旧6・同タイプコメント数=旧1)は2026-07-11に撤廃。
+  // 反応の集中は「その作品がなぜ人気か」のシグナルとして観察したいため、作品側では絞らない。
+  // 不自然さの防止は「同一エージェント×同一作品はいいね1回＋コメント系1回まで」のハードルール
+  // (reactionTypeGroup / usedReactionGroups)だけで担保する。
   defaultBatchLimit: 3,
   maxBatchLimit: 10,
   maxDailyInteractionsPerAgent: 2,
   // 行動ユニット化(2026-07-10)で期待行数が約6→7.8行/日に増え、②(いいね＋コメント)が
   // 1ユニットで2行消費するため、週次だけが先に詰まらないよう 6→9 に引き上げ。
   maxWeeklyInteractionsPerAgent: 9,
-  // コメント系タイプのみ対象(いいねは除外)。同じ作品に同種の講評が並ぶのを防ぐ。
-  maxSameTypePerProject: 1,
   maxLikesPerBatch: 1,
   typePriority: [
     "agent_critique",
@@ -178,11 +176,6 @@ export function selectInteractionType(args: {
   policy?: AgentInteractionPolicy;
 }) {
   const policy = args.policy ?? agentInteractionPolicy;
-  const projectTypeCounts = new Map<string, number>();
-
-  for (const interaction of args.existingProjectInteractions) {
-    projectTypeCounts.set(interaction.rating, (projectTypeCounts.get(interaction.rating) ?? 0) + 1);
-  }
 
   // 性格(propensity)重みでcanReactWith内を並べ替え。requestedType指定時はそれのみ。
   // requestedGroup指定時は、propensity順を保ったままそのグループ(like/コメント系)だけに絞る。
@@ -202,13 +195,6 @@ export function selectInteractionType(args: {
     if (!canAgentUseType(args.agent, type)) continue;
     if (!args.force && type === "agent_like" && args.likesAlreadyPlanned >= policy.maxLikesPerBatch) continue;
     if (groupsUsedByAgent.has(reactionTypeGroup(type))) continue;
-    if (
-      !args.force &&
-      type !== "agent_like" &&
-      (projectTypeCounts.get(type) ?? 0) >= policy.maxSameTypePerProject
-    ) {
-      continue;
-    }
     return type;
   }
 
@@ -242,10 +228,6 @@ export function evaluateInteractionLimits(args: {
     return { allowed: hardReasons.length === 0, reasons: hardReasons };
   }
 
-  if (args.existingProjectInteractions.length >= policy.maxInteractionsPerProject) {
-    reasons.push(`project limit reached (${args.existingProjectInteractions.length}/${policy.maxInteractionsPerProject})`);
-  }
-
   if (args.dailyCount >= policy.maxDailyInteractionsPerAgent) {
     reasons.push(`agent daily limit reached (${args.dailyCount}/${policy.maxDailyInteractionsPerAgent})`);
   }
@@ -256,16 +238,6 @@ export function evaluateInteractionLimits(args: {
 
   if (agentUsedGroup) {
     reasons.push(`same agent already used the ${selectedGroup} slot on this project`);
-  }
-
-  // 同タイプ上限はコメント系のみ(いいねはper-agentルールだけで制御し、複数体のいいねを許す)。
-  if (args.selectedType !== "agent_like") {
-    const sameTypeCount = args.existingProjectInteractions.filter(
-      (interaction) => interaction.rating === args.selectedType,
-    ).length;
-    if (sameTypeCount >= policy.maxSameTypePerProject) {
-      reasons.push(`type limit reached for project (${args.selectedType})`);
-    }
   }
 
   return {

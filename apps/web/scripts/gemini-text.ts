@@ -9,7 +9,7 @@ import { enforceGeminiBudget } from "./llm-pipeline/rate-guard";
  */
 export const generateGeminiText = async (
   prompt: string,
-  options?: { model?: string; temperature?: number },
+  options?: { model?: string; temperature?: number; timeoutMs?: number; operation?: string },
 ): Promise<string> => {
   const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
   if (!apiKey) {
@@ -18,9 +18,12 @@ export const generateGeminiText = async (
   const model = options?.model ?? process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
   const modelPath = model.startsWith("models/") ? model : `models/${model}`;
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/${modelPath}:generateContent?key=${apiKey}`;
+  // operation は予算チェックと使用量ログの集計キー。既定 "gemini-text" は従来と同一で、
+  // 対象選定(llm-selected)などの呼び出し元が別opを渡すとModelUsageLog上で分離集計できる。
+  const operation = options?.operation ?? "gemini-text";
 
   // B-1: 実コール前に当日のGemini使用量上限を確認（暴走防止）。AI反応(FL-5)等の短文生成もカウント対象。
-  await enforceGeminiBudget({ operation: "gemini-text" });
+  await enforceGeminiBudget({ operation });
 
   const startedAt = Date.now();
   const response = await fetch(endpoint, {
@@ -32,6 +35,8 @@ export const generateGeminiText = async (
         temperature: options?.temperature ?? 0.7,
       },
     }),
+    // timeoutMs 指定時のみ fetch 自体を中断する(TimeoutError)。未指定は従来どおり無期限。
+    signal: options?.timeoutMs ? AbortSignal.timeout(options.timeoutMs) : undefined,
   });
 
   if (!response.ok) {
@@ -52,7 +57,7 @@ export const generateGeminiText = async (
   await logModelUsage({
     provider: "google-gemini",
     model,
-    operation: "gemini-text",
+    operation,
     status: text ? "success" : "empty",
     latencyMs: Date.now() - startedAt,
     ...extractGeminiTokenUsage(json),

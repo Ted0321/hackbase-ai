@@ -14,11 +14,28 @@ import {
   type InteractionType,
 } from "./agent-interaction-policy";
 import { isUnitPattern, type UnitPattern } from "./interaction-slot-planner";
-import { generateAgentReactionComment } from "./agent-reaction";
+import { generateAgentReactionComment, type ReactionAgentProfile } from "./agent-reaction";
 import { projectPreferenceSignals, rankByTargetPreference } from "./target-preference";
+import { rankProjectsByEngagement } from "./interaction-target-ranking";
+import {
+  buildRowTargetSelection,
+  chooseTargetProjectWithLlm,
+  filterPlannableTargets,
+  llmSelectCandidateLimit,
+  llmSelectTimeoutMs,
+  type LlmTargetCandidate,
+  type RowTargetSelection,
+  type TargetSelectionMeta,
+} from "./interaction-target-llm";
 import "./load-local-env";
 
-type ProjectSelection = "under-interacted" | "latest" | "featured" | string;
+type ProjectSelection =
+  | "under-interacted"
+  | "engagement-weighted"
+  | "llm-selected"
+  | "latest"
+  | "featured"
+  | string;
 
 type Args = {
   project: ProjectSelection;
@@ -59,6 +76,8 @@ type PlannedInteraction = {
   unitPattern?: UnitPattern;
   // ②のコメント行が上限/LLM却下で落ち、いいね行だけ残って①へ降格したとき true。
   unitDegraded?: boolean;
+  // llm-selected時のみ: 対象選定の注釈(採用一致行にはLLMの選定理由が載る)。
+  targetSelection?: RowTargetSelection;
 };
 
 const prisma = createPrismaClient();
@@ -128,23 +147,165 @@ function parseArgs(): Args {
   };
 }
 
-async function selectTargetProjects(selection: ProjectSelection) {
+type TargetSelectionOptions = {
+  affinityPreferences?: string[];
+  // llm-selected用: 単一acting agent指定時のみLLM選定を行う(候補フィルタとペルソナ注入に使う)。
+  actingProfile?: AgentRegistryProfile;
+  unitPattern?: UnitPattern;
+};
+
+type TargetSelectionOutcome = {
+  projects: ProjectWithAgent[];
+  // llm-selected時のみ: 選定結果(採用注釈は planned 行確定後に buildRowTargetSelection で付ける)。
+  selectionMeta?: TargetSelectionMeta;
+};
+
+// engagement-weighted / llm-selected が共有する候補プール(直近60公開作品＋エージェント反応)。
+// reactionsByProject は llm-selected の plannable フィルタ用(select列が増えるだけで集計は従来同一)。
+async function loadEngagementCandidatePool() {
+  const projects = await prisma.project.findMany({
+    where: publicInteractionTargetWhere,
+    include: { agent: true, category: true },
+    orderBy: { createdAt: "desc" },
+    take: 60,
+  });
+  const projectIds = projects.map((project) => project.id);
+  const feedback = await prisma.feedback.findMany({
+    where: {
+      targetType: "project",
+      targetId: { in: projectIds },
+      actorType: "agent",
+    },
+    select: { targetId: true, actorId: true, rating: true, createdAt: true },
+  });
+  const counts = new Map<string, number>();
+  const reactionsByProject = new Map<string, ExistingAgentInteraction[]>();
+  for (const item of feedback) {
+    counts.set(item.targetId, (counts.get(item.targetId) ?? 0) + 1);
+    const list = reactionsByProject.get(item.targetId) ?? [];
+    list.push({ actorId: item.actorId, rating: item.rating, createdAt: item.createdAt });
+    reactionsByProject.set(item.targetId, list);
+  }
+  return { projects, counts, reactionsByProject };
+}
+
+function rankPoolByEngagement(
+  pool: Awaited<ReturnType<typeof loadEngagementCandidatePool>>,
+  affinityPreferences?: string[],
+) {
+  return rankProjectsByEngagement({
+    candidates: pool.projects.map((project) => ({
+      project,
+      createdAt: project.createdAt,
+      agentReactionCount: pool.counts.get(project.id) ?? 0,
+      preferenceSignals: projectPreferenceSignals(project),
+    })),
+    preferences: affinityPreferences,
+  });
+}
+
+async function selectTargetProjects(
+  selection: ProjectSelection,
+  options?: TargetSelectionOptions,
+): Promise<TargetSelectionOutcome> {
   if (selection === "latest") {
     const project = await prisma.project.findFirst({
       where: publicInteractionTargetWhere,
       include: { agent: true },
       orderBy: { createdAt: "desc" },
     });
-    return project ? [project] : [];
+    return { projects: project ? [project] : [] };
   }
 
   if (selection === "featured") {
-    return prisma.project.findMany({
-      where: { ...publicInteractionTargetWhere, featured: true },
-      include: { agent: true },
-      orderBy: { createdAt: "desc" },
-      take: 12,
-    });
+    return {
+      projects: await prisma.project.findMany({
+        where: { ...publicInteractionTargetWhere, featured: true },
+        include: { agent: true },
+        orderBy: { createdAt: "desc" },
+        take: 12,
+      }),
+    };
+  }
+
+  // engagement-weighted(2026-07-11、スケジューラ既定): 人気×新着×ペルソナ親和の重み付き抽選。
+  // under-interacted の均等化(反応ゼロ作品優先)を置き換える。候補は直近60公開作品。
+  if (selection === "engagement-weighted") {
+    const pool = await loadEngagementCandidatePool();
+    return { projects: rankPoolByEngagement(pool, options?.affinityPreferences) };
+  }
+
+  // llm-selected(2026-07-11、envオプトイン): engagement-weightedの抽選順上位から
+  // plannableな候補を絞り、acting agentのペルソナLLMが理由付きで1作品を選ぶ。
+  // 選ばれた作品を先頭へ置くだけで残りは抽選順のまま=LLMがどう失敗しても
+  // engagement-weightedと完全に同じ挙動へフォールバックする(ユニット実行は失敗させない)。
+  if (selection === "llm-selected") {
+    const pool = await loadEngagementCandidatePool();
+    const ranked = rankPoolByEngagement(pool, options?.affinityPreferences);
+    try {
+      const actingProfile = options?.actingProfile;
+      if (!actingProfile) {
+        return {
+          projects: ranked,
+          selectionMeta: { mode: "llm-selected", candidateCount: 0, fallbackReason: "no_acting_agent" },
+        };
+      }
+      const plannable = filterPlannableTargets({
+        rankedProjects: ranked,
+        actingAgentId: actingProfile.agentId,
+        unitPattern: options?.unitPattern,
+        reactionsByProject: pool.reactionsByProject,
+      });
+      const shortlist = plannable.slice(0, llmSelectCandidateLimit());
+      if (shortlist.length === 0) {
+        return {
+          projects: ranked,
+          selectionMeta: { mode: "llm-selected", candidateCount: 0, fallbackReason: "no_candidates" },
+        };
+      }
+      const candidates: LlmTargetCandidate[] = shortlist.map((project) => ({
+        projectId: project.id,
+        title: project.title,
+        oneLiner: project.oneLiner,
+        categoryName: project.category?.name ?? project.categoryId,
+        creatorName: project.agent?.name ?? null,
+        agentReactionCount: pool.counts.get(project.id) ?? 0,
+        createdAt: project.createdAt,
+      }));
+      const result = await chooseTargetProjectWithLlm({
+        profile: actingProfile as unknown as ReactionAgentProfile,
+        candidates,
+        unitPattern: options?.unitPattern,
+        timeoutMs: llmSelectTimeoutMs(),
+      });
+      const selectionMeta: TargetSelectionMeta = {
+        mode: "llm-selected",
+        candidateCount: candidates.length,
+        ...(result.ok
+          ? { llmChoice: { ...result.choice, model: result.model } }
+          : { fallbackReason: result.fallbackReason }),
+      };
+      if (!result.ok) {
+        console.warn(
+          `[llm-selected] fallback to engagement order: ${result.fallbackReason}${result.detail ? ` (${result.detail})` : ""}`,
+        );
+        return { projects: ranked, selectionMeta };
+      }
+      const chosenIndex = ranked.findIndex((project) => project.id === result.choice.projectId);
+      const projects =
+        chosenIndex <= 0
+          ? ranked
+          : [ranked[chosenIndex], ...ranked.slice(0, chosenIndex), ...ranked.slice(chosenIndex + 1)];
+      return { projects, selectionMeta };
+    } catch (error) {
+      // 二重防御: 分岐内のどんな想定外例外でも抽選順のまま続行する(既存挙動を壊さない)。
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn(`[llm-selected] unexpected error, fallback to engagement order: ${message}`);
+      return {
+        projects: ranked,
+        selectionMeta: { mode: "llm-selected", candidateCount: 0, fallbackReason: "generation_error" },
+      };
+    }
   }
 
   if (selection !== "under-interacted") {
@@ -152,7 +313,7 @@ async function selectTargetProjects(selection: ProjectSelection) {
       where: { ...publicInteractionTargetWhere, id: selection },
       include: { agent: true },
     });
-    return project ? [project] : [];
+    return { projects: project ? [project] : [] };
   }
 
   const projects = await prisma.project.findMany({
@@ -175,10 +336,12 @@ async function selectTargetProjects(selection: ProjectSelection) {
     counts.set(item.targetId, (counts.get(item.targetId) ?? 0) + 1);
   }
 
-  return projects.sort((left, right) => {
-    const diff = (counts.get(left.id) ?? 0) - (counts.get(right.id) ?? 0);
-    return diff !== 0 ? diff : right.createdAt.getTime() - left.createdAt.getTime();
-  });
+  return {
+    projects: projects.sort((left, right) => {
+      const diff = (counts.get(left.id) ?? 0) - (counts.get(right.id) ?? 0);
+      return diff !== 0 ? diff : right.createdAt.getTime() - left.createdAt.getTime();
+    }),
+  };
 }
 
 function activeInteractionAgents(registryAgents: AgentRegistryProfile[], requestedAgentId?: string) {
@@ -461,19 +624,26 @@ async function main() {
     return;
   }
 
-  const selectedProjects = await selectTargetProjects(args.project);
+  const actingProfile = args.agentId
+    ? agents.find((agent) => agent.agentId === args.agentId)
+    : undefined;
+  const { projects: selectedProjects, selectionMeta } = await selectTargetProjects(args.project, {
+    affinityPreferences: actingProfile?.interactionPolicy?.targetPreference,
+    actingProfile,
+    unitPattern: args.unit,
+  });
 
   // 単一 acting agent 指定時は、その agent の interactionPolicy.targetPreference で
   // 候補プロジェクトを再ランクする（一致が多いものを先頭へ）。複数 agent の一括バッチでは
   // 共有順を変えない＝既存の dry-run 出力・dedup・レート制限を保つ。
-  const actingProfile = args.agentId
-    ? agents.find((agent) => agent.agentId === args.agentId)
-    : undefined;
-  const projects = actingProfile
-    ? rankByTargetPreference(actingProfile.interactionPolicy?.targetPreference, selectedProjects, (project) =>
-        projectPreferenceSignals(project),
-      )
-    : selectedProjects;
+  // engagement-weighted は親和を重み内で織り込み済み、llm-selected はLLMが置いた先頭を
+  // 尊重する必要があるため、どちらも再ランクしない(ハード再ソートすると選定が上書きされる)。
+  const projects =
+    actingProfile && args.project !== "engagement-weighted" && args.project !== "llm-selected"
+      ? rankByTargetPreference(actingProfile.interactionPolicy?.targetPreference, selectedProjects, (project) =>
+          projectPreferenceSignals(project),
+        )
+      : selectedProjects;
 
   if (projects.length === 0) {
     throw new Error(`No target project found for --project ${args.project}`);
@@ -499,6 +669,14 @@ async function main() {
     weeklyCounts: weekly,
   });
 
+  // llm-selected時のみ: 各行に選定注釈を付ける。LLMの選択と一致した行にだけ理由が載り、
+  // plannerがフォールバックで別作品を採った行は llm_choice_not_adopted になる。
+  if (selectionMeta) {
+    for (const row of planned) {
+      row.targetSelection = buildRowTargetSelection(selectionMeta, row.projectId);
+    }
+  }
+
   const output = {
     dryRun: args.dryRun,
     batchId,
@@ -506,6 +684,8 @@ async function main() {
     unit: args.unit,
     force: args.force,
     limit: args.limit,
+    // llm-selected時のみ: 選定結果(dry-run/本実行のstdout=Cloud Loggingで観察できる)。
+    ...(selectionMeta ? { targetSelection: selectionMeta } : {}),
     policy: agentInteractionPolicy,
     targetProjects: projects.map((project) => ({
       projectId: project.id,
@@ -642,6 +822,8 @@ async function main() {
                 }
               : {}),
             ...(interaction.llmAttempts ? { llmAttempts: interaction.llmAttempts } : {}),
+            // llm-selected時のみ(既定のengagement-weightedではキー自体を書かない=従来と同一)。
+            ...(interaction.targetSelection ? { targetSelection: interaction.targetSelection } : {}),
             policy: agentInteractionPolicy,
           }),
         },

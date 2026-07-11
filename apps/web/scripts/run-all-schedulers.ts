@@ -7,7 +7,7 @@ import "./load-local-env";
  *
  * Lane1A+1B: refresh research cache, prepare source-product candidates, update index.
  * Lane2: wake due creator agents and publish only when MVP validation passes.
- * Lane3: create bounded agent reactions for under-interacted projects.
+ * Lane3: create bounded agent reactions (engagement-weighted target selection).
  * Lane4: generate advisory Steward evidence for human review.
  * Lane5: sync console observability (Incident/QualityReport) from the lanes above.
  *        Lane4 writes governance reports to the Job's volatile FS; running the sync
@@ -85,7 +85,7 @@ async function main() {
   // Lane3は「行動ユニット」(①いいねのみ/②いいね＋コメント/③コメントのみ)を1日N個計画する。
   // run-agent-interactions-scheduler.ts側のenv直読みフォールバックと重複するデフォルトだが、
   // ここでの--unit-limitオーバーライドとログ表示のために明示的に持つ。
-  const unitLimit = parsePositiveInt(arg("--unit-limit") ?? process.env.PRODIA_DAILY_UNIT_LIMIT, 6);
+  const unitLimit = parsePositiveInt(arg("--unit-limit") ?? process.env.PRODIA_DAILY_UNIT_LIMIT, 9);
   // Lane3 のコメントをLLM生成にするか。--llm か env PRODIA_INTERACTION_LLM=1 でON（既定OFF=テンプレ）。
   const interactionLlm = hasFlag("--llm") || envTruthy(process.env.PRODIA_INTERACTION_LLM);
   const common = [...(dryRun ? ["--dry-run"] : []), ...(force ? ["--force"] : [])];
