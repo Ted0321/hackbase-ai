@@ -1,11 +1,6 @@
 import assert from "node:assert/strict";
-import {
-  cadenceHours,
-  decideAgentDue,
-  runStamp,
-  runsToday,
-  type AgentDueRunState,
-} from "../src/lib/agent-due-decision";
+import { cadenceHours, decideAgentDue, runStamp, runsToday } from "../src/lib/agent-due-decision";
+import { sameJstDay } from "../src/lib/jst-day";
 import {
   DEFAULT_AGENT_PREFERRED_HOUR_SLOTS_UTC,
   buildDraftAdminAgent,
@@ -55,13 +50,27 @@ run("cadenceHours maps supported cadences", () => {
   assert.equal(cadenceHours("on_demand"), null);
 });
 
-run("runsToday resets outside the UTC day", () => {
-  const state: AgentDueRunState = {
-    lastCompletedAt: "2026-06-28T18:00:00.000Z",
-    runsToday: 1,
-  };
-  assert.equal(runsToday(state, now), 0);
-  assert.equal(runsToday({ ...state, lastCompletedAt: "2026-06-29T01:00:00.000Z" }, now), 1);
+run("runsToday counts by JST day, aligned with the daily cap", () => {
+  // now = 2026-06-29T18:00Z = JST 06-30 03:00 → JST day 2026-06-30。
+  // 同一UTC日(06-29)だが別JST日(06-29) → 0(旧UTC基準では1だった)。
+  assert.equal(runsToday({ lastCompletedAt: "2026-06-29T05:00:00.000Z", runsToday: 1 }, now), 0);
+  // 別UTC日(06-29)だが同一JST日(06-30) → 1(旧UTC基準では0だった)。
+  assert.equal(
+    runsToday(
+      { lastCompletedAt: "2026-06-29T15:30:00.000Z", runsToday: 1 },
+      new Date("2026-06-30T02:00:00.000Z"),
+    ),
+    1,
+  );
+  // lastCompletedAt 無しは常に 0。
+  assert.equal(runsToday({}, now), 0);
+});
+
+run("sameJstDay treats the JST calendar day as the boundary", () => {
+  // 同一UTC日でも JST 15:00(=UTC日境界)をまたぐと別 JST 日。
+  assert.equal(sameJstDay(new Date("2026-06-29T05:00:00.000Z"), new Date("2026-06-29T18:00:00.000Z")), false);
+  // UTC日は異なるが同一 JST 日。
+  assert.equal(sameJstDay(new Date("2026-06-29T15:30:00.000Z"), new Date("2026-06-30T02:00:00.000Z")), true);
 });
 
 run("creator is due at preferred hour on first run", () => {

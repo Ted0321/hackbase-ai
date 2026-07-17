@@ -8,6 +8,8 @@
  * 当日JSTの completed は50件枠の外でも保持する。
  */
 
+import { jstDateKey } from "../src/lib/jst-day";
+
 export type SchedulerHistoryItem = {
   at: string;
   agentId: string;
@@ -16,14 +18,9 @@ export type SchedulerHistoryItem = {
   runId?: string;
 };
 
-const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
-
-export const jstDateKey = (date: Date) => {
-  const shifted = new Date(date.getTime() + JST_OFFSET_MS);
-  return `${shifted.getUTCFullYear()}-${String(shifted.getUTCMonth() + 1).padStart(2, "0")}-${String(
-    shifted.getUTCDate(),
-  ).padStart(2, "0")}`;
-};
+// JST 日の判定は src/lib/jst-day.ts を単一の正とする(agent-due-decision.ts と共用)。
+// 既存 importer(run-agent-daily-scheduler.ts 等)の互換のためここで再エクスポートする。
+export { jstDateKey };
 
 export const HISTORY_LIMIT = 50;
 

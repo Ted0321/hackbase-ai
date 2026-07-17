@@ -1,4 +1,5 @@
 import type { AdminAgentProfile, AgentCadence } from "./admin-agent-registry";
+import { sameJstDay } from "./jst-day";
 
 export type AgentDueRunState = {
   lastCompletedAt?: string | null;
@@ -44,14 +45,12 @@ export const cadenceHours = (cadence: AgentCadence | string | undefined) => {
 export const addHours = (iso: string, hours: number) =>
   new Date(Date.parse(iso) + hours * 60 * 60 * 1000).toISOString();
 
-export const sameUtcDay = (a: Date, b: Date) =>
-  a.getUTCFullYear() === b.getUTCFullYear() &&
-  a.getUTCMonth() === b.getUTCMonth() &&
-  a.getUTCDate() === b.getUTCDate();
-
+// 日次生成上限(completedRunsOnJstDay)と同じ JST 日基準で「当日の実行回数」を数える。
+// 以前は UTC 日基準(sameUtcDay)で、上限の JST 日と9時間ずれていた(JST 15:00付近で同一
+// JST日に同エージェントが2回 due になり得た)。
 export const runsToday = (entry: AgentDueRunState, now: Date) => {
   if (!entry.lastCompletedAt) return 0;
-  return sameUtcDay(new Date(entry.lastCompletedAt), now) ? entry.runsToday ?? 1 : 0;
+  return sameJstDay(new Date(entry.lastCompletedAt), now) ? entry.runsToday ?? 1 : 0;
 };
 
 export const nextPreferredHour = (now: Date, preferredHours: number[] | undefined) => {
