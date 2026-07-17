@@ -1,9 +1,9 @@
 {
-  "version": "github.2026-07-08T02:05:15.118Z",
-  "fetchedAt": "2026-07-08T02:05:15.118Z",
+  "version": "github.2026-07-12T21:42:43.193Z",
+  "fetchedAt": "2026-07-12T21:42:43.193Z",
   "source": {
     "type": "github_trending",
-    "query": "agent ai stars:>100 pushed:>2026-06-08 | ai education learning stars:>30 pushed:>2026-05-24 | ai music audio stars:>30 pushed:>2026-05-24 | ai visualization stars:>30 pushed:>2026-05-24 | ai game stars:>30 pushed:>2026-05-24 | ai science biology stars:>30 pushed:>2026-05-09 | ai accessibility stars:>20 pushed:>2026-05-09 | ai creative art generation stars:>30 pushed:>2026-05-24",
+    "query": "agent ai stars:>100 pushed:>2026-06-12 | ai education learning stars:>30 pushed:>2026-05-28 | ai music audio stars:>30 pushed:>2026-05-28 | ai visualization stars:>30 pushed:>2026-05-28 | ai game stars:>30 pushed:>2026-05-28 | ai science biology stars:>30 pushed:>2026-05-13 | ai accessibility stars:>20 pushed:>2026-05-13 | ai creative art generation stars:>30 pushed:>2026-05-28",
     "note": "Unauthenticated GitHub Search signal. starDelta7d is calculated from data/signal-history/github-repos.json when a 7-day baseline exists."
   },
   "signals": [
@@ -14,7 +14,7 @@
       "title": "obra/superpowers is an active AI/agent repository",
       "summary": "An agentic skills framework & software development methodology that works.",
       "url": "https://github.com/obra/superpowers",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -27,17 +27,17 @@
         "agent-builder"
       ],
       "metrics": {
-        "stars": 248756,
-        "forks": 22091,
-        "openIssues": 342,
-        "updatedWithinDays": 1,
-        "starDelta7d": 8874,
+        "stars": 252978,
+        "forks": 22593,
+        "openIssues": 323,
+        "updatedWithinDays": 2,
+        "starDelta7d": 13096,
         "starVelocityScore": 5,
         "activityScore": 5,
         "categoryNoveltyScore": 2
       },
       "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=8874, starVelocityScore=5. Activity: pushed 1 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=13096, starVelocityScore=5. Activity: pushed 2 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "rawExcerpt": "An agentic skills framework & software development methodology that works."
     },
@@ -48,7 +48,7 @@
       "title": "learnhouse/learnhouse is a rising AI-related repository",
       "summary": "The Next-gen Open Source learning platform for everyone ✨",
       "url": "https://github.com/learnhouse/learnhouse",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -60,17 +60,17 @@
         "agent-builder"
       ],
       "metrics": {
-        "stars": 1825,
-        "forks": 393,
-        "openIssues": 15,
-        "updatedWithinDays": 1,
+        "stars": 1847,
+        "forks": 399,
+        "openIssues": 17,
+        "updatedWithinDays": 2,
         "starDelta7d": 0,
         "starVelocityScore": 1,
         "activityScore": 4,
         "categoryNoveltyScore": 1
       },
       "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 1 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 2 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "rawExcerpt": "The Next-gen Open Source learning platform for everyone ✨"
     },
@@ -81,7 +81,7 @@
       "title": "rsxdalv/TTS-WebUI is a rising AI-related repository",
       "summary": "A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi Audio, Piper TTS, GPT-SoVITS, CosyVoice, XTTSv2, DIA, Kokoro, OpenVoice, ParlerTTS, Stable Audio, MMS, StyleTTS2, MAGNet, AudioGen, MusicGen, Tortoise, RVC, Vocos, Demucs, SeamlessM4T, and Bark!",
       "url": "https://github.com/rsxdalv/TTS-WebUI",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -93,263 +93,28 @@
         "agent-builder"
       ],
       "metrics": {
-        "stars": 3191,
+        "stars": 3195,
         "forks": 325,
         "openIssues": 107,
-        "updatedWithinDays": 2,
+        "updatedWithinDays": 6,
         "starDelta7d": 0,
         "starVelocityScore": 1,
-        "activityScore": 5,
+        "activityScore": 4,
         "categoryNoveltyScore": 2
       },
       "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 2 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 6 days ago, activityScore=4. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "rawExcerpt": "A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi Audio, Piper TTS, GPT-SoVITS, CosyVoice, XTTSv2, DIA, Kokoro, OpenVoice, ParlerTTS, Stable Audio, MMS, StyleTTS2, MAGNet, AudioGen, MusicGen, Tortoise, RVC, Vocos, Demucs, SeamlessM4T, and Bark!"
     },
     {
-      "id": "sig_github_lutzroeder_netron_4",
-      "sourceType": "github_trending",
-      "sourceName": "GitHub Search",
-      "title": "lutzroeder/netron is a rising AI-related repository",
-      "summary": "Visualizer for neural network, deep learning and machine learning models",
-      "url": "https://github.com/lutzroeder/netron",
-      "observedAt": "2026-07-08T02:05:15.118Z",
-      "topics": [
-        "github",
-        "oss",
-        "javascript"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "stars": 33193,
-        "forks": 3151,
-        "openIssues": 18,
-        "updatedWithinDays": 1,
-        "starDelta7d": 0,
-        "starVelocityScore": 2,
-        "activityScore": 4,
-        "categoryNoveltyScore": 1
-      },
-      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 1 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
-      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
-      "rawExcerpt": "Visualizer for neural network, deep learning and machine learning models"
-    },
-    {
-      "id": "sig_github_skills_secure_code_game_5",
-      "sourceType": "github_trending",
-      "sourceName": "GitHub Search",
-      "title": "skills/secure-code-game is a rising AI-related repository",
-      "summary": "Learn to code securely while having fun through our popular open source in-editor experience, designed for developers, students, and anyone curious about security. Get started for free in under 2 minutes, playing right from your browser.",
-      "url": "https://github.com/skills/secure-code-game",
-      "observedAt": "2026-07-08T02:05:15.118Z",
-      "topics": [
-        "github",
-        "oss",
-        "javascript"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "stars": 2780,
-        "forks": 366,
-        "openIssues": 1,
-        "updatedWithinDays": 1,
-        "starDelta7d": 0,
-        "starVelocityScore": 1,
-        "activityScore": 4,
-        "categoryNoveltyScore": 2
-      },
-      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 1 days ago, activityScore=4. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
-      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
-      "rawExcerpt": "Learn to code securely while having fun through our popular open source in-editor experience, designed for developers, students, and anyone curious about security. Get started for free in under 2 minutes, playing right from your browser."
-    },
-    {
-      "id": "sig_github_k_dense_ai_scientific_agent_skills_6",
-      "sourceType": "github_trending",
-      "sourceName": "GitHub Search",
-      "title": "K-Dense-AI/scientific-agent-skills is an active AI/agent repository",
-      "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 160,000+ scientists worldwide. 140 ready-to-use skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
-      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
-      "observedAt": "2026-07-08T02:05:15.118Z",
-      "topics": [
-        "github",
-        "oss",
-        "agent",
-        "python"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "stars": 30410,
-        "forks": 3062,
-        "openIssues": 39,
-        "updatedWithinDays": 0,
-        "starDelta7d": 0,
-        "starVelocityScore": 2,
-        "activityScore": 5,
-        "categoryNoveltyScore": 2
-      },
-      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
-      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
-      "rawExcerpt": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 160,000+ scientists worldwide. 140 ready-to-use skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard."
-    },
-    {
-      "id": "sig_github_significant_gravitas_autogpt_7",
-      "sourceType": "github_trending",
-      "sourceName": "GitHub Search",
-      "title": "Significant-Gravitas/AutoGPT is an active AI/agent repository",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "observedAt": "2026-07-08T02:05:15.118Z",
-      "topics": [
-        "github",
-        "oss",
-        "agent",
-        "tool-use",
-        "python"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "stars": 185427,
-        "forks": 46123,
-        "openIssues": 471,
-        "updatedWithinDays": 0,
-        "starDelta7d": 0,
-        "starVelocityScore": 2,
-        "activityScore": 5,
-        "categoryNoveltyScore": 3
-      },
-      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=3; inspect whether this is a new capability, new workflow, or known category repackaging.",
-      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
-      "rawExcerpt": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters."
-    },
-    {
-      "id": "sig_github_nousresearch_hermes_agent_8",
-      "sourceType": "github_trending",
-      "sourceName": "GitHub Search",
-      "title": "NousResearch/hermes-agent is an active AI/agent repository",
-      "summary": "The agent that grows with you",
-      "url": "https://github.com/NousResearch/hermes-agent",
-      "observedAt": "2026-07-08T02:05:15.118Z",
-      "topics": [
-        "github",
-        "oss",
-        "agent",
-        "python"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "stars": 211015,
-        "forks": 38739,
-        "openIssues": 26654,
-        "updatedWithinDays": 0,
-        "starDelta7d": 6859,
-        "starVelocityScore": 5,
-        "activityScore": 5,
-        "categoryNoveltyScore": 2
-      },
-      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=6859, starVelocityScore=5. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
-      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
-      "rawExcerpt": "The agent that grows with you"
-    },
-    {
-      "id": "sig_github_mohi_devhub_antivibe_9",
-      "sourceType": "github_trending",
-      "sourceName": "GitHub Search",
-      "title": "mohi-devhub/antivibe is a rising AI-related repository",
-      "summary": "Learn what AI writes, not just accept it. A Claude Code skill that turns AI-generated code into educational deep dives.",
-      "url": "https://github.com/mohi-devhub/antivibe",
-      "observedAt": "2026-07-08T02:05:15.118Z",
-      "topics": [
-        "github",
-        "oss",
-        "shell"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "stars": 653,
-        "forks": 42,
-        "openIssues": 2,
-        "updatedWithinDays": 32,
-        "starDelta7d": 0,
-        "starVelocityScore": 1,
-        "activityScore": 1,
-        "categoryNoveltyScore": 1
-      },
-      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 32 days ago, activityScore=1. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
-      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
-      "rawExcerpt": "Learn what AI writes, not just accept it. A Claude Code skill that turns AI-generated code into educational deep dives."
-    },
-    {
-      "id": "sig_github_neptunehub_audiomuse_ai_10",
-      "sourceType": "github_trending",
-      "sourceName": "GitHub Search",
-      "title": "NeptuneHub/AudioMuse-AI is a rising AI-related repository",
-      "summary": "AudioMuse-AI uses sonic analysis to rediscover forgotten songs, uncover hidden connections in your music library, and generate intelligent playlists for Navidrome, Jellyfin, LMS, Lyrion, Emby and Plex: no metadata or external services required.",
-      "url": "https://github.com/NeptuneHub/AudioMuse-AI",
-      "observedAt": "2026-07-08T02:05:15.118Z",
-      "topics": [
-        "github",
-        "oss",
-        "python"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "stars": 2115,
-        "forks": 123,
-        "openIssues": 16,
-        "updatedWithinDays": 0,
-        "starDelta7d": 0,
-        "starVelocityScore": 1,
-        "activityScore": 4,
-        "categoryNoveltyScore": 1
-      },
-      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 0 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
-      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
-      "rawExcerpt": "AudioMuse-AI uses sonic analysis to rediscover forgotten songs, uncover hidden connections in your music library, and generate intelligent playlists for Navidrome, Jellyfin, LMS, Lyrion, Emby and Plex: no metadata or external services required."
-    },
-    {
-      "id": "sig_github_dayuanjiang_next_ai_draw_io_11",
+      "id": "sig_github_dayuanjiang_next_ai_draw_io_4",
       "sourceType": "github_trending",
       "sourceName": "GitHub Search",
       "title": "DayuanJiang/next-ai-draw-io is a rising AI-related repository",
       "summary": "A next.js web application that integrates AI capabilities with draw.io diagrams. This app allows you to create, modify, and enhance diagrams through natural language commands and AI-assisted visualization.",
       "url": "https://github.com/DayuanJiang/next-ai-draw-io",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -361,8 +126,8 @@
         "agent-builder"
       ],
       "metrics": {
-        "stars": 32927,
-        "forks": 3430,
+        "stars": 33441,
+        "forks": 3618,
         "openIssues": 166,
         "updatedWithinDays": 0,
         "starDelta7d": 0,
@@ -376,13 +141,248 @@
       "rawExcerpt": "A next.js web application that integrates AI capabilities with draw.io diagrams. This app allows you to create, modify, and enhance diagrams through natural language commands and AI-assisted visualization."
     },
     {
+      "id": "sig_github_skills_secure_code_game_5",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "skills/secure-code-game is a rising AI-related repository",
+      "summary": "Learn to code securely while having fun through our popular open source in-editor experience, designed for developers, students, and anyone curious about security. Get started for free in under 2 minutes, playing right from your browser.",
+      "url": "https://github.com/skills/secure-code-game",
+      "observedAt": "2026-07-12T21:42:43.193Z",
+      "topics": [
+        "github",
+        "oss",
+        "javascript"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "stars": 2783,
+        "forks": 369,
+        "openIssues": 1,
+        "updatedWithinDays": 6,
+        "starDelta7d": 0,
+        "starVelocityScore": 1,
+        "activityScore": 3,
+        "categoryNoveltyScore": 2
+      },
+      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 6 days ago, activityScore=3. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "rawExcerpt": "Learn to code securely while having fun through our popular open source in-editor experience, designed for developers, students, and anyone curious about security. Get started for free in under 2 minutes, playing right from your browser."
+    },
+    {
+      "id": "sig_github_k_dense_ai_scientific_agent_skills_6",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "K-Dense-AI/scientific-agent-skills is an active AI/agent repository",
+      "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 160,000+ scientists worldwide. 140 ready-to-use skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "observedAt": "2026-07-12T21:42:43.193Z",
+      "topics": [
+        "github",
+        "oss",
+        "agent",
+        "python"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "stars": 30751,
+        "forks": 3093,
+        "openIssues": 39,
+        "updatedWithinDays": 4,
+        "starDelta7d": 0,
+        "starVelocityScore": 2,
+        "activityScore": 4,
+        "categoryNoveltyScore": 2
+      },
+      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 4 days ago, activityScore=4. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "rawExcerpt": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 160,000+ scientists worldwide. 140 ready-to-use skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard."
+    },
+    {
+      "id": "sig_github_significant_gravitas_autogpt_7",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "Significant-Gravitas/AutoGPT is an active AI/agent repository",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "observedAt": "2026-07-12T21:42:43.193Z",
+      "topics": [
+        "github",
+        "oss",
+        "agent",
+        "tool-use",
+        "python"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "stars": 185495,
+        "forks": 46109,
+        "openIssues": 498,
+        "updatedWithinDays": 1,
+        "starDelta7d": 0,
+        "starVelocityScore": 2,
+        "activityScore": 5,
+        "categoryNoveltyScore": 3
+      },
+      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
+      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 1 days ago, activityScore=5. Novelty: categoryNoveltyScore=3; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "rawExcerpt": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters."
+    },
+    {
+      "id": "sig_github_nousresearch_hermes_agent_8",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "NousResearch/hermes-agent is an active AI/agent repository",
+      "summary": "The agent that grows with you",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "observedAt": "2026-07-12T21:42:43.193Z",
+      "topics": [
+        "github",
+        "oss",
+        "agent",
+        "python"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "stars": 213698,
+        "forks": 39611,
+        "openIssues": 26891,
+        "updatedWithinDays": 0,
+        "starDelta7d": 9542,
+        "starVelocityScore": 5,
+        "activityScore": 5,
+        "categoryNoveltyScore": 2
+      },
+      "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=9542, starVelocityScore=5. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "rawExcerpt": "The agent that grows with you"
+    },
+    {
+      "id": "sig_github_mohi_devhub_antivibe_9",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "mohi-devhub/antivibe is a rising AI-related repository",
+      "summary": "Learn what AI writes, not just accept it. A Claude Code skill that turns AI-generated code into educational deep dives.",
+      "url": "https://github.com/mohi-devhub/antivibe",
+      "observedAt": "2026-07-12T21:42:43.193Z",
+      "topics": [
+        "github",
+        "oss",
+        "shell"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "stars": 655,
+        "forks": 42,
+        "openIssues": 2,
+        "updatedWithinDays": 36,
+        "starDelta7d": 0,
+        "starVelocityScore": 1,
+        "activityScore": 1,
+        "categoryNoveltyScore": 1
+      },
+      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 36 days ago, activityScore=1. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "rawExcerpt": "Learn what AI writes, not just accept it. A Claude Code skill that turns AI-generated code into educational deep dives."
+    },
+    {
+      "id": "sig_github_neptunehub_audiomuse_ai_10",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "NeptuneHub/AudioMuse-AI is a rising AI-related repository",
+      "summary": "AudioMuse-AI uses sonic analysis to rediscover forgotten songs, uncover hidden connections in your music library, and generate intelligent playlists for Navidrome, Jellyfin, LMS, Lyrion, Emby and Plex: no metadata or external services required.",
+      "url": "https://github.com/NeptuneHub/AudioMuse-AI",
+      "observedAt": "2026-07-12T21:42:43.193Z",
+      "topics": [
+        "github",
+        "oss",
+        "python"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "stars": 2206,
+        "forks": 134,
+        "openIssues": 14,
+        "updatedWithinDays": 0,
+        "starDelta7d": 0,
+        "starVelocityScore": 1,
+        "activityScore": 4,
+        "categoryNoveltyScore": 1
+      },
+      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 0 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "rawExcerpt": "AudioMuse-AI uses sonic analysis to rediscover forgotten songs, uncover hidden connections in your music library, and generate intelligent playlists for Navidrome, Jellyfin, LMS, Lyrion, Emby and Plex: no metadata or external services required."
+    },
+    {
+      "id": "sig_github_lutzroeder_netron_11",
+      "sourceType": "github_trending",
+      "sourceName": "GitHub Search",
+      "title": "lutzroeder/netron is a rising AI-related repository",
+      "summary": "Visualizer for neural network, deep learning and machine learning models",
+      "url": "https://github.com/lutzroeder/netron",
+      "observedAt": "2026-07-12T21:42:43.193Z",
+      "topics": [
+        "github",
+        "oss",
+        "javascript"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "stars": 33217,
+        "forks": 3154,
+        "openIssues": 19,
+        "updatedWithinDays": 1,
+        "starDelta7d": 0,
+        "starVelocityScore": 2,
+        "activityScore": 4,
+        "categoryNoveltyScore": 1
+      },
+      "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 1 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
+      "rawExcerpt": "Visualizer for neural network, deep learning and machine learning models"
+    },
+    {
       "id": "sig_github_card_forge_forge_12",
       "sourceType": "github_trending",
       "sourceName": "GitHub Search",
       "title": "Card-Forge/forge is a rising AI-related repository",
       "summary": "An unofficial rules engine for the world's greatest card game.",
       "url": "https://github.com/Card-Forge/forge",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -394,9 +394,9 @@
         "agent-builder"
       ],
       "metrics": {
-        "stars": 2503,
-        "forks": 985,
-        "openIssues": 589,
+        "stars": 2511,
+        "forks": 993,
+        "openIssues": 586,
         "updatedWithinDays": 0,
         "starDelta7d": 0,
         "starVelocityScore": 1,
@@ -415,7 +415,7 @@
       "title": "aipoch/medical-research-skills is an active AI/agent repository",
       "summary": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing.",
       "url": "https://github.com/aipoch/medical-research-skills",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -428,17 +428,17 @@
         "agent-builder"
       ],
       "metrics": {
-        "stars": 1314,
-        "forks": 88,
+        "stars": 1405,
+        "forks": 138,
         "openIssues": 3,
-        "updatedWithinDays": 15,
+        "updatedWithinDays": 3,
         "starDelta7d": 0,
         "starVelocityScore": 1,
-        "activityScore": 2,
+        "activityScore": 4,
         "categoryNoveltyScore": 2
       },
       "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 15 days ago, activityScore=2. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 3 days ago, activityScore=4. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "rawExcerpt": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing."
     },
@@ -449,7 +449,7 @@
       "title": "browser-use/browser-use is an active AI/agent repository",
       "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
       "url": "https://github.com/browser-use/browser-use",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -463,17 +463,17 @@
         "agent-builder"
       ],
       "metrics": {
-        "stars": 103352,
-        "forks": 11436,
-        "openIssues": 288,
-        "updatedWithinDays": 0,
+        "stars": 104394,
+        "forks": 11503,
+        "openIssues": 304,
+        "updatedWithinDays": 1,
         "starDelta7d": 0,
         "starVelocityScore": 2,
         "activityScore": 5,
         "categoryNoveltyScore": 4
       },
       "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=4; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 1 days ago, activityScore=5. Novelty: categoryNoveltyScore=4; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "rawExcerpt": "🌐 Make websites accessible for AI agents. Automate tasks online with ease."
     },
@@ -484,7 +484,7 @@
       "title": "langflow-ai/langflow is an active AI/agent repository",
       "summary": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
       "url": "https://github.com/langflow-ai/langflow",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -499,17 +499,17 @@
         "agent-builder"
       ],
       "metrics": {
-        "stars": 151322,
-        "forks": 9470,
-        "openIssues": 974,
-        "updatedWithinDays": 0,
-        "starDelta7d": 1196,
+        "stars": 151775,
+        "forks": 9665,
+        "openIssues": 978,
+        "updatedWithinDays": 1,
+        "starDelta7d": 1649,
         "starVelocityScore": 5,
         "activityScore": 5,
         "categoryNoveltyScore": 3
       },
       "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=1196, starVelocityScore=5. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=3; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=1649, starVelocityScore=5. Activity: pushed 1 days ago, activityScore=5. Novelty: categoryNoveltyScore=3; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "rawExcerpt": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows."
     },
@@ -520,7 +520,7 @@
       "title": "robocode-dev/tank-royale is a rising AI-related repository",
       "summary": "Git repository for Robocode Tank Royale",
       "url": "https://github.com/robocode-dev/tank-royale",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -535,14 +535,14 @@
         "stars": 254,
         "forks": 56,
         "openIssues": 5,
-        "updatedWithinDays": 4,
+        "updatedWithinDays": 8,
         "starDelta7d": 0,
         "starVelocityScore": 1,
         "activityScore": 3,
         "categoryNoveltyScore": 1
       },
       "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 4 days ago, activityScore=3. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 8 days ago, activityScore=3. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "rawExcerpt": "Git repository for Robocode Tank Royale"
     }

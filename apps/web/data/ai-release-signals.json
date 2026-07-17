@@ -1,6 +1,6 @@
 {
-  "version": "official-ai-release.2026-07-08T02:05:17.355Z",
-  "fetchedAt": "2026-07-08T02:05:17.355Z",
+  "version": "official-ai-release.2026-07-12T21:42:45.723Z",
+  "fetchedAt": "2026-07-12T21:42:45.723Z",
   "source": {
     "type": "official_ai_release",
     "feeds": [
@@ -11,17 +11,17 @@
   },
   "signals": [
     {
-      "id": "sig_official_ai_release_australian_payments_plus_moves_faster_with_chatgpt_and_codex_1",
+      "id": "sig_official_ai_release_how_deutsche_telekom_is_rewiring_telecommunications_with_ai_1",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "Australian Payments Plus moves faster with ChatGPT and Codex",
-      "summary": "See how Australian Payments Plus uses ChatGPT Enterprise and Codex to move faster through payments complexity. AP+ saves time, improves quality, and keeps human judgment central.",
-      "url": "https://openai.com/index/australian-payments-plus",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "How Deutsche Telekom is rewiring telecommunications with AI",
+      "summary": "How Deutsche Telekom is becoming an AI-native telco with OpenAI-transforming customer service, employee workflows, network operations, and the future of voice.",
+      "url": "https://openai.com/index/deutsche-telekom",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai",
-        "coding"
+        "voice"
       ],
       "audience": [
         "operator",
@@ -31,106 +31,25 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 1
+        "daysSincePublished": 3
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "See how Australian Payments Plus uses ChatGPT Enterprise and Codex to move faster through payments complexity. AP+ saves time, improves quality, and keeps human judgment central."
+      "rawExcerpt": "How Deutsche Telekom is becoming an AI-native telco with OpenAI-transforming customer service, employee workflows, network operations, and the future of voice."
     },
     {
-      "id": "sig_official_ai_release_mufg_aims_to_become_ai_native_with_openai_2",
+      "id": "sig_official_ai_release_gpt_5_6_is_now_the_preferred_model_in_microsoft_365_copilot_2",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "MUFG aims to become AI-native with OpenAI",
-      "summary": "MUFG uses ChatGPT Enterprise to build an AI-native organization, improve workflows, and deliver new AI-powered financial services at scale.",
-      "url": "https://openai.com/index/mufg",
-      "observedAt": "2026-07-08T02:05:17.355Z",
-      "topics": [
-        "official-release",
-        "ai"
-      ],
-      "audience": [
-        "operator",
-        "curator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "releaseMentions": 1,
-        "developerDocsUpdated": 0,
-        "daysSincePublished": 1
-      },
-      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
-      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
-      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "MUFG uses ChatGPT Enterprise to build an AI-native organization, improve workflows, and deliver new AI-powered financial services at scale."
-    },
-    {
-      "id": "sig_official_ai_release_how_chatgpt_adoption_has_expanded_3",
-      "sourceType": "official_ai_release",
-      "sourceName": "OpenAI News",
-      "title": "How ChatGPT adoption has expanded",
-      "summary": "New OpenAI Signals data shows how ChatGPT adoption is growing globally, with users increasing usage, exploring more capabilities, and driving growth across regions and languages.",
-      "url": "https://openai.com/index/how-chatgpt-adoption-has-expanded",
-      "observedAt": "2026-07-08T02:05:17.355Z",
-      "topics": [
-        "official-release",
-        "ai"
-      ],
-      "audience": [
-        "operator",
-        "curator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "releaseMentions": 1,
-        "developerDocsUpdated": 0,
-        "daysSincePublished": 8
-      },
-      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
-      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
-      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "New OpenAI Signals data shows how ChatGPT adoption is growing globally, with users increasing usage, exploring more capabilities, and driving growth across regions and languages."
-    },
-    {
-      "id": "sig_official_ai_release_core_dump_epidemiology_fixing_an_18_year_old_bug_4",
-      "sourceType": "official_ai_release",
-      "sourceName": "OpenAI News",
-      "title": "Core dump epidemiology: fixing an 18-year-old bug",
-      "summary": "OpenAI engineers used large-scale core dump analysis to debug rare infrastructure crashes, uncovering both a hardware fault and a long-standing software bug.",
-      "url": "https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug",
-      "observedAt": "2026-07-08T02:05:17.355Z",
-      "topics": [
-        "official-release",
-        "ai"
-      ],
-      "audience": [
-        "operator",
-        "curator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "releaseMentions": 1,
-        "developerDocsUpdated": 0,
-        "daysSincePublished": 8
-      },
-      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
-      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
-      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "OpenAI engineers used large-scale core dump analysis to debug rare infrastructure crashes, uncovering both a hardware fault and a long-standing software bug."
-    },
-    {
-      "id": "sig_official_ai_release_introducing_genebench_pro_5",
-      "sourceType": "official_ai_release",
-      "sourceName": "OpenAI News",
-      "title": "Introducing GeneBench-Pro",
-      "summary": "Introducing GeneBench-Pro, a new benchmark testing AI performance in genomics, biology, and scientific research using complex, real-world datasets.",
-      "url": "https://openai.com/index/introducing-genebench-pro",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "GPT-5.6 is now the preferred model in Microsoft 365 Copilot",
+      "summary": "Learn how GPT-5.6 powers Microsoft 365 Copilot with stronger AI capabilities across Word, Excel, PowerPoint, Chat, and Cowork for faster, higher-quality work.",
+      "url": "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai",
-        "eval"
+        "model"
       ],
       "audience": [
         "operator",
@@ -140,21 +59,21 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 8
+        "daysSincePublished": 3
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "Introducing GeneBench-Pro, a new benchmark testing AI performance in genomics, biology, and scientific research using complex, real-world datasets."
+      "rawExcerpt": "Learn how GPT-5.6 powers Microsoft 365 Copilot with stronger AI capabilities across Word, Excel, PowerPoint, Chat, and Cowork for faster, higher-quality work."
     },
     {
-      "id": "sig_official_ai_release_inside_genebench_pro_6",
+      "id": "sig_official_ai_release_gpt_5_6_frontier_intelligence_that_scales_with_your_ambition_3",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "Inside Genebench-Pro",
-      "summary": "Inside Genebench-Pro",
-      "url": "https://openai.com/index/genebench-pro/case-studies",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
+      "summary": "More intelligence from every token, stronger performance per dollar, and more capability on demand for your hardest work.",
+      "url": "https://openai.com/index/gpt-5-6",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai"
@@ -167,105 +86,21 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 8
+        "daysSincePublished": 3
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "Inside Genebench-Pro"
+      "rawExcerpt": "More intelligence from every token, stronger performance per dollar, and more capability on demand for your hardest work."
     },
     {
-      "id": "sig_official_ai_release_mapping_europe_s_ai_workforce_opportunity_7",
+      "id": "sig_official_ai_release_chatgpt_is_now_a_partner_for_your_most_ambitious_work_4",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "Mapping Europe’s AI Workforce Opportunity",
-      "summary": "A new OpenAI report maps how AI could reshape jobs across the EU, highlighting which occupations may face automation, growth, or workflow changes.",
-      "url": "https://openai.com/index/mapping-ai-jobs-transition-eu",
-      "observedAt": "2026-07-08T02:05:17.355Z",
-      "topics": [
-        "official-release",
-        "ai"
-      ],
-      "audience": [
-        "operator",
-        "curator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "releaseMentions": 1,
-        "developerDocsUpdated": 0,
-        "daysSincePublished": 9
-      },
-      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
-      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
-      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "A new OpenAI report maps how AI could reshape jobs across the EU, highlighting which occupations may face automation, growth, or workflow changes."
-    },
-    {
-      "id": "sig_official_ai_release_hp_inc_launches_frontier_strategic_partnership_with_openai_8",
-      "sourceType": "official_ai_release",
-      "sourceName": "OpenAI News",
-      "title": "HP Inc. launches Frontier strategic partnership with OpenAI",
-      "summary": "HP Inc. scales its OpenAI Frontier partnership to deploy AI across customer experiences, software development, and enterprise operations.",
-      "url": "https://openai.com/index/hp-frontier-partnership",
-      "observedAt": "2026-07-08T02:05:17.355Z",
-      "topics": [
-        "official-release",
-        "ai"
-      ],
-      "audience": [
-        "operator",
-        "curator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "releaseMentions": 1,
-        "developerDocsUpdated": 0,
-        "daysSincePublished": 9
-      },
-      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
-      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
-      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "HP Inc. scales its OpenAI Frontier partnership to deploy AI across customer experiences, software development, and enterprise operations."
-    },
-    {
-      "id": "sig_official_ai_release_previewing_gpt_5_6_sol_a_next_generation_model_9",
-      "sourceType": "official_ai_release",
-      "sourceName": "OpenAI News",
-      "title": "Previewing GPT-5.6 Sol: a next-generation model",
-      "summary": "OpenAI previews GPT-5.6 Sol, a next-generation model with stronger capabilities in coding, science, and cybersecurity, paired with its most advanced safety stack.",
-      "url": "https://openai.com/index/previewing-gpt-5-6-sol",
-      "observedAt": "2026-07-08T02:05:17.355Z",
-      "topics": [
-        "official-release",
-        "ai",
-        "model",
-        "coding",
-        "safety"
-      ],
-      "audience": [
-        "operator",
-        "curator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "releaseMentions": 1,
-        "developerDocsUpdated": 0,
-        "daysSincePublished": 12
-      },
-      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
-      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
-      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "OpenAI previews GPT-5.6 Sol, a next-generation model with stronger capabilities in coding, science, and cybersecurity, paired with its most advanced safety stack."
-    },
-    {
-      "id": "sig_official_ai_release_how_agents_are_transforming_work_10",
-      "sourceType": "official_ai_release",
-      "sourceName": "OpenAI News",
-      "title": "How agents are transforming work",
-      "summary": "A new OpenAI research paper shows how AI agents are transforming work, enabling longer, more complex tasks and expanding productivity across roles.",
-      "url": "https://openai.com/index/how-agents-are-transforming-work",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "ChatGPT is now a partner for your most ambitious work",
+      "summary": "ChatGPT Work is an agent that can take action across your apps and files, stay with a project for hours if needed, and turn a goal into finished work.",
+      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai",
@@ -279,21 +114,21 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 13
+        "daysSincePublished": 3
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a small run inspector, agent capability card, or workflow comparison around the release.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "A new OpenAI research paper shows how AI agents are transforming work, enabling longer, more complex tasks and expanding productivity across roles."
+      "rawExcerpt": "ChatGPT Work is an agent that can take action across your apps and files, stay with a project for hours if needed, and turn a goal into finished work."
     },
     {
-      "id": "sig_official_ai_release_openai_and_broadcom_unveil_llm_optimized_inference_chip_11",
+      "id": "sig_official_ai_release_gpt_5_5_bio_bug_bounty_5",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "OpenAI and Broadcom unveil LLM-optimized inference chip",
-      "summary": "OpenAI and Broadcom introduce Jalapeño, a custom AI chip built for LLM inference to improve performance, efficiency, and scale across AI systems.",
-      "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "GPT-5.5 Bio Bug Bounty",
+      "summary": "Details about the OpenAI Bio Bounty program",
+      "url": "https://openai.com/index/bio-bug-bounty",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai"
@@ -306,52 +141,24 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 14
+        "daysSincePublished": 3
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "OpenAI and Broadcom introduce Jalapeño, a custom AI chip built for LLM inference to improve performance, efficiency, and scale across AI systems."
+      "rawExcerpt": "Details about the OpenAI Bio Bounty program"
     },
     {
-      "id": "sig_official_ai_release_how_gpt_5_helped_immunologist_derya_unutmaz_solve_a_3_year_old_m_12",
+      "id": "sig_official_ai_release_our_approach_to_government_and_national_security_partnerships_6",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery",
-      "summary": "GPT-5 Pro helped solve a 3-year-old immunology mystery, offering insights into T cell behavior. The breakthrough could support cancer and autoimmune research.",
-      "url": "https://openai.com/index/gpt-5-immunology-mystery",
-      "observedAt": "2026-07-08T02:05:17.355Z",
-      "topics": [
-        "official-release",
-        "ai"
-      ],
-      "audience": [
-        "operator",
-        "curator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "releaseMentions": 1,
-        "developerDocsUpdated": 0,
-        "daysSincePublished": 14
-      },
-      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
-      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
-      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "GPT-5 Pro helped solve a 3-year-old immunology mystery, offering insights into T cell behavior. The breakthrough could support cancer and autoimmune research."
-    },
-    {
-      "id": "sig_official_ai_release_helping_build_shared_standards_for_advanced_ai_13",
-      "sourceType": "official_ai_release",
-      "sourceName": "OpenAI News",
-      "title": "Helping build shared standards for advanced AI",
-      "summary": "OpenAI helps build shared standards for advanced AI, supporting evaluation frameworks, safety practices, and global cooperation through the Appia Foundation.",
-      "url": "https://openai.com/index/helping-build-shared-standards-for-advanced-ai",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "Our approach to government and national security partnerships",
+      "summary": "Learn how OpenAI approaches government and national security partnerships, with principles for responsible AI use, democratic accountability, and public safety.",
+      "url": "https://openai.com/index/government-national-security-partnerships",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai",
-        "eval",
         "safety"
       ],
       "audience": [
@@ -362,21 +169,51 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 15
+        "daysSincePublished": 4
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "OpenAI helps build shared standards for advanced AI, supporting evaluation frameworks, safety practices, and global cooperation through the Appia Foundation."
+      "rawExcerpt": "Learn how OpenAI approaches government and national security partnerships, with principles for responsible AI use, democratic accountability, and public safety."
     },
     {
-      "id": "sig_official_ai_release_how_omio_is_building_the_future_of_conversational_travel_14",
+      "id": "sig_official_ai_release_separating_signal_from_noise_in_coding_evaluations_7",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "How Omio is building the future of conversational travel",
-      "summary": "Discover how Omio uses OpenAI to power conversational travel experiences, accelerate product development, and transform into an AI-native company.",
-      "url": "https://openai.com/index/omio",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "Separating signal from noise in coding evaluations",
+      "summary": "A new analysis from OpenAI reveals issues in SWE-Bench Pro, a popular coding benchmark, raising concerns about reliability and accuracy in evaluating AI models.",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations",
+      "observedAt": "2026-07-12T21:42:45.723Z",
+      "topics": [
+        "official-release",
+        "ai",
+        "model",
+        "coding",
+        "eval"
+      ],
+      "audience": [
+        "operator",
+        "curator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "developerDocsUpdated": 0,
+        "daysSincePublished": 4
+      },
+      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
+      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
+      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
+      "rawExcerpt": "A new analysis from OpenAI reveals issues in SWE-Bench Pro, a popular coding benchmark, raising concerns about reliability and accuracy in evaluating AI models."
+    },
+    {
+      "id": "sig_official_ai_release_helping_k_12_educators_build_practical_ai_skills_8",
+      "sourceType": "official_ai_release",
+      "sourceName": "OpenAI News",
+      "title": "Helping K–12 educators build practical AI skills",
+      "summary": "OpenAI Academy and the Walton Family Foundation are bringing hands-on AI Skills Jams to help K–12 educators build practical AI skills for the classroom.",
+      "url": "https://openai.com/index/k-12-educators-practical-skills",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai"
@@ -389,21 +226,77 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 15
+        "daysSincePublished": 4
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "Discover how Omio uses OpenAI to power conversational travel experiences, accelerate product development, and transform into an AI-native company."
+      "rawExcerpt": "OpenAI Academy and the Walton Family Foundation are bringing hands-on AI Skills Jams to help K–12 educators build practical AI skills for the classroom."
     },
     {
-      "id": "sig_official_ai_release_daybreak_tools_for_securing_every_organization_in_the_world_15",
+      "id": "sig_official_ai_release_introducing_gpt_live_9",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "Daybreak: Tools for securing every organization in the world",
-      "summary": "OpenAI introduces new Daybreak tools, including Codex Security and GPT-5.5-Cyber, to help organizations find, validate, and patch vulnerabilities at scale.",
-      "url": "https://openai.com/index/daybreak-securing-the-world",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "Introducing GPT-Live",
+      "summary": "A new generation of voice models for natural human-AI interaction, now powering ChatGPT Voice.",
+      "url": "https://openai.com/index/introducing-gpt-live",
+      "observedAt": "2026-07-12T21:42:45.723Z",
+      "topics": [
+        "official-release",
+        "ai",
+        "model",
+        "voice"
+      ],
+      "audience": [
+        "operator",
+        "curator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "developerDocsUpdated": 0,
+        "daysSincePublished": 5
+      },
+      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
+      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
+      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
+      "rawExcerpt": "A new generation of voice models for natural human-AI interaction, now powering ChatGPT Voice."
+    },
+    {
+      "id": "sig_official_ai_release_mufg_aims_to_become_ai_native_with_openai_10",
+      "sourceType": "official_ai_release",
+      "sourceName": "OpenAI News",
+      "title": "MUFG aims to become AI-native with OpenAI",
+      "summary": "MUFG uses ChatGPT Enterprise to build an AI-native organization, improve workflows, and deliver new AI-powered financial services at scale.",
+      "url": "https://openai.com/index/mufg",
+      "observedAt": "2026-07-12T21:42:45.723Z",
+      "topics": [
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "curator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "developerDocsUpdated": 0,
+        "daysSincePublished": 6
+      },
+      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
+      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
+      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
+      "rawExcerpt": "MUFG uses ChatGPT Enterprise to build an AI-native organization, improve workflows, and deliver new AI-powered financial services at scale."
+    },
+    {
+      "id": "sig_official_ai_release_australian_payments_plus_moves_faster_with_chatgpt_and_codex_11",
+      "sourceType": "official_ai_release",
+      "sourceName": "OpenAI News",
+      "title": "Australian Payments Plus moves faster with ChatGPT and Codex",
+      "summary": "See how Australian Payments Plus uses ChatGPT Enterprise and Codex to move faster through payments complexity. AP+ saves time, improves quality, and keeps human judgment central.",
+      "url": "https://openai.com/index/australian-payments-plus",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai",
@@ -417,21 +310,21 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 16
+        "daysSincePublished": 6
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "OpenAI introduces new Daybreak tools, including Codex Security and GPT-5.5-Cyber, to help organizations find, validate, and patch vulnerabilities at scale."
+      "rawExcerpt": "See how Australian Payments Plus uses ChatGPT Enterprise and Codex to move faster through payments complexity. AP+ saves time, improves quality, and keeps human judgment central."
     },
     {
-      "id": "sig_official_ai_release_patch_the_planet_a_daybreak_initiative_to_support_open_source_ma_16",
+      "id": "sig_official_ai_release_how_chatgpt_adoption_has_expanded_12",
       "sourceType": "official_ai_release",
       "sourceName": "OpenAI News",
-      "title": "Patch the Planet: a Daybreak initiative to support open source maintainers",
-      "summary": "OpenAI introduces Patch the Planet, a Daybreak initiative helping open-source maintainers find, validate, and fix vulnerabilities with AI and expert review.",
-      "url": "https://openai.com/index/patch-the-planet",
-      "observedAt": "2026-07-08T02:05:17.355Z",
+      "title": "How ChatGPT adoption has expanded",
+      "summary": "New OpenAI Signals data shows how ChatGPT adoption is growing globally, with users increasing usage, exploring more capabilities, and driving growth across regions and languages.",
+      "url": "https://openai.com/index/how-chatgpt-adoption-has-expanded",
+      "observedAt": "2026-07-12T21:42:45.723Z",
       "topics": [
         "official-release",
         "ai"
@@ -444,12 +337,121 @@
       "metrics": {
         "releaseMentions": 1,
         "developerDocsUpdated": 0,
-        "daysSincePublished": 16
+        "daysSincePublished": 13
       },
       "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
       "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
       "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
-      "rawExcerpt": "OpenAI introduces Patch the Planet, a Daybreak initiative helping open-source maintainers find, validate, and fix vulnerabilities with AI and expert review."
+      "rawExcerpt": "New OpenAI Signals data shows how ChatGPT adoption is growing globally, with users increasing usage, exploring more capabilities, and driving growth across regions and languages."
+    },
+    {
+      "id": "sig_official_ai_release_core_dump_epidemiology_fixing_an_18_year_old_bug_13",
+      "sourceType": "official_ai_release",
+      "sourceName": "OpenAI News",
+      "title": "Core dump epidemiology: fixing an 18-year-old bug",
+      "summary": "OpenAI engineers used large-scale core dump analysis to debug rare infrastructure crashes, uncovering both a hardware fault and a long-standing software bug.",
+      "url": "https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug",
+      "observedAt": "2026-07-12T21:42:45.723Z",
+      "topics": [
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "curator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "developerDocsUpdated": 0,
+        "daysSincePublished": 13
+      },
+      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
+      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
+      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
+      "rawExcerpt": "OpenAI engineers used large-scale core dump analysis to debug rare infrastructure crashes, uncovering both a hardware fault and a long-standing software bug."
+    },
+    {
+      "id": "sig_official_ai_release_introducing_genebench_pro_14",
+      "sourceType": "official_ai_release",
+      "sourceName": "OpenAI News",
+      "title": "Introducing GeneBench-Pro",
+      "summary": "Introducing GeneBench-Pro, a new benchmark testing AI performance in genomics, biology, and scientific research using complex, real-world datasets.",
+      "url": "https://openai.com/index/introducing-genebench-pro",
+      "observedAt": "2026-07-12T21:42:45.723Z",
+      "topics": [
+        "official-release",
+        "ai",
+        "eval"
+      ],
+      "audience": [
+        "operator",
+        "curator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "developerDocsUpdated": 0,
+        "daysSincePublished": 13
+      },
+      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
+      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
+      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
+      "rawExcerpt": "Introducing GeneBench-Pro, a new benchmark testing AI performance in genomics, biology, and scientific research using complex, real-world datasets."
+    },
+    {
+      "id": "sig_official_ai_release_inside_genebench_pro_15",
+      "sourceType": "official_ai_release",
+      "sourceName": "OpenAI News",
+      "title": "Inside Genebench-Pro",
+      "summary": "Inside Genebench-Pro",
+      "url": "https://openai.com/index/genebench-pro/case-studies",
+      "observedAt": "2026-07-12T21:42:45.723Z",
+      "topics": [
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "curator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "developerDocsUpdated": 0,
+        "daysSincePublished": 13
+      },
+      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
+      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
+      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
+      "rawExcerpt": "Inside Genebench-Pro"
+    },
+    {
+      "id": "sig_official_ai_release_mapping_europe_s_ai_workforce_opportunity_16",
+      "sourceType": "official_ai_release",
+      "sourceName": "OpenAI News",
+      "title": "Mapping Europe’s AI Workforce Opportunity",
+      "summary": "A new OpenAI report maps how AI could reshape jobs across the EU, highlighting which occupations may face automation, growth, or workflow changes.",
+      "url": "https://openai.com/index/mapping-ai-jobs-transition-eu",
+      "observedAt": "2026-07-12T21:42:45.723Z",
+      "topics": [
+        "official-release",
+        "ai"
+      ],
+      "audience": [
+        "operator",
+        "curator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "releaseMentions": 1,
+        "developerDocsUpdated": 0,
+        "daysSincePublished": 14
+      },
+      "whyItMatters": "Official AI product and model releases can become timely Hackbase.ai prompts when they expose a new workflow, capability, or operational question.",
+      "prototypeHint": "Create a concise explainer, decision board, or capability map that turns the release into a buildable product question.",
+      "riskNotes": "Use official release metadata only. Do not call paid APIs, require accounts, claim unsupported benchmarks, or copy proprietary UI.",
+      "rawExcerpt": "A new OpenAI report maps how AI could reshape jobs across the EU, highlighting which occupations may face automation, growth, or workflow changes."
     }
   ]
 }

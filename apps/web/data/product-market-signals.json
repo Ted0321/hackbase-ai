@@ -1,6 +1,6 @@
 {
-  "version": "product-market.2026-07-08T02:05:28.907Z",
-  "fetchedAt": "2026-07-08T02:05:28.907Z",
+  "version": "product-market.2026-07-12T21:42:52.528Z",
+  "fetchedAt": "2026-07-12T21:42:52.528Z",
   "source": {
     "type": "product_market_watch",
     "urls": [
@@ -12,13 +12,13 @@
   },
   "signals": [
     {
-      "id": "sig_product_market_3_katalyst_1",
+      "id": "sig_product_market_3_fetchsandbox_1",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "3. Katalyst",
-      "summary": "3. Katalyst",
-      "url": "https://www.producthunt.com/products/katalyst",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "3. FetchSandbox",
+      "summary": "3. FetchSandbox",
+      "url": "https://www.producthunt.com/products/fetchsandbox",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
@@ -40,47 +40,16 @@
       "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
       "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
       "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "3. Katalyst"
+      "rawExcerpt": "3. FetchSandbox"
     },
     {
-      "id": "sig_product_market_2_scribble_network_2",
+      "id": "sig_product_market_4_second_brain_for_ai_v2_2",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "2. Scribble Network",
-      "summary": "2. Scribble Network",
-      "url": "https://www.producthunt.com/products/scribble-network",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": null,
-        "titleQualityScore": 1,
-        "reactionSignalScore": 1
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "2. Scribble Network"
-    },
-    {
-      "id": "sig_product_market_9_ogment_ai_3",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "9. Ogment AI",
-      "summary": "9. Ogment AI",
-      "url": "https://www.producthunt.com/products/ogment-mcp-builder",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "4. Second Brain for AI v2",
+      "summary": "4. Second Brain for AI v2",
+      "url": "https://www.producthunt.com/products/second-brain-cloudflare",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
@@ -103,16 +72,16 @@
       "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
       "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=2, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
       "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "9. Ogment AI"
+      "rawExcerpt": "4. Second Brain for AI v2"
     },
     {
-      "id": "sig_product_market_11_glideo_4",
+      "id": "sig_product_market_5_servicebeard_3",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "11. Glideo",
-      "summary": "11. Glideo",
-      "url": "https://www.producthunt.com/products/glideo",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "5. ServiceBeard",
+      "summary": "5. ServiceBeard",
+      "url": "https://www.producthunt.com/products/servicebeard",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
@@ -134,80 +103,16 @@
       "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
       "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
       "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "11. Glideo"
+      "rawExcerpt": "5. ServiceBeard"
     },
     {
-      "id": "sig_product_market_5_mira_5",
+      "id": "sig_product_market_1_justvibe_4",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "5. Mira",
-      "summary": "5. Mira",
-      "url": "https://www.producthunt.com/products/mira-the-ai-moderator",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "ai",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": null,
-        "titleQualityScore": 1,
-        "reactionSignalScore": 1
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "5. Mira"
-    },
-    {
-      "id": "sig_product_market_13_kadoink_ai_6",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "13. Kadoink AI",
-      "summary": "13. Kadoink AI",
-      "url": "https://www.producthunt.com/products/say-who-say-why-kadoink-gathers-everyone",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "ai",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": null,
-        "titleQualityScore": 2,
-        "reactionSignalScore": 1
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=2, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "13. Kadoink AI"
-    },
-    {
-      "id": "sig_product_market_7_social_fetch_7",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "7. Social Fetch",
-      "summary": "7. Social Fetch",
-      "url": "https://www.producthunt.com/products/social-fetch",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "1. JustVibe",
+      "summary": "1. JustVibe",
+      "url": "https://www.producthunt.com/products/justvibe",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
@@ -229,16 +134,16 @@
       "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
       "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
       "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "7. Social Fetch"
+      "rawExcerpt": "1. JustVibe"
     },
     {
-      "id": "sig_product_market_10_longcat_2_0_8",
+      "id": "sig_product_market_2_miora_5",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "10. LongCat-2.0",
-      "summary": "10. LongCat-2.0",
-      "url": "https://www.producthunt.com/products/longcat",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "2. Miora",
+      "summary": "2. Miora",
+      "url": "https://www.producthunt.com/products/miora-2",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
@@ -260,239 +165,16 @@
       "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
       "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
       "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "10. LongCat-2.0"
+      "rawExcerpt": "2. Miora"
     },
     {
-      "id": "sig_product_market_6_ai_emaily_9",
+      "id": "sig_product_market_effects_sdk_6",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "6. AI Emaily",
-      "summary": "6. AI Emaily",
-      "url": "https://www.producthunt.com/products/ai-emaily-unified-ai-inbox",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "ai",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": null,
-        "titleQualityScore": 2,
-        "reactionSignalScore": 1
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=2, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "6. AI Emaily"
-    },
-    {
-      "id": "sig_product_market_1_badge_10",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "1. Badge",
-      "summary": "1. Badge",
-      "url": "https://www.producthunt.com/products/badge-3",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": null,
-        "titleQualityScore": 1,
-        "reactionSignalScore": 1
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "1. Badge"
-    },
-    {
-      "id": "sig_product_market_4_dupely_11",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "4. Dupely",
-      "summary": "4. Dupely",
-      "url": "https://www.producthunt.com/products/dupely",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": null,
-        "titleQualityScore": 1,
-        "reactionSignalScore": 1
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "4. Dupely"
-    },
-    {
-      "id": "sig_product_market_8_ellis_12",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "8. Ellis",
-      "summary": "8. Ellis",
-      "url": "https://www.producthunt.com/products/ellis-your-conversations-remembered",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": null,
-        "titleQualityScore": 1,
-        "reactionSignalScore": 1
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "8. Ellis"
-    },
-    {
-      "id": "sig_product_market_12_zoho_tables_13",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "12. Zoho Tables",
-      "summary": "12. Zoho Tables",
-      "url": "https://www.producthunt.com/products/zoho-tables",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": null,
-        "titleQualityScore": 1,
-        "reactionSignalScore": 1
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=unknown, titleQualityScore=1, reactionSignalScore=1. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "12. Zoho Tables"
-    },
-    {
-      "id": "sig_product_market_mozaik_14",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "Mozaik",
-      "summary": "<p> TypeScript runtime for self-organizing AI agents </p> <p> <a href=\"https://www.producthunt.com/products/mozaik-4?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188511?app_id=339\">Link</a> </p>",
-      "url": "https://www.producthunt.com/products/mozaik-4",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "ai",
-        "agent",
-        "product-hunt"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": 0,
-        "titleQualityScore": 4,
-        "reactionSignalScore": 2
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=4, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "<p> TypeScript runtime for self-organizing AI agents </p> <p> <a href=\"https://www.producthunt.com/products/mozaik-4?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188511?app_id=339\">Link</a> </p>"
-    },
-    {
-      "id": "sig_product_market_astryx_15",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "Astryx",
-      "summary": "<p> A customizable, agent-ready open-source design system </p> <p> <a href=\"https://www.producthunt.com/products/meta?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188925?app_id=339\">Link</a> </p>",
-      "url": "https://www.producthunt.com/products/meta",
-      "observedAt": "2026-07-08T02:05:28.907Z",
-      "topics": [
-        "product",
-        "market",
-        "launch",
-        "ai",
-        "agent",
-        "product-hunt",
-        "creator-tool"
-      ],
-      "audience": [
-        "maker",
-        "product-researcher",
-        "builder",
-        "curator"
-      ],
-      "metrics": {
-        "launchMentions": 1,
-        "daysSincePublished": 0,
-        "titleQualityScore": 4,
-        "reactionSignalScore": 2
-      },
-      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=4, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
-      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "<p> A customizable, agent-ready open-source design system </p> <p> <a href=\"https://www.producthunt.com/products/meta?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188925?app_id=339\">Link</a> </p>"
-    },
-    {
-      "id": "sig_product_market_typeahead_2_0_16",
-      "sourceType": "product_market_watch",
-      "sourceName": "Product Hunt",
-      "title": "Typeahead 2.0",
-      "summary": "<p> Private AI autocomplete for every app on your Mac </p> <p> <a href=\"https://www.producthunt.com/products/typeahead?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1186655?app_id=339\">Link</a> </p>",
-      "url": "https://www.producthunt.com/products/typeahead",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "Effects SDK",
+      "summary": "<p> AI video & audio effects SDK for real-time apps </p> <p> <a href=\"https://www.producthunt.com/products/effects-sdk?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1178725?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/effects-sdk",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
@@ -515,7 +197,329 @@
       "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
       "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
       "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
-      "rawExcerpt": "<p> Private AI autocomplete for every app on your Mac </p> <p> <a href=\"https://www.producthunt.com/products/typeahead?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1186655?app_id=339\">Link</a> </p>"
+      "rawExcerpt": "<p> AI video & audio effects SDK for real-time apps </p> <p> <a href=\"https://www.producthunt.com/products/effects-sdk?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1178725?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_san_fran_sim_7",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "San Fran Sim",
+      "summary": "<p> A startup tycoon game </p> <p> <a href=\"https://www.producthunt.com/products/san-fran-sim?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1192699?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/san-fran-sim",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt",
+        "game"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> A startup tycoon game </p> <p> <a href=\"https://www.producthunt.com/products/san-fran-sim?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1192699?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_basedash_scim_8",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "Basedash SCIM",
+      "summary": "<p> Your org changes. Access keeps up. </p> <p> <a href=\"https://www.producthunt.com/products/basedash?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1193351?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/basedash",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> Your org changes. Access keeps up. </p> <p> <a href=\"https://www.producthunt.com/products/basedash?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1193351?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_breathing_in_labour_9",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "Breathing In Labour",
+      "summary": "<p> A distraction-free breathing app for labor preparation </p> <p> <a href=\"https://www.producthunt.com/products/breathing-in-labour?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1180206?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/breathing-in-labour",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> A distraction-free breathing app for labor preparation </p> <p> <a href=\"https://www.producthunt.com/products/breathing-in-labour?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1180206?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_kickbacks_cli_10",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "Kickbacks CLI",
+      "summary": "<p> The terminal and Mac menu bar companion for Kickbacks.ai </p> <p> <a href=\"https://www.producthunt.com/products/kickbacks-cli?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1189818?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/kickbacks-cli",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> The terminal and Mac menu bar companion for Kickbacks.ai </p> <p> <a href=\"https://www.producthunt.com/products/kickbacks-cli?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1189818?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_cloudflare_drop_11",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "Cloudflare Drop",
+      "summary": "<p> Drop your folder in browser & deploy instantly on Cloudflare </p> <p> <a href=\"https://www.producthunt.com/products/cloudflare?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1191343?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/cloudflare",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt",
+        "extension"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> Drop your folder in browser & deploy instantly on Cloudflare </p> <p> <a href=\"https://www.producthunt.com/products/cloudflare?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1191343?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_soundpipe_12",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "SoundPipe",
+      "summary": "<p> SoundPipe is a mixing board for your Mac </p> <p> <a href=\"https://www.producthunt.com/products/soundpipe?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1193273?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/soundpipe",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> SoundPipe is a mixing board for your Mac </p> <p> <a href=\"https://www.producthunt.com/products/soundpipe?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1193273?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_chatgpt_work_13",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "ChatGPT Work",
+      "summary": "<p> Partner for your most ambitious work </p> <p> <a href=\"https://www.producthunt.com/products/chatgpt-work?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1192273?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/chatgpt-work",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> Partner for your most ambitious work </p> <p> <a href=\"https://www.producthunt.com/products/chatgpt-work?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1192273?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_connectmachine_2_0_14",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "ConnectMachine 2.0",
+      "summary": "<p> AI digital business card that remembers everyone you meet </p> <p> <a href=\"https://www.producthunt.com/products/connectmachine-2?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1180569?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/connectmachine-2",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> AI digital business card that remembers everyone you meet </p> <p> <a href=\"https://www.producthunt.com/products/connectmachine-2?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1180569?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_gpt_live_15",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "GPT-Live",
+      "summary": "<p> Full-duplex voice for ChatGPT </p> <p> <a href=\"https://www.producthunt.com/products/openai?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1191675?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/openai",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> Full-duplex voice for ChatGPT </p> <p> <a href=\"https://www.producthunt.com/products/openai?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1191675?app_id=339\">Link</a> </p>"
+    },
+    {
+      "id": "sig_product_market_yasmine_works_16",
+      "sourceType": "product_market_watch",
+      "sourceName": "Product Hunt",
+      "title": "Yasmine Works",
+      "summary": "<p> An AI coworker that lives in your Slack to get work done </p> <p> <a href=\"https://www.producthunt.com/products/yasmine-works?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1189393?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/yasmine-works",
+      "observedAt": "2026-07-12T21:42:52.528Z",
+      "topics": [
+        "product",
+        "market",
+        "launch",
+        "ai",
+        "product-hunt"
+      ],
+      "audience": [
+        "maker",
+        "product-researcher",
+        "builder",
+        "curator"
+      ],
+      "metrics": {
+        "launchMentions": 1,
+        "daysSincePublished": 0,
+        "titleQualityScore": 5,
+        "reactionSignalScore": 2
+      },
+      "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
+      "rawExcerpt": "<p> An AI coworker that lives in your Slack to get work done </p> <p> <a href=\"https://www.producthunt.com/products/yasmine-works?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1189393?app_id=339\">Link</a> </p>"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "version": "hn.2026-07-08T02:05:15.958Z",
-  "fetchedAt": "2026-07-08T02:05:15.958Z",
+  "version": "hn.2026-07-12T21:42:44.213Z",
+  "fetchedAt": "2026-07-12T21:42:44.213Z",
   "source": {
     "type": "hacker_news_discussion",
     "endpoints": [
@@ -11,13 +11,13 @@
   },
   "signals": [
     {
-      "id": "sig_hn_48815982_why_skilled_workers_come_to_germany_and_then_leave_again_1",
+      "id": "sig_hn_48877371_what_xai_s_grok_build_cli_sends_to_xai_a_wire_level_analysis_1",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "Why skilled workers come to Germany and then leave again",
-      "summary": "Why skilled workers come to Germany and then leave again (www.dw.com)",
-      "url": "https://www.dw.com/en/germany-migrants-skilled-workers-integration-labor-market-bureaucracy-language-housing/a-77853162",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "What xAI's Grok build CLI sends to xAI: A wire-level analysis",
+      "summary": "What xAI's Grok build CLI sends to xAI: A wire-level analysis (gist.github.com)",
+      "url": "https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
         "discussion"
@@ -28,26 +28,27 @@
         "agent-builder"
       ],
       "metrics": {
-        "points": 181,
-        "comments": 473,
-        "ageHours": 15
+        "points": 385,
+        "comments": 153,
+        "ageHours": 21
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
       "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "Why skilled workers come to Germany and then leave again"
+      "rawExcerpt": "What xAI's Grok build CLI sends to xAI: A wire-level analysis"
     },
     {
-      "id": "sig_hn_48818311_chat_control_1_0_and_2_0_explained_2",
+      "id": "sig_hn_48880170_old_and_new_apps_via_modern_coding_agents_2",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "Chat Control 1.0 and 2.0 Explained",
-      "summary": "Chat Control 1.0 and 2.0 Explained (fightchatcontrol.eu)",
-      "url": "https://fightchatcontrol.eu/chat-control-overview",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "Old and new apps, via modern coding agents",
+      "summary": "Old and new apps, via modern coding agents (terrytao.wordpress.com)",
+      "url": "https://terrytao.wordpress.com/2026/07/11/old-and-new-apps-via-modern-coding-agents/",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
-        "discussion"
+        "discussion",
+        "agent"
       ],
       "audience": [
         "developer",
@@ -55,50 +56,79 @@
         "agent-builder"
       ],
       "metrics": {
-        "points": 447,
-        "comments": 144,
-        "ageHours": 12
-      },
-      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
-      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
-      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "Chat Control 1.0 and 2.0 Explained"
-    },
-    {
-      "id": "sig_hn_48818544_the_revenge_of_the_philosophy_majors_3",
-      "sourceType": "hacker_news_discussion",
-      "sourceName": "Hacker News",
-      "title": "The revenge of the philosophy majors",
-      "summary": "The revenge of the philosophy majors (www.nytimes.com)",
-      "url": "https://www.nytimes.com/2026/07/05/business/philosophy-majors-ai-jobs.html",
-      "observedAt": "2026-07-08T02:05:15.958Z",
-      "topics": [
-        "hacker-news",
-        "discussion"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "points": 139,
-        "comments": 210,
+        "points": 381,
+        "comments": 106,
         "ageHours": 11
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
       "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "The revenge of the philosophy majors"
+      "rawExcerpt": "Old and new apps, via modern coding agents"
     },
     {
-      "id": "sig_hn_48823359_we_charge_10k_a_week_to_delete_ai_generated_code_4",
+      "id": "sig_hn_48883275_claude_code_sends_33k_tokens_before_reading_the_prompt_opencode__3",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "We charge $10k a week to delete AI-generated code",
-      "summary": "We charge $10k a week to delete AI-generated code (odra.dev)",
-      "url": "https://odra.dev/slopfix/",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+      "summary": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k (systima.ai)",
+      "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+      "observedAt": "2026-07-12T21:42:44.213Z",
+      "topics": [
+        "hacker-news",
+        "discussion",
+        "prompting"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "points": 310,
+        "comments": 175,
+        "ageHours": 3
+      },
+      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
+      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
+      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
+      "rawExcerpt": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k"
+    },
+    {
+      "id": "sig_hn_48883343_i_love_llms_i_hate_hype_4",
+      "sourceType": "hacker_news_discussion",
+      "sourceName": "Hacker News",
+      "title": "I love LLMs, I hate hype",
+      "summary": "I love LLMs, I hate hype (geohot.github.io)",
+      "url": "https://geohot.github.io//blog/jekyll/update/2026/07/12/i-love-llms.html",
+      "observedAt": "2026-07-12T21:42:44.213Z",
+      "topics": [
+        "hacker-news",
+        "discussion",
+        "model"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "points": 222,
+        "comments": 124,
+        "ageHours": 3
+      },
+      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
+      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
+      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
+      "rawExcerpt": "I love LLMs, I hate hype"
+    },
+    {
+      "id": "sig_hn_48881874_the_shingles_vaccine_may_reduce_the_risk_of_dementia_5",
+      "sourceType": "hacker_news_discussion",
+      "sourceName": "Hacker News",
+      "title": "The shingles vaccine may reduce the risk of dementia",
+      "summary": "The shingles vaccine may reduce the risk of dementia (www.economist.com)",
+      "url": "https://www.economist.com/leaders/2026/07/09/a-no-brainer-for-protecting-your-brain",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
         "discussion"
@@ -109,135 +139,138 @@
         "agent-builder"
       ],
       "metrics": {
-        "points": 208,
-        "comments": 113,
+        "points": 175,
+        "comments": 143,
+        "ageHours": 6
+      },
+      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
+      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
+      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
+      "rawExcerpt": "The shingles vaccine may reduce the risk of dementia"
+    },
+    {
+      "id": "sig_hn_48823981_an_agent_in_100_lines_of_lisp_6",
+      "sourceType": "hacker_news_discussion",
+      "sourceName": "Hacker News",
+      "title": "An agent in 100 lines of Lisp",
+      "summary": "An agent in 100 lines of Lisp (thebeach.dev)",
+      "url": "https://thebeach.dev/posts/lisp-agent/",
+      "observedAt": "2026-07-12T21:42:44.213Z",
+      "topics": [
+        "hacker-news",
+        "discussion",
+        "agent"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "points": 232,
+        "comments": 73,
+        "ageHours": 120
+      },
+      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
+      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
+      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
+      "rawExcerpt": "An agent in 100 lines of Lisp"
+    },
+    {
+      "id": "sig_hn_48881043_ai_boosts_research_careers_but_narrow_the_span_of_ideas_explored_7",
+      "sourceType": "hacker_news_discussion",
+      "sourceName": "Hacker News",
+      "title": "AI boosts research careers but narrow the span of ideas explored: study",
+      "summary": "AI boosts research careers but narrow the span of ideas explored: study (spectrum.ieee.org)",
+      "url": "https://spectrum.ieee.org/ai-science-research-flattens-discovery",
+      "observedAt": "2026-07-12T21:42:44.213Z",
+      "topics": [
+        "hacker-news",
+        "discussion"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "points": 130,
+        "comments": 96,
+        "ageHours": 8
+      },
+      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
+      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
+      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
+      "rawExcerpt": "AI boosts research careers but narrow the span of ideas explored: study"
+    },
+    {
+      "id": "sig_hn_48878682_show_hn_mindwalk_replay_coding_agent_sessions_on_a_3d_map_of_you_8",
+      "sourceType": "hacker_news_discussion",
+      "sourceName": "Hacker News",
+      "title": "Show HN: Mindwalk – Replay coding-agent sessions on a 3D map of your codebase",
+      "summary": "Show HN: Mindwalk – Replay coding-agent sessions on a 3D map of your codebase (github.com)",
+      "url": "https://github.com/cosmtrek/mindwalk",
+      "observedAt": "2026-07-12T21:42:44.213Z",
+      "topics": [
+        "hacker-news",
+        "discussion",
+        "agent"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "points": 143,
+        "comments": 61,
+        "ageHours": 16
+      },
+      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
+      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
+      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
+      "rawExcerpt": "Show HN: Mindwalk – Replay coding-agent sessions on a 3D map of your codebase"
+    },
+    {
+      "id": "sig_hn_48882554_automation_without_understanding_9",
+      "sourceType": "hacker_news_discussion",
+      "sourceName": "Hacker News",
+      "title": "Automation Without Understanding",
+      "summary": "Automation Without Understanding (arxiv.org)",
+      "url": "https://arxiv.org/abs/2607.06377",
+      "observedAt": "2026-07-12T21:42:44.213Z",
+      "topics": [
+        "hacker-news",
+        "discussion",
+        "workflow"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "points": 75,
+        "comments": 36,
         "ageHours": 5
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
       "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "We charge $10k a week to delete AI-generated code"
+      "rawExcerpt": "Automation Without Understanding"
     },
     {
-      "id": "sig_hn_48821848_show_hn_davit_a_apple_containers_ui_5",
+      "id": "sig_hn_48883090_can_we_understand_how_large_language_models_reason_10",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "Show HN: Davit, a Apple Containers UI",
-      "summary": "Show HN: Davit, a Apple Containers UI (davit.app)",
-      "url": "https://davit.app",
-      "observedAt": "2026-07-08T02:05:15.958Z",
-      "topics": [
-        "hacker-news",
-        "discussion"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "points": 201,
-        "comments": 47,
-        "ageHours": 7
-      },
-      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
-      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
-      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "Show HN: Davit, a Apple Containers UI"
-    },
-    {
-      "id": "sig_hn_48818937_automating_ai_away_6",
-      "sourceType": "hacker_news_discussion",
-      "sourceName": "Hacker News",
-      "title": "Automating AI Away",
-      "summary": "Automating AI Away (replicated.live)",
-      "url": "https://replicated.live/blog/away",
-      "observedAt": "2026-07-08T02:05:15.958Z",
-      "topics": [
-        "hacker-news",
-        "discussion"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "points": 103,
-        "comments": 50,
-        "ageHours": 11
-      },
-      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
-      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
-      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "Automating AI Away"
-    },
-    {
-      "id": "sig_hn_48819808_show_hn_rowboat_open_source_local_first_alternative_to_claude_de_7",
-      "sourceType": "hacker_news_discussion",
-      "sourceName": "Hacker News",
-      "title": "Show HN: Rowboat – Open-source, local-first alternative to Claude Desktop",
-      "summary": "Show HN: Rowboat – Open-source, local-first alternative to Claude Desktop (github.com)",
-      "url": "https://github.com/rowboatlabs/rowboat",
-      "observedAt": "2026-07-08T02:05:15.958Z",
-      "topics": [
-        "hacker-news",
-        "discussion"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "points": 94,
-        "comments": 25,
-        "ageHours": 10
-      },
-      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
-      "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
-      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "Show HN: Rowboat – Open-source, local-first alternative to Claude Desktop"
-    },
-    {
-      "id": "sig_hn_48821749_ai_meets_cryptography_1_what_ai_found_in_cloudflare_s_circl_8",
-      "sourceType": "hacker_news_discussion",
-      "sourceName": "Hacker News",
-      "title": "AI Meets Cryptography 1: What AI Found in Cloudflare's Circl",
-      "summary": "AI Meets Cryptography 1: What AI Found in Cloudflare's Circl (blog.zksecurity.xyz)",
-      "url": "https://blog.zksecurity.xyz/posts/circl-bugs/",
-      "observedAt": "2026-07-08T02:05:15.958Z",
-      "topics": [
-        "hacker-news",
-        "discussion"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "points": 81,
-        "comments": 9,
-        "ageHours": 7
-      },
-      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
-      "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
-      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "AI Meets Cryptography 1: What AI Found in Cloudflare's Circl"
-    },
-    {
-      "id": "sig_hn_48821500_show_hn_docx_cli_agents_read_edit_word_docs_using_1_2_the_time_a_9",
-      "sourceType": "hacker_news_discussion",
-      "sourceName": "Hacker News",
-      "title": "Show HN: Docx-CLI: agents read/edit Word docs using 1/2 the time and tokens",
-      "summary": "Show HN: Docx-CLI: agents read/edit Word docs using 1/2 the time and tokens (github.com)",
-      "url": "https://github.com/kklimuk/docx-cli",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "Can We Understand How Large Language Models Reason?",
+      "summary": "Can We Understand How Large Language Models Reason? (cacm.acm.org)",
+      "url": "https://cacm.acm.org/news/can-we-understand-how-large-language-models-reason/",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
         "discussion",
-        "agent"
+        "model"
       ],
       "audience": [
         "developer",
@@ -246,22 +279,22 @@
       ],
       "metrics": {
         "points": 55,
-        "comments": 24,
-        "ageHours": 8
+        "comments": 54,
+        "ageHours": 4
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
-      "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
+      "prototypeHint": "Create a debate map, trade-off board, or misconception explainer from the discussion shape.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "Show HN: Docx-CLI: agents read/edit Word docs using 1/2 the time and tokens"
+      "rawExcerpt": "Can We Understand How Large Language Models Reason?"
     },
     {
-      "id": "sig_hn_48777488_c_details_of_asymmetric_fences_10",
+      "id": "sig_hn_48882730_fable_extended_until_19_july_11",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "C++ Details of Asymmetric Fences",
-      "summary": "C++ Details of Asymmetric Fences (nekrozqliphort.github.io)",
-      "url": "https://nekrozqliphort.github.io/posts/membarrier/",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "Fable extended until 19 July",
+      "summary": "Fable extended until 19 July (twitter.com)",
+      "url": "https://twitter.com/claudeai/status/2076351399999557669",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
         "discussion"
@@ -272,27 +305,26 @@
         "agent-builder"
       ],
       "metrics": {
-        "points": 62,
-        "comments": 7,
-        "ageHours": 105
+        "points": 69,
+        "comments": 30,
+        "ageHours": 4
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
       "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "C++ Details of Asymmetric Fences"
+      "rawExcerpt": "Fable extended until 19 July"
     },
     {
-      "id": "sig_hn_48742703_ieee_rolls_out_large_language_models_training_course_11",
+      "id": "sig_hn_48882956_against_usefulness_12",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "IEEE Rolls Out Large Language Models Training Course",
-      "summary": "IEEE Rolls Out Large Language Models Training Course (spectrum.ieee.org)",
-      "url": "https://spectrum.ieee.org/large-language-models-ieee-course",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "Against Usefulness",
+      "summary": "Against Usefulness (www.motivenotes.ai)",
+      "url": "https://www.motivenotes.ai/p/against-usefulness",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
-        "discussion",
-        "model"
+        "discussion"
       ],
       "audience": [
         "developer",
@@ -300,23 +332,50 @@
         "agent-builder"
       ],
       "metrics": {
-        "points": 37,
-        "comments": 7,
-        "ageHours": 164
+        "points": 63,
+        "comments": 15,
+        "ageHours": 4
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
       "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "IEEE Rolls Out Large Language Models Training Course"
+      "rawExcerpt": "Against Usefulness"
     },
     {
-      "id": "sig_hn_48818098_show_hn_halo_open_source_tamper_evident_runtime_evidence_for_ai__12",
+      "id": "sig_hn_48883238_i_learned_to_read_again_13",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "Show HN: Halo – open-source, tamper-evident runtime evidence for AI agents",
-      "summary": "Show HN: Halo – open-source, tamper-evident runtime evidence for AI agents (github.com)",
-      "url": "https://github.com/bkuan001/halo-record",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "I Learned to Read Again",
+      "summary": "I Learned to Read Again (substack.magazinenongrata.com)",
+      "url": "https://substack.magazinenongrata.com/p/how-i-learned-to-read-again",
+      "observedAt": "2026-07-12T21:42:44.213Z",
+      "topics": [
+        "hacker-news",
+        "discussion"
+      ],
+      "audience": [
+        "developer",
+        "operator",
+        "agent-builder"
+      ],
+      "metrics": {
+        "points": 49,
+        "comments": 17,
+        "ageHours": 3
+      },
+      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
+      "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
+      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
+      "rawExcerpt": "I Learned to Read Again"
+    },
+    {
+      "id": "sig_hn_48882716_migrating_a_production_ai_agent_to_gpt_5_6_2_2x_faster_27_cheape_14",
+      "sourceType": "hacker_news_discussion",
+      "sourceName": "Hacker News",
+      "title": "Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper",
+      "summary": "Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper (ploy.ai)",
+      "url": "https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
         "discussion",
@@ -328,50 +387,23 @@
         "agent-builder"
       ],
       "metrics": {
-        "points": 26,
-        "comments": 17,
-        "ageHours": 12
-      },
-      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
-      "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
-      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "Show HN: Halo – open-source, tamper-evident runtime evidence for AI agents"
-    },
-    {
-      "id": "sig_hn_48824584_jpmorgan_bofa_and_others_explore_buying_card_network_to_raise_de_13",
-      "sourceType": "hacker_news_discussion",
-      "sourceName": "Hacker News",
-      "title": "JPMorgan, BofA and Others Explore Buying Card Network to Raise Debit-Card Fees",
-      "summary": "JPMorgan, BofA and Others Explore Buying Card Network to Raise Debit-Card Fees (www.wsj.com)",
-      "url": "https://www.wsj.com/finance/banking/jpmorgan-bank-of-america-and-other-banks-explore-a-deal-to-shake-up-payments-world-9d8639fb",
-      "observedAt": "2026-07-08T02:05:15.958Z",
-      "topics": [
-        "hacker-news",
-        "discussion"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "points": 28,
-        "comments": 13,
+        "points": 56,
+        "comments": 7,
         "ageHours": 4
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
       "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "JPMorgan, BofA and Others Explore Buying Card Network to Raise Debit-Card Fees"
+      "rawExcerpt": "Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper"
     },
     {
-      "id": "sig_hn_48799930_github_freno_cooperative_highly_available_throttler_service_14",
+      "id": "sig_hn_48883415_the_one_step_trap_in_ai_research_15",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "GitHub Freno: cooperative, highly available throttler service",
-      "summary": "GitHub Freno: cooperative, highly available throttler service (github.com)",
-      "url": "https://github.com/github/freno",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "The One-Step Trap (In AI Research)",
+      "summary": "The One-Step Trap (In AI Research) (incompleteideas.net)",
+      "url": "http://incompleteideas.net/IncIdeas/OneStepTrap.html",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
         "discussion"
@@ -382,23 +414,23 @@
         "agent-builder"
       ],
       "metrics": {
-        "points": 37,
-        "comments": 1,
-        "ageHours": 48
+        "points": 30,
+        "comments": 5,
+        "ageHours": 3
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
       "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "GitHub Freno: cooperative, highly available throttler service"
+      "rawExcerpt": "The One-Step Trap (In AI Research)"
     },
     {
-      "id": "sig_hn_48820127_reducing_doom_loops_with_final_token_preference_optimization_15",
+      "id": "sig_hn_48881498_autoresearch_claude_and_constrained_optimization_16",
       "sourceType": "hacker_news_discussion",
       "sourceName": "Hacker News",
-      "title": "Reducing Doom Loops with Final Token Preference Optimization",
-      "summary": "Reducing Doom Loops with Final Token Preference Optimization (www.liquid.ai)",
-      "url": "https://www.liquid.ai/blog/antidoom",
-      "observedAt": "2026-07-08T02:05:15.958Z",
+      "title": "Autoresearch, Claude and Constrained Optimization",
+      "summary": "Autoresearch, Claude and Constrained Optimization (www.elliotcsmith.com)",
+      "url": "https://www.elliotcsmith.com/autoresearch-claude-and-constrained-optimization/",
+      "observedAt": "2026-07-12T21:42:44.213Z",
       "topics": [
         "hacker-news",
         "discussion"
@@ -409,42 +441,14 @@
         "agent-builder"
       ],
       "metrics": {
-        "points": 29,
-        "comments": 8,
-        "ageHours": 10
+        "points": 26,
+        "comments": 4,
+        "ageHours": 7
       },
       "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
       "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
       "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "Reducing Doom Loops with Final Token Preference Optimization"
-    },
-    {
-      "id": "sig_hn_48771200_first_principles_of_model_routing_16",
-      "sourceType": "hacker_news_discussion",
-      "sourceName": "Hacker News",
-      "title": "First Principles of Model Routing",
-      "summary": "First Principles of Model Routing (try.works)",
-      "url": "https://try.works/first-principles-of-model-routing",
-      "observedAt": "2026-07-08T02:05:15.958Z",
-      "topics": [
-        "hacker-news",
-        "discussion",
-        "model"
-      ],
-      "audience": [
-        "developer",
-        "operator",
-        "agent-builder"
-      ],
-      "metrics": {
-        "points": 22,
-        "comments": 11,
-        "ageHours": 116
-      },
-      "whyItMatters": "Hacker News metadata exposes which technical topics are drawing attention without reading or storing comment bodies.",
-      "prototypeHint": "Create a small explainer, comparison card, or operator checklist based on the story topic.",
-      "riskNotes": "Use public story metadata only: title, URL, points, comment count, and age. Do not fetch comment bodies, story text, user profiles, or sentiment.",
-      "rawExcerpt": "First Principles of Model Routing"
+      "rawExcerpt": "Autoresearch, Claude and Constrained Optimization"
     }
   ]
 }

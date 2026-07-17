@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "lastRefreshedAt": "2026-07-08T03:29:00.391Z",
+  "lastRefreshedAt": "2026-07-12T21:42:59.466Z",
   "generatedBy": {
     "script": "scripts/refresh-research-cache.ts",
     "mode": "local-cache",
-    "cwd": "apps\\web"
+    "cwd": "/home/runner/work/prodia/prodia/apps/web"
   },
   "sources": [
     {
@@ -13,7 +13,7 @@
       "path": "data/research-collector-input.json",
       "status": "loaded",
       "itemCount": 107,
-      "updatedAt": "2026-07-08T03:28:50.343Z",
+      "updatedAt": "2026-07-12T21:42:55.751Z",
       "note": "Normalized local research input used as the primary daily trend cache source."
     },
     {
@@ -107,7 +107,7 @@
       "title": "obra/superpowers is an active AI/agent repository",
       "summary": "An agentic skills framework & software development methodology that works.",
       "url": "https://github.com/obra/superpowers",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -120,7 +120,7 @@
         "agent-builder"
       ],
       "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=8874, starVelocityScore=5. Activity: pushed 1 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=13096, starVelocityScore=5. Activity: pushed 2 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "sourceFile": "data/github-signals.json",
       "score": 18,
@@ -143,7 +143,7 @@
       "title": "langflow-ai/langflow is an active AI/agent repository",
       "summary": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
       "url": "https://github.com/langflow-ai/langflow",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -158,7 +158,7 @@
         "agent-builder"
       ],
       "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=1196, starVelocityScore=5. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=3; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=1649, starVelocityScore=5. Activity: pushed 1 days ago, activityScore=5. Novelty: categoryNoveltyScore=3; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "sourceFile": "data/github-signals.json",
       "score": 18,
@@ -181,7 +181,7 @@
       "title": "NousResearch/hermes-agent is an active AI/agent repository",
       "summary": "The agent that grows with you",
       "url": "https://github.com/NousResearch/hermes-agent",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -194,7 +194,7 @@
         "agent-builder"
       ],
       "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=6859, starVelocityScore=5. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=9542, starVelocityScore=5. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "sourceFile": "data/github-signals.json",
       "score": 16,
@@ -216,7 +216,7 @@
       "title": "browser-use/browser-use is an active AI/agent repository",
       "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
       "url": "https://github.com/browser-use/browser-use",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -230,7 +230,7 @@
         "agent-builder"
       ],
       "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts.",
-      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 0 days ago, activityScore=5. Novelty: categoryNoveltyScore=4; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: workflow/tool-use mechanism, debugging surface, and operator pain. Velocity: starDelta7d=0, starVelocityScore=2. Activity: pushed 1 days ago, activityScore=5. Novelty: categoryNoveltyScore=4; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "sourceFile": "data/github-signals.json",
       "score": 15,
@@ -246,19 +246,18 @@
       ]
     },
     {
-      "id": "sig_product_market_mozaik_14",
+      "id": "sig_product_market_effects_sdk_6",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "Mozaik",
-      "summary": "<p> TypeScript runtime for self-organizing AI agents </p> <p> <a href=\"https://www.producthunt.com/products/mozaik-4?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188511?app_id=339\">Link</a> </p>",
-      "url": "https://www.producthunt.com/products/mozaik-4",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "Effects SDK",
+      "summary": "<p> AI video & audio effects SDK for real-time apps </p> <p> <a href=\"https://www.producthunt.com/products/effects-sdk?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1178725?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/effects-sdk",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
         "launch",
         "ai",
-        "agent",
         "product-hunt"
       ],
       "audience": [
@@ -268,7 +267,7 @@
         "curator"
       ],
       "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=4, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
       "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
       "sourceFile": "data/product-market-signals.json",
       "score": 13,
@@ -283,21 +282,20 @@
       ]
     },
     {
-      "id": "sig_product_market_astryx_15",
+      "id": "sig_product_market_san_fran_sim_7",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "Astryx",
-      "summary": "<p> A customizable, agent-ready open-source design system </p> <p> <a href=\"https://www.producthunt.com/products/meta?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188925?app_id=339\">Link</a> </p>",
-      "url": "https://www.producthunt.com/products/meta",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "San Fran Sim",
+      "summary": "<p> A startup tycoon game </p> <p> <a href=\"https://www.producthunt.com/products/san-fran-sim?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1192699?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/san-fran-sim",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
         "launch",
         "ai",
-        "agent",
         "product-hunt",
-        "creator-tool"
+        "game"
       ],
       "audience": [
         "maker",
@@ -306,7 +304,7 @@
         "curator"
       ],
       "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms.",
-      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=4, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
+      "researchNote": "Record the interface pattern, user behavior, confusion/excitement signal, and market gap. Do not propose a clone. Launch evidence: source=Product Hunt, daysSincePublished=0, titleQualityScore=5, reactionSignalScore=2. Treat this as launch visibility, not proof of sustained demand unless comments, ranking movement, installs, or usage evidence are present.",
       "riskNotes": "Use public launch metadata only. Do not scrape private comments, require accounts, copy branding, or treat votes as proof of user value.",
       "sourceFile": "data/product-market-signals.json",
       "score": 13,
@@ -321,13 +319,13 @@
       ]
     },
     {
-      "id": "sig_product_market_typeahead_2_0_16",
+      "id": "sig_product_market_basedash_scim_8",
       "sourceType": "product_market_watch",
       "sourceName": "Product Hunt",
-      "title": "Typeahead 2.0",
-      "summary": "<p> Private AI autocomplete for every app on your Mac </p> <p> <a href=\"https://www.producthunt.com/products/typeahead?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1186655?app_id=339\">Link</a> </p>",
-      "url": "https://www.producthunt.com/products/typeahead",
-      "observedAt": "2026-07-08T02:05:28.907Z",
+      "title": "Basedash SCIM",
+      "summary": "<p> Your org changes. Access keeps up. </p> <p> <a href=\"https://www.producthunt.com/products/basedash?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1193351?app_id=339\">Link</a> </p>",
+      "url": "https://www.producthunt.com/products/basedash",
+      "observedAt": "2026-07-12T21:42:52.528Z",
       "topics": [
         "product",
         "market",
@@ -363,7 +361,7 @@
       "title": "learnhouse/learnhouse is a rising AI-related repository",
       "summary": "The Next-gen Open Source learning platform for everyone ✨",
       "url": "https://github.com/learnhouse/learnhouse",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -375,7 +373,7 @@
         "agent-builder"
       ],
       "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 1 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 2 days ago, activityScore=4. Novelty: categoryNoveltyScore=1; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "sourceFile": "data/github-signals.json",
       "score": 13,
@@ -396,7 +394,7 @@
       "title": "rsxdalv/TTS-WebUI is a rising AI-related repository",
       "summary": "A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi Audio, Piper TTS, GPT-SoVITS, CosyVoice, XTTSv2, DIA, Kokoro, OpenVoice, ParlerTTS, Stable Audio, MMS, StyleTTS2, MAGNet, AudioGen, MusicGen, Tortoise, RVC, Vocos, Demucs, SeamlessM4T, and Bark!",
       "url": "https://github.com/rsxdalv/TTS-WebUI",
-      "observedAt": "2026-07-08T02:05:15.118Z",
+      "observedAt": "2026-07-12T21:42:43.193Z",
       "topics": [
         "github",
         "oss",
@@ -408,7 +406,7 @@
         "agent-builder"
       ],
       "whyItMatters": "Active AI repositories can reveal developer pain points and patterns worth turning into small Hackbase.ai artifacts.",
-      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 2 days ago, activityScore=5. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
+      "researchNote": "Research angle: technical mechanism, adoption proof, and developer pain behind the repository. Velocity: starDelta7d=0, starVelocityScore=1. Activity: pushed 6 days ago, activityScore=4. Novelty: categoryNoveltyScore=2; inspect whether this is a new capability, new workflow, or known category repackaging.",
       "riskNotes": "Use public metadata only. Do not clone the repository, require GitHub authentication, call external services, or copy project branding.",
       "sourceFile": "data/github-signals.json",
       "score": 13,
@@ -423,17 +421,18 @@
       ]
     },
     {
-      "id": "sig_japan_trend_w_pk_8_7",
+      "id": "sig_japan_trend_22_350_3",
       "sourceType": "japan_social_trend",
       "sourceName": "NHK News",
-      "title": "サッカーW杯 スイスがPK戦でコロンビア破りベスト8進出",
-      "summary": "サッカーワールドカップ北中米大会、決勝トーナメント2回戦の最後の試合、スイス 対 コロンビアは、スイスが、ペナルティーキック戦の末に勝って、1954年以来、72年ぶりに準々決勝進出を決めました。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171481000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "title": "ドジャース 大谷翔平 22号ホームラン 日米通算350号に到達",
+      "summary": "大リーグ、ドジャースの大谷翔平選手が12日、オールスターゲーム前最後の試合となるダイヤモンドバックス戦に1番・指名打者で先発出場し、1回の第1打席で初球を振り抜いて2試合ぶりとなる22号のソロホームランを打ちました。プロ野球の日本ハム時代に打った48本と合わせて日米通算350号に到達しました。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175311000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend",
-        "sports"
+        "sports",
+        "entertainment"
       ],
       "audience": [
         "general-public",
@@ -456,16 +455,17 @@
       ]
     },
     {
-      "id": "sig_japan_trend_9_10_1",
+      "id": "sig_japan_trend_130_4",
       "sourceType": "japan_social_trend",
       "sourceName": "NHK News",
-      "title": "台風9号 10日以降に沖縄 先島諸島接近へ 非常に強い勢力を維持",
-      "summary": "大型で非常に強い台風9号は10日・金曜日から11日・土曜日ごろにかけて、非常に強い勢力を維持したまま沖縄県の先島諸島に近づく見込みです。気象庁は一部の住宅が倒壊するような猛烈な風が吹くおそれがあるとして、8日のうちに台風対策を終えるよう呼びかけています。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171421000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "title": "仏猛暑 水の事故の犠牲者130人超 イベントなどにも影響",
+      "summary": "猛暑が続いているフランスでは、先月19日以降、水の事故による死者が130人を超えたほか、エッフェル塔などの観光名所が営業時間を短縮するなど影響が広がっています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175251000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
-        "social-trend"
+        "social-trend",
+        "travel"
       ],
       "audience": [
         "general-public",
@@ -477,7 +477,7 @@
       "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
       "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
       "sourceFile": "data/japan-trend-signals.json",
-      "score": 11,
+      "score": 12,
       "scoreReasons": [
         "has_url",
         "has_summary",
@@ -488,13 +488,13 @@
       ]
     },
     {
-      "id": "sig_japan_trend_ny_2",
+      "id": "sig_japan_trend__1",
       "sourceType": "japan_social_trend",
       "sourceName": "NHK News",
-      "title": "NY中心部のビルで柱が曲がり倒壊のおそれ 周辺が封鎖される",
-      "summary": "ニューヨーク・マンハッタンの中心部にある改修中のビルが倒壊するおそれがあることが分かり、ニューヨーク市が周辺のエリアを封鎖して住民らを避難させるなど大きな騒ぎとなっています。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171501000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "title": "西日本では連日の「危険な暑さ」予想 熱中症対策の徹底を",
+      "summary": "13日も西日本を中心に気温が上がり、九州では最高気温が38度と危険な暑さが予想されています。エアコンを適切に使い、こまめに水分補給するなど、熱中症対策を徹底してください。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175321000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -529,16 +529,16 @@
     ],
     "topTopics": [
       {
-        "topic": "agent",
-        "count": 6
-      },
-      {
         "topic": "github",
         "count": 6
       },
       {
         "topic": "oss",
         "count": 6
+      },
+      {
+        "topic": "agent",
+        "count": 4
       },
       {
         "topic": "ai",
@@ -607,24 +607,24 @@
         "whyItMatters": "Agent-related repositories with strong attention can reveal workflow patterns that Hackbase.ai can turn into inspectable artifacts."
       },
       {
-        "id": "sig_product_market_mozaik_14",
-        "title": "Mozaik",
+        "id": "sig_product_market_effects_sdk_6",
+        "title": "Effects SDK",
         "sourceType": "product_market_watch",
-        "summary": "<p> TypeScript runtime for self-organizing AI agents </p> <p> <a href=\"https://www.producthunt.com/products/mozaik-4?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188511?app_id=339\">Link</a> </p>",
+        "summary": "<p> AI video & audio effects SDK for real-time apps </p> <p> <a href=\"https://www.producthunt.com/products/effects-sdk?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1178725?app_id=339\">Link</a> </p>",
         "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms."
       },
       {
-        "id": "sig_product_market_astryx_15",
-        "title": "Astryx",
+        "id": "sig_product_market_san_fran_sim_7",
+        "title": "San Fran Sim",
         "sourceType": "product_market_watch",
-        "summary": "<p> A customizable, agent-ready open-source design system </p> <p> <a href=\"https://www.producthunt.com/products/meta?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1188925?app_id=339\">Link</a> </p>",
+        "summary": "<p> A startup tycoon game </p> <p> <a href=\"https://www.producthunt.com/products/san-fran-sim?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1192699?app_id=339\">Link</a> </p>",
         "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms."
       },
       {
-        "id": "sig_product_market_typeahead_2_0_16",
-        "title": "Typeahead 2.0",
+        "id": "sig_product_market_basedash_scim_8",
+        "title": "Basedash SCIM",
         "sourceType": "product_market_watch",
-        "summary": "<p> Private AI autocomplete for every app on your Mac </p> <p> <a href=\"https://www.producthunt.com/products/typeahead?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1186655?app_id=339\">Link</a> </p>",
+        "summary": "<p> Your org changes. Access keeps up. </p> <p> <a href=\"https://www.producthunt.com/products/basedash?utm_campaign=producthunt-atom-posts-feed&amp;utm_medium=rss-feed&amp;utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1193351?app_id=339\">Link</a> </p>",
         "whyItMatters": "Product and maker launch surfaces reveal interface patterns, positioning, user behavior shifts, and small demoable mechanisms."
       },
       {

@@ -1,6 +1,6 @@
 {
-  "version": "japan-social-trend.2026-07-08T02:05:32.266Z",
-  "fetchedAt": "2026-07-08T02:05:32.266Z",
+  "version": "japan-social-trend.2026-07-12T21:42:55.180Z",
+  "fetchedAt": "2026-07-12T21:42:55.180Z",
   "source": {
     "type": "japan_social_trend",
     "urls": [
@@ -12,13 +12,13 @@
   },
   "signals": [
     {
-      "id": "sig_japan_trend_9_10_1",
+      "id": "sig_japan_trend__1",
       "sourceType": "japan_social_trend",
       "sourceName": "NHK News",
-      "title": "台風9号 10日以降に沖縄 先島諸島接近へ 非常に強い勢力を維持",
-      "summary": "大型で非常に強い台風9号は10日・金曜日から11日・土曜日ごろにかけて、非常に強い勢力を維持したまま沖縄県の先島諸島に近づく見込みです。気象庁は一部の住宅が倒壊するような猛烈な風が吹くおそれがあるとして、8日のうちに台風対策を終えるよう呼びかけています。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171421000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "title": "西日本では連日の「危険な暑さ」予想 熱中症対策の徹底を",
+      "summary": "13日も西日本を中心に気温が上がり、九州では最高気温が38度と危険な暑さが予想されています。エアコンを適切に使い、こまめに水分補給するなど、熱中症対策を徹底してください。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175321000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -35,16 +35,16 @@
       "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
       "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
       "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
-      "rawExcerpt": "大型で非常に強い台風9号は10日・金曜日から11日・土曜日ごろにかけて、非常に強い勢力を維持したまま沖縄県の先島諸島に近づく見込みです。気象庁は一部の住宅が倒壊するような猛烈な風が吹くおそれがあるとして、8日のうちに台風対策を終えるよう呼びかけています。"
+      "rawExcerpt": "13日も西日本を中心に気温が上がり、九州では最高気温が38度と危険な暑さが予想されています。エアコンを適切に使い、こまめに水分補給するなど、熱中症対策を徹底してください。"
     },
     {
-      "id": "sig_japan_trend_ny_2",
+      "id": "sig_japan_trend_ap_27_2",
       "sourceType": "japan_social_trend",
       "sourceName": "NHK News",
-      "title": "NY中心部のビルで柱が曲がり倒壊のおそれ 周辺が封鎖される",
-      "summary": "ニューヨーク・マンハッタンの中心部にある改修中のビルが倒壊するおそれがあることが分かり、ニューヨーク市が周辺のエリアを封鎖して住民らを避難させるなど大きな騒ぎとなっています。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171501000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "title": "タイ バンコクの飲食店で火災 AP通信“少なくとも27人が死亡”",
+      "summary": "タイの首都バンコクにある飲食店で13日未明、大規模な火災があり、AP通信によりますと、少なくとも27人が死亡したということです。火はすでに消し止められたということで、当局が火災の詳しい原因を調べています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175291000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -61,124 +61,21 @@
       "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
       "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
       "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
-      "rawExcerpt": "ニューヨーク・マンハッタンの中心部にある改修中のビルが倒壊するおそれがあることが分かり、ニューヨーク市が周辺のエリアを封鎖して住民らを避難させるなど大きな騒ぎとなっています。"
+      "rawExcerpt": "タイの首都バンコクにある飲食店で13日未明、大規模な火災があり、AP通信によりますと、少なくとも27人が死亡したということです。火はすでに消し止められたということで、当局が火災の詳しい原因を調べています。"
     },
     {
-      "id": "sig_japan_trend__3",
+      "id": "sig_japan_trend_22_350_3",
       "sourceType": "japan_social_trend",
       "sourceName": "NHK News",
-      "title": "ホルムズ海峡で船舶に攻撃相次ぐ 支配力の低下にイラン焦りか",
-      "summary": "中東のホルムズ海峡の近くを通航する船舶が7日、相次いで攻撃を受けました。アメリカのメディアはイランの強硬派がアメリカとの協議で頼みの綱としてきた海峡での影響力の低下を感じ、焦りを募らせていると伝えています。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171371000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
-      "topics": [
-        "japan",
-        "social-trend"
-      ],
-      "audience": [
-        "general-public",
-        "curator",
-        "educator",
-        "builder"
-      ],
-      "metrics": {
-        "trendMentions": 1
-      },
-      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
-      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
-      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
-      "rawExcerpt": "中東のホルムズ海峡の近くを通航する船舶が7日、相次いで攻撃を受けました。アメリカのメディアはイランの強硬派がアメリカとの協議で頼みの綱としてきた海峡での影響力の低下を感じ、焦りを募らせていると伝えています。"
-    },
-    {
-      "id": "sig_japan_trend__4",
-      "sourceType": "japan_social_trend",
-      "sourceName": "NHK News",
-      "title": "ハンガリー公共テレビ局「うそをおわび」放送が黒画面に",
-      "summary": "ハンガリーの公共テレビ局は7日、黒い画面と文章を放送し、長年にわたりうそをついてきたとして謝罪したうえでニュース放送を一時的に休止すると明らかにしました。政権交代に伴い、メディアの刷新を掲げるマジャル首相の改革の一環とみられています。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171461000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
-      "topics": [
-        "japan",
-        "social-trend"
-      ],
-      "audience": [
-        "general-public",
-        "curator",
-        "educator",
-        "builder"
-      ],
-      "metrics": {
-        "trendMentions": 1
-      },
-      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
-      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
-      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
-      "rawExcerpt": "ハンガリーの公共テレビ局は7日、黒い画面と文章を放送し、長年にわたりうそをついてきたとして謝罪したうえでニュース放送を一時的に休止すると明らかにしました。政権交代に伴い、メディアの刷新を掲げるマジャル首相の改革の一環とみられています。"
-    },
-    {
-      "id": "sig_japan_trend__5",
-      "sourceType": "japan_social_trend",
-      "sourceName": "NHK News",
-      "title": "小泉防衛相 イギリス国防相と次期戦闘機共同開発など連携確認",
-      "summary": "小泉防衛大臣はイギリスのジャービス国防相と会談し、次期戦闘機の共同開発をはじめ両国の防衛協力の強化に向けて緊密に連携していくことを確認しました。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171471000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
-      "topics": [
-        "japan",
-        "social-trend"
-      ],
-      "audience": [
-        "general-public",
-        "curator",
-        "educator",
-        "builder"
-      ],
-      "metrics": {
-        "trendMentions": 1
-      },
-      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
-      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
-      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
-      "rawExcerpt": "小泉防衛大臣はイギリスのジャービス国防相と会談し、次期戦闘機の共同開発をはじめ両国の防衛協力の強化に向けて緊密に連携していくことを確認しました。"
-    },
-    {
-      "id": "sig_japan_trend_nato_6",
-      "sourceType": "japan_social_trend",
-      "sourceName": "NHK News",
-      "title": "NATO首脳会議が開幕 米トランプ大統領「がっかり」とけん制",
-      "summary": "NATO＝北大西洋条約機構の首脳会議が7日、トルコで始まりました。会議に先立ち、アメリカのトランプ大統領はイランへの軍事作戦などをめぐり「NATOには非常にがっかりさせられた」と不満をあらわにしていて、ヨーロッパなどの加盟国と一致点を見いだせるかが焦点です。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171261000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
-      "topics": [
-        "japan",
-        "social-trend"
-      ],
-      "audience": [
-        "general-public",
-        "curator",
-        "educator",
-        "builder"
-      ],
-      "metrics": {
-        "trendMentions": 1
-      },
-      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
-      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
-      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
-      "rawExcerpt": "NATO＝北大西洋条約機構の首脳会議が7日、トルコで始まりました。会議に先立ち、アメリカのトランプ大統領はイランへの軍事作戦などをめぐり「NATOには非常にがっかりさせられた」と不満をあらわにしていて、ヨーロッパなどの加盟国と一致点を見いだせるかが焦点です。"
-    },
-    {
-      "id": "sig_japan_trend_w_pk_8_7",
-      "sourceType": "japan_social_trend",
-      "sourceName": "NHK News",
-      "title": "サッカーW杯 スイスがPK戦でコロンビア破りベスト8進出",
-      "summary": "サッカーワールドカップ北中米大会、決勝トーナメント2回戦の最後の試合、スイス 対 コロンビアは、スイスが、ペナルティーキック戦の末に勝って、1954年以来、72年ぶりに準々決勝進出を決めました。",
-      "url": "http://www3.nhk.or.jp/news/html/20260708/k10015171481000.html",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "title": "ドジャース 大谷翔平 22号ホームラン 日米通算350号に到達",
+      "summary": "大リーグ、ドジャースの大谷翔平選手が12日、オールスターゲーム前最後の試合となるダイヤモンドバックス戦に1番・指名打者で先発出場し、1回の第1打席で初球を振り抜いて2試合ぶりとなる22号のソロホームランを打ちました。プロ野球の日本ハム時代に打った48本と合わせて日米通算350号に到達しました。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175311000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend",
-        "sports"
+        "sports",
+        "entertainment"
       ],
       "audience": [
         "general-public",
@@ -192,7 +89,112 @@
       "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
       "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
       "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
-      "rawExcerpt": "サッカーワールドカップ北中米大会、決勝トーナメント2回戦の最後の試合、スイス 対 コロンビアは、スイスが、ペナルティーキック戦の末に勝って、1954年以来、72年ぶりに準々決勝進出を決めました。"
+      "rawExcerpt": "大リーグ、ドジャースの大谷翔平選手が12日、オールスターゲーム前最後の試合となるダイヤモンドバックス戦に1番・指名打者で先発出場し、1回の第1打席で初球を振り抜いて2試合ぶりとなる22号のソロホームランを打ちました。プロ野球の日本ハム時代に打った48本と合わせて日米通算350号に到達しました。"
+    },
+    {
+      "id": "sig_japan_trend_130_4",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "仏猛暑 水の事故の犠牲者130人超 イベントなどにも影響",
+      "summary": "猛暑が続いているフランスでは、先月19日以降、水の事故による死者が130人を超えたほか、エッフェル塔などの観光名所が営業時間を短縮するなど影響が広がっています。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175251000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
+      "topics": [
+        "japan",
+        "social-trend",
+        "travel"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "猛暑が続いているフランスでは、先月19日以降、水の事故による死者が130人を超えたほか、エッフェル塔などの観光名所が営業時間を短縮するなど影響が広がっています。"
+    },
+    {
+      "id": "sig_japan_trend_10_14_5",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "南シナ海仲裁判断10年 14か国共同声明に中国が反論",
+      "summary": "南シナ海の領有権をめぐる中国の主張を退けた国際的な仲裁裁判の判断から10年となり、日本など14か国が中国に判断を順守するよう共同声明を出したことに対し、中国外務省は判断は「拘束力のない紙くずだ」などとする声明を発表し自らの主張を正当化しました。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175211000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "南シナ海の領有権をめぐる中国の主張を退けた国際的な仲裁裁判の判断から10年となり、日本など14か国が中国に判断を順守するよう共同声明を出したことに対し、中国外務省は判断は「拘束力のない紙くずだ」などとする声明を発表し自らの主張を正当化しました。"
+    },
+    {
+      "id": "sig_japan_trend__6",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "国会最終盤 与党 残された法案成立を 野党 丁寧な審議を",
+      "summary": "国会の会期末が4日後に迫る中、与党は皇室典範改正案や、「副首都」構想の関連法案など残る法案の成立に全力を挙げる方針です。これに対し野党は、課題のある法案も多く丁寧な審議が必要だとしていて、会期末を見据えた日程調整が大詰めを迎えます。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175131000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "国会の会期末が4日後に迫る中、与党は皇室典範改正案や、「副首都」構想の関連法案など残る法案の成立に全力を挙げる方針です。これに対し野党は、課題のある法案も多く丁寧な審議が必要だとしていて、会期末を見据えた日程調整が大詰めを迎えます。"
+    },
+    {
+      "id": "sig_japan_trend__7",
+      "sourceType": "japan_social_trend",
+      "sourceName": "NHK News",
+      "title": "ウクライナ軍 ロシア中部の大規模な石油精製施設を攻撃",
+      "summary": "ウクライナ軍は12日、ロシア中部の州にある大規模な石油精製施設を攻撃したと発表し、ロシア軍の燃料供給を断ち、戦闘を遂行する能力を低下させるねらいがあるとみられます。",
+      "url": "http://www3.nhk.or.jp/news/html/20260713/k10015175271000.html",
+      "observedAt": "2026-07-12T21:42:55.180Z",
+      "topics": [
+        "japan",
+        "social-trend"
+      ],
+      "audience": [
+        "general-public",
+        "curator",
+        "educator",
+        "builder"
+      ],
+      "metrics": {
+        "trendMentions": 1
+      },
+      "whyItMatters": "Japan social trend sources provide timely cultural, civic, education, sports, and consumer contexts that can diversify Hackbase.ai beyond technical tools.",
+      "researchNote": "Record what is happening, who is affected, visible public behavior, regional/seasonal context, and uncertainty. Do not decide the final product concept.",
+      "riskNotes": "Use public headline and summary metadata only. Avoid long article text, legal/medical advice, disaster misinformation, or claims without source context.",
+      "rawExcerpt": "ウクライナ軍は12日、ロシア中部の州にある大規模な石油精製施設を攻撃したと発表し、ロシア軍の燃料供給を断ち、戦闘を遂行する能力を低下させるねらいがあるとみられます。"
     },
     {
       "id": "sig_japan_trend__8",
@@ -201,7 +203,7 @@
       "title": "マイページ",
       "summary": "マイページ",
       "url": "https://news.yahoo.co.jp/users/me",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -227,7 +229,7 @@
       "title": "購入履歴",
       "summary": "購入履歴",
       "url": "https://news.yahoo.co.jp/purchase",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -253,7 +255,7 @@
       "title": "トップ",
       "summary": "トップ",
       "url": "https://news.yahoo.co.jp/",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -279,7 +281,7 @@
       "title": "速報",
       "summary": "速報",
       "url": "https://news.yahoo.co.jp/flash",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -305,7 +307,7 @@
       "title": "ライブ",
       "summary": "ライブ",
       "url": "https://news.yahoo.co.jp/live",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -331,7 +333,7 @@
       "title": "エキスパート",
       "summary": "エキスパート",
       "url": "https://news.yahoo.co.jp/expert",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -357,7 +359,7 @@
       "title": "オリジナル",
       "summary": "オリジナル",
       "url": "https://news.yahoo.co.jp/original/",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -383,7 +385,7 @@
       "title": "みんなの意見",
       "summary": "みんなの意見",
       "url": "https://news.yahoo.co.jp/polls",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
@@ -409,7 +411,7 @@
       "title": "ランキング",
       "summary": "ランキング",
       "url": "https://news.yahoo.co.jp/ranking/access/news",
-      "observedAt": "2026-07-08T02:05:32.266Z",
+      "observedAt": "2026-07-12T21:42:55.180Z",
       "topics": [
         "japan",
         "social-trend"
