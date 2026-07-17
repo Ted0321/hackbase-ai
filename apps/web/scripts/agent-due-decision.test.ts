@@ -71,11 +71,24 @@ run("creator is due at preferred hour on first run", () => {
   assert.equal(decision.runId, runId);
 });
 
-run("creator skips outside preferred hour", () => {
+run("creator skips before preferred hour window opens", () => {
   const decision = decideAgentDue(baseAgent(), {}, new Date("2026-06-29T00:00:00.000Z"), false, runId);
   assert.equal(decision.decision, "skip");
-  assert.match(decision.reason, /preferred hour not matched/);
+  assert.match(decision.reason, /preferred hour not reached/);
   assert.equal(decision.nextDueAt, "2026-06-29T18:00:00.000Z");
+});
+
+run("creator is due at or after preferred hour (soft window)", () => {
+  // 20:00 は preferredHours [18] を過ぎている。厳密一致だと永久スキップになっていたが、
+  // ソフトゲートでは「以降なら due」なので、遅れて起動しても当日中に作成できる。
+  const decision = decideAgentDue(
+    baseAgent(),
+    {},
+    new Date("2026-06-29T20:00:00.000Z"),
+    false,
+    runId,
+  );
+  assert.equal(decision.decision, "due");
 });
 
 run("non-creator roles are skipped", () => {

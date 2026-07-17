@@ -103,14 +103,22 @@ export function decideAgentDue(
     };
   }
 
+  // preferredHours は「その時刻ちょうど」ではなく「その時刻以降なら作成ウィンドウが開く」
+  // ソフトゲートとして扱う。単一時刻・厳密一致だと、スケジューラの起動がその1時間に
+  // 当たらない限りその日は永久スキップになり(日次cronだと特に)、日次上限まで作れない。
+  // 以降なら due にすることで、毎時起動でも日次1回起動でも、cadence/maxRunsPerDay/上限の
+  // 範囲でその日のうちに作成される(2026-07-13 の「1個しか作られない」対策)。
   const preferredHours = policy.preferredHours ?? [];
-  if (!force && preferredHours.length > 0 && !preferredHours.includes(now.getUTCHours())) {
-    return {
-      agent,
-      decision: "skip",
-      reason: `preferred hour not matched (${now.getUTCHours()} not in ${preferredHours.join(",")})`,
-      nextDueAt: nextPreferredHour(now, preferredHours),
-    };
+  if (!force && preferredHours.length > 0) {
+    const earliestPreferred = Math.min(...preferredHours);
+    if (now.getUTCHours() < earliestPreferred) {
+      return {
+        agent,
+        decision: "skip",
+        reason: `preferred hour not reached (${now.getUTCHours()} < ${earliestPreferred})`,
+        nextDueAt: nextPreferredHour(now, preferredHours),
+      };
+    }
   }
 
   if (!force && entry.lastCompletedAt && policy.cooldownHours) {

@@ -1,5 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { buildIndexFromTables, exportTablesFromIndex } from "./source-product-index-tables";
 
 type SourceProductCard = {
@@ -146,12 +147,12 @@ type ExplorationResponse = {
   valueKnowledgeCards?: ValueKnowledgeCard[];
 };
 
-type LoadedExplorationResponse = {
+export type LoadedExplorationResponse = {
   filePath: string;
   payload: ExplorationResponse;
 };
 
-type ValidationIssue = {
+export type ValidationIssue = {
   filePath: string;
   cardLabel: string;
   field: string;
@@ -330,10 +331,10 @@ const pushIssue = (
   issues.push({ filePath, cardLabel, field, message });
 };
 
-const validateSourceProductCards = (
+export const validateSourceProductCards = (
   responses: LoadedExplorationResponse[],
   excludedProducts: string[],
-) => {
+): ValidationIssue[] => {
   const issues: ValidationIssue[] = [];
   const canonicalKeys = new Map<string, Array<{ filePath: string; cardLabel: string }>>();
 
@@ -459,27 +460,35 @@ const validateSourceProductCards = (
     });
   }
 
+  // 同一 canonicalKey が「同じ response ファイル内」で複数回出るのは著者/生成側の重複ミス
+  // なので致命扱いにする。一方、base とその *_enrichment のように *別ファイル間* で同じ
+  // product が再掲されるのは想定内(enrichment は同じ product を深掘りする follow-up pass)で、
+  // 下流の entriesByKey / mergeEntry が canonicalKey 単位で統合する。別ファイル間の重複だけで
+  // TSV 書き込みを止めていたため、devpost enrichment を回すたびに恒常 failed 化していた
+  // (2026-06-27 に research-cache-daily で顕在化)。別ファイル間の再掲は止めない。
   for (const [key, locations] of canonicalKeys.entries()) {
     if (locations.length < 2) continue;
+    const locationsByFile = new Map<string, typeof locations>();
     for (const location of locations) {
-      pushIssue(
-        issues,
-        location.filePath,
-        location.cardLabel,
-        "canonicalKey",
-        `duplicate canonical key in incoming research responses: ${key}`,
-      );
+      const list = locationsByFile.get(location.filePath) ?? [];
+      list.push(location);
+      locationsByFile.set(location.filePath, list);
+    }
+    for (const fileLocations of locationsByFile.values()) {
+      if (fileLocations.length < 2) continue;
+      for (const location of fileLocations) {
+        pushIssue(
+          issues,
+          location.filePath,
+          location.cardLabel,
+          "canonicalKey",
+          `duplicate canonical key within a single research response file: ${key}`,
+        );
+      }
     }
   }
 
-  if (issues.length === 0) return;
-
-  const details = issues
-    .slice(0, 30)
-    .map((issue) => `- ${issue.filePath} :: ${issue.cardLabel} :: ${issue.field}: ${issue.message}`)
-    .join("\n");
-  const suffix = issues.length > 30 ? `\n...and ${issues.length - 30} more issue(s).` : "";
-  throw new Error(`Research source product validation failed before TSV write.\n${details}${suffix}`);
+  return issues;
 };
 
 const archiveItemsForCard = (
@@ -680,7 +689,16 @@ async function main() {
     Boolean(entry.payload),
   );
 
-  validateSourceProductCards(responses, index.excludedAsSourceProductCards);
+  const sourceProductIssues = validateSourceProductCards(responses, index.excludedAsSourceProductCards);
+  if (sourceProductIssues.length > 0) {
+    const details = sourceProductIssues
+      .slice(0, 30)
+      .map((issue) => `- ${issue.filePath} :: ${issue.cardLabel} :: ${issue.field}: ${issue.message}`)
+      .join("\n");
+    const suffix =
+      sourceProductIssues.length > 30 ? `\n...and ${sourceProductIssues.length - 30} more issue(s).` : "";
+    throw new Error(`Research source product validation failed before TSV write.\n${details}${suffix}`);
+  }
 
   const entriesByKey = new Map(index.entries.map((entry) => [entry.canonicalKey, entry]));
   const archiveIndex = [...index.sourceArchiveIndex];
@@ -759,7 +777,14 @@ async function main() {
   console.log(`Output: ${args.output}`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+// Run main only when invoked as the entrypoint, so tests can import
+// validateSourceProductCards without triggering a full index rebuild.
+const isEntrypoint = process.argv[1]
+  ? import.meta.url === pathToFileURL(process.argv[1]).href
+  : false;
+if (isEntrypoint) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
