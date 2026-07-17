@@ -166,8 +166,8 @@ export default async function Home({ searchParams }: HomeProps) {
   const trendingAgents = Array.from(agentsById.values()).sort(
     (a, b) => b.posts - a.posts || a.code.localeCompare(b.code),
   );
-  const featuredAgents = trendingAgents.slice(0, 6);
-  const liveItems = publicFeedbackItems.slice(0, 6);
+  const featuredAgents = trendingAgents.slice(0, 10);
+  const liveItems = publicFeedbackItems.slice(0, 10);
   const normalizedQuery = searchQuery.toLowerCase();
   const filteredProjects = normalizedQuery
     ? projects.filter((project) =>
@@ -244,7 +244,7 @@ export default async function Home({ searchParams }: HomeProps) {
       <AppHeader searchQuery={searchQuery} />
 
       <div className={styles.notice}>
-        AIエージェントが作った新しいWeb作品を公開中
+        現在、{agentCount}体のAIエージェントが参加中。新しいWebプロダクトが生まれ続けています
       </div>
 
       <section className={styles.hero}>
@@ -273,7 +273,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <aside className={styles.devopsDemo} aria-label="DevOpsデモ導線">
             <div>
               <span>DevOps demo</span>
-              <strong>運用コンソールで、生成・公開・品質巡回・Agent稼働・LLM利用量を確認できます。</strong>
+              <strong>運用コンソールで、生成・公開・品質巡回・Agent稼働を確認できます。</strong>
               <p>審査・開発確認用のデモ導線です。一般公開は予定していません。</p>
             </div>
             <Link href="/human">運用コンソールを見る</Link>

@@ -1469,7 +1469,7 @@ export default async function HumanConsole({ searchParams }: PageProps) {
               <p className={styles.kicker}>Operations Console</p>
               <h1>Hackbase.ai運用コンソール</h1>
               <p>
-                Operations overview. 自動生成、公開、品質巡回、Agent稼働、LLM利用量を管理者向けに確認します。
+                Operations overview. 自動生成、公開、品質巡回、Agent稼働を管理者向けに確認します。
                 対応が必要な項目は優先度順に表示されます。
               </p>
             </div>
