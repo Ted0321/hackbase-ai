@@ -746,6 +746,11 @@ const isMainModule = () => {
 if (isMainModule()) {
   main().catch((error) => {
     console.error(error);
+    // 予算上限は意図した停止であり異常終了(1)と区別する(hold=3と同じ考え方)。
+    // 呼び出し側(self-directed)がheldとして扱う。
+    if ((error as { budgetCapped?: boolean })?.budgetCapped) {
+      process.exit(4);
+    }
     process.exit(1);
   });
 }

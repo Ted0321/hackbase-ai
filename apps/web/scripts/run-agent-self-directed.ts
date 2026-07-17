@@ -454,16 +454,49 @@ async function main() {
     console.log(
       `[self-directed] step6: publish materialized artifact to DB (autoPublish=${!holdForReview}${holdForReview ? ", HOLD for review" : ""})`,
     );
-    await runTsx("scripts/publish-llm-pipeline-artifact.ts", [
-      "--path",
-      materializedDir,
-      "--run",
-      runId,
-      "--write",
-      // --hold のときは --auto-publish を付けない → held_for_review(ops_review)で止まる
-      ...(holdForReview ? [] : ["--auto-publish"]),
-    ]);
     const projectId = `proj_llm_${artifactId.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`;
+    try {
+      await runTsx("scripts/publish-llm-pipeline-artifact.ts", [
+        "--path",
+        materializedDir,
+        "--run",
+        runId,
+        "--write",
+        // --hold のときは --auto-publish を付けない → held_for_review(ops_review)で止まる
+        ...(holdForReview ? [] : ["--auto-publish"]),
+      ]);
+    } catch (error) {
+      const code = (error as { code?: number }).code;
+      if (code === 5 && !holdForReview) {
+        // high-risk topicゲートは意図した停止。auto-publishせず ops_review 登録へフォールバックする
+        // (readiness-fail等と同じ「一旦heldで人間の目を通す」パターン)。
+        console.log(
+          `[self-directed] step6: high-risk topic gate blocked auto-publish -> registering for ops review`,
+        );
+        await runTsx("scripts/publish-llm-pipeline-artifact.ts", [
+          "--path",
+          materializedDir,
+          "--run",
+          runId,
+          "--write",
+        ]);
+        await recordRuntime("completed", {
+          publish: false,
+          held: true,
+          reason: "high_risk_topic_gate",
+          mvpPass,
+          readinessPass,
+          projectId,
+        });
+        console.log("");
+        console.log(`[self-directed] HELD for review: high-risk topic. run=${runId}`);
+        console.log(`[self-directed] review: /human/projects/${projectId}`);
+        console.log(`[self-directed] approve with: npm run llm:approve -- --project ${projectId} --write`);
+        console.log(`[self-directed] run evidence: /runs/${runId}`);
+        return;
+      }
+      throw error;
+    }
     await recordRuntime("completed", { publish: true, hold: holdForReview, mvpPass, readinessPass, projectId });
     console.log("");
     if (holdForReview) {
@@ -490,6 +523,27 @@ async function main() {
       `(materialize + publish + self_directed_plan event)`,
   );
   } catch (error) {
+    const code = (error as { code?: number })?.code;
+    if (code === 4) {
+      // Gemini日次予算上限は意図した停止であり異常終了と区別する(review/rewrite hold=3と同じ考え方)。
+      await recordRuntime("completed", {
+        publish: false,
+        held: true,
+        reason: "gemini_budget_capped",
+      });
+      console.log("");
+      console.log(`[self-directed] held: Gemini daily budget cap reached. run=${runId}`);
+      try {
+        const ev = await persistRunEvidence(runId);
+        console.log(
+          `[self-directed] hold evidence persisted to artifact store (persisted=${ev.persisted}, failed=${ev.failed}). run=${runId}`,
+        );
+      } catch (persistError) {
+        console.warn(`[self-directed] failed to persist hold evidence:`, persistError);
+      }
+      console.log(`[self-directed] run evidence: /runs/${runId}`);
+      return;
+    }
     await recordRuntime("failed", { errorMessage: errorMessageOf(error), steps });
     throw error;
   }

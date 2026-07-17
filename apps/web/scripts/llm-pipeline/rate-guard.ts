@@ -177,15 +177,21 @@ export const enforceGeminiBudget = async (ctx: GeminiBudgetContext): Promise<voi
   }`;
 
   if (requestsLimited && requestCount >= maxRequests) {
-    throw new Error(
-      `Gemini daily request cap reached (${requestCount}/${maxRequests}) [${where}]. ` +
-        `Halting to prevent runaway loop. Raise GEMINI_DAILY_MAX_REQUESTS to continue.`,
+    throw Object.assign(
+      new Error(
+        `Gemini daily request cap reached (${requestCount}/${maxRequests}) [${where}]. ` +
+          `Halting to prevent runaway loop. Raise GEMINI_DAILY_MAX_REQUESTS to continue.`,
+      ),
+      { budgetCapped: true },
     );
   }
   if (costLimited && costUsd >= maxCostUsd) {
-    throw new Error(
-      `Gemini daily cost cap reached ($${costUsd.toFixed(2)}/$${maxCostUsd.toFixed(2)}) [${where}]. ` +
-        `Halting to prevent runaway spend. Raise GEMINI_DAILY_MAX_COST_USD to continue.`,
+    throw Object.assign(
+      new Error(
+        `Gemini daily cost cap reached ($${costUsd.toFixed(2)}/$${maxCostUsd.toFixed(2)}) [${where}]. ` +
+          `Halting to prevent runaway spend. Raise GEMINI_DAILY_MAX_COST_USD to continue.`,
+      ),
+      { budgetCapped: true },
     );
   }
   if (requestsLimited && requestCount >= maxRequests * WARN_RATIO) {

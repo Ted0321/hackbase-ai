@@ -1049,8 +1049,11 @@ async function main() {
   const highRiskTopicCheck = laneDChecks.find(([key]) => key === "high_risk_topic");
 
   if (args.autoPublish && highRiskTopicCheck && highRiskTopicCheck[1] !== "pass") {
-    throw new Error(
-      `High-risk topic validation failed; refusing unattended auto-publish. ${highRiskTopicCheck[2]}`,
+    throw Object.assign(
+      new Error(
+        `High-risk topic validation failed; refusing unattended auto-publish. ${highRiskTopicCheck[2]}`,
+      ),
+      { highRiskTopicGate: true },
     );
   }
 
@@ -1781,5 +1784,10 @@ main()
   .catch(async (error) => {
     console.error(error);
     await prisma.$disconnect();
+    // high-risk topicゲートは意図した停止であり異常終了(1)と区別する。
+    // 呼び出し側(self-directed)が auto-publish なしで ops_review 登録へフォールバックする。
+    if ((error as { highRiskTopicGate?: boolean })?.highRiskTopicGate) {
+      process.exit(5);
+    }
     process.exit(1);
   });
