@@ -193,37 +193,116 @@ const buildGeminiRequest = (prompt: string, input: unknown) => ({
 // ことがある(2026-07-08実測: バッチ後半2runが429 RESOURCE_EXHAUSTEDで即死)。429/500/503は
 // 数十秒待てば回復する性質なので、即throwでrun全損にせずここで吸収する。
 const RETRYABLE_HTTP_STATUS = new Set([429, 500, 503]);
-const HTTP_RETRY_DELAYS_MS = [20_000, 40_000, 80_000];
+const DEFAULT_HTTP_RETRY_DELAYS_MS = [20_000, 40_000, 80_000];
+// 1コールのタイムアウト既定値。researchは1コールが重いが、ハングした接続で run が
+// 無限待ちになるのを防ぐ(旧実装は AbortController 不在で timeout が実質未処理だった)。
+const DEFAULT_REQUEST_TIMEOUT_MS = 120_000;
 
-const callGemini = async (apiKey: string, model: string, prompt: string, input: unknown) => {
+// カンマ区切りの env(例 "1000,2000,4000")を再試行ディレイ配列に。空/不正は既定値。
+const parseRetryDelaysMs = (raw: string | undefined): number[] => {
+  if (!raw) return DEFAULT_HTTP_RETRY_DELAYS_MS;
+  const parsed = raw
+    .split(",")
+    .map((part) => Number.parseInt(part.trim(), 10))
+    .filter((value) => Number.isFinite(value) && value >= 0);
+  return parsed.length > 0 ? parsed : DEFAULT_HTTP_RETRY_DELAYS_MS;
+};
+
+type CallGeminiOptions = {
+  // テスト注入用: 既定は global fetch。fake fetch を渡して再試行/タイムアウト挙動を検証する。
+  fetchImpl?: typeof fetch;
+  retryDelaysMs?: number[];
+  timeoutMs?: number;
+  sleep?: (ms: number) => Promise<void>;
+};
+
+// AbortController でリクエストにタイムアウトを付ける。応答が返り次第(成功/失敗いずれも)
+// finally で clearTimeout するため、タイマーがリークしたりプロセス終了を阻害することはない。
+const fetchGeminiOnce = async (
+  fetchImpl: typeof fetch,
+  endpoint: string,
+  request: unknown,
+  timeoutMs: number,
+): Promise<Response> => {
+  const controller = new AbortController();
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  if (timeoutMs > 0) {
+    timer = setTimeout(
+      () => controller.abort(new Error(`Gemini request timed out after ${timeoutMs}ms`)),
+      timeoutMs,
+    );
+  }
+  try {
+    return await fetchImpl(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(request),
+      signal: controller.signal,
+    });
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+};
+
+export const callGemini = async (
+  apiKey: string,
+  model: string,
+  prompt: string,
+  input: unknown,
+  options: CallGeminiOptions = {},
+): Promise<GeminiResponse> => {
+  const fetchImpl = options.fetchImpl ?? fetch;
+  const retryDelaysMs =
+    options.retryDelaysMs ?? parseRetryDelaysMs(process.env.PRODIA_GEMINI_HTTP_RETRY_DELAYS_MS);
+  const timeoutMs =
+    options.timeoutMs ??
+    (Number.parseInt(process.env.PRODIA_GEMINI_REQUEST_TIMEOUT_MS ?? "", 10) || DEFAULT_REQUEST_TIMEOUT_MS);
+  const sleep =
+    options.sleep ?? ((ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms)));
+
   const modelPath = model.startsWith("models/") ? model : `models/${model}`;
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/${modelPath}:generateContent?key=${apiKey}`;
   const request = buildGeminiRequest(prompt, input);
+  const maxRetries = retryDelaysMs.length;
+
   for (let httpAttempt = 0; ; httpAttempt += 1) {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(request),
-    });
+    let response: Response;
+    try {
+      response = await fetchGeminiOnce(fetchImpl, endpoint, request, timeoutMs);
+    } catch (error) {
+      // ネットワーク層の失敗(切断/DNS/TLS/socket hang-up)とタイムアウト(abort)は、429/5xx と
+      // 同じくバックオフ再試行する。旧実装では fetch が try/catch の外にあり、これらは即 throw
+      // で run 全損になっていた(2026-07-12 agent_w が run-gemini exited 1 で失敗)。
+      if (httpAttempt >= maxRetries) {
+        throw new Error(
+          `Gemini generateContent request failed (network/timeout) after ${maxRetries + 1} attempt(s): ${errorMessageOf(error)}`,
+        );
+      }
+      const delayMs = retryDelaysMs[httpAttempt] + Math.floor(Math.random() * 5_000);
+      console.warn(
+        `[run-gemini] network/timeout error from Gemini (${errorMessageOf(error)}), backing off ` +
+          `${Math.round(delayMs / 1000)}s (retry ${httpAttempt + 1}/${maxRetries})`,
+      );
+      await sleep(delayMs);
+      continue;
+    }
 
     if (response.ok) {
       return (await response.json()) as GeminiResponse;
     }
 
     const body = await response.text();
-    if (httpAttempt >= HTTP_RETRY_DELAYS_MS.length || !RETRYABLE_HTTP_STATUS.has(response.status)) {
+    if (httpAttempt >= maxRetries || !RETRYABLE_HTTP_STATUS.has(response.status)) {
       throw new Error(`Gemini generateContent failed: ${response.status} ${body}`);
     }
     // Retry-After(秒)がある場合はそちらを優先。ジッターで同時リトライの再衝突を避ける。
     const retryAfterMs = (Number(response.headers.get("retry-after")) || 0) * 1000;
-    const delayMs = Math.max(retryAfterMs, HTTP_RETRY_DELAYS_MS[httpAttempt]) + Math.floor(Math.random() * 5_000);
+    const delayMs = Math.max(retryAfterMs, retryDelaysMs[httpAttempt]) + Math.floor(Math.random() * 5_000);
     console.warn(
       `[run-gemini] HTTP ${response.status} from Gemini, backing off ${Math.round(delayMs / 1000)}s ` +
-        `(retry ${httpAttempt + 1}/${HTTP_RETRY_DELAYS_MS.length})`,
+        `(retry ${httpAttempt + 1}/${maxRetries})`,
     );
-    await new Promise((resolve) => setTimeout(resolve, delayMs));
+    await sleep(delayMs);
   }
 };
 
