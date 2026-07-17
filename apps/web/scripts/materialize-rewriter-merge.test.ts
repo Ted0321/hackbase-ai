@@ -53,6 +53,11 @@ const main = async () => {
         purpose: "Mock sample data",
         content: "export const samplePosts = [{ id: 'p1' }];",
       },
+      {
+        path: "source/core/steps/prompt-step.ts",
+        purpose: "Prompt template step kept when rewriter output is broken",
+        content: "export const promptStep = `builder prompt BUILDER_PROMPT`;",
+      },
     ],
     implementationNotes: [],
     knownRisks: [],
@@ -133,6 +138,19 @@ const main = async () => {
         content: "export const Extra = () => <div>REWRITER_EXTRA</div>;",
       },
       { path: "../evil.tsx", content: "export const Evil = 1;" },
+      {
+        // 修復不能な構文破壊(未終端テンプレートリテラル)は変更を捨てて builder 原本を維持する。
+        path: "source/core/steps/prompt-step.ts",
+        changeSummary: "broken rewrite must be dropped",
+        content: "export const promptStep = { unterminated: `REWRITER_BROKEN\n",
+      },
+      {
+        // テンプレートリテラル内の生```フェンス(2026-07-14 HeatShield形)は自動エスケープで採用される。
+        path: "source/core/steps/fence-step.ts",
+        changeSummary: "added prompt step with raw fence",
+        content:
+          "export const fencePrompt = `出力は必ずJSONのみ。説明文や```jsonマークは不要です。\nREWRITER_FENCE\n`;",
+      },
     ],
     addressedReviewIssues: ["rev-001"],
   });
@@ -178,6 +196,20 @@ const main = async () => {
   const sourcePrefixedContent = await read("source/components/SourcePrefixed.tsx");
   assert.ok(sourcePrefixedContent.includes("SOURCE_PREFIXED"), "source-prefixed paths should not be nested");
 
+  const promptStepContent = await read("source/core/steps/prompt-step.ts");
+  assert.ok(
+    promptStepContent.includes("BUILDER_PROMPT"),
+    "prompt-step.ts should keep builder content when rewriter output has unrepairable syntax",
+  );
+  assert.ok(!promptStepContent.includes("REWRITER_BROKEN"), "broken rewriter content must not be materialized");
+
+  const fenceStepContent = await read("source/core/steps/fence-step.ts");
+  assert.ok(fenceStepContent.includes("REWRITER_FENCE"), "repairable rewriter file should be appended");
+  assert.ok(
+    fenceStepContent.includes("\\`\\`\\`json"),
+    "raw ``` fence inside a template literal should be escaped on materialize",
+  );
+
   const metadata = JSON.parse(await read("metadata.json")) as {
     rewriteApplied?: { changedFilePaths: string[]; appendedFilePaths: string[] };
     interactionProofPlan?: {
@@ -207,7 +239,7 @@ const main = async () => {
   };
   assert.ok(metadata.rewriteApplied, "metadata.rewriteApplied should be present");
   assert.deepEqual(metadata.rewriteApplied?.changedFilePaths, ["app/page.tsx"]);
-  assert.deepEqual(metadata.rewriteApplied?.appendedFilePaths, ["app/extra.tsx"]);
+  assert.deepEqual(metadata.rewriteApplied?.appendedFilePaths, ["app/extra.tsx", "source/core/steps/fence-step.ts"]);
 
   const evilMaterialized = metadata.sourceFiles.some((file) => file.relativePath.includes("evil"));
   assert.ok(!evilMaterialized, "unsafe ../evil.tsx path must be skipped");

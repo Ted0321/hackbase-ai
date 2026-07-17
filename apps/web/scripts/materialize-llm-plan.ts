@@ -8,6 +8,11 @@ import {
   isReservedPipelineMetadataFile,
   repairJsonFileContent,
 } from "./llm-pipeline/json-file-repair";
+import {
+  isTsLikeSourcePath,
+  repairGeneratedTsSource,
+  repairTsSourceFileContent,
+} from "./llm-pipeline/ts-source-repair";
 import { isProductCategoryId } from "./product-categories";
 import { normalizeShortTagline } from "./product-copy";
 import { normalizeUsageGuide, type UsageGuide } from "../src/lib/usage-guide";
@@ -481,6 +486,23 @@ const mergeRewriterChangedFiles = (
         continue;
       }
       content = coerced;
+    }
+    // .ts/.tsx の差替/追加も書き込み前に parse 検証する。プロンプト本文をテンプレートリテラルに
+    // 埋め込む契約のため、生バッククォート(```json 等)混入でリテラルが途中終了する既知事故がある
+    // (2026-07-14 HeatShield Route)。エスケープ修復できれば修復後を採用し、修復不能なら変更を
+    // 捨てて builder 原本を維持する(.json の扱いと同じ)。
+    if (isTsLikeSourcePath(normalized)) {
+      const repair = repairGeneratedTsSource(normalized, content);
+      if (repair.status === "unrepairable") {
+        console.warn(
+          `[materialize] rewriter change skipped: ${normalized} has unrepairable syntax issue(s) (${repair.issues.join("; ")}); keeping builder version`,
+        );
+        continue;
+      }
+      if (repair.status === "repaired") {
+        console.warn(`[materialize] ${normalized}: repaired rewriter source syntax (${repair.appliedFix})`);
+        content = repair.content;
+      }
     }
     const existing = byPath.get(normalized);
     if (existing) {
@@ -1252,7 +1274,10 @@ async function main() {
       : path.join(process.cwd(), "artifacts", "llm-pipeline-runs", runId, "materialized", artifactId);
 
   const sourceFiles = plan.files.map((file) => {
-    const content = sourceFileContent(file);
+    // builder/rewriter 由来の .ts/.tsx は書き込み前に構文検証し、テンプレートリテラル内の
+    // 生バッククォート等の既知の癖なら自動エスケープで修復する(2026-07-14 HeatShield Route)。
+    // checksum/sizeBytes を修復後の内容で計算するため、書き込み時ではなくここで行う。
+    const content = repairTsSourceFileContent(materializedSourcePath(file.path), sourceFileContent(file));
     return {
       file,
       content,

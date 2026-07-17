@@ -91,6 +91,7 @@
     "agents:due:test": "tsx scripts/agent-due-decision.test.ts",
     "agents:due:history:test": "tsx scripts/scheduler-history.test.ts",
     "llm:json-repair:test": "tsx scripts/llm-pipeline/json-file-repair.test.ts",
+    "llm:ts-repair:test": "tsx scripts/llm-pipeline/ts-source-repair.test.ts",
     "artifacts:path:test": "tsx scripts/artifact-store-path.test.ts",
     "admin:agents:e2e": "tsx scripts/admin-agent-console.e2e.ts",
     "admin:agents:playwright": "playwright test",

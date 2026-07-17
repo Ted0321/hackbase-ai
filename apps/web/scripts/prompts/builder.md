@@ -161,6 +161,7 @@ Core logic rules (`source/core/**`):
 - This delegation exists in code but is NEVER executed by the demo: the recorded output of that AI step for the sample input is hand-authored in `source/data/sample-trace.ts`, and the runner page replays that file. Even so, the runner page must not import `source/core/**` — wiring the pipeline into the page breaks the offline demo contract.
 - Write the delegation as LIVE code: `const responseJson = await callGemini(...)` must be an actual statement, not a commented-out line with a hardcoded "simulated output" beside it. The function is simply never invoked by the demo, so live-looking code is safe; commented-out calls destroy the reference value of the pattern.
 - Core files must be valid, parseable TypeScript. They are documentation-grade implementation: the demo never executes them, so perfect runtime behavior is not required, but model ids, shapes, and prompts must be honest and concrete. Comments must not claim the demo performs live calls.
+- Template-literal safety (REQUIRED — one raw backtick destroys the whole build): prompt templates are embedded in `files[].content` as TypeScript template literals, so the prompt TEXT itself must never contain a raw backtick character. A markdown code fence or a backtick-quoted word inside the prompt body terminates the template literal early and the file fails the syntax gate (a real build was held because its prompt said 「説明文や```jsonマークは不要です」 with raw backticks). Either escape every literal backtick as \` (e.g. 「説明文や\`\`\`jsonマークは不要です」) or — preferred — reword without backticks (e.g. 「説明文やコードブロック記法は不要です」). Likewise, when prompt text must SHOW `${...}` as literal characters instead of interpolating a variable, escape it as `\${...}`. Before returning JSON, re-scan every template literal in `files[].content` for unescaped backticks and stray `${`.
 - Never write a deprecated `gemini-1.x` model id ANYWHERE in any generated file — not in source, comments, README, or metadata. The static gate scans every file, and one stray `gemini-1.5-flash` string fails the whole build. Current ids only: `gemini-2.5-flash` (default fast) or `gemini-2.5-pro`.
 
 Runner page rules (`source/app/page.tsx`):
@@ -191,6 +192,7 @@ Self-review before returning:
 - Can a judge explain what AI did after 10 seconds?
 - Are all claims safe with static sample data?
 - Is the JSON parseable without repair? Do not insert line-continuation backslashes before spaces or newlines inside `files[].content`; represent newlines only as valid JSON string escapes.
+- Is every `.ts`/`.tsx` file in `files[].content` valid TypeScript — in particular, does every template literal escape internal backticks as \` (no raw markdown fences inside prompt text) and escape literal `${` as `\${`?
 
 Expected JSON shape:
 {
