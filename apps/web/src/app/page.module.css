@@ -5,6 +5,18 @@
   color: var(--ink);
 }
 
+/*
+ * 固定ヘッダー(.detailTopbar / detail.module.css)はデスクトップで高さ64pxだが、
+ * max-width:980px では検索窓が2段目に回る2行グリッドになり実高が ~110px になる。
+ * .app の padding-top を 64px のままにすると通知バー(.notice)の上部が
+ * ヘッダーに隠れて「途中で切れる」ため、モバイルではヘッダー実高に合わせて余白を広げる。
+ */
+@media (max-width: 980px) {
+  .app {
+    padding-top: 110px;
+  }
+}
+
 .topbar {
   position: fixed;
   top: 0;
