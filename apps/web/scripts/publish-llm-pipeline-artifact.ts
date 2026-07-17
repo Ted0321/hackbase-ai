@@ -9,6 +9,7 @@ import { generateVisualAssetsForArtifactDir } from "./generate-visual-assets";
 import { isProductCategoryId, TEMPLATE_PATTERN_CATEGORY } from "./product-categories";
 import { normalizeShortTagline } from "./product-copy";
 import { highRiskTopicValidationCheck } from "./prompt-eval-metrics";
+import { adjudicateHighRiskEvidence } from "./high-risk-adjudication";
 import { normalizeUsageGuide, serializeUsageGuide } from "../src/lib/usage-guide";
 
 // ---------------------------------------------------------------------------
@@ -1027,6 +1028,17 @@ async function main() {
   const reportByKey = new Map(laneDReports.map((report) => [report.key, report]));
   const publishReadinessForChecks =
     readinessFromGate ?? reportByKey.get("publish_readiness")?.parsed ?? null;
+  const riskEvidence = {
+    title,
+    oneLiner,
+    concept,
+    readmeContent,
+    metadata: {
+      knownRisks: metadata.knownRisks ?? [],
+      sourceProvenance: metadata.sourceProvenance ?? null,
+    },
+    publisherResponse: publisherResponse?.parsed ?? reportByKey.get("publisher_response")?.parsed ?? null,
+  };
   const laneDChecks = buildLaneDChecks({
     mvpContractV2: reportByKey.get("mvp_contract_v2")?.parsed ?? metadata.mvpContractV2 ?? null,
     interactionProof: reportByKey.get("interaction_proof")?.parsed ?? metadata.interactionProofPlan ?? null,
@@ -1034,27 +1046,50 @@ async function main() {
     publishReadiness: publishReadinessForChecks,
     validationSummary: reportByKey.get("validation_summary")?.parsed ?? null,
     publisherResponse: publisherResponse?.parsed ?? reportByKey.get("publisher_response")?.parsed ?? null,
-    riskEvidence: {
-      title,
-      oneLiner,
-      concept,
-      readmeContent,
-      metadata: {
-        knownRisks: metadata.knownRisks ?? [],
-        sourceProvenance: metadata.sourceProvenance ?? null,
-      },
-      publisherResponse: publisherResponse?.parsed ?? reportByKey.get("publisher_response")?.parsed ?? null,
-    },
+    riskEvidence,
   });
   const highRiskTopicCheck = laneDChecks.find(([key]) => key === "high_risk_topic");
 
   if (args.autoPublish && highRiskTopicCheck && highRiskTopicCheck[1] !== "pass") {
-    throw Object.assign(
-      new Error(
-        `High-risk topic validation failed; refusing unattended auto-publish. ${highRiskTopicCheck[2]}`,
-      ),
-      { highRiskTopicGate: true },
-    );
+    // regexヒットはまずLLM文脈判定(adjudication)にかける。benign_mention の明示判定が
+    // 出たときだけ素通しし、それ以外(actual_risk/uncertain/timeout/予算/無効化)は従来
+    // どおり throw → exit5 → held(ops_review)。dry-run はコストゼロ維持のためLLMを呼ばず
+    // 常に従来挙動。判定結果は high_risk_topic.llm_adjudication としてValidationCheckに残す。
+    const adjudication = args.dryRun
+      ? null
+      : await adjudicateHighRiskEvidence({
+          evidence: riskEvidence,
+          title,
+          oneLiner,
+          concept,
+          knownRisks: metadata.knownRisks ?? [],
+        });
+    if (adjudication) {
+      const auditSummary = adjudication.ok
+        ? `verdict=${adjudication.verdict} model=${adjudication.model}: ${adjudication.reasoning}`
+        : `no verdict (${adjudication.fallbackReason}${adjudication.detail ? `: ${adjudication.detail}` : ""}); holding per regex gate`;
+      laneDChecks.push([
+        "high_risk_topic.llm_adjudication",
+        adjudication.ok && adjudication.verdict === "benign_mention" ? "pass" : "fail",
+        truncateSummary(auditSummary),
+      ]);
+    }
+    if (adjudication?.ok && adjudication.verdict === "benign_mention") {
+      highRiskTopicCheck[1] = "pass";
+      highRiskTopicCheck[2] = truncateSummary(
+        `Regex hit adjudicated benign by LLM (${adjudication.model}): ${adjudication.reasoning}`,
+      );
+      console.log(
+        `High-risk topic regex hit adjudicated benign by LLM; continuing auto-publish. ${adjudication.reasoning}`,
+      );
+    } else {
+      throw Object.assign(
+        new Error(
+          `High-risk topic validation failed; refusing unattended auto-publish. ${highRiskTopicCheck[2]}`,
+        ),
+        { highRiskTopicGate: true },
+      );
+    }
   }
 
   if (!args.dryRun) {

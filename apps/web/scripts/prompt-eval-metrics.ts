@@ -1396,11 +1396,74 @@ const unknownToText = (value: unknown): string => {
   }
 };
 
+// Boilerplate disclaimer sentences ("this is not medical advice", "医療行為ではありません")
+// mention high-risk topic words precisely because they DENY the risky behavior. Scanning them
+// creates false positives that punish agents for writing safety copy, so matching segments are
+// removed before topic detection. Markers are kept narrow (fixed disclaimer phrasing only) and
+// long segments are never stripped, so an affirmative risk statement that merely shares a
+// sentence-delimiter-free block with a disclaimer cannot be silently discarded.
+const DISCLAIMER_SEGMENT_MARKERS: RegExp[] = [
+  /ではありません/,
+  /免責/,
+  /not a substitute for/i,
+  /for informational purposes only/i,
+  /is not (?:medical|legal|financial|investment|tax|professional) advice/i,
+  /do(?:es)? not (?:provide|collect|store|transmit|send|share|offer|constitute)/i,
+  /\bdisclaimer\b/i,
+];
+
+const DISCLAIMER_SEGMENT_MAX_LENGTH = 400;
+
+// Splits on sentence enders plus the literal "\n" sequence produced by JSON.stringify, so
+// stringified riskEvidence still breaks into sentence-sized segments.
+const DISCLAIMER_SEGMENT_SPLITTER = /[。．！？!?\n]|\\n|\.(?=["\s]|$)/;
+
+export const stripDisclaimerSegments = (text: string): string => {
+  if (!text) return text;
+  return text
+    .split(DISCLAIMER_SEGMENT_SPLITTER)
+    .filter(
+      (segment) =>
+        segment.length > DISCLAIMER_SEGMENT_MAX_LENGTH ||
+        !DISCLAIMER_SEGMENT_MARKERS.some((marker) => marker.test(segment)),
+    )
+    .join("\n");
+};
+
 export const detectHighRiskTopicCategories = (value: unknown): HighRiskTopicCategory[] => {
-  const text = unknownToText(value);
+  const text = stripDisclaimerSegments(unknownToText(value));
   return (Object.entries(HIGH_RISK_TOPIC_PATTERNS) as [HighRiskTopicCategory, RegExp[]][])
     .filter(([, patterns]) => patterns.some((pattern) => pattern.test(text)))
     .map(([category]) => category);
+};
+
+export type HighRiskMatchExcerpt = {
+  category: HighRiskTopicCategory;
+  match: string;
+  excerpt: string;
+};
+
+// Feeds the LLM adjudicator match-anchored excerpts instead of the full riskEvidence blob,
+// so the judgement context stays small even for long READMEs.
+export const collectHighRiskMatchExcerpts = (
+  value: unknown,
+  contextChars = 200,
+): HighRiskMatchExcerpt[] => {
+  const text = stripDisclaimerSegments(unknownToText(value));
+  const excerpts: HighRiskMatchExcerpt[] = [];
+  for (const [category, patterns] of Object.entries(HIGH_RISK_TOPIC_PATTERNS) as [
+    HighRiskTopicCategory,
+    RegExp[],
+  ][]) {
+    for (const pattern of patterns) {
+      const matched = pattern.exec(text);
+      if (!matched) continue;
+      const start = Math.max(0, matched.index - contextChars);
+      const end = Math.min(text.length, matched.index + matched[0].length + contextChars);
+      excerpts.push({ category, match: matched[0], excerpt: text.slice(start, end) });
+    }
+  }
+  return excerpts;
 };
 
 const collectTextForKeys = (value: unknown, keyPattern: RegExp): string[] => {

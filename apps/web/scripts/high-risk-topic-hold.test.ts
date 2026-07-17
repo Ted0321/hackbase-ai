@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import {
+  detectHighRiskTopicCategories,
   highRiskTopicValidationCheck,
   highRiskTopicHoldChecks,
   publisherHoldsHighRisk,
+  stripDisclaimerSegments,
   type HighRiskTopicCategory,
 } from "./prompt-eval-metrics";
 
@@ -160,6 +162,50 @@ check("publisher publish status fails the high-risk hold gate", () => {
     }),
     false,
   );
+});
+
+// 2026-07-17 false-positive regression fixtures (real held runs).
+check("disclaimer sentences do not fire topic patterns (heat-plan README case)", () => {
+  // agent_n 猛暑レスキューシート: README safety copy tripped the medical patterns.
+  const readmeEvidence = {
+    title: "猛暑レスキューシート",
+    oneLiner: "家族の情報と家の状況を入力すると、猛暑日のやることを時間割にした救援計画シートを作る",
+    readmeContent: [
+      "家族構成と住まいの状況から、猛暑日の行動タイムラインを生成するデモです。",
+      "本シートは一般的な猛暑対策を支援するものであり、医療行為ではありません。",
+      "This demo is not a substitute for professional medical or safety advice.",
+    ].join("\n"),
+  };
+  const result = highRiskTopicValidationCheck(readmeEvidence);
+  assert.equal(result.status, "pass", `expected pass, got: ${result.summary}`);
+  assert.deepEqual(result.categories, []);
+});
+
+check("affirmative risk statements still fire when a disclaimer coexists", () => {
+  // Stripping must remove only the disclaimer segment, not neighbouring affirmative risk copy.
+  const mixed = [
+    "Symptom checker that recommends medical diagnosis for chest pain patients.",
+    "This tool is not a substitute for professional medical advice.",
+  ].join("\n");
+  assert.deepEqual(detectHighRiskTopicCategories(mixed), ["medical"]);
+  const stripped = stripDisclaimerSegments(mixed);
+  assert.ok(stripped.includes("recommends medical diagnosis"));
+  assert.ok(!stripped.includes("not a substitute"));
+});
+
+check("disclaimer stripping survives JSON.stringify escaped newlines", () => {
+  const evidence = {
+    readmeContent: "静的サンプルのみで動くデモです。\n本ツールの出力は医療行為ではありません。",
+  };
+  const result = highRiskTopicValidationCheck(evidence);
+  assert.equal(result.status, "pass", `expected pass, got: ${result.summary}`);
+});
+
+check("feature copy mentioning 住所 still fires at regex level (delegated to LLM adjudication)", () => {
+  // agent_m ReadyRucksack: affirmative feature copy is NOT a disclaimer, so the deterministic
+  // layer keeps flagging it; the LLM adjudicator is responsible for clearing this case.
+  const oneLiner = "自宅の住所と家族構成を登録すると、災害時にネットが無くても使える避難計画を保存できる";
+  assert.deepEqual(detectHighRiskTopicCategories(oneLiner), ["personal_data"]);
 });
 
 check("high-risk validation check emits fail for ValidationCheck storage", () => {

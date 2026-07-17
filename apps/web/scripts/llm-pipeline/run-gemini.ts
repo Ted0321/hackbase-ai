@@ -27,7 +27,12 @@ import {
   type StepName,
 } from "../prompt-eval-metrics";
 import { enforceGeminiBudget } from "./rate-guard";
-import { findVerbatimClone, type PublishedProduct } from "./antidup-steering";
+import {
+  findVerbatimClone,
+  judgeSemanticDuplicateWithLlm,
+  semanticDupGateEnabled,
+  type PublishedProduct,
+} from "./antidup-steering";
 import { checkAgentRuntimeReflection } from "../check-agent-runtime-reflection";
 import { findMojibakeLikeTextIssues } from "../llm-response-quality";
 import {
@@ -424,6 +429,33 @@ const assertConceptNotDuplicate = (step: PipelineStep, parsed: unknown): void =>
   );
 };
 
+// 逐語ゲート(assertConceptNotDuplicate)を通過した選定コンセプトに対する意味的近傍判定。
+// duplicate 判定のときだけ throw して guided retry で同一run内コンセプト振り直し。
+// LLM不調(timeout/予算/パース不能)は品質ゲートの性質上 pass に倒す(antidup-steering.ts参照)。
+const assertConceptNotSemanticDuplicate = async (
+  step: PipelineStep,
+  parsed: unknown,
+): Promise<void> => {
+  if (step !== "concept") return;
+  if (!semanticDupGateEnabled()) return;
+  const products = loadPublishedProducts();
+  if (!products) return;
+  const result = await judgeSemanticDuplicateWithLlm({ conceptResponse: parsed, products });
+  if (!result.ok) {
+    if (result.fallbackReason !== "disabled") {
+      console.warn(
+        `[run-gemini] concept: semantic dup judge unavailable (${result.fallbackReason}); passing per quality-gate fallback.`,
+      );
+    }
+    return;
+  }
+  if (result.verdict !== "duplicate") return;
+  throw new Error(
+    `Concept semantic duplication check failed for step '${step}': selectedConcept "${result.selectedTitle}" is a near-duplicate (改題クローン) of the already-published product "${result.closestExistingTitle}". Judge reason: ${result.reason} ` +
+      `Re-roll with a concept whose 題材×入力×出力×価値提案 all differ from "${result.closestExistingTitle}" and from every entry in the 公開済みプロダクト一覧; renaming or narrowing the audience is NOT enough — pick an unused subject domain.`,
+  );
+};
+
 const summarizeStep = (step: PipelineStep, response: unknown) => {
   if (!response || typeof response !== "object") {
     return "non-object response";
@@ -472,6 +504,7 @@ const classifyStepFailure = (error: unknown): string => {
   if (message.includes("Agent runtime reflection validation failed")) return "runtime_reflection";
   if (message.includes("Response text quality validation failed")) return "text_quality";
   if (message.includes("Response quality validation failed")) return "quality";
+  if (message.includes("duplication check failed")) return "duplicate";
   return "unknown";
 };
 
@@ -591,6 +624,7 @@ async function runSinglePipelineStep(
       }
       assertStepQuality(step, parsedResponse);
       assertConceptNotDuplicate(step, parsedResponse);
+      await assertConceptNotSemanticDuplicate(step, parsedResponse);
       await logModelUsage({
         provider: "google-gemini",
         model: opts.model,
