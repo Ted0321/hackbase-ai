@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import path from "node:path";
 import { createPrismaClient } from "./prisma-client";
 import { readSchedulerStateRecord, writeSchedulerStateRecord } from "../src/lib/scheduler-state";
+import { isBudgetCapFailure } from "../src/lib/scheduler-run-health";
 import { readAdminAgentRegistryWithContracts } from "../src/lib/agent-operating-contract-store";
 import {
   addHours,
@@ -336,6 +337,28 @@ async function main() {
       console.log(`[agent-due-scheduler] ${agentId} completed: ${runId}`);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
+      if (isBudgetCapFailure(message)) {
+        // Gemini日次予算上限は「想定内の停止」。失敗ではなくスキップ扱いにし、この回の残りの
+        // 作成も打ち切る(予算はrun中に回復せず後続agentも同じ上限に当たるため)。ここで
+        // "failed (continuing)"マーカーを出さない→run-all-schedulersがJobを非0終了へ格上げしない
+        // →DOC-67のCloud Monitoringアラート(result≠succeeded)が鳴らない。本物の障害は下で従来通り。
+        nextState.agents[agentId] = {
+          ...(nextState.agents[agentId] ?? {}),
+          lastStatus: "skipped",
+          lastSkipReason: "gemini daily budget cap reached",
+        };
+        nextState.history.unshift({
+          at: new Date().toISOString(),
+          agentId,
+          decision: "skipped",
+          reason: "gemini daily budget cap reached",
+          runId,
+        });
+        console.log(
+          `[agent-due-scheduler] ${agentId} skipped: Gemini daily budget cap reached; halting remaining creations this run (budget resets next day).`,
+        );
+        break;
+      }
       failedAgents.push({ agentId, message });
       nextState.agents[agentId] = {
         ...(nextState.agents[agentId] ?? {}),
