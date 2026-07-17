@@ -15,6 +15,7 @@ import {
   type AgentDueRunState,
 } from "../src/lib/agent-due-decision";
 import { durationMs, errorMessageOf, logAgentRuntimeMetric, stderrTailSummary } from "./observability";
+import { precheckGeminiRunBudget } from "./llm-pipeline/rate-guard";
 import { jstDateKey, pruneHistory } from "./scheduler-history";
 import "./load-local-env";
 
@@ -299,9 +300,33 @@ async function main() {
   }
 
   const failedAgents: Array<{ agentId: string; message: string }> = [];
+  let launchedCount = 0;
+  let budgetSkipReason: string | null = null;
   for (const decision of due) {
     const agentId = decision.agent.agentId;
     const runId = decision.runId ?? `run_selfdirected_${agentId}_${stamp}`;
+    // 予算ヘッドルーム事前チェック(2026-07-14): 残枠が1 run分に満たないまま開始すると、
+    // research〜conceptで$1-2焼いた後にキャップ死してrun全損する(07-13実測: $2.09消費後
+    // requirementsで停止)。開始前に残枠を見て、足りなければ開始せずskippedだけ記録する。
+    // nextDueAtは触らない＝dueのまま残し、UTC日次リセット後のtickで自然に再開する。
+    // --force は運用者の明示意図なので迂回する。
+    if (!force) {
+      const precheck = await precheckGeminiRunBudget();
+      if (precheck.skip) {
+        const reason = precheck.reason ?? "gemini budget headroom too low";
+        budgetSkipReason = reason;
+        console.warn(`[agent-due-scheduler] ${agentId} skipped: ${reason}`);
+        nextState.agents[agentId] = {
+          ...(nextState.agents[agentId] ?? {}),
+          lastSkippedAt: new Date().toISOString(),
+          lastSkipReason: reason,
+          lastStatus: "skipped",
+        };
+        nextState.history.unshift({ at: new Date().toISOString(), agentId, decision: "skipped", reason, runId });
+        continue;
+      }
+    }
+    launchedCount += 1;
     const startedAt = new Date();
     nextState.agents[agentId] = {
       ...(nextState.agents[agentId] ?? {}),
@@ -388,8 +413,10 @@ async function main() {
   // completedToday=1(実完了2)として顕在化)。当日JSTのcompletedは枠外でも保持する。
   nextState.history = pruneHistory(nextState.history, now);
   const finishedAt = new Date();
-  nextState.lastStatus = due.length === 0 ? "skipped" : failedAgents.length > 0 ? "failed" : "completed";
-  if (due.length > 0) {
+  // launchedCount===0（全agentが予算skip）はレーンとして何も実行していないのでskipped扱い。
+  nextState.lastStatus =
+    due.length === 0 || launchedCount === 0 ? "skipped" : failedAgents.length > 0 ? "failed" : "completed";
+  if (due.length > 0 && launchedCount > 0) {
     nextState.lastCompletedAt = finishedAt.toISOString();
   }
   // レーン全体のnextDueAt = 各agentの次回dueのうち最も早いもの。
@@ -406,7 +433,8 @@ async function main() {
       await prisma.schedulerRun.update({
         where: { id: schedulerRunId },
         data: {
-          status: failedAgents.length > 0 ? "failed" : "completed",
+          status: launchedCount === 0 ? "skipped" : failedAgents.length > 0 ? "failed" : "completed",
+          reason: launchedCount === 0 && budgetSkipReason ? budgetSkipReason.slice(0, 1000) : undefined,
           errorMessage:
             failedAgents.length > 0
               ? failedAgents.map((item) => `${item.agentId}: ${item.message}`).join(" / ").slice(0, 1000)

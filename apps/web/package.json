@@ -71,6 +71,7 @@
     "llm:pipeline:run-gemini": "tsx scripts/llm-pipeline/run-gemini.ts",
     "llm:pipeline:run-gemini:args:test": "tsx scripts/llm-pipeline/run-gemini-args.test.ts",
     "usage:lane:test": "tsx scripts/usage-lane.test.ts",
+    "llm:rate-guard:test": "tsx scripts/llm-pipeline/rate-guard.test.ts",
     "llm:pipeline:run-openai": "tsx scripts/llm-pipeline/run-openai.ts",
     "llm:pipeline:check": "tsx scripts/check-llm-pipeline-chain.ts --run findy_gemini_evidence",
     "llm:pipeline:check:late": "tsx scripts/check-llm-pipeline-late-stage.ts --run p0_pipeline_evidence_20260627T120000",

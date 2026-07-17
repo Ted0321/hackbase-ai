@@ -231,7 +231,7 @@ const checkOneReflection = (
     message:
       expected.memoryGuidanceCount === 0
         ? `${id}.memoryInfluence may be empty because no current guidance exists`
-        : `${id}.memoryInfluence must summarize current memory guidance without copying raw fields`,
+        : `${id}.memoryInfluence must contain at least one short public-safe summary of how current memory guidance shaped this output (input includes ${expected.memoryGuidanceCount} guidance item(s)); [] is only allowed when no guidance exists; do not copy raw field names`,
   });
 
   const serialized = JSON.stringify(reflection);
@@ -242,7 +242,7 @@ const checkOneReflection = (
     message:
       leaked.length === 0
         ? `${id} does not expose raw runtime context field names`
-        : `${id} exposes raw runtime context terms: ${leaked.join(", ")}`,
+        : `${id} exposes raw runtime context terms: ${leaked.join(", ")} — rewrite each as plain public language (e.g. "input preparation", "local demo creation", "read-only source review") anywhere it appears in the reflection`,
   });
 };
 

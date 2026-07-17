@@ -6,6 +6,8 @@ You are the selected Prodia builder agent.
 - `input.agentRuntimeContext.skillRefs` がある場合、procedureとoutputContractを `acceptanceCriteria` / `interactionProofPlan` / `feedbackConstraints` へ変換する。Skill名をそのまま画面文言に出さない。
 - If `input.agentRuntimeContext` is present, include `agentRuntimeReflection`. Do not echo the full runtime context; summarize only how Persona, Memory, Skill, Tool, Trigger, output contract, and governance boundaries shaped the RequirementSpec.
 - `agentRuntimeReflection` must use public-safe natural language. Do not output raw internal IDs or field names such as `agentRuntimeContext`, `read_signal`, `compose_prompt`, skill IDs, tool IDs, trigger IDs, `creationPolicy`, or `learningPolicy`.
+- The leak check also scans the reflection for the EXACT id values that appear inside `input.agentRuntimeContext` (tool ids, skill ids, trigger ids such as `generate_artifact` or `read_signal`). Never echo any snake_case or id-like token from the runtime context anywhere in the reflection; describe the capability in plain words instead.
+- `agentRuntimeReflection.memoryInfluence`: when the runtime context includes any current memory guidance, this array must contain at least one entry summarizing how that guidance shaped the RequirementSpec (hard gate). Use `[]` ONLY when the runtime context has no current guidance.
 - `input.ownerAgent` がある場合、あなたはそのエージェント本人です。ownerAgentId は `input.ownerAgent.agentId` を使うこと。通常は `input.ownerAgent.buildConstraintProjection` を正本にし、互換fallbackとしてのみ `input.ownerAgent.profile` を参照してください。
 - `buildConstraintProjection.makerRationale` を `mvpGoal` の理由へ、`materialGuidance` を dataModel / source assumptions へ、`refusedDirections` を `nonGoals` へ、`preferredScreenTypes` を screens / components / interactions へ具体化すること。
 - `buildConstraintProjection.qualityBar` / `creativeAntiPatterns` / `templatePatternPreferences` / `artifactStrengths` をMVP要件へ反映すること。Concept側の `sourcePreferences` または legacy `creationPolicy.preferredInputs` が分かる場合は、`materialChoices` の根拠（どの入力種別を重視して要件化したか）として明示する。
@@ -95,7 +97,7 @@ Expected JSON shape:
     "phase": "requirements",
     "triggerUsed": "natural-language summary of why this run fired",
     "personaInfluence": ["specific persona constraints reflected in mvpGoal, screens, or dataModel"],
-    "memoryInfluence": ["specific memory guidance used, or []"],
+    "memoryInfluence": ["how current memory guidance shaped this spec; [] ONLY when the runtime context has no current guidance"],
     "skillApplied": ["skill procedure/output contract translated into acceptanceCriteria or proof plan, or []"],
     "toolBoundary": ["allowed/prohibited capability boundary reflected in requirements"],
     "outputContractApplied": ["RequirementSpec output rules respected"],

@@ -647,7 +647,19 @@ export const conceptQuality = (response: unknown): StepQuality => {
   gate("candidateCount", diversity.candidateCount >= 3, `candidateCount=${diversity.candidateCount}; expected >=3`);
   gate("distinctTemplatePatternIds", diversity.distinctTemplatePatternIds >= 3, `distinctTemplatePatternIds=${diversity.distinctTemplatePatternIds}; expected >=3`);
   warnGate("distinctSurfacePatterns", diversity.distinctSurfacePatterns >= 3, `distinctSurfacePatterns=${diversity.distinctSurfacePatterns}; expected >=3`);
-  gate("distinctAiMechanismPatterns", diversity.distinctAiMechanismPatterns >= 3, `distinctAiMechanismPatterns=${diversity.distinctAiMechanismPatterns}; expected >=3`);
+  // 処方箋型メッセージ(2026-07-14): この文字列はそのまま guided retry のフィードバックとして
+  // モデルに渡る。最頻の落ち方(07-13実測: 1日3回×$0.40)なので、どの候補が重複しているかと
+  // 直し方まで書く。
+  const aiMechanismValues = conceptCandidates(response).map(
+    (candidate) => str(candidate.aiMechanismPattern) || "(missing)",
+  );
+  gate(
+    "distinctAiMechanismPatterns",
+    diversity.distinctAiMechanismPatterns >= 3,
+    `distinctAiMechanismPatterns=${diversity.distinctAiMechanismPatterns}; expected >=3 — candidates used [${aiMechanismValues.join(
+      ", ",
+    )}]; rewrite the duplicate candidate(s) so all three use a DIFFERENT aiMechanismPattern value, and adjust each rewritten candidate's mechanism/concept to genuinely match its new pattern`,
+  );
   gate("pairwiseTitleJaccard", diversity.pairwiseTitleJaccard < 0.4, `pairwiseTitleJaccard=${diversity.pairwiseTitleJaccard}; expected <0.4`);
   gate(
     "nameCandidates",
@@ -755,13 +767,13 @@ export const conceptQuality = (response: unknown): StepQuality => {
     "selectedAiIntrospectionRisk",
     sharpnessQuality.selectedAiIntrospectionRisk !== null &&
       sharpnessQuality.selectedAiIntrospectionRisk <= 3,
-    `selectedAiIntrospectionRisk=${sharpnessQuality.selectedAiIntrospectionRisk}; selected concept should not be AI-introspection heavy`,
+    `selectedAiIntrospectionRisk=${sharpnessQuality.selectedAiIntrospectionRisk}; expected <=3 — select a candidate that is not mainly about AI logs/reasoning/introspection, or rework the selected concept into a user-facing transformation and re-score honestly`,
   );
   gate(
     "selectedDomainOpacityRisk",
     sharpnessQuality.selectedDomainOpacityRisk !== null &&
       sharpnessQuality.selectedDomainOpacityRisk <= 3,
-    `selectedDomainOpacityRisk=${sharpnessQuality.selectedDomainOpacityRisk}; selected concept should be understandable without specialist context`,
+    `selectedDomainOpacityRisk=${sharpnessQuality.selectedDomainOpacityRisk}; expected <=3 — select a candidate whose domainOpacityRisk is <=3, or rework the selected concept so a general viewer immediately understands the domain, the stakes, and the first-screen action without specialist context, then re-score honestly`,
   );
   gate(
     "conditionalArchetypeJustification",
@@ -946,10 +958,16 @@ export const builderQuality = (plan: unknown): StepQuality => {
     };
     const evidencePresent = evidenceList.filter((evidence) => sourceText.includes(evidence));
     const staticSelectors = proofSelectorList.filter(selectorIsStaticInSource);
+    // 処方箋型メッセージ(2026-07-14): 宣言済みの文字列そのものを見せると、モデルは
+    // 「どれをソースへ逐語で入れるか / どれを実在ラベルに差し替えるか」を選べる。
+    const evidencePreview = evidenceList
+      .slice(0, 3)
+      .map((item) => `"${item.length > 40 ? `${item.slice(0, 40)}…` : item}"`)
+      .join(", ");
     gate(
       "interactionProofPlan.visibleEvidencePresent",
       evidenceList.length === 0 || evidencePresent.length >= 1,
-      `no visibleEvidence string appears verbatim in generated source (declared ${evidenceList.length})`,
+      `no visibleEvidence string appears verbatim in generated source (declared ${evidenceList.length}: ${evidencePreview}) — copy one declared string into rendered output exactly as written, or replace visibleEvidence[] with short literal labels that already exist in files[].content`,
     );
     gate(
       "interactionProofPlan.proofSelectorStaticPresent",
@@ -1010,7 +1028,7 @@ export const builderQuality = (plan: unknown): StepQuality => {
   gate(
     "source.currentModelId",
     !/gemini-1\.[05]/i.test(sourceText),
-    "source references a deprecated gemini-1.x model id; use a current fast model such as gemini-2.5-flash",
+    "source references a deprecated gemini-1.x model id — the gate scans ALL files (code, comments, README, metadata); replace EVERY gemini-1.x occurrence with a current id such as gemini-2.5-flash",
   );
   // render_proof は entrypoint の importグラフだけを esbuild でbundleする。page.tsx が core/ を
   // importすると、core側の未解決import・実行時副作用でrender proofごと壊れるため事前に弾く。

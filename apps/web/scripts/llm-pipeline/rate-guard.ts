@@ -94,6 +94,69 @@ export const readGeminiUsageToday = async (
   }
 };
 
+export type GeminiRunBudgetPrecheck = {
+  skip: boolean;
+  reason: string | null;
+  requestCount: number;
+  costUsd: number;
+  maxRequests: number;
+  maxCostUsd: number;
+};
+
+/**
+ * 生成 run の「開始前」ヘッドルーム判定。enforceGeminiBudget が上限到達後の実コールを
+ * 止めるのに対し、こちらは「残枠が 1 run 分に満たないまま開始して途中でキャップ死する」
+ * 無駄焼きを防ぐ（2026-07-13 実測: research〜concept で $2.09 消費後に requirements で
+ * キャップ停止し run 全損）。しきい値は env（<=0 で当該チェック無効）:
+ *   PRODIA_MIN_RUN_BUDGET_HEADROOM_USD（既定 2 — 概ねフル run 1 本ぶん）
+ *   PRODIA_MIN_RUN_BUDGET_HEADROOM_REQUESTS（既定 12 — 1 run ≈ 10 calls + 余裕）
+ * READ 失敗は readGeminiUsageToday の fail-open（{0,0}）に乗るため skip しない。
+ */
+export const precheckGeminiRunBudget = async (
+  options: {
+    now?: Date;
+    lane?: string;
+    readUsage?: (now: Date, lane: string) => Promise<GeminiUsageToday>;
+  } = {},
+): Promise<GeminiRunBudgetPrecheck> => {
+  const now = options.now ?? new Date();
+  const lane = options.lane ?? currentUsageLane();
+  const maxRequests = numFromEnv("GEMINI_DAILY_MAX_REQUESTS", 500);
+  const maxCostUsd = numFromEnv("GEMINI_DAILY_MAX_COST_USD", 10);
+  const minCostHeadroomUsd = numFromEnv("PRODIA_MIN_RUN_BUDGET_HEADROOM_USD", 2);
+  const minRequestHeadroom = numFromEnv("PRODIA_MIN_RUN_BUDGET_HEADROOM_REQUESTS", 12);
+
+  const costCheckEnabled = maxCostUsd > 0 && minCostHeadroomUsd > 0;
+  const requestCheckEnabled = maxRequests > 0 && minRequestHeadroom > 0;
+  if (!costCheckEnabled && !requestCheckEnabled) {
+    return { skip: false, reason: null, requestCount: 0, costUsd: 0, maxRequests, maxCostUsd };
+  }
+
+  const { requestCount, costUsd } = await (options.readUsage ?? readGeminiUsageToday)(now, lane);
+  const reasons: string[] = [];
+  if (costCheckEnabled && maxCostUsd - costUsd < minCostHeadroomUsd) {
+    reasons.push(
+      `cost headroom $${(maxCostUsd - costUsd).toFixed(2)} < $${minCostHeadroomUsd} (used $${costUsd.toFixed(2)}/$${maxCostUsd})`,
+    );
+  }
+  if (requestCheckEnabled && maxRequests - requestCount < minRequestHeadroom) {
+    reasons.push(
+      `request headroom ${maxRequests - requestCount} < ${minRequestHeadroom} (used ${requestCount}/${maxRequests})`,
+    );
+  }
+  if (reasons.length === 0) {
+    return { skip: false, reason: null, requestCount, costUsd, maxRequests, maxCostUsd };
+  }
+  return {
+    skip: true,
+    reason: `Gemini budget headroom too low to start a run [lane=${lane}]: ${reasons.join("; ")}`,
+    requestCount,
+    costUsd,
+    maxRequests,
+    maxCostUsd,
+  };
+};
+
 const WARN_RATIO = 0.7;
 
 /**
