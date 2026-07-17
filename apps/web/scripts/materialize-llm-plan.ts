@@ -3,7 +3,11 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { writeStoredArtifactFile } from "../src/lib/artifact-store";
 import { generateVisualAssetFiles } from "./generate-visual-assets";
-import { repairJsonFileContent } from "./llm-pipeline/json-file-repair";
+import {
+  coerceParseableJsonContent,
+  isReservedPipelineMetadataFile,
+  repairJsonFileContent,
+} from "./llm-pipeline/json-file-repair";
 import { isProductCategoryId } from "./product-categories";
 import { normalizeShortTagline } from "./product-copy";
 import { normalizeUsageGuide, type UsageGuide } from "../src/lib/usage-guide";
@@ -447,13 +451,36 @@ const mergeRewriterChangedFiles = (
   for (const raw of rewriter.changedFiles) {
     if (!isRecord(raw)) continue;
     const rawPath = typeof raw.path === "string" ? raw.path : "";
-    const content = typeof raw.content === "string" ? raw.content : "";
+    let content = typeof raw.content === "string" ? raw.content : "";
     if (!rawPath || !content) continue; // content 無し = 差替対象外（builder 本文を維持）
     let normalized: string;
     try {
       normalized = safePlanFilePath(rawPath);
     } catch {
       continue; // 不正/非ソース path は skip
+    }
+    // buildPlan.json は成果物ファイルではなくパイプラインメタデータ。rewriter が入力の
+    // buildPlan キーからファイル名を捏造して全文再掲→途中切断JSONを混入させる既知事故が
+    // あるため、名前で除外する(builder はこの名前を出力しない)。
+    if (isReservedPipelineMetadataFile(normalized)) {
+      console.warn(
+        `[materialize] rewriter change skipped: ${normalized} is pipeline metadata, not an artifact file`,
+      );
+      continue;
+    }
+    // .json の差替/追加は書き込み前に parse 検証する。LLM は outer JSON を正しく閉じたまま
+    // 内側のファイル内容文字列だけを途中で切ることがあり(11-12KB付近で頻発)、そのまま採用
+    // すると strict MVP の generated_source_syntax ゲートで確実に held 落ちする。修復不能なら
+    // 変更を捨てて builder 原本を維持(新規追加なら追加しない)する方が、run全体を無駄にしない。
+    if (normalized.endsWith(".json")) {
+      const coerced = coerceParseableJsonContent(content);
+      if (coerced === null) {
+        console.warn(
+          `[materialize] rewriter change skipped: ${normalized} content is not parseable JSON (likely truncated); keeping builder version`,
+        );
+        continue;
+      }
+      content = coerced;
     }
     const existing = byPath.get(normalized);
     if (existing) {
